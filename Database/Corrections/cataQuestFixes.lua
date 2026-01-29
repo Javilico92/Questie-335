@@ -1117,6 +1117,12 @@ function CataQuestFixes.Load()
         [27203] = { -- The Maelstrom
             [questKeys.preQuestSingle] = {},
         },
+        [27273] = { -- An Invitation from Moonglade
+            [questKeys.exclusiveTo] = {27356},
+        },
+        [27283] = { -- A Journey to Moonglade
+            [questKeys.exclusiveTo] = {27404},
+        },
         [27299] = { -- Torn Ground
             [questKeys.preQuestSingle] = {},
         },
@@ -1132,6 +1138,9 @@ function CataQuestFixes.Load()
         [27349] = { -- Break in Communications: Dreadwatch Outpost
             [questKeys.triggerEnd] = {"Investigate Dreadwatch Outpost", {[zoneIDs.RUINS_OF_GILNEAS]={{53,32.6}}}},
         },
+        [27356] = { -- The Circle's Future
+            [questKeys.preQuestSingle] = {},
+        },
         [27376] = { -- The Maw of Iso'rath
             [questKeys.preQuestSingle] = {27303},
         },
@@ -1143,6 +1152,9 @@ function CataQuestFixes.Load()
         },
         [27399] = { -- The Battle Is Won, The War Goes On
             [questKeys.exclusiveTo] = {27203,27442,27722},
+        },
+        [27404] = { -- The Circle's Future
+            [questKeys.preQuestSingle] = {},
         },
         [27442] = { -- The War Has Many Fronts
             [questKeys.exclusiveTo] = {27203,27399,27722},
@@ -1363,6 +1375,9 @@ function CataQuestFixes.Load()
         [28250] = { -- Thieving Little Pluckers
             [questKeys.objectives] = {nil,nil,nil,nil,{{{48040,48041,48043},48040,"Thieving plucker smashed"}}},
             [questKeys.preQuestSingle] = {28112},
+        },
+        [28343] = { -- The Breath of Cenarius
+            [questKeys.preQuestSingle] = {},
         },
         [28351] = { -- Unlimited Potential
             [questKeys.objectives] = {{{51217}}},

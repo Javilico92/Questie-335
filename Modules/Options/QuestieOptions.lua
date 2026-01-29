@@ -50,7 +50,7 @@ function QuestieOptions:Initialize()
     coroutine.yield()
 
     local journeyButton = CreateFrame("Button", nil, configFrame.frame, "UIPanelButtonTemplate")
-    journeyButton:SetSize(140, 24) -- This makes question mark sligther right ¿?
+    journeyButton:SetSize(140, 12) -- This makes question mark sligther right ¿?
     journeyButton:SetPoint("TOPRIGHT", configFrame.frame, "TOPRIGHT", -50, -13)
     journeyButton:SetText(l10n('My Journey'))
     journeyButton:SetScript("OnClick", function()

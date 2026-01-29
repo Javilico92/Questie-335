@@ -14,6 +14,19 @@ function CataNpcFixes.Load()
     local phases = Phasing.phases
 
     return {
+        [2151] = { -- Moon Priestess Amara
+            [npcKeys.spawns] = {[zoneIDs.TELDRASSIL] = {{49.35,44.67}}},
+            [npcKeys.waypoints] = {},
+        },
+        [3594] = { -- Frahun Shadewhisper
+            [npcKeys.spawns] = {[zoneIDs.TELDRASSIL] = {{58.8,33.8}}},
+        },
+        [7319] = { -- Lady Sathrah
+            [npcKeys.spawns] = {[zoneIDs.TELDRASSIL]={{40.66,22.16}}},
+        },
+        [32959] = { -- Cerellean Whiteclaw
+            [npcKeys.spawns] = {[zoneIDs.DARKSHORE]={{50.8,18.0},{50.13,19.46}}},
+        },
         [34571] = { -- Gwen Armstead
             [npcKeys.spawns] = {
                 [zoneIDs.GILNEAS] = {
@@ -195,13 +208,24 @@ function CataNpcFixes.Load()
         [43792] = { -- Therazane
             [npcKeys.questStarts] = {26709,28824},
         },
-        [44025] = {
+        [44025] = { -- Therazane
             [npcKeys.spawns] = {
                 [zoneIDs.DEEPHOLM] = {
                     {63.33,24.95,phases.THE_STONE_MARCH},
                     {63.33,24.95,phases.TEMPLE_OF_EARTH_CHAPTER_1},
                 },
             },
+        },
+        [45362] = { -- Earthcaller Yevaa
+            [npcKeys.spawns] = {
+                [zoneIDs.TWILIGHT_HIGHLANDS] = {
+                    {44.21,18.13,phases.UNKNOWN},
+                    {44.21,18.13,phases.TWILIGHT_GATE},
+                },
+            },
+        },
+        [47493] = { -- Warlord Krogg
+            [npcKeys.spawns] = {[zoneIDs.TWILIGHT_HIGHLANDS]={{29.6,41,phases.GRIM_BATOL_ATTACK_HORDE}}},
         },
         [47838] = { -- Shrine 1 Cleansed
             [npcKeys.spawns] = {[zoneIDs.TWILIGHT_HIGHLANDS]={{34.18,35.74}}},
@@ -214,6 +238,22 @@ function CataNpcFixes.Load()
         [47840] = { -- Shrine 1 Cleansed
             [npcKeys.spawns] = {[zoneIDs.TWILIGHT_HIGHLANDS]={{34.33,37.75}}},
             [npcKeys.zoneID] = zoneIDs.TWILIGHT_HIGHLANDS,
+        },
+        [48264] = { -- Golluck Rockfist
+            [npcKeys.spawns] = {
+                [zoneIDs.TWILIGHT_HIGHLANDS] = {
+                    {44.08,10.54,phases.UNKNOWN},
+                    {44.08,10.54,phases.ISORATH_NIGHTMARE},
+                },
+            },
+        },
+        [48265] = { -- Lauriel Trueblade
+            [npcKeys.spawns] = {
+                [zoneIDs.TWILIGHT_HIGHLANDS] = {
+                    {44.08,10.54,phases.UNKNOWN},
+                    {44.08,10.54,phases.ISORATH_NIGHTMARE},
+                },
+            },
         },
         [49456] = { -- Finkle\'s Mole Machine
             [npcKeys.spawns] = {

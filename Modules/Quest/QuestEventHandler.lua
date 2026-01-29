@@ -173,7 +173,7 @@ function QuestEventHandler:RegisterEvents()
         -- Hook DeleteCursorItem so we know when the player clicks the Accept button
         if deletedQuestItem then
             Questie:Debug(Questie.DEBUG_DEVELOP, "[QuestieQuest] DeleteCursorItem: Quest Item deleted. Update all quests.")
-
+		-- This is for custom corrections, do not delete
             C_Timer.After(0.25, function()
 				_QuestEventHandler:UpdateAllQuests()
 				deletedQuestItem = false

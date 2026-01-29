@@ -9,8 +9,23 @@ function CataItemFixes.Load()
     local itemClasses = QuestieDB.itemClasses
 
     return {
+        [44911] = { -- Foul Bear Carcass Sample
+            [itemKeys.npcDrops] = {32975},
+        },
         [44925] = { -- Corruptor's Master Key
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [44969] = { -- Moonstalker Whisker
+            [itemKeys.npcDrops] = {33127}
+        },
+        [44979] = { -- Overseer's Orders
+            [itemKeys.npcDrops] = {32863}
+        },
+        [45027] = { -- Tuft of Mottled Doe Hair
+            [itemKeys.npcDrops] = {33311},
+        },
+        [45885] = { -- Thistle Bear Fur
+            [itemKeys.npcDrops] = {33978},
         },
         [46392] = { -- Venison Steak
             [itemKeys.class] = itemClasses.QUEST,
@@ -287,6 +302,9 @@ function CataItemFixes.Load()
         },
         [62926] = { -- Twilight Caravan Cargo Key
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [62927] = { -- Twilight's Hammer Gatestone
+            [itemKeys.npcDrops] = {},
         },
         [63027] = { -- Brazier Torch
             [itemKeys.class] = itemClasses.QUEST,

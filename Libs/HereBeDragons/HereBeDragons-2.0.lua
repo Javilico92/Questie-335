@@ -1,7 +1,7 @@
 ---@diagnostic disable: assign-type-mismatch
 -- HereBeDragons is a data API for the World of Warcraft mapping system
 
-local MAJOR, MINOR = "HereBeDragonsQuestie-2.0", 20
+local MAJOR, MINOR = "HereBeDragonsQuestie-2.0", 23
 assert(LibStub, MAJOR .. " requires LibStub")
 
 ---@class HereBeDragonsQuestie-2.0
@@ -86,7 +86,7 @@ local function overrideInstance(instance) return instanceIDOverrides[instance] o
 HereBeDragons.___DIIDO = dynamicInstanceIDOverrides
 
 -- gather map info, but only if this isn't an upgrade (or the upgrade version forces a re-map)
-if not oldversion or oldversion < 17 then
+if not oldversion or oldversion < 23 then
     -- wipe old data, if required, otherwise the upgrade path isn't triggered
     if oldversion then
         wipe(mapData)

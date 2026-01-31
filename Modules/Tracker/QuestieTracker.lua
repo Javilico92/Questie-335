@@ -483,7 +483,7 @@ function QuestieTracker:HasQuest()
         if not Questie.db.profile.trackerShowCompleteQuests then
             local completedQuests = 0
             -- Keep track of the number of completed quests
-            for questId, quest in pairs(QuestiePlayer.currentQuestlog) do
+            for _, quest in pairs(QuestiePlayer.currentQuestlog) do
                 if not quest then break end
                 if quest:IsComplete() == 1 then
                     completedQuests = completedQuests + 1
@@ -607,7 +607,6 @@ function QuestieTracker:Update()
     trackerLineWidth = 0
 
     -- Setup local QuestieTracker:Update vars
-    local trackerFontSizeZone = Questie.db.profile.trackerFontSizeZone
     local trackerFontSizeQuest = Questie.db.profile.trackerFontSizeQuest
     local questMarginLeft = (trackerMarginLeft + trackerMarginRight) - (18 - trackerFontSizeQuest)
     local objectiveMarginLeft = questMarginLeft + trackerFontSizeQuest
@@ -633,7 +632,6 @@ function QuestieTracker:Update()
             local quest = questDetails[questId].quest
             local complete = quest:IsComplete()
             local zoneName = questDetails[questId].zoneName
-            local remainingSeconds = TrackerQuestTimers:GetRemainingTime(quest, nil, true)
             local timedQuest = (quest.trackTimedQuest or quest.timedBlizzardQuest)
 
             if (complete ~= 1 or Questie.db.profile.trackerShowCompleteQuests or timedQuest)
@@ -1946,7 +1944,6 @@ function QuestieTracker:HookBaseTracker()
 
     -- Intercept and return only what Questie is tracking
     GetNumQuestWatches = function(isQuestie)
-        local activeQuests = 0
         if isQuestie and Questie.db.profile.autoTrackQuests and Questie.db.char.AutoUntrackedQuests then
             local autoUnTrackedQuests = 0
             for _ in pairs(Questie.db.char.AutoUntrackedQuests) do

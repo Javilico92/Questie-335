@@ -3,15 +3,18 @@ local AutoCompleteFrame = QuestieLoader:CreateModule("AutoCompleteFrame")
 
 local LSM30 = LibStub("LibSharedMedia-3.0")
 
+local MARGIN = 200
+
 local autoCompleteFrame
+local trackerBaseFrame
 
 ---@param baseFrame table @The Tracker base frame
 function AutoCompleteFrame.Initialize(baseFrame)
+    trackerBaseFrame = baseFrame
     autoCompleteFrame = CreateFrame("Button", "Questie_AutoComplete_Frame", baseFrame, BackdropTemplateMixin and "BackdropTemplate")
 
     autoCompleteFrame:SetWidth(200)
     autoCompleteFrame:SetHeight(45)
-    autoCompleteFrame:SetPoint("TOPLEFT", "Questie_BaseFrame", -200, 0)
     autoCompleteFrame:SetBackdrop({
         bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
         edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
@@ -57,6 +60,22 @@ function AutoCompleteFrame.ShowAutoComplete(questId)
     local questTitle = GetQuestLogTitle(GetQuestLogIndexByID(questId))
     autoCompleteFrame.questTitle:SetText(questTitle)
     autoCompleteFrame.questId = questId
+
+    local anchor, _, _, xOfs, _ = trackerBaseFrame:GetPoint()
+    local screenCenter = (GetScreenWidth() * UIParent:GetEffectiveScale()) / 2
+
+    local isTrackerOnTheRight = xOfs > screenCenter
+    if anchor == "BOTTOMRIGHT" or anchor == "TOPRIGHT" then
+        isTrackerOnTheRight = xOfs > -screenCenter
+    end
+
+    autoCompleteFrame:ClearAllPoints()
+    if isTrackerOnTheRight then
+        autoCompleteFrame:SetPoint("TOPLEFT", trackerBaseFrame, -MARGIN, 0)
+    else
+        autoCompleteFrame:SetPoint("TOPRIGHT", trackerBaseFrame, MARGIN, 0)
+    end
+
     autoCompleteFrame:Show()
 end
 
@@ -69,7 +88,9 @@ function AutoCompleteFrame.CheckAutoCompleteQuests()
         -- TODO: Handle multiple quests
         local questId = GetAutoQuestPopUp(1)
         AutoCompleteFrame.ShowAutoComplete(questId)
-    elseif autoCompleteFrame then -- The QUEST_FINISHED event might fire before the auto quest pop up is initialized
+    elseif autoCompleteFrame then -- The QUEST_REMOVED event might fire before the auto quest pop up is initialized
         autoCompleteFrame:Hide()
     end
 end
+
+return AutoCompleteFrame

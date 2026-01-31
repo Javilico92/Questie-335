@@ -272,7 +272,7 @@ function QuestieWotlkQuestFixes:Load()
             [questKeys.finishedBy] = {{11056}},
         },
         [5531] = {
-            [questKeys.nextQuestInChain] = nil,
+            [questKeys.nextQuestInChain] = 0,
         },
         [5721] = {
             [questKeys.extraObjectives] = {{{[zoneIDs.EASTERN_PLAGUELANDS]={{35.01,84.05}}}, Questie.ICON_TYPE_EVENT, l10n("Place the Relic Bundle in the Town Square."),}},
@@ -311,11 +311,11 @@ function QuestieWotlkQuestFixes:Load()
             [questKeys.startedBy] = {nil,{179832},{18950}},
         },
         [8149] = {
-            [questKeys.objectives] = {nil,{{180204,"Place a tribute at Uther's Tomb"}}},
+            [questKeys.objectives] = {nil,{{1323,"Place a tribute at Uther's Tomb"}}},
             [questKeys.extraObjectives] = {},
         },
         [8150] = {
-            [questKeys.objectives] = {nil,{{180205,"Place a tribute at Grom's Monument"}}},
+            [questKeys.objectives] = {nil,{{1324,"Place a tribute at Grom's Monument"}}},
             [questKeys.extraObjectives] = {},
         },
         [8166] = {
@@ -1941,6 +1941,9 @@ function QuestieWotlkQuestFixes:Load()
         },
         [12506] = {
             [questKeys.triggerEnd] = {"Main building at the Altar of Sseratus investigated.",{[zoneIDs.ZUL_DRAK]={{40.32,39.46,},},},},
+        },
+        [12507] = { -- Strange Mojo
+            [questKeys.startedBy] = {{28034,28035,28036},nil,{38321}},
         },
         [12509] = {
             [questKeys.parentQuest] = 12501,
@@ -5063,23 +5066,25 @@ function QuestieWotlkQuestFixes:Load()
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_MOUNT_UP, l10n("Mount up"), 0, {{"monster", 33842}}}},
         },
         [13830] = {
-            [questKeys.triggerEnd] = {"Discover the Ghostfish mystery",{[zoneIDs.SHOLAZAR_BASIN]={{48.89,62.29,},},},},
+            [questKeys.triggerEnd] = {"Discover the Ghostfish mystery",{[zoneIDs.SHOLAZAR_BASIN]={{48.89,62.29,}}}},
+            [questKeys.extraObjectives] = {{{[zoneIDs.SHOLAZAR_BASIN]={{48.2,63.4}}}, Questie.ICON_TYPE_NODE_FISH, l10n("Fish for Phantom Ghostfish")}},
+            [questKeys.requiredSourceItems] = {45902},
         },
         [13832] = {
-            [questKeys.extraObjectives] = {{{[zoneIDs.THE_UNDERBELLY]={{46,68}}}, Questie.ICON_TYPE_EVENT, l10n("Fish for Corroded Jewelry")}},
+            [questKeys.extraObjectives] = {{{[zoneIDs.THE_UNDERBELLY]={{46,68}}}, Questie.ICON_TYPE_NODE_FISH, l10n("Fish for Corroded Jewelry")}},
         },
         [13833] = {
             [questKeys.extraObjectives] = {{{[zoneIDs.BOREAN_TUNDRA]={{57.5,33.2},{62.2,64.2},{45,45}}}, Questie.ICON_TYPE_SLAY, l10n("Slay any beast, jump in any water location and fish in the Pool of Blood"), 0}},
         },
         [13834] = {
-            [questKeys.extraObjectives] = {{{[zoneIDs.WINTERGRASP]={{70,36},{63,60},{50,44},{37.6,36},{56,66},{42,75},{34.7,19.5}}}, Questie.ICON_TYPE_EVENT, l10n("Fish for Terror Fish"), 0}},
+            [questKeys.extraObjectives] = {{{[zoneIDs.WINTERGRASP]={{70,36},{63,60},{50,44},{37.6,36},{56,66},{42,75},{34.7,19.5}}}, Questie.ICON_TYPE_NODE_FISH, l10n("Fish for Terror Fish"), 0}},
         },
         [13835] = {
             [questKeys.objectives] = {{{33974,"Valis Windchaser's advice"},{33243,"Use Shield-Breaker on vulnerable Ranged Target"}}},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_MOUNT_UP, l10n("Mount up"), 0, {{"monster", 33843}}}},
         },
         [13836] = {
-            [questKeys.extraObjectives] = {{{[zoneIDs.DALARAN]={{64,64}}}, Questie.ICON_TYPE_EVENT, l10n("Fish for Severed Arm")}},
+            [questKeys.extraObjectives] = {{{[zoneIDs.DALARAN]={{67.43,61.38},{62.43,70.05}}}, Questie.ICON_TYPE_NODE_FISH, l10n("Fish for Severed Arm")}},
         },
         [13837] = {
             [questKeys.objectives] = {{{33972,"Rugan Steelbelly's advice"},{33272,"Charge vulnerable Charge Target"}}},
@@ -5221,6 +5226,7 @@ function QuestieWotlkQuestFixes:Load()
             [questKeys.preQuestGroup] = {13954,13956},
             [questKeys.nextQuestInChain] = 13959,
             [questKeys.exclusiveTo] = {13927},
+            [questKeys.requiredSourceItems] = {46397,46693},
         },
         [13938] = {
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_LOOT, l10n("Buy a Small Paper Zeppelin"), 0, {{"monster", 29478}}}},
@@ -5228,6 +5234,7 @@ function QuestieWotlkQuestFixes:Load()
             [questKeys.preQuestGroup] = {13955,13957},
             [questKeys.nextQuestInChain] = 13960,
             [questKeys.exclusiveTo] = {13926},
+            [questKeys.requiredSourceItems] = {46396,46693},
         },
         [13950] = {
             [questKeys.triggerEnd] = {"Roo taken to visit Winterfin Retreat", {[zoneIDs.BOREAN_TUNDRA]={{43.5,13.6}}}}, -- oracle orphan
@@ -5240,23 +5247,23 @@ function QuestieWotlkQuestFixes:Load()
             [questKeys.exclusiveTo] = {13926},
         },
         [13954] = {
-            [questKeys.triggerEnd] = {"Roo taken to visit Alexstrasza the Life-Binder", {[zoneIDs.DRAGONBLIGHT]={{59.8,54.5}}}}, -- oracle orphan
+            [questKeys.objectives] = {{{26917,"Roo taken to visit Alexstrasza the Life-Binder",Questie.ICON_TYPE_EVENT}}},
             [questKeys.preQuestGroup] = {13929,13933,13950},
             [questKeys.exclusiveTo] = {13927},
         },
         [13955] = {
-            [questKeys.triggerEnd] = {"Keken taken to visit Alexstrasza the Life-Binder", {[zoneIDs.DRAGONBLIGHT]={{59.8,54.5}}}}, -- wolvar orphan
+            [questKeys.objectives] = {{{26917,"Keken taken to visit Alexstrasza the Life-Binder",Questie.ICON_TYPE_EVENT}}},
             [questKeys.preQuestGroup] = {13930,13934,13951},
             [questKeys.exclusiveTo] = {13926},
         },
         [13956] = {
-            [questKeys.triggerEnd] = {"Roo taken to visit The Etymidian", {[zoneIDs.UN_GORO_CRATER]={{47.38,9.21}}}}, -- oracle orphan
+            [questKeys.objectives] = {{{28092,"Roo taken to visit The Etymidian",Questie.ICON_TYPE_EVENT}}},
             [questKeys.extraObjectives] = {{{[zoneIDs.SHOLAZAR_BASIN]={{40.3,83.3}}}, Questie.ICON_TYPE_EVENT, l10n("Use the waygate to teleport to Un'goro Crater")}},
             [questKeys.preQuestGroup] = {13929,13933,13950},
             [questKeys.exclusiveTo] = {13927},
         },
         [13957] = {
-            [questKeys.triggerEnd] = {"Keken taken to visit Hemet Nesingwary", {[zoneIDs.SHOLAZAR_BASIN]={{27.1,58.8}}}}, -- wolvar orphan
+            [questKeys.objectives] = {{{27986,"Keken taken to visit Hemet Nesingwary",Questie.ICON_TYPE_EVENT}}},
             [questKeys.preQuestGroup] = {13930,13934,13951},
             [questKeys.exclusiveTo] = {13926},
         },
@@ -5428,7 +5435,8 @@ function QuestieWotlkQuestFixes:Load()
         [14090] = {
             [questKeys.objectives] = {{{29618,"Snowblind Follower captured"}}},
         },
-        [14092] = {
+        [14092] = { -- Breakfast Of Champions
+            [questKeys.exclusiveTo] = {14141,14145},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Use your drum near a Mysterious Snow Mound"), 0, {{"object", 195309}}}},
         },
         [14101] = {
@@ -5455,10 +5463,24 @@ function QuestieWotlkQuestFixes:Load()
         [14112] = {
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_LOOT, l10n("Take chum"), 0, {{"object", 195352}}}},
         },
-        [14141] = {
+        [14136] = { -- Rescue at Sea
+            [questKeys.exclusiveTo] = {14140,14144,14143},
+        },
+        [14140] = { -- Stop The Aggressors
+            [questKeys.exclusiveTo] = {14144,14136,14143},
+        },
+        [14141] = { -- Gormok Wants His Snobolds
+            [questKeys.exclusiveTo] = {14092,14145},
             [questKeys.objectives] = {{{29618,"Snowblind Follower captured"}}},
         },
-        [14145] = {
+        [14143] = { -- A Leg Up
+            [questKeys.exclusiveTo] = {14136,14140,14144},
+        },
+        [14144] = { -- The Light's Mercy
+            [questKeys.exclusiveTo] = {14136,14140,14143},
+        },
+        [14145] = { -- What Do You Feed a Yeti, Anyway?
+            [questKeys.exclusiveTo] = {14092,14141},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_LOOT, l10n("Take chum"), 0, {{"object", 195353}}}},
         },
         [14151] = {
@@ -6636,6 +6658,12 @@ function QuestieWotlkQuestFixes:Load()
             [questKeys.requiredMaxLevel] = 74,
             [questKeys.exclusiveTo] = {25286},
             [questKeys.nextQuestInChain] = 25287,
+        },
+        [26012] = { -- Trouble at Wyrmrest
+            [questKeys.exclusiveTo] = {26013},
+        },
+        [26013] = { -- Assault on the Sanctum
+            [questKeys.preQuestSingle] = {},
         },
         [26034] = {
             [questKeys.preQuestSingle] = {26013},

@@ -752,7 +752,7 @@ local function _AddSourceItemObjective(quest)
             Questie:Debug(Questie.DEBUG_INFO, "[QuestieQuest:_AddSourceItemObjective] Adding Source Item Id for:", quest.sourceItemId)
 
             -- We fake an objective for the sourceItems because this allows us
-            -- to simply reuse "QuestieTooltips:GetTooltip".
+            -- to simply reuse "QuestieTooltips.GetTooltip".
             -- This should be all the data required for the tooltip
             local fakeObjective = {
                 Id = quest.Id,
@@ -819,7 +819,7 @@ local function _AddRequiredSourceItemObjective(quest)
                 Questie:Debug(Questie.DEBUG_INFO, "[QuestieQuest:_AddRequiredSourceItemObjective] Adding Source Item Id for:", requiredSourceItemId)
 
                 -- We fake an objective for the requiredSourceItem because this allows us
-                -- to simply reuse "QuestieTooltips:GetTooltip".
+                -- to simply reuse "QuestieTooltips.GetTooltip".
                 -- This should be all the data required for the tooltip
                 local fakeObjective = {
                     Id = quest.Id,
@@ -965,9 +965,9 @@ function QuestieQuest:AddFinisher(quest)
 
             -- Clear duplicate keys if they exist
             if QuestieTooltips.lookupByKey[key] then
-                if QuestieTooltips:GetTooltip(key) ~= nil and #QuestieTooltips:GetTooltip(key) > 1 then
-                    for ttline = 1, #QuestieTooltips:GetTooltip(key) do
-                        for index, line in pairs(QuestieTooltips:GetTooltip(key)) do
+                if QuestieTooltips.GetTooltip(key) ~= nil and #QuestieTooltips.GetTooltip(key) > 1 then
+                    for ttline = 1, #QuestieTooltips.GetTooltip(key) do
+                        for index, line in pairs(QuestieTooltips.GetTooltip(key)) do
                             if (ttline == index) then
                                 Questie:Debug(Questie.DEBUG_DEVELOP, "[QuestieQuest] AddFinisher - Removing duplicate Quest Title!")
 
@@ -1330,6 +1330,7 @@ _DrawObjectiveIcons = function(questId, iconsToDraw, objective, maxPerType)
                 centerX = secondDungeonLocation[2]
                 centerY = secondDungeonLocation[3]
 
+                -- Phase is already checked in _DetermineIconsToDraw
                 local iconMap, iconMini = QuestieMap:DrawWorldIcon(icon.data, icon.zone, centerX, centerY) -- clustering code takes care of duplicates as long as min-dist is more than 0
 
                 if iconMap and iconMini then
@@ -1347,6 +1348,7 @@ _DrawObjectiveIcons = function(questId, iconsToDraw, objective, maxPerType)
             centerY = firstDungeonLocation[3]
         end
 
+        -- Phase is already checked in _DetermineIconsToDraw
         local iconMap, iconMini = QuestieMap:DrawWorldIcon(icon.data, icon.zone, centerX, centerY) -- clustering code takes care of duplicates as long as min-dist is more than 0
 
         if iconMap and iconMini then
@@ -1397,6 +1399,7 @@ _DrawObjectiveWaypoints = function(objective, icon, iconPerZone)
                 local firstWaypoint = waypoints[1][1]
 
                 if (not iconPerZone[zone]) and icon and firstWaypoint[1] ~= -1 and firstWaypoint[2] ~= -1 then              -- spawn an icon in this zone for the mob
+                    -- Phase is already checked in _DetermineIconsToDraw
                     local iconMap, iconMini = QuestieMap:DrawWorldIcon(icon.data, zone, firstWaypoint[1], firstWaypoint[2]) -- clustering code takes care of duplicates as long as min-dist is more than 0
 
                     if iconMap and iconMini then

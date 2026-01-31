@@ -321,6 +321,29 @@ TrackerMenu.addLockUnlockOption = function(menu)
     end
 end
 
+local function _GetWowheadLinkForLanguage()
+    local langShort = string.sub(GetLocale(), 1, 2) .. "/"
+    if langShort == "en/" then
+        langShort = ""
+    elseif langShort == "zh/" then
+        langShort = "cn/"
+    end
+	print("_GetWowheadLinkForLanguage locale", langShort)
+    local xpac
+    if Questie.IsCata or QuestieCompat.Is434 then
+        xpac = "cata/"
+    elseif Questie.IsWotlk or QuestieCompat.Is335 then
+        xpac = "wotlk/"
+    elseif Questie.IsTBC then
+        xpac = "tbc/"
+    else
+        xpac = "classic/" -- era/sod/hardcore are all on this URL
+    end
+	print("_GetWowheadLinkForLanguage xpac")
+	print(xpac)
+    return "https://www.wowhead.com/".. xpac .. langShort
+end
+
 -- Register the WoWHead Quest popup dialog
 StaticPopupDialogs["QUESTIE_WOWHEAD_URL"] = {
     text = "WoWHead URL",
@@ -338,28 +361,11 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_URL"] = {
         local quest_wow = QuestieDB.GetQuest(questID)
         local name = quest_wow.name
 
-        -- self.text:SetText(self.text:GetText() .. "\n\n|cffff7f00" .. name .. "|r")
         self.text:SetFont("GameFontNormal", 12)
-        -- self.text:SetText(self.text:GetText() .. "\n\n|c FFFFB9 00" .. name .. "|r")
         self.text:SetText(self.text:GetText() .. Questie:Colorize("\n\n" .. name, "gold"))
 
-        local langShort = string.sub(l10n:GetUILocale(), 1, 2) .. "."
-        if langShort == "en." then
-            langShort = ""
-        end
-
-        local wowheadLink
-        if Questie.IsWotlk then
-            if langShort then
-                langShort = langShort:gsub("%.", "/") -- The Wotlk WoWHead URL differs to the other Classic URLs
-            end
-            wowheadLink = "https://" .. "wowhead.com/wotlk/" .. langShort .. "quest=" .. questID
-        elseif Questie.IsTBC then
-            wowheadLink = "https://" .. langShort .. "tbc.wowhead.com/quest=" .. questID
-        else
-            wowheadLink = "https://" .. langShort .. "classic.wowhead.com/quest=" .. questID
-        end
-
+        local wowheadLink = _GetWowheadLinkForLanguage() .. "quest=" .. questID -- all expansions follow this system as of 2024 start of Cata
+		print("_GetWowheadLinkForLanguage -> quest ", questID, ", returns => ", wowheadLink) 
         self.editBox:SetText(wowheadLink)
         self.editBox:SetFocus()
         self.editBox:HighlightText()
@@ -518,17 +524,7 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_AURL"] = {
         self.text:SetFont("GameFontNormal", 12)
         self.text:SetText(self.text:GetText() .. Questie:Colorize("\n\n" .. name, "gold"))
 
-        local langShort = string.sub(l10n:GetUILocale(), 1, 2) .. "."
-        if langShort == "en." then
-            langShort = ""
-        end
-
-        local wowheadLink
-        if langShort then
-            langShort = langShort:gsub("%.", "/") -- The Wotlk wowhead URL differs to the other Classic URLs
-        end
-
-        wowheadLink = "https://" .. "wowhead.com/wotlk/" .. langShort .. "achievement=" .. achieveID
+        local wowheadLink = _GetWowheadLinkForLanguage() .. "achievement=" .. achieveID
 
         self.editBox:SetText(wowheadLink)
         self.editBox:SetFocus()

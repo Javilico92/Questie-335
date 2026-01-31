@@ -1,20 +1,8 @@
 ---@class TrackerQuestTimers
 local TrackerQuestTimers = QuestieLoader:CreateModule("TrackerQuestTimers")
--------------------------
---Import QuestieTracker modules.
--------------------------
+
 ---@type QuestieTracker
 local QuestieTracker = QuestieLoader:ImportModule("QuestieTracker")
----@type TrackerLinePool
-local TrackerLinePool = QuestieLoader:ImportModule("TrackerLinePool")
--------------------------
---Import Questie modules.
--------------------------
----@type QuestieCombatQueue
-local QuestieCombatQueue = QuestieLoader:ImportModule("QuestieCombatQueue")
-
---- COMPATIBILITY ---
-local GetQuestLogIndexByID = QuestieCompat.GetQuestLogIndexByID
 
 local LSM30 = LibStub("LibSharedMedia-3.0")
 

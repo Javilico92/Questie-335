@@ -189,6 +189,10 @@ Questie.icons = {
     ["tracker_quests"] = QuestieLib.AddonPath.."Icons\\tracker_quests.tga",
     ["tracker_search"] = QuestieLib.AddonPath.."Icons\\tracker_search.tga",
     ["tracker_settings"] = QuestieLib.AddonPath.."Icons\\tracker_settings.tga",
+    ["node_fish"] = "Interface\\Addons\\Questie\\Icons\\node_fish.blp",
+    ["node_herb"] = "Interface\\Addons\\Questie\\Icons\\node_herb.blp",
+    ["node_ore"] = "Interface\\Addons\\Questie\\Icons\\node_ore.blp",
+    ["chest"] = "Interface\\Addons\\Questie\\Icons\\chest.blp",
 }
 
 Questie.usedIcons = {}
@@ -212,6 +216,10 @@ Questie.ICON_TYPE_PVPQUEST_COMPLETE = 16
 Questie.ICON_TYPE_INTERACT = 17
 Questie.ICON_TYPE_SODRUNE = 18
 Questie.ICON_TYPE_MOUNT_UP = 19
+Questie.ICON_TYPE_NODE_FISH = 20
+Questie.ICON_TYPE_NODE_HERB = 21
+Questie.ICON_TYPE_NODE_ORE = 22
+Questie.ICON_TYPE_CHEST = 23
 
 -- Load icon pathes from SavedVariables or set the default ones
 function Questie:SetIcons()
@@ -234,6 +242,10 @@ function Questie:SetIcons()
     Questie.usedIcons[Questie.ICON_TYPE_INTERACT] = Questie.db.profile.ICON_TYPE_INTERACT or Questie.icons["interact"]
     Questie.usedIcons[Questie.ICON_TYPE_SODRUNE] = Questie.icons["sod_rune"]
     Questie.usedIcons[Questie.ICON_TYPE_MOUNT_UP] = Questie.icons["mount_up"]
+    Questie.usedIcons[Questie.ICON_TYPE_NODE_FISH] = Questie.icons["node_fish"]
+    Questie.usedIcons[Questie.ICON_TYPE_NODE_HERB] = Questie.icons["node_herb"]
+    Questie.usedIcons[Questie.ICON_TYPE_NODE_ORE] = Questie.icons["node_ore"]
+    Questie.usedIcons[Questie.ICON_TYPE_CHEST] = Questie.icons["chest"]
 end
 
 function Questie:GetIconNameFromPath(path)

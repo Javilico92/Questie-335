@@ -4,6 +4,7 @@ QuestieCompat = setmetatable({}, {__index = _G})
 
 -- addon is running on 3.3.5 WotLK client
 QuestieCompat.Is335 = (select(4, GetBuildInfo()) == 30300)
+QuestieCompat.Is434 = (select(4, GetBuildInfo()) == 40300) -- BUT not ofiacially support 4.3.4 right now
 
 local errorMsg = "Questie tried to call a blizzard API function that does not exist..."
 

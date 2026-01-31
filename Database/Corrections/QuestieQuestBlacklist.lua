@@ -1205,13 +1205,13 @@ function QuestieQuestBlacklist:Load()
         [6823] = QuestieCorrections.WOTLK_ONLY, -- Not in the game
         [6824] = QuestieCorrections.WOTLK_ONLY, -- Not in the game
         [7486] = QuestieCorrections.WOTLK_ONLY, -- Not in the game
-        [5634] = QuestieCorrections.WOTLK_ONLY, -- removed in wotlk
-        [5635] = QuestieCorrections.WOTLK_ONLY, -- removed in wotlk
-        [5636] = QuestieCorrections.WOTLK_ONLY, -- removed in wotlk
-        [5637] = QuestieCorrections.WOTLK_ONLY, -- removed in wotlk
-        [5638] = QuestieCorrections.WOTLK_ONLY, -- removed in wotlk
-        [5639] = QuestieCorrections.WOTLK_ONLY, -- removed in wotlk
-        [5640] = QuestieCorrections.WOTLK_ONLY, -- removed in wotlk
+        [5634] = QuestieCorrections.WOTLK_AND_CATA, -- removed since wotlk
+        [5635] = QuestieCorrections.WOTLK_AND_CATA, -- removed since wotlk
+        [5636] = QuestieCorrections.WOTLK_AND_CATA, -- removed since wotlk
+        [5637] = QuestieCorrections.WOTLK_AND_CATA, -- removed since wotlk
+        [5638] = QuestieCorrections.WOTLK_AND_CATA, -- removed since wotlk
+        [5639] = QuestieCorrections.WOTLK_AND_CATA, -- removed since wotlk
+        [5640] = QuestieCorrections.WOTLK_AND_CATA, -- removed since wotlk
         [12881] = true, -- Not in the game
         [14351] = true, -- Not in the game
         [14353] = true, -- Not in the game
@@ -1492,6 +1492,7 @@ function QuestieQuestBlacklist:Load()
         [14474] = true, -- Duplicate of 14001
         [24503] = true, -- Duplicate of 28414
         [25474] = true, -- Duplicate of 27729
+        [26565] = true, -- Duplicate of 26588
         [29476] = true, -- Duplicate of 29477
         [27608] = true, -- Duplicate of 27500
         [27609] = true, -- Duplicate of 27501
@@ -1609,6 +1610,7 @@ function QuestieQuestBlacklist:Load()
 
         -- Love is in the Air
         [14483] = true, -- Something is in the Air (and it Ain't Love)
+        [24745] = true, -- Something is in the Air (and it Ain't Love)
         [28935] = true, -- Crushing the Crown
 
         -- Day of the Dead

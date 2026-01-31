@@ -221,7 +221,7 @@ function MapIconTooltip:Show()
             end
 
             for _, questData in pairs(quests) do
-                local reputationReward = QuestieDB.QueryQuestSingle(questData.questId, "reputationReward")
+                local reputationReward = QuestieReputation.GetReputationReward(questData.questId)
 
                 if questData.title ~= nil then
                     local quest = QuestieDB.GetQuest(questData.questId)
@@ -239,7 +239,7 @@ function MapIconTooltip:Show()
                     end
                     rewardString = rewardString .. questData.type
 
-                    if (not shift) and reputationReward and next(reputationReward) then
+                    if (not shift) and next(reputationReward) then
                         self:AddDoubleLine(REPUTATION_ICON_TEXTURE .. " " .. questData.title, rewardString, 1, 1, 1, 1, 1, 0);
                     else
                         if shift then
@@ -281,7 +281,7 @@ function MapIconTooltip:Show()
                         local nextQuestTagString = "";
                         if firstInChain then
                             self:AddLine("  |T" .. QuestieLib.AddonPath .. "Icons\\nextquest.blp:16|t " .. l10n("Next in chain:"), 0.86, 0.86, 0.86)
-                            firstInChain = false;
+                            firstInChain = false
                         end
 
                         if Questie.db.profile.enableTooltipsQuestLevel then
@@ -294,14 +294,14 @@ function MapIconTooltip:Show()
                             nextQuestIdString = string.format(" (%d)", nextQuest.Id)
                         end
 
-                        local nextQuestXpReward = QuestXP:GetQuestLogRewardXP(nextQuest.Id, Questie.db.profile.showQuestXpAtMaxLevel);
+                        local nextQuestXpReward = QuestXP:GetQuestLogRewardXP(nextQuest.Id, Questie.db.profile.showQuestXpAtMaxLevel)
                         if nextQuestXpReward > 0 then
-                            nextQuestXpRewardString = string.format(" (%s%s)", FormatLargeNumber(nextQuestXpReward), xpString);
+                            nextQuestXpRewardString = string.format(" (%s%s)", FormatLargeNumber(nextQuestXpReward), xpString)
                         end
 
                         local nextQuestMoneyReward = QuestXP:GetQuestRewardMoney(nextQuest.Id);
                         if nextQuestMoneyReward > 0 then
-                            nextQuestMoneyRewardString = Questie:Colorize(string.format(" (%s)", GetCoinTextureString(nextQuestMoneyReward)), "white");
+                            nextQuestMoneyRewardString = Questie:Colorize(string.format(" (%s)", GetCoinTextureString(nextQuestMoneyReward)), "white")
                         end
 
                         if (QuestieDB.IsGroupQuest(nextQuest.Id) or QuestieDB.IsDungeonQuest(nextQuest.Id) or QuestieDB.IsRaidQuest(nextQuest.Id)) then
@@ -319,7 +319,7 @@ function MapIconTooltip:Show()
                     end
                 end
 
-                if shift and reputationReward and next(reputationReward) then
+                if shift and next(reputationReward) then
                     local rewardTable = {}
                     local factionId, factionName
                     local rewardValue

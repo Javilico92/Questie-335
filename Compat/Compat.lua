@@ -58,6 +58,7 @@ end)
 QuestieCompat.WOW_PROJECT_CLASSIC = 2
 QuestieCompat.WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
 QuestieCompat.WOW_PROJECT_WRATH_CLASSIC = 11
+QuestieCompat.WOW_PROJECT_CATACLYSM_CLASSIC = 14
 QuestieCompat.WOW_PROJECT_ID = tonumber(GetAddOnMetadata(QuestieCompat.addonName, "X-WOW_PROJECT_ID"))
 
 -- check for a specific type of group

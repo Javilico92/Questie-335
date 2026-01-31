@@ -5,6 +5,7 @@ local C_Timer = QuestieCompat.C_Timer
 local WOW_PROJECT_CLASSIC = QuestieCompat.WOW_PROJECT_CLASSIC
 local WOW_PROJECT_BURNING_CRUSADE_CLASSIC = QuestieCompat.WOW_PROJECT_BURNING_CRUSADE_CLASSIC
 local WOW_PROJECT_WRATH_CLASSIC = QuestieCompat.WOW_PROJECT_WRATH_CLASSIC
+local WOW_PROJECT_CATACLYSM_CLASSIC = QuestieCompat.WOW_PROJECT_CATACLYSM_CLASSIC
 local WOW_PROJECT_ID = QuestieCompat.WOW_PROJECT_ID
 
 -- Check addon is not renamed to avoid conflicts in global name space.

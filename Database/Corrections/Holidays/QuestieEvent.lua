@@ -314,24 +314,24 @@ end
 -- EUROPEAN FORMAT! NO FUCKING AMERICAN SHIDAZZLE FORMAT!
 QuestieEvent.eventDates = {
     ["Lunar Festival"] = { -- WARNING THIS DATE VARIES!!!!
-        startDate = "3/2",
-        endDate = "24/2"
+        startDate = "22/1",
+        endDate = "04/2"
     },
-    ["Love is in the Air"] = {startDate = "05/2", endDate = "19/2"},
+    ["Love is in the Air"] = {startDate = "06/2", endDate = "19/2"},
     ["Noblegarden"] = { -- WARNING THIS DATE VARIES!!!!
-        startDate = "31/3",
-        endDate = "6/4"
+        startDate = "12/4",
+        endDate = "18/4"
     },
-    ["Children's Week"] = {startDate = "1/5", endDate = "15/5"}, -- TODO: Usually it is only a week long
+    ["Children's Week"] = {startDate = "30/4", endDate = "06/5"}, -- TODO: Usually it is only a week long
     ["Midsummer"] = {startDate = "21/6", endDate = "4/7"},
     ["Brewfest"] = {startDate = "20/9", endDate = "5/10"}, -- TODO: This might be different (retail date)
     ["Harvest Festival"] = { -- WARNING THIS DATE VARIES!!!!
-        startDate = "26/9",
-        endDate = "2/10"
+        startDate = "28/9",
+        endDate = "04/10"
     },
     ["Pilgrim's Bounty"] = {
-        startDate = "21/11",
-        endDate = "27/11"
+        startDate = "22/11",
+        endDate = "28/11"
     },
     ["Hallow's End"] = {startDate = "18/10", endDate = "31/10"},
     ["Winter Veil"] = {startDate = "15/12", endDate = "1/1"}
@@ -359,7 +359,7 @@ QuestieEvent.lunarFestival = {
     ["23"] = {startDate = "20/1", endDate = "10/2"},
     ["24"] = {startDate = "3/2", endDate = "23/2"},
     ["25"] = {startDate = "29/1", endDate = "12/2"},
-    ["26"] = {startDate = "17/2", endDate = "3/3"},
+    ["26"] = {startDate = "22/1", endDate = "04/2"},
     ["27"] = {startDate = "7/2", endDate = "21/2"},
     ["28"] = {startDate = "27/1", endDate = "10/2"}
 }

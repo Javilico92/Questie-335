@@ -161,6 +161,7 @@ Questie.icons = {
     ["complete"] = QuestieLib.AddonPath.."Icons\\complete.blp",
     ["incomplete"] = QuestieLib.AddonPath.."Icons\\incomplete.blp",
     ["interact"] = QuestieLib.AddonPath.."Icons\\interact.blp",
+    ["mount_up"] = QuestieLib.AddonPath.."Icons\\mount_up.blp",
     ["glow"] = QuestieLib.AddonPath.."Icons\\glow.blp",
     ["repeatable"] = QuestieLib.AddonPath.."Icons\\repeatable.blp",
     ["repeatable_complete"] = QuestieLib.AddonPath.."Icons\\repeatable_complete.blp",
@@ -210,6 +211,7 @@ Questie.ICON_TYPE_PVPQUEST = 15
 Questie.ICON_TYPE_PVPQUEST_COMPLETE = 16
 Questie.ICON_TYPE_INTERACT = 17
 Questie.ICON_TYPE_SODRUNE = 18
+Questie.ICON_TYPE_MOUNT_UP = 19
 
 -- Load icon pathes from SavedVariables or set the default ones
 function Questie:SetIcons()
@@ -231,6 +233,7 @@ function Questie:SetIcons()
     Questie.usedIcons[Questie.ICON_TYPE_PVPQUEST_COMPLETE] = Questie.db.profile.ICON_PVPQUEST_COMPLETE or Questie.icons["complete"]
     Questie.usedIcons[Questie.ICON_TYPE_INTERACT] = Questie.db.profile.ICON_TYPE_INTERACT or Questie.icons["interact"]
     Questie.usedIcons[Questie.ICON_TYPE_SODRUNE] = Questie.icons["sod_rune"]
+    Questie.usedIcons[Questie.ICON_TYPE_MOUNT_UP] = Questie.icons["mount_up"]
 end
 
 function Questie:GetIconNameFromPath(path)

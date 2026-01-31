@@ -186,7 +186,7 @@ function QuestLogCache.CheckForChanges(questIdsToCheck)
                 local cachedQuest = cache[questId]
                 local cachedObjectives = cachedQuest and cachedQuest.objectives or {}
 
-                local newObjectives, changedObjIds = GetNewObjectives(questId, cachedObjectives, questLogIndex, isCompleteAccordingToBlizzard)
+                local newObjectives, changedObjIds, isComplete = GetNewObjectives(questId, cachedObjectives, questLogIndex, isCompleteAccordingToBlizzard)
 
                 if newObjectives then
                     if (not cachedQuest) or (#cachedObjectives == #newObjectives and #cachedObjectives > 0 and

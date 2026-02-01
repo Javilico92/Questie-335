@@ -19,6 +19,9 @@ function CataItemFixes.Load()
             [itemKeys.npcDrops] = {},
             [itemKeys.objectDrops] = {195111},
         },
+        [5533] = { -- Ilkrud Magthrull's Tome
+            [itemKeys.npcDrops] = {},
+        },
         [10458] = { -- Prayer to Elune
             [itemKeys.npcDrops] = {}
         },
@@ -29,6 +32,12 @@ function CataItemFixes.Load()
             [itemKeys.class] = itemClasses.QUEST,
         },
         [21145] = { -- Essence of Xandivious
+            [itemKeys.npcDrops] = {},
+        },
+        [22978] = { -- Emitter Spare Part
+            [itemKeys.npcDrops] = {},
+        },
+        [24416] = { -- Corrupted Flower
             [itemKeys.npcDrops] = {},
         },
         [31880] = { -- Blood Elf Orphan Whistle
@@ -232,6 +241,9 @@ function CataItemFixes.Load()
         [52505] = { -- Poison Extraction Totem
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [52506] = { -- Elemental Goo
+            [itemKeys.npcDrops] = {38896,39370,39373,39414,39415,39844,39873,39994,40004,40021,40023,40033,40170,40229,40272,40273,40464,40709,40925,42210,42475,42527,42766,42789,42810,43026,43123,43254,43258,43374,43480,44011,44220,44257,44259,45084,45477,45755,45912,45915,46327,46328,46329,46911,47081,47150,47151,47226,47728,48016,51672,52219,52300,52503,52794,52816,53264},
+        },
         [52514] = { -- Thonk's Spyglass
             [itemKeys.class] = itemClasses.QUEST,
         },
@@ -341,6 +353,12 @@ function CataItemFixes.Load()
         [56178] = { -- Duarn's Rope
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [56254] = { -- Merciless Head
+            [itemKeys.npcDrops] = {41601,41729},
+        },
+        [56569] = { -- Underlight Nibbler
+            [itemKeys.npcDrops] = {41916},
+        },
         [56819] = { -- Remora Oil
             [itemKeys.npcDrops] = {42112},
         },
@@ -365,6 +383,9 @@ function CataItemFixes.Load()
         [57766] = { -- Prickly Pear Fruit
             [itemKeys.npcDrops] = {},
         },
+        [58141] = { -- Twilight Highlands Coastal Chart
+            [itemKeys.npcDrops] = {42638},
+        },
         [58167] = { -- Spirit Totem
             [itemKeys.class] = itemClasses.QUEST,
         },
@@ -379,6 +400,9 @@ function CataItemFixes.Load()
         },
         [58864] = { -- Precious Locket
             [itemKeys.itemDrops] = {58856},
+        },
+        [58886] = { -- Thunder Stone
+            [itemKeys.npcDrops] = {},
         },
         [58899] = { -- Violet Perch
             [itemKeys.npcDrops] = {},
@@ -400,6 +424,9 @@ function CataItemFixes.Load()
         },
         [59033] = { -- Blackrock Lever Key
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [59123] = { -- Verlok Miracle-Grow
+            [itemKeys.npcDrops] = {},
         },
         [59146] = { -- Head of Fleet Master Seahorn
             [itemKeys.npcDrops] = {2487},
@@ -428,6 +455,9 @@ function CataItemFixes.Load()
         [60739] = { -- Twilight Slaver's Key
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [60791] = { -- Painite Mote
+            [itemKeys.npcDrops] = {},
+        },
         [60835] = { -- Depleted Totem
             [itemKeys.class] = itemClasses.QUEST,
         },
@@ -438,6 +468,9 @@ function CataItemFixes.Load()
             [itemKeys.npcDrops] = {45506,45508,45651,45682},
         },
         [62324] = { -- Wildhammer Food Store
+            [itemKeys.npcDrops] = {},
+        },
+        [61376] = { -- Suspended Starlight
             [itemKeys.npcDrops] = {},
         },
         [62534] = { -- Horn of Ramkahen
@@ -489,6 +522,18 @@ function CataItemFixes.Load()
             [itemKeys.class] = itemClasses.QUEST,
         },
         [63685] = { -- Ancient Copper Scroll
+            [itemKeys.npcDrops] = {},
+        },
+        [64404] = { -- Ruby Crystal Cluster
+            [itemKeys.npcDrops] = {48533,48639},
+        },
+        [64585] = { -- Cannon Powder
+            [itemKeys.npcDrops] = {49143},
+        },
+        [65504] = { -- Deep Alabaster Crystal
+            [itemKeys.npcDrops] = {},
+        },
+        [65507] = { -- Deep Celestite Crystal
             [itemKeys.npcDrops] = {},
         },
         [65734] = { -- Twilight Documents

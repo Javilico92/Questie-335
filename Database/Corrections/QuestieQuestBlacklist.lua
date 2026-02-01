@@ -9,7 +9,7 @@ function QuestieQuestBlacklist:Load()
         [7462] = true, -- Duplicate of 7877. See #1583
         [5663] = true, -- Touch of Weakness of Dark Cleric Beryl - Fixing #730
         [5658] = true, -- Touch of Weakness of Father Lankester -- See #1603
-        [2358] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.TBC_HIDE, -- See #921
+        [2358] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE + QuestieCorrections.TBC_HIDE, -- See #921
         [787] = true, -- The New Horde is not in the game. See #830
         [6606] = true, -- Quest is not in the game. See #1338
         [6072] = true, -- Ayanna Everstride doesn't start "Hunter's Path" (this quest is most likely simply not in the game) #700
@@ -20,7 +20,7 @@ function QuestieQuestBlacklist:Load()
         --[960] = true, -- Duplicate of 961 -- different quests, not duplicate
         [9378] = true, -- Naxxramas quest which doesn't seem to be in the game
         [1318] = true, -- Duplicate of 7703 and not in the game
-        [7704] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.TBC_HIDE, -- Not implemented in Era, added in Wrath
+        [7704] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE + QuestieCorrections.TBC_HIDE, -- Not implemented in Era, added in Wrath
         [7668] = true, -- Not in the game (yet) Replaced with 8258 in Ph 4-- #1805
         [636] = true, -- Not in the game - #1900
         [6066] = true, -- Not in the game - #1957
@@ -31,7 +31,7 @@ function QuestieQuestBlacklist:Load()
         [11402] = true, -- GM Island quest
         [11189] = true, -- Removed
         [13417] = true, -- Duplicate of 12973
-        [936] = QuestieCorrections.CLASSIC_HIDE,
+        [936] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE,
         [535] = QuestieCorrections.WOTLK_HIDE + QuestieCorrections.CATA_HIDE, -- Valik
         [2000] = true, -- Not in the game - #4487
         -- Welcome! quests (Collectors Edition)
@@ -801,16 +801,16 @@ function QuestieQuestBlacklist:Load()
         [8156] = true,
         [8297] = true,
         -- Alterac Valley
-        [6861] = QuestieCorrections.CLASSIC_HIDE,
-        [6862] = QuestieCorrections.CLASSIC_HIDE,
-        [6864] = QuestieCorrections.CLASSIC_HIDE,
-        [6901] = QuestieCorrections.CLASSIC_HIDE,
+        [6861] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE,
+        [6862] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE,
+        [6864] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE,
+        [6901] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE,
         [7221] = true,
         [7222] = true,
-        [7281] = QuestieCorrections.CLASSIC_HIDE,
-        [7282] = QuestieCorrections.CLASSIC_HIDE,
-        [7301] = QuestieCorrections.CLASSIC_HIDE,
-        [7302] = QuestieCorrections.CLASSIC_HIDE,
+        [7281] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE,
+        [7282] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE,
+        [7301] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE,
+        [7302] = QuestieCorrections.CLASSIC_HIDE + QuestieCorrections.SOD_HIDE,
         [7367] = true,
         [7368] = true,
         -- Master Ryson's All Seeing Eye
@@ -1100,7 +1100,7 @@ function QuestieQuestBlacklist:Load()
         [78224] = true, -- Boosted character quest
         [78225] = true, -- Boosted character quest
 
-		-- Paladin class quests with SWP patch
+        -- Paladin class quests with SWP patch
         [64319] = true, -- removed in wotlk
         [63866] = true, -- removed in wotlk
 
@@ -1491,19 +1491,84 @@ function QuestieQuestBlacklist:Load()
         ----- Cata ------------- starting here -------------- Cata -----
 
         [109] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [136] = QuestieCorrections.CATA_HIDE, -- Replaced by 26353
+        [138] = QuestieCorrections.CATA_HIDE, -- Replaced by 26355
+        [139] = QuestieCorrections.CATA_HIDE, -- Replaced by 26356
+        [140] = QuestieCorrections.CATA_HIDE, -- Replaced by 26354
         [178] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [337] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [595] = QuestieCorrections.CATA_HIDE, -- Replaced by 26609
         [764] = QuestieCorrections.CATA_HIDE, -- Replaced by 26179
         [765] = QuestieCorrections.CATA_HIDE, -- Replaced by 26180
+        [819] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [830] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [832] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [842] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [882] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [883] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [884] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [897] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [1273] = QuestieCorrections.CATA_HIDE, -- Replaced by 27261
+        [1361] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [1431] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1860] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1861] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1879] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1880] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1883] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1881] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1882] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1884] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1919] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1920] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1921] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1938] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1940] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1943] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1944] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1945] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1947] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1948] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1949] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1950] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1951] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1953] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1954] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1955] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1956] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1957] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1959] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1960] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [1961] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [2781] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [2875] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [3111] = QuestieCorrections.CATA_HIDE, -- Not in the game
         [5121] = QuestieCorrections.CATA_HIDE, -- Replaced by 28470
         [5123] = QuestieCorrections.CATA_HIDE, -- Replaced by 28471
+        [5923] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [5924] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [5925] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [5926] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [5927] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [5928] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [6564] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [6981] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [7463] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [7492] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [8251] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [8252] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [8552] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9287] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9288] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9289] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9290] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9291] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9306] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9307] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9308] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9421] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [9596] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [9764] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [11335] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [11336] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [11337] = QuestieCorrections.CATA_HIDE, -- Removed with cata
@@ -1542,7 +1607,17 @@ function QuestieQuestBlacklist:Load()
         [24426] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [24427] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [24503] = QuestieCorrections.CATA_HIDE, -- Duplicate of 28414
+        [24860] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [24935] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [24936] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [25124] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [25150] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [25225] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [25231] = QuestieCorrections.CATA_HIDE, -- Not in the game
         [25474] = QuestieCorrections.CATA_HIDE, -- Duplicate of 27729
+        [25635] = QuestieCorrections.CATA_HIDE, -- Duplicate of 25583 and 25956
+        [25902] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [25903] = QuestieCorrections.CATA_HIDE, -- Not in the game
         [26125] = QuestieCorrections.CATA_HIDE, -- Duplicate of 26124
         [26565] = QuestieCorrections.CATA_HIDE, -- Duplicate of 26588
         [26825] = QuestieCorrections.CATA_HIDE, -- Duplicate of 26826
@@ -1552,6 +1627,28 @@ function QuestieQuestBlacklist:Load()
         [27609] = QuestieCorrections.CATA_HIDE, -- Duplicate of 27501
         [27861] = QuestieCorrections.CATA_HIDE, -- Duplicate of 27863
         [27862] = QuestieCorrections.CATA_HIDE, -- Duplicate of 27863
+        [28236] = QuestieCorrections.CATA_HIDE, -- Duplicate of 28233
+        [28412] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [28095] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [28110] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [28585] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [28754] = QuestieCorrections.CATA_HIDE, -- Duplicate of 28758
+        [29465] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29464
+        [29467] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29511
+        [29468] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29508
+        [29469] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29518
+        [29470] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29519
+        [29471] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29515
+        [29472] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29517
+        [29473] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29512
+        [29474] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29510
+        [29478] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29506
+        [29479] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29514
+        [29480] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29520
+        [29483] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29516
+        [29484] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29509
+        [29485] = QuestieCorrections.CATA_HIDE, -- Duplicate of 29507
+        [29761] = QuestieCorrections.CATA_HIDE, -- Not in the game
 
         -- ICC weekly quests
         [24869] = QuestieCorrections.CATA_HIDE, -- Removed with cata
@@ -1620,6 +1717,10 @@ function QuestieQuestBlacklist:Load()
 
         [29129] = true, -- A Legendary Engagement
         [29132] = true, -- A Legendary Engagement
+        [29202] = true, -- The Fate of Runetotem
+        [29280] = true, -- Nourishing Waters
+        [29282] = true, -- Well Armed
+        [29284] = true, -- Aid of the Ancients
         [29326] = true, -- The Nordrassil Summit
         [29387] = true, -- Guardians of Hyjal: Firelands Invasion!
         [29388] = true, -- Guardians of Hyjal: Firelands Invasion!
@@ -1635,44 +1736,43 @@ function QuestieQuestBlacklist:Load()
         [30095] = true, -- The End Time
 
         -- Darkmoon Faire
-        [27664] = true, -- Darkmoon Volcanic Deck
-        [27665] = true, -- Darkmoon Hurricane Deck
-        [27666] = true, -- Darkmoon Tsunami Deck
-        [27667] = true, -- Darkmoon Earthquake Deck
-        [29433] = true, -- Test Your Strength
-        [29434] = true, -- Tonk Commander
-        [29436] = true, -- The Humanoid Cannonball
-        [29438] = true, -- He Shoots, He Scores!
-        [29443] = true, -- A Curious Crystal
-        [29444] = true, -- An Exotic Egg
-        [29445] = true, -- An Intriguing Grimoire
-        [29446] = true, -- A Wondrous Weapon
-        [29451] = true, -- The Master Strategist
-        [29455] = true, -- Target: Turtle
-        [29456] = true, -- A Captured Banner
-        [29457] = true, -- The Enemy's Insignia
-        [29458] = true, -- The Captured Journal
-        [29463] = true, -- It's Hammer Time
-        [29464] = true, -- Tools of Divination
-        [29473] = true, -- Putting the Carnies Back Together Again
-        [29506] = true, -- A Fizzy Fusion
-        [29507] = true, -- Fun for the Little Ones
-        [29508] = true, -- Baby Needs Two Pair of Shoes
-        [29509] = true, -- Putting the Crunch in the Frog
-        [29510] = true, -- Putting Trash to Good Use
-        [29511] = true, -- Talkin' Tonks
-        [29512] = true, -- Putting the Carnies Back Together Again
-        [29513] = true, -- Spoilin' for Salty Sea Dogs
-        [29514] = true, -- Herbs for Healing
-        [29515] = true, -- Writing the Future
-        [29516] = true, -- Keeping the Faire Sparkling
-        [29517] = true, -- Eyes on the Prizes
-        [29518] = true, -- Rearm, Reuse, Recycle
-        [29519] = true, -- Tan My Hide
-        [29520] = true, -- Banners, Banners Everywhere!
-        [29601] = true, -- The Darkmoon Field Guide
-        [29760] = true, -- Pit Fighter
-        [29761] = true, -- Master Pit Fighter
+        --[27664] = true, -- Darkmoon Volcanic Deck
+        --[27665] = true, -- Darkmoon Hurricane Deck
+        --[27666] = true, -- Darkmoon Tsunami Deck
+        --[27667] = true, -- Darkmoon Earthquake Deck
+        --[29433] = true, -- Test Your Strength
+        --[29434] = true, -- Tonk Commander
+        --[29436] = true, -- The Humanoid Cannonball
+        --[29438] = true, -- He Shoots, He Scores!
+        --[29443] = true, -- A Curious Crystal
+        --[29444] = true, -- An Exotic Egg
+        --[29445] = true, -- An Intriguing Grimoire
+        --[29446] = true, -- A Wondrous Weapon
+        --[29451] = true, -- The Master Strategist
+        --[29455] = true, -- Target: Turtle
+        --[29456] = true, -- A Captured Banner
+        --[29457] = true, -- The Enemy's Insignia
+        --[29458] = true, -- The Captured Journal
+        --[29463] = true, -- It's Hammer Time
+        --[29464] = true, -- Tools of Divination
+        --[29506] = true, -- A Fizzy Fusion
+        --[29507] = true, -- Fun for the Little Ones
+        --[29508] = true, -- Baby Needs Two Pair of Shoes
+        --[29509] = true, -- Putting the Crunch in the Frog
+        --[29510] = true, -- Putting Trash to Good Use
+        --[29511] = true, -- Talkin' Tonks
+        --[29512] = true, -- Putting the Carnies Back Together Again
+        --[29513] = true, -- Spoilin' for Salty Sea Dogs
+        --[29514] = true, -- Herbs for Healing
+        --[29515] = true, -- Writing the Future
+        --[29516] = true, -- Keeping the Faire Sparkling
+        --[29517] = true, -- Eyes on the Prizes
+        --[29518] = true, -- Rearm, Reuse, Recycle
+        --[29519] = true, -- Tan My Hide
+        --[29520] = true, -- Banners, Banners Everywhere!
+        --[29601] = true, -- The Darkmoon Field Guide
+        --[29760] = true, -- Pit Fighter
+        --[29761] = true, -- Master Pit Fighter
 
         -- Love is in the Air
         [14483] = true, -- Something is in the Air (and it Ain't Love)
@@ -1870,6 +1970,9 @@ function QuestieQuestBlacklist:Load()
         [29742] = true, -- Menkhaf the Elder
 
         ----- SoD -------------- SoD quests --------------- SoD -----
+        [2950] = QuestieCorrections.SOD_HIDE, -- Nogg's Ring Redo
+        [3446] = QuestieCorrections.SOD_HIDE, -- Into the Depths
+        [4146] = QuestieCorrections.SOD_HIDE, -- Zapper Fuel
         [78611] = true, -- A Waylaid Shipment (no longer available in P2)
         [79100] = true, -- A Waylaid Shipment (no longer available in P2)
         [79482] = true, -- Stolen Winter Veil Treats

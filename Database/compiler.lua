@@ -13,9 +13,8 @@ local l10n = QuestieLoader:ImportModule("l10n")
 --- COMPATIBILITY ---
 local WOW_PROJECT_ID = QuestieCompat.WOW_PROJECT_ID
 
-local type = type
+local pcall, type = pcall, type
 local abs, min, floor = math.abs, math.min, math.floor
-local lshift = bit.lshift
 
 
 -- how fast to run operations (lower = slower but less lag)
@@ -255,10 +254,16 @@ readers["spawnlist"] = function(stream)
         local list = {}
         for i = 1, spawnCount do
             local x, y = stream:ReadInt12Pair()
+            local phase = 0
+            if(Questie.IsCata or QuestieCompat.Is434) then
+            	local phase = stream:ReadShort()
+            end	
             if x == 0 and y == 0 then
                 list[i] = {-1, -1}
-            else
+            elseif phase == 0 then
                 list[i] = {x / 40.90, y / 40.90}
+            else
+                list[i] = {x / 40.90, y / 40.90, phase}
             end
         end
         spawnlist[zone] = list
@@ -287,7 +292,11 @@ readers["objective"] = function(stream)
 
     local ret = {}
     for i = 1, count do
-        ret[i] = {stream:ReadInt24(), stream:ReadTinyStringNil()}
+	    if(Questie.IsCata or QuestieCompat.Is434) then
+	    	ret[i] = {stream:ReadInt24(), stream:ReadTinyStringNil(), stream:ReadByte()}
+	    else
+        	ret[i] = {stream:ReadInt24(), stream:ReadTinyStringNil()}
+        end
     end
     return ret
 end
@@ -556,6 +565,9 @@ QuestieDBCompiler.writers = {
                     else
                         stream:WriteInt12Pair(floor(spawn[1] * 40.90), floor(spawn[2] * 40.90))
                     end
+                    if(Questie.IsCata or QuestieCompat.Is434) then
+                    	stream:WriteShort(spawn[3] or 0) -- spawn phase
+                    end	
                 end
             end
         else
@@ -591,6 +603,9 @@ QuestieDBCompiler.writers = {
             for _, pair in pairs(value) do
                 stream:WriteInt24(pair[1])
                 stream:WriteTinyString(pair[2] or "")
+                if(Questie.IsCata or QuestieCompat.Is434) then
+                    stream:WriteByte(pair[3] or 0)
+                end	
             end
         else
             stream:WriteByte(0)
@@ -734,9 +749,13 @@ skippers["spawnlist"] = function(stream)
     local count = stream:ReadByte()
     for _ = 1, count do
         stream._pointer = stream._pointer + 2
-        -- Skip over the 3 bytes of each spawn
-        -- 3 bytes for the spawn-pair of 12-bit integers
-        stream._pointer = stream:ReadShort() * 3 + stream._pointer
+        -- Skip over the 3 or 5 bytes (cata) of each spawn
+        -- 3 bytes for the spawn-pair of 12-bit integers and 2 byte for the phase (cata)
+        local skipBytes = 3;
+        if(Questie.IsCata or QuestieCompat.Is434) then
+        	skipBytes = 5
+        end	
+        stream._pointer = stream:ReadShort() * skipBytes + stream._pointer
     end
 end
 local spawnlistSkipper = skippers["spawnlist"]
@@ -755,6 +774,9 @@ skippers["objective"] = function(stream)
     for _=1,count do
         stream._pointer = stream._pointer + 3
         stream._pointer = stream:ReadByte() + stream._pointer
+        if(Questie.IsCata or QuestieCompat.Is434) then
+        	stream._pointer = stream._pointer + 1
+        end	
     end
 end
 skippers["spellobjective"] = function(stream)
@@ -942,7 +964,6 @@ function QuestieDBCompiler:CompileTableCoroutine(tbl, types, order, lookup, data
     local stream = Questie.db.profile.debugEnabled and QuestieStream:GetStream("raw_assert") or QuestieStream:GetStream("raw")
 
     -- Localize functions
-    local pcall, type = pcall, type
     local writers = QuestieDBCompiler.writers
     local supportedTypes = QuestieDBCompiler.supportedTypes
 
@@ -973,17 +994,16 @@ function QuestieDBCompiler:CompileTableCoroutine(tbl, types, order, lookup, data
                 local t = types[key]
 
                 if v and not supportedTypes[type(v)][t] then
-                    Questie:Error("|cFFFF0000Invalid datatype!|r   " .. kind .. "s[" .. tostring(id) .. "]."..key..": \"" .. type(v) .. "\" is not compatible with type \"" .. t .."\"")
+                    error("|cFFFF0000Invalid datatype!|r   " .. kind .. "s[" .. tostring(id) .. "]."..key..": \"" .. type(v) .. "\" is not compatible with type \"" .. t .."\"")
                     return
                 end
                 if not writers[t] then
-                    Questie:Error("Invalid datatype: " .. key .. " " .. tostring(t))
+                    error("Invalid datatype: " .. key .. " " .. tostring(t))
                 end
                 --print(key .. "s[" .. tostring(id) .. "]."..key..": \"" .. type(v) .. "\"")
                 local result, errorMessage = pcall(writers[t], stream, v)
                 if not result then
-                    Questie:Error("There was an error when compiling data for "..kind.." " .. tostring(id) .. " \""..tostring(key).."\":")
-                    Questie:Error(errorMessage)
+                    error("There was an error when compiling data for "..kind.." " .. tostring(id) .. " \""..tostring(key).."\":")
                     error(errorMessage)
                 end
             end
@@ -1155,7 +1175,7 @@ function QuestieDBCompiler:ValidateObjects()
 
     validator.stream:finished()
     Questie:Debug(Questie.DEBUG_INFO, "Finished objects validation without issues!")
-    end
+end
 
 
 function QuestieDBCompiler:ValidateItems()

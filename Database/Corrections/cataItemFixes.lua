@@ -9,8 +9,14 @@ function CataItemFixes.Load()
     local itemClasses = QuestieDB.itemClasses
 
     return {
+        [2859] = { -- Vile Fin Scale
+            [itemKeys.npcDrops] = {1541,1543,1544,1545},
+        },
+        [3082] = { -- Dargol's Skull
+            [itemKeys.startQuest] = 25030,
+        },
         [5169] = { -- Timberling Sprout
-            [itemKeys.objectDrops] = {4608}
+            [itemKeys.objectDrops] = {4608},
         },
         [5508] = { -- Fallen Moonstone
             [itemKeys.npcDrops] = {3758,3759,3762,3763},
@@ -22,6 +28,9 @@ function CataItemFixes.Load()
         [5533] = { -- Ilkrud Magthrull's Tome
             [itemKeys.npcDrops] = {},
         },
+        [10441] = { -- Glowing Shard
+            [itemKeys.startQuest] = 0,
+        },
         [10458] = { -- Prayer to Elune
             [itemKeys.npcDrops] = {}
         },
@@ -31,7 +40,16 @@ function CataItemFixes.Load()
         [18598] = { -- Human Orphan Whistle
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [18960] = { -- Lookout's Spyglass
+            [itemKeys.npcDrops] = {5840},
+        },
+        [20743] = { -- Unstable Mana Crystal
+            [itemKeys.npcDrops] = {},
+        },
         [21145] = { -- Essence of Xandivious
+            [itemKeys.npcDrops] = {},
+        },
+        [22674] = { -- Wavefront Medallion
             [itemKeys.npcDrops] = {},
         },
         [22978] = { -- Emitter Spare Part
@@ -45,6 +63,9 @@ function CataItemFixes.Load()
         },
         [31881] = { -- Draenei Orphan Whistle
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [33009] = { -- Tender Strider Meat
+            [itemKeys.npcDrops] = {2956,2957},
         },
         [39684] = { -- Hair Trigger
             [itemKeys.npcDrops] = {},
@@ -118,6 +139,9 @@ function CataItemFixes.Load()
         [46858] = { -- Personal Riches
             [itemKeys.objectDrops] = {195525},
         },
+        [46896] = { -- Salvaged Supplies
+            [itemKeys.npcDrops] = {},
+        },
         [47044] = { -- Shiny Bling
             [itemKeys.vendors] = {35120},
         },
@@ -133,11 +157,20 @@ function CataItemFixes.Load()
         [47050] = { -- The Captain's Logs
             [itemKeys.objectDrops] = {195361},
         },
+        [48106] = { -- Melonfruit
+            [itemKeys.npcDrops] = {},
+        },
+        [48128] = { -- Mountainfoot Iron
+            [itemKeys.npcDrops] = {},
+        },
         [48707] = { -- Gilnean Mastiff Collar
             [itemKeys.class] = itemClasses.QUEST,
         },
         [48766] = { -- Kaja\'mite Chunk
             [itemKeys.npcDrops] = {},
+        },
+        [49172] = { -- Simmering Water Droplet
+            [itemKeys.npcDrops] = {36131},
         },
         [49281] = { -- Chance the Cat
             [itemKeys.npcDrops] = {36459,36461},
@@ -150,6 +183,9 @@ function CataItemFixes.Load()
         },
         [49599] = { -- Military Supplies
             [itemKeys.npcDrops] = {36756,36987},
+        },
+        [49642] = { -- Heart of Arkkoroc
+            [itemKeys.npcDrops] = {},
         },
         [49743] = { -- Sten's First Aid Kit
             [itemKeys.class] = itemClasses.QUEST,
@@ -183,6 +219,7 @@ function CataItemFixes.Load()
         },
         [49881] = { -- Slaver's Key
             [itemKeys.class] = itemClasses.QUEST,
+            [itemKeys.npcDrops] = {37701},
         },
         [49921] = { -- Unearthed Memento
             [itemKeys.npcDrops] = {},
@@ -201,12 +238,6 @@ function CataItemFixes.Load()
         },
         [50237] = { -- Un'Goro Coconut
             [itemKeys.class] = itemClasses.QUEST,
-        },
-        [50239] = { -- Spiny Raptor Egg
-            [itemKeys.objectDrops] = {201972,201974},
-        },
-        [50261] = { -- The Biggest Egg Ever
-            [itemKeys.npcDrops] = {38224},
         },
         [50334] = { -- Rapier of the Gilnean Patriots
             [itemKeys.class] = itemClasses.QUEST,
@@ -232,6 +263,9 @@ function CataItemFixes.Load()
         [52024] = { -- Rockin' Powder
             [itemKeys.npcDrops] = {},
         },
+        [52068] = { -- Briny Sea Cucumber
+            [itemKeys.npcDrops] = {38933},
+        },
         [52481] = { -- Blastshadow's Soulstone
             [itemKeys.npcDrops] = {},
         },
@@ -252,6 +286,9 @@ function CataItemFixes.Load()
         },
         [52568] = { -- Twilight Supplies
             [itemKeys.npcDrops] = {},
+        },
+        [52580] = { -- Fizzle's Orb
+            [itemKeys.npcDrops] = {3203},
         },
         [52716] = { -- Twilight Firelance
             [itemKeys.objectDrops] = {202967},
@@ -431,6 +468,12 @@ function CataItemFixes.Load()
         [59146] = { -- Head of Fleet Master Seahorn
             [itemKeys.npcDrops] = {2487},
         },
+        [59147] = { -- Cow Head
+            [itemKeys.npcDrops] = {43505},
+        },
+        [59148] = { -- Oversized Pirate Hat
+            [itemKeys.npcDrops] = {2663},
+        },
         [59261] = { -- Blackrock Holding Pen Key
             [itemKeys.class] = itemClasses.QUEST,
         },
@@ -464,6 +507,15 @@ function CataItemFixes.Load()
         [60879] = { -- Commander's Holy Symbol
             [itemKeys.npcDrops] = {4278},
         },
+        [61292] = { -- Plague Puffer
+            [itemKeys.npcDrops] = {45650},
+        },
+        [61293] = { -- Infectis Incher
+            [itemKeys.npcDrops] = {45655},
+        },
+        [61294] = { -- Infectis Scuttler
+            [itemKeys.npcDrops] = {45657},
+        },
         [61317] = { -- Vermillion Egg
             [itemKeys.npcDrops] = {45506,45508,45651,45682},
         },
@@ -479,11 +531,17 @@ function CataItemFixes.Load()
         [62542] = { -- Mech Control Scrambler
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [62607] = { -- Titan Activation Device
+            [itemKeys.objectDrops] = {},
+        },
         [62608] = { -- Uldum Chest Key Code
             [itemKeys.class] = itemClasses.QUEST,
         },
         [62777] = { -- The Desert Fox
             [itemKeys.npcDrops] = {47201},
+        },
+        [62789] = { -- Trooper Uniform
+            [itemKeys.npcDrops] = {47207},
         },
         [62792] = { -- Well-preserved Idol
             [itemKeys.npcDrops] = {},
@@ -505,6 +563,15 @@ function CataItemFixes.Load()
         },
         [63027] = { -- Brazier Torch
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [63034] = { -- Dusty Prison Journal
+            [itemKeys.npcDrops] = {},
+        },
+        [63149] = { -- Cursed Shackles
+            [itemKeys.npcDrops] = {},
+        },
+        [63315] = { -- Cellblock Rations
+            [itemKeys.npcDrops] = {47550},
         },
         [63333] = { -- Obsidian Piston
             [itemKeys.npcDrops] = {7039},
@@ -538,6 +605,9 @@ function CataItemFixes.Load()
         },
         [65734] = { -- Twilight Documents
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [68638] = { -- Frostsaber Cub
+            [itemKeys.npcDrops] = {51681},
         },
         [68890] = { -- Dragon Kite 2-Pack
             [itemKeys.class] = itemClasses.QUEST,
@@ -609,4 +679,27 @@ function CataItemFixes.Load()
             [itemKeys.class] = itemClasses.QUEST,
         },
     }
+end
+
+-- This should allow manual fix for item availability
+function CataItemFixes:LoadFactionFixes()
+    local itemKeys = QuestieDB.itemKeys
+
+    local itemFixesHorde = {
+        [71034] = { -- Windswept Balloon
+            [itemKeys.objectDrops] = {209058},
+        },
+    }
+
+    local itemFixesAlliance = {
+        [71034] = { -- Windswept Balloon
+            [itemKeys.objectDrops] = {209242},
+        },
+    }
+
+    if UnitFactionGroup("Player") == "Horde" then
+        return itemFixesHorde
+    else
+        return itemFixesAlliance
+    end
 end

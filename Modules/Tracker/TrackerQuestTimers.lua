@@ -10,6 +10,9 @@ local WatchFrame = QuestTimerFrame or WatchFrame
 local blizzardTimerLocation = {}
 local timer
 
+--- COMPATIBILITY ---
+local GetQuestLogIndexByID = QuestieCompat.GetQuestLogIndexByID
+
 -- Save the default location of the Blizzard QuestTimerFrame
 if not (Questie.IsWotlk or QuestieCompat.Is335) and (not Questie.IsCata) then
     blizzardTimerLocation = { QuestTimerFrame:GetPoint() }
@@ -75,7 +78,7 @@ end
 ---@param frame frame
 ---@param clear boolean
 ---@return string|nil timeRemainingString, number|nil timeRemaining
-function TrackerQuestTimers:GetRemainingTime(quest, frame, clear)
+function TrackerQuestTimers:UpdateAndGetRemainingTime(quest, frame, clear)
     local timeRemainingString, timeRemaining = TrackerQuestTimers:GetRemainingTimeByQuestId(quest.Id)
 
     if (timeRemainingString == nil) then

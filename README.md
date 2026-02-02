@@ -1,8 +1,8 @@
 # Questie-335
 A fork of the WoW Classic Questie addon aiming to provide compatibility with Wrath of the Lich King client version 3.3.5a (12340).
 # Installation
-- [Download](https://github.com/widxwer/Questie/archive/refs/heads/335.zip) the archive.
-- Extract it into `Interface/AddOns/` directory, folder name should be `Questie-335`.
+- [Download](https://github.com/Javilico92/Questie-335/releases) the archive.
+- Extract it into `Interface/AddOns/` directory, folder name should be `Questie-335` so you may need to remove version part `v10.0.1`.
 - If you are playing on a custom server that emulates a previous expansion using the 3.3.5 client, you could add `-Classic` or `-TBC` to the addon folder name to load only the required files for the chosen expansion. In case your server doesn't provide a patch for a world map, you need to enable the in-game setting: `Options/Advanced/Use WotLK map data`.
 
 # Questie
@@ -11,7 +11,7 @@ A fork of the WoW Classic Questie addon aiming to provide compatibility with Wra
 [![Stars](https://img.shields.io/github/stars/Questie/Questie)](https://img.shields.io/github/stars/Questie/Questie)
 
 [![Downloads](https://img.shields.io/github/downloads/Questie/Questie/total.svg)](https://github.com/Questie/Questie/releases/)
-[![Downloads Latest](https://img.shields.io/github/downloads/Questie/Questie/v10.0.4/total.svg)](https://github.com/Questie/Questie/releases/latest)
+[![Downloads Latest](https://img.shields.io/github/downloads/Questie/Questie/v10.3.0/total.svg)](https://github.com/Questie/Questie/releases/latest)
 [![Date Latest](https://img.shields.io/github/release-date/Questie/Questie.svg)](https://github.com/Questie/Questie/releases/latest)
 [![Commits Since Latest](https://img.shields.io/github/commits-since/Questie/Questie/latest.svg)](https://github.com/Questie/Questie/commits/master)
 
@@ -118,4 +118,3 @@ If you'd like to support the development of Questie by donating, you can do so v
 - Extensive configuration options. (left-click on minimap button to open)
 
 ![config](https://user-images.githubusercontent.com/8838573/67285731-61a7a200-f4d8-11e9-9026-b1eeaad0d721.png)
-

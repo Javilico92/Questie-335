@@ -311,7 +311,10 @@ function QuestieEvent:IsEventQuest(questId)
     return _QuestieEvent.eventNamesForQuests[questId] ~= nil
 end
 
+--local isChinaRegion = GetCurrentRegion() == 5 -- not needed in 3.3.5a and GetCurrentRegion() only supports 6.0.0 or later
+
 -- EUROPEAN FORMAT! NO FUCKING AMERICAN SHIDAZZLE FORMAT!
+-- NOTE: As TrinityCore 3.3.5a tells, if not, change at your own!!!
 QuestieEvent.eventDates = {
     ["Lunar Festival"] = { -- WARNING THIS DATE VARIES!!!!
         startDate = "22/1",

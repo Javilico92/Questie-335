@@ -328,7 +328,7 @@ local function _GetWowheadLinkForLanguage()
     elseif langShort == "zh/" then
         langShort = "cn/"
     end
-	print("_GetWowheadLinkForLanguage locale", langShort)
+
     local xpac
     if Questie.IsCata or QuestieCompat.Is434 then
         xpac = "cata/"
@@ -339,8 +339,7 @@ local function _GetWowheadLinkForLanguage()
     else
         xpac = "classic/" -- era/sod/hardcore are all on this URL
     end
-	print("_GetWowheadLinkForLanguage xpac")
-	print(xpac)
+
     return "https://www.wowhead.com/".. xpac .. langShort
 end
 
@@ -365,7 +364,7 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_URL"] = {
         self.text:SetText(self.text:GetText() .. Questie:Colorize("\n\n" .. name, "gold"))
 
         local wowheadLink = _GetWowheadLinkForLanguage() .. "quest=" .. questID -- all expansions follow this system as of 2024 start of Cata
-		print("_GetWowheadLinkForLanguage -> quest ", questID, ", returns => ", wowheadLink) 
+
         self.editBox:SetText(wowheadLink)
         self.editBox:SetFocus()
         self.editBox:HighlightText()

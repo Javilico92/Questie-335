@@ -166,7 +166,7 @@ function CataItemFixes.Load()
         [48707] = { -- Gilnean Mastiff Collar
             [itemKeys.class] = itemClasses.QUEST,
         },
-        [48766] = { -- Kaja\'mite Chunk
+        [48766] = { -- Kaja'mite Chunk
             [itemKeys.npcDrops] = {},
         },
         [49172] = { -- Simmering Water Droplet
@@ -351,6 +351,9 @@ function CataItemFixes.Load()
         [55122] = { -- Tholo's Horn
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [55136] = { -- Tome of Openings
+            [itemKeys.npcDrops] = {40844},
+        },
         [55137] = { -- Ogre Disguise
             [itemKeys.class] = itemClasses.QUEST,
         },
@@ -432,6 +435,9 @@ function CataItemFixes.Load()
         [58365] = { -- Horn of the Ancients
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [58500] = { -- Jade Crystal Cluster
+            [itemKeys.npcDrops] = {},
+        },
         [58809] = { -- Rock Lobster
             [itemKeys.npcDrops] = {},
         },
@@ -444,6 +450,9 @@ function CataItemFixes.Load()
         [58899] = { -- Violet Perch
             [itemKeys.npcDrops] = {},
         },
+        [58944] = { -- Catapult Part
+            [itemKeys.npcDrops] = {}
+        },
         [58945] = { -- Toxic Puddlefish
             [itemKeys.npcDrops] = {}
         },
@@ -455,6 +464,9 @@ function CataItemFixes.Load()
         },
         [58958] = { -- Drowned Thunder Lizard Tail
             [itemKeys.npcDrops] = {39464},
+        },
+        [58959] = { -- Petrified Stone Bat
+            [itemKeys.npcDrops] = {43181,43182},
         },
         [58969] = { -- Jorgensen's Cage Key
             [itemKeys.class] = itemClasses.QUEST,
@@ -483,11 +495,17 @@ function CataItemFixes.Load()
         [59522] = { -- Key of Ilgalar
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [60297] = { -- Side of Basilisk Meat
+            [itemKeys.npcDrops] = {43981},
+        },
         [60337] = { -- Verrall River Muck
             [itemKeys.npcDrops] = {},
         },
         [60382] = { -- Mylra's Knife
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [60574] = { -- The Upper World Pillar Fragment
+            [itemKeys.npcDrops] = {},
         },
         [60680] = { -- S.A.F.E. "Parachute"
             [itemKeys.class] = itemClasses.QUEST,
@@ -686,12 +704,18 @@ function CataItemFixes:LoadFactionFixes()
     local itemKeys = QuestieDB.itemKeys
 
     local itemFixesHorde = {
+        [56188] = { -- Rescue Flare
+            [itemKeys.objectDrops] = {203410},
+        },
         [71034] = { -- Windswept Balloon
             [itemKeys.objectDrops] = {209058},
         },
     }
 
     local itemFixesAlliance = {
+        [56188] = { -- Rescue Flare
+            [itemKeys.objectDrops] = {203403},
+        },
         [71034] = { -- Windswept Balloon
             [itemKeys.objectDrops] = {209242},
         },

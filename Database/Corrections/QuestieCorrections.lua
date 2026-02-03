@@ -198,6 +198,7 @@ do
             addOverride(QuestieDB.questDataOverrides, CataQuestFixes:LoadFactionFixes())
             addOverride(QuestieDB.npcDataOverrides, CataNpcFixes:LoadFactionFixes())
             addOverride(QuestieDB.itemDataOverrides, CataItemFixes:LoadFactionFixes())
+            addOverride(QuestieDB.objectDataOverrides, CataObjectFixes:LoadFactionFixes())
         end
 
         -- Season of Discovery Corrections

@@ -628,7 +628,7 @@ _IsAnnounceDisabled = function()
 end
 
 _GetQuestSoundChoices = function()
-    return {
+    local choices = {
         ["QuestDefault"]     = "Default",
         ["GameDefault"]      = "Game Default",
         ["Troll Male"]       = "Troll Male",
@@ -639,23 +639,33 @@ _GetQuestSoundChoices = function()
         ["Undead Female"]    = "Undead Female",
         ["Orc Male"]         = "Orc Male",
         ["Orc Female"]       = "Orc Female",
-        ["Night Elf Female"] = "Night Elf Female",
         ["Night Elf Male"]   = "Night Elf Male",
-        ["Human Female"]     = "Human Female",
+        ["Night Elf Female"] = "Night Elf Female",
         ["Human Male"]       = "Human Male",
+        ["Human Female"]     = "Human Female",
         ["Gnome Male"]       = "Gnome Male",
         ["Gnome Female"]     = "Gnome Female",
         ["Dwarf Male"]       = "Dwarf Male",
         ["Dwarf Female"]     = "Dwarf Female",
         ["Draenei Male"]     = "Draenei Male",
         ["Draenei Female"]   = "Draenei Female",
-        ["Blood Elf Female"] = "Blood Elf Female",
         ["Blood Elf Male"]   = "Blood Elf Male",
+        ["Blood Elf Female"] = "Blood Elf Female",
+        ["Zug Zug"]          = "Zug Zug",
     }
+    if Questie.IsCata then
+    	choices["Goblin Male"] = "Goblin Male"
+    	choices["Goblin Female"] = "Goblin Female"
+    	choices["Worgen Male"] = "Worgen Male"
+    	choices["Worgen Female"] = "Worgen Female"
+    	choices["Gilnean Male"] = "Gilnean Male"
+    	choices["Gilnean Female"] = "Gilnean Female"
+	end
+    return choices
 end
 
 _GetQuestSoundChoicesSort = function()
-    return {
+    local sorting = {
         "QuestDefault",
         "GameDefault",
         "Troll Male",
@@ -666,19 +676,30 @@ _GetQuestSoundChoicesSort = function()
         "Undead Female",
         "Orc Male",
         "Orc Female",
-        "Night Elf Female",
         "Night Elf Male",
-        "Human Female",
+        "Night Elf Female",
         "Human Male",
+        "Human Female",
         "Gnome Male",
         "Gnome Female",
         "Dwarf Male",
         "Dwarf Female",
         "Draenei Male",
         "Draenei Female",
-        "Blood Elf Female",
         "Blood Elf Male",
+        "Blood Elf Female",
+        "Zug Zug",
     }
+    
+    if Questie.IsCata then
+    	tinsert(sorting, "Goblin Male")
+    	tinsert(sorting, "Goblin Female")
+    	tinsert(sorting, "Worgen Male")
+    	tinsert(sorting, "Worgen Female")
+    	tinsert(sorting, "Gilnean Male")
+    	tinsert(sorting, "Gilnean Female")
+    end
+    return sorting
 end
 
 _GetObjectiveSoundChoices = function()

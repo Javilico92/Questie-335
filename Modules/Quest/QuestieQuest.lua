@@ -554,7 +554,6 @@ function QuestieQuest:AbandonedQuest(questId)
             if childQuests then
                 for _, childQuestId in pairs(childQuests) do
                     Questie.db.char.complete[childQuestId] = nil
-                    QuestLogCache.RemoveQuest(childQuestId)
                 end
             end
         end

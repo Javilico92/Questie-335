@@ -203,9 +203,9 @@ tinsert(eventQuests, {"Winter Veil", 8828, "25/12", "2/1"}) -- Winter's Presents
 tinsert(eventQuests, {"Winter Veil", 8860, "31/12", "1/1"}) -- New Year Celebrations!
 tinsert(eventQuests, {"Winter Veil", 8861, "31/12", "1/1"}) -- New Year Celebrations!
 
-tinsert(eventQuests, {"Darkmoon Faire", 7902}) -- Vibrant Plumes
-tinsert(eventQuests, {"Darkmoon Faire", 7903}) -- Evil Bat Eyes
-tinsert(eventQuests, {"Darkmoon Faire", 8222}) -- Glowing Scorpid Blood
+tinsert(eventQuests, {"Darkmoon Faire", 7902, nil, nil, QuestieCorrections.SOD_HIDE}) -- Vibrant Plumes
+tinsert(eventQuests, {"Darkmoon Faire", 7903, nil, nil, QuestieCorrections.SOD_HIDE}) -- Evil Bat Eyes
+tinsert(eventQuests, {"Darkmoon Faire", 8222, nil, nil, QuestieCorrections.SOD_HIDE}) -- Glowing Scorpid Blood
 tinsert(eventQuests, {"Darkmoon Faire", 7901, nil, nil, QuestieCorrections.SOD_HIDE}) -- Soft Bushy Tails
 tinsert(eventQuests, {"Darkmoon Faire", 7899, nil, nil, QuestieCorrections.SOD_HIDE}) -- Small Furry Paws
 tinsert(eventQuests, {"Darkmoon Faire", 7940}) -- 1200 Tickets - Orb of the Darkmoon
@@ -215,10 +215,10 @@ tinsert(eventQuests, {"Darkmoon Faire", 7927}) -- Darkmoon Portals Deck
 tinsert(eventQuests, {"Darkmoon Faire", 7929}) -- Darkmoon Elementals Deck
 tinsert(eventQuests, {"Darkmoon Faire", 7928}) -- Darkmoon Warlords Deck
 tinsert(eventQuests, {"Darkmoon Faire", 7946, nil, nil, QuestieCorrections.SOD_HIDE}) -- Spawn of Jubjub
-tinsert(eventQuests, {"Darkmoon Faire", 8223}) -- More Glowing Scorpid Blood
+tinsert(eventQuests, {"Darkmoon Faire", 8223, nil, nil, QuestieCorrections.SOD_HIDE}) -- More Glowing Scorpid Blood
 tinsert(eventQuests, {"Darkmoon Faire", 7934}) -- 50 Tickets - Darkmoon Storage Box
 tinsert(eventQuests, {"Darkmoon Faire", 7981}) -- 1200 Tickets - Amulet of the Darkmoon
-tinsert(eventQuests, {"Darkmoon Faire", 7943}) -- More Bat Eyes
+tinsert(eventQuests, {"Darkmoon Faire", 7943, nil, nil, QuestieCorrections.SOD_HIDE}) -- More Bat Eyes
 tinsert(eventQuests, {"Darkmoon Faire", 7894, nil, nil, QuestieCorrections.SOD_HIDE}) -- Copper Modulator
 tinsert(eventQuests, {"Darkmoon Faire", 7933}) -- 40 Tickets - Greater Darkmoon Prize
 tinsert(eventQuests, {"Darkmoon Faire", 7898}) -- Thorium Widget
@@ -261,6 +261,12 @@ tinsert(eventQuests, {"Darkmoon Faire", 79595}) -- Carnival Boots
 tinsert(eventQuests, {"Darkmoon Faire", 80421}) -- Green Iron Bracers
 tinsert(eventQuests, {"Darkmoon Faire", 80422}) -- Green Fireworks
 tinsert(eventQuests, {"Darkmoon Faire", 80423}) -- The World's Largest Gnome!
+tinsert(eventQuests, {"Darkmoon Faire", 82323}) -- Vibrant Plumes
+tinsert(eventQuests, {"Darkmoon Faire", 82271}) -- More Glowing Scorpid Blood
+tinsert(eventQuests, {"Darkmoon Faire", 82272}) -- Glowing Scorpid Blood
+tinsert(eventQuests, {"Darkmoon Faire", 82273}) -- More Evil Bat Eyes
+tinsert(eventQuests, {"Darkmoon Faire", 82274}) -- Evil Bat Eyes
+tinsert(eventQuests, {"Darkmoon Faire", 8222}) -- Glowing Scorpid Blood
 tinsert(eventQuests, {"Lunar Festival", 80169}) -- Cluster Launcher
 
 -- New TBC event quests
@@ -453,8 +459,8 @@ tinsert(eventQuests, {"Midsummer", 11581}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11583}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11584}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11657}) -- Torch Catching
-tinsert(eventQuests, {"Midsummer", 11691}) -- Summon Ahune
-tinsert(eventQuests, {"Midsummer", 11696}) -- Ahune is Here!
+tinsert(eventQuests, {"Midsummer", 11691, nil, nil, QuestieCorrections.CATA_HIDE}) -- Summon Ahune
+tinsert(eventQuests, {"Midsummer", 11696, nil, nil, QuestieCorrections.CATA_HIDE}) -- Ahune is Here!
 tinsert(eventQuests, {"Midsummer", 11731}) -- Torch Tossing
 tinsert(eventQuests, {"Midsummer", 11732}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11734}) -- Desecrate this Fire!
@@ -471,7 +477,7 @@ tinsert(eventQuests, {"Midsummer", 11744}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11745}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11746}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11747}) -- Desecrate this Fire!
-tinsert(eventQuests, {"Midsummer", 11748}) -- Desecrate this Fire!
+tinsert(eventQuests, {"Midsummer", 11748, nil, nil, QuestieCorrections.CATA_HIDE}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11749}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11750}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11751}) -- Desecrate this Fire!
@@ -508,7 +514,7 @@ tinsert(eventQuests, {"Midsummer", 11781}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11782}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11783}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11784}) -- Desecrate this Fire!
-tinsert(eventQuests, {"Midsummer", 11785}) -- Desecrate this Fire!
+tinsert(eventQuests, {"Midsummer", 11785, nil, nil, QuestieCorrections.CATA_HIDE}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11786}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11787}) -- Desecrate this Fire!
 tinsert(eventQuests, {"Midsummer", 11799}) -- Desecrate this Fire!
@@ -531,7 +537,7 @@ tinsert(eventQuests, {"Midsummer", 11815}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11816}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11817}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11818}) -- Honor the Flame
-tinsert(eventQuests, {"Midsummer", 11819}) -- Honor the Flame
+tinsert(eventQuests, {"Midsummer", 11819, nil, nil, QuestieCorrections.CATA_HIDE}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11820}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11821}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11822}) -- Honor the Flame
@@ -573,7 +579,7 @@ tinsert(eventQuests, {"Midsummer", 11857}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11858}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11859}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11860}) -- Honor the Flame
-tinsert(eventQuests, {"Midsummer", 11861}) -- Honor the Flame
+tinsert(eventQuests, {"Midsummer", 11861, nil, nil, QuestieCorrections.CATA_HIDE}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11862}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11863}) -- Honor the Flame
 tinsert(eventQuests, {"Midsummer", 11882}) -- Playing with Fire
@@ -594,7 +600,7 @@ tinsert(eventQuests, {"Midsummer", 11948}) -- Striking Back (level 43)
 tinsert(eventQuests, {"Midsummer", 11952}) -- Striking Back (level 51)
 tinsert(eventQuests, {"Midsummer", 11953}) -- Striking Back (level 60)
 tinsert(eventQuests, {"Midsummer", 11954}) -- Striking Back (level 67)
-tinsert(eventQuests, {"Midsummer", 11955}) -- Ahune, the Frost Lord
+tinsert(eventQuests, {"Midsummer", 11955, nil, nil, QuestieCorrections.CATA_HIDE}) -- Ahune, the Frost Lord
 tinsert(eventQuests, {"Midsummer", 11972}) -- Shards of Ahune
 tinsert(eventQuests, {"Midsummer", 11964}) -- Incense for the Summer Scorchlings
 tinsert(eventQuests, {"Midsummer", 11966}) -- Incense for the Festival Scorchlings

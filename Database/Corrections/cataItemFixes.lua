@@ -9,6 +9,9 @@ function CataItemFixes.Load()
     local itemClasses = QuestieDB.itemClasses
 
     return {
+        [2629] = { -- Intrepid Strongbox Key
+            [itemKeys.npcDrops] = {41429},
+        },
         [2859] = { -- Vile Fin Scale
             [itemKeys.npcDrops] = {1541,1543,1544,1545},
         },
@@ -66,6 +69,9 @@ function CataItemFixes.Load()
         },
         [33009] = { -- Tender Strider Meat
             [itemKeys.npcDrops] = {2956,2957},
+        },
+        [38567] = { -- Maraudine Prisoner Manifest
+            [itemKeys.startQuest] = 14330,
         },
         [39684] = { -- Hair Trigger
             [itemKeys.npcDrops] = {},
@@ -384,6 +390,9 @@ function CataItemFixes.Load()
         [55238] = { -- Concentrated Solvent
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [55280] = { -- Deepmoss Venom Sac
+            [itemKeys.npcDrops] = {41185,4005,4006,4007},
+        },
         [55809] = { -- Twilight Armor Plate
             [itemKeys.npcDrops] = {},
         },
@@ -430,10 +439,13 @@ function CataItemFixes.Load()
             [itemKeys.class] = itemClasses.QUEST,
         },
         [58224] = { -- Induction Samophlange
-            [itemKeys.npcDrops] = {42644},
+            [itemKeys.objectDrops] = {204091},
         },
         [58365] = { -- Horn of the Ancients
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [58490] = { -- Opened Mosh'Ogg Bounty
+            [itemKeys.npcDrops] = {43003},
         },
         [58500] = { -- Jade Crystal Cluster
             [itemKeys.npcDrops] = {},
@@ -522,6 +534,9 @@ function CataItemFixes.Load()
         [60835] = { -- Depleted Totem
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [60857] = { -- Recovered Supplies
+            [itemKeys.npcDrops] = {},
+        },
         [60879] = { -- Commander's Holy Symbol
             [itemKeys.npcDrops] = {4278},
         },
@@ -535,13 +550,22 @@ function CataItemFixes.Load()
             [itemKeys.npcDrops] = {45657},
         },
         [61317] = { -- Vermillion Egg
-            [itemKeys.npcDrops] = {45506,45508,45651,45682},
+            [itemKeys.npcDrops] = {45651,45682},
+        },
+        [61376] = { -- Suspended Starlight
+            [itemKeys.npcDrops] = {},
+        },
+        [61929] = { -- Broken Spectacles
+            [itemKeys.npcDrops] = {45874},
+        },
+        [61976] = { -- Orb of the North Star
+            [itemKeys.npcDrops] = {},
         },
         [62324] = { -- Wildhammer Food Store
             [itemKeys.npcDrops] = {},
         },
-        [61376] = { -- Suspended Starlight
-            [itemKeys.npcDrops] = {},
+        [62330] = { -- Keg of Thundermar Ale
+            [itemKeys.objectDrops] = {206195},
         },
         [62534] = { -- Horn of Ramkahen
             [itemKeys.class] = itemClasses.QUEST,
@@ -559,7 +583,7 @@ function CataItemFixes.Load()
             [itemKeys.npcDrops] = {47201},
         },
         [62789] = { -- Trooper Uniform
-            [itemKeys.npcDrops] = {47207},
+            [itemKeys.npcDrops] = {47207,47213,47216,47219},
         },
         [62792] = { -- Well-preserved Idol
             [itemKeys.npcDrops] = {},
@@ -630,6 +654,9 @@ function CataItemFixes.Load()
         [68890] = { -- Dragon Kite 2-Pack
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [68937] = { -- Direhammer's Boots
+            [itemKeys.objectDrops] = {208376},
+        },
         [69027] = { -- Cone of Cold
             [itemKeys.class] = itemClasses.QUEST,
         },
@@ -695,6 +722,9 @@ function CataItemFixes.Load()
         },
         [71716] = { -- Soothsayer's Runes
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [73269] = { -- Great Sea Herring
+            [itemKeys.npcDrops] = {},
         },
     }
 end

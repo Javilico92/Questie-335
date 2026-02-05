@@ -317,6 +317,24 @@ function QuestieOptions.tabs.icons:Initialize()
                                     QuestieQuest:SmoothReset()
                                 end,
                             },
+                            phase3 = {
+                                type = "toggle",
+                                name = l10n("Phase 3"),
+                                get = function() return Questie.db.profile.showRunesOfPhase.phase3; end,
+                                set = function(info, value)
+                                    Questie.db.profile.showRunesOfPhase.phase3 = value
+                                    QuestieQuest:SmoothReset()
+                                end,
+                            },
+                            phase4 = {
+                                type = "toggle",
+                                name = l10n("Phase 4"),
+                                get = function() return Questie.db.profile.showRunesOfPhase.phase4; end,
+                                set = function(info, value)
+                                    Questie.db.profile.showRunesOfPhase.phase4 = value
+                                    QuestieQuest:SmoothReset()
+                                end,
+                            },
                         },
                     },
                     townsfolk_options = {

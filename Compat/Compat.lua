@@ -131,6 +131,9 @@ QuestieCompat.ChrClasses = {
 	DRUID = 11,
 }
 
+-- The current open menu
+L_UIDROPDOWNMENUQUESTIE_OPEN_MENU = nil;
+
 local activeTimers = {}
 local inactiveTimers = {}
 
@@ -1050,10 +1053,35 @@ QuestieCompat.LibUIDropDownMenu = {
 		return CreateFrame("Frame", name, parent, "UIDropDownMenuTemplate")
 	end,
 	EasyMenu = function(self, menuList, menuFrame, anchor, x, y, displayMode, autoHideDelay)
-		EasyMenu(menuList, menuFrame, anchor, x, y, displayMode, autoHideDelay)
+        menuFrame:SetScript("OnAttributeChanged", function(self, attribute, value) -- It wont fire by questie menu, idk why. But map will fire this and OnHide
+            if (attribute == "openmenu") then
+                L_UIDROPDOWNMENUQUESTIE_OPEN_MENU = value;
+            end
+        end);
+         menuFrame:SetScript("OnHide", function(self)
+            local id = self:GetID()
+            if (self.onHide) then
+            self.onHide(id + 1);
+            self.onHide = nil;
+        end
+        if (self.baseFrameStrata) then
+            self:SetFrameStrata(self.baseFrameStrata);
+            self.baseFrameStrata = nil;
+        end
+        CloseDropDownMenus(id + 1); -- Close childs
+        if (id == 1) then
+            L_UIDROPDOWNMENUQUESTIE_OPEN_MENU = nil;
+        end
+
+    end)
+		EasyMenu(menuList, menuFrame, anchor, x, y, displayMode, autoHideDelay) -- This still exist en 3.3.5, removed in 11.0
 	end,
 	CloseDropDownMenus = function(self, level)
         CloseDropDownMenus(level)
+    end,
+    getOpen = function()
+        return L_UIDROPDOWNMENUQUESTIE_OPEN_MENU ~= nil
+        --return false -- Need workaround, check when menu opens and return true and or false if its closed
     end,
 }
 

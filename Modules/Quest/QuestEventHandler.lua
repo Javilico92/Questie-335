@@ -180,20 +180,10 @@ function QuestEventHandler:RegisterEvents()
 			end)
         end
     end)
-
-    _QuestEventHandler:InitQuestLog()
 end
 
 --- On Login mark all quests in the quest log with QUEST_ACCEPTED state
-function _QuestEventHandler:InitQuestLog()
-    -- Fill the QuestLogCache for first time
-    local cacheMiss, changes = QuestLogCache.CheckForChanges(nil)
-    -- if cacheMiss then
-        -- TODO actually can happen in rare edge case if player accepts new quest during questie init. *cough*
-        -- or if someone managed to overflow game cache already at this point.
-        --Questie:Error("Did you accept a quest during InitQuestLog? Please report on Github or Discord. Game's quest log cache is not ok. This shouldn't happen. Questie may malfunction.")
-    -- end
-
+function QuestEventHandler.InitQuestLogStates(changes)
     for questId, _ in pairs(changes) do
         questLog[questId] = {
             state = QUEST_LOG_STATES.QUEST_ACCEPTED
@@ -206,6 +196,7 @@ end
 ---@param questLogIndex number
 ---@param questId number
 function _QuestEventHandler:QuestAccepted(questLogIndex, questId)
+    print("Quest Aceptada, ", questLogIndex, " y questid ", questId)
     questId = questId or select(8, GetQuestLogTitle(questLogIndex))
     Questie:Debug(Questie.DEBUG_DEVELOP, "[Quest Event] QUEST_ACCEPTED", questLogIndex, questId)
 

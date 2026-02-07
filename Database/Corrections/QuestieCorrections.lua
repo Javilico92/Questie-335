@@ -68,9 +68,6 @@ local IsleOfQuelDanas = QuestieLoader:ImportModule("IsleOfQuelDanas")
 --- Automatic corrections
 local QuestieItemStartFixes = QuestieLoader:ImportModule("QuestieItemStartFixes")
 
---- COMPATIBILITY ---
-local C_Timer = QuestieCompat.C_Timer
-
 --[[
     This file load the corrections of the database files.
 
@@ -189,8 +186,6 @@ do
             end
         end
 
-        if QuestieCompat.Is335 then QuestieCompat.LoadBlacklists() end
-
         if Questie.db.profile.showEventQuests then
             C_Timer.After(1, function()
                  -- This is done with a delay because on startup the Blizzard API seems to be
@@ -279,10 +274,7 @@ function QuestieCorrections:Initialize(validationTables)
         _LoadCorrections("objectData", SeasonOfDiscovery:LoadObjects(), QuestieDB.objectKeysReversed, validationTables)
     end
 
-    --- Corrections that apply to all versions
     _LoadCorrections("itemData", QuestieItemStartFixes:LoadAutomaticQuestStarts(), QuestieDB.itemKeysReversed, validationTables, true, true)
-
-    if QuestieCompat.Is335 then QuestieCompat.LoadCorrections(_LoadCorrections, validationTables) end
 
     local patchCount = 0
     for _, quest in pairs(QuestieDB.questData) do

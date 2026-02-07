@@ -1429,7 +1429,7 @@ function QuestieCompat.QuestEventHandler_RegisterEvents()
     QuestieCompat.frame:RegisterEvent("CHAT_MSG_SYSTEM")
 
     -- https://wowpedia.fandom.com/wiki/PLAYER_INTERACTION_MANAGER_FRAME_HIDE
-    QuestieQuestEventFrame:UnregisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_HIDE")
+    Questie:UnregisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_HIDE")
     for _, event in pairs({
         "TRADE_CLOSED",
         "MERCHANT_CLOSED",
@@ -1444,7 +1444,7 @@ function QuestieCompat.QuestEventHandler_RegisterEvents()
     end
 
     -- https://wowpedia.fandom.com/wiki/QUEST_TURNED_IN
-    QuestieQuestEventFrame:UnregisterEvent("QUEST_TURNED_IN")
+    Questie:UnregisterEvent("QUEST_TURNED_IN")
     hooksecurefunc("GetQuestReward", function(itemChoice)
         local questTitle = GetTitleText()
         local questId = QuestieCompat.GetQuestIDFromName(questTitle)
@@ -1458,7 +1458,7 @@ function QuestieCompat.QuestEventHandler_RegisterEvents()
     end)
 
     --https://wowpedia.fandom.com/wiki/QUEST_REMOVED
-    QuestieQuestEventFrame:UnregisterEvent("QUEST_REMOVED")
+    Questie:UnregisterEvent("QUEST_REMOVED")
     hooksecurefunc("AbandonQuest", function()
         local questId = QuestieCompat.abandonQuestID or select(9, GetQuestLogTitle(GetQuestLogSelection()))
         _QuestEventHandler:QuestRemoved(QuestieCompat.abandonQuestID)

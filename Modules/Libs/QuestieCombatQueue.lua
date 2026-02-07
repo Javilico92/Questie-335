@@ -42,3 +42,5 @@ function QuestieCombatQueue:Queue(func, ...)
         tinsert(_Queue, {func=func, args=tpack(...)})
     end
 end
+
+return QuestieCombatQueue

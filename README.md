@@ -1,5 +1,5 @@
 # Questie-335
-A fork of the WoW Classic Questie addon aiming to provide compatibility with Wrath of the Lich King client version 3.3.5a (12340).
+A fork of the WoW Classic [Questie](https://github.com/Questie/Questie) addon aiming to provide compatibility with Wrath of the Lich King client version 3.3.5a (12340).
 # Installation
 - [Download](https://github.com/Javilico92/Questie-335/releases) the archive.
 - Extract it into `Interface/AddOns/` directory, folder name should be `Questie-335` so you may need to remove version part `v10.0.1`.
@@ -8,12 +8,12 @@ A fork of the WoW Classic Questie addon aiming to provide compatibility with Wra
 # Questie
 
 [![Discord](https://img.shields.io/badge/discord-Questie-738bd7)](https://discord.gg/s33MAYKeZd)
-[![Stars](https://img.shields.io/github/stars/Questie/Questie)](https://img.shields.io/github/stars/Questie/Questie)
+[![Stars](https://img.shields.io/github/stars/Javilico92/Questie-335)](https://img.shields.io/github/stars/Javilico92/Questie-335)
 
-[![Downloads](https://img.shields.io/github/downloads/Questie/Questie/total.svg)](https://github.com/Questie/Questie/releases/)
-[![Downloads Latest](https://img.shields.io/github/downloads/Questie/Questie/v10.3.9/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
-[![Date Latest](https://img.shields.io/github/release-date/Questie/Questie.svg)](https://github.com/Questie/Questie/releases/latest)
-[![Commits Since Latest](https://img.shields.io/github/commits-since/Questie/Questie/latest.svg)](https://github.com/Questie/Questie/commits/master)
+[![Downloads](https://img.shields.io/github/downloads/Javilico92/Questie-335/total.svg)](https://github.com/Javilico92/Questie-335/releases/)
+[![Downloads Latest](https://img.shields.io/github/downloads/Questie/Questie/v10.3.11/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
+[![Date Latest](https://img.shields.io/github/release-date/Javilico92/Questie-335.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
+[![Commits Since Latest](https://img.shields.io/github/commits-since/Javilico92/Questie-335/latest.svg)](https://github.com/Javilico92/Questie-335/commits/master)
 
 
 ## Download

@@ -10,8 +10,6 @@ local QuestieLib = QuestieLoader:ImportModule("QuestieLib");
 --local WorldMapFrame = QuestieCompat.WorldMapFrame --(it make overlay not showing)
 local HBD = QuestieCompat.HBD or LibStub("HereBeDragonsQuestie-2.0")
 
-local ZOOM_MODIFIER = 1;
-
 -- All the speed we can get is worth it.
 local tinsert = table.insert
 local pairs = pairs
@@ -28,7 +26,7 @@ function QuestieMap.utils:SetDrawOrder(frame)
     else
         local frameLevel = WorldMapFrame:GetFrameLevel() + 7
         local frameStrata = WorldMapFrame:GetFrameStrata()
-        frame:SetParent(WorldMapFrame)
+        frame:SetParent(QuestieCompat.WorldMapFrame:GetCanvas() or WorldMapFrame)
         frame:SetFrameStrata(frameStrata)
         frame:SetFrameLevel(frameLevel)
     end
@@ -198,7 +196,7 @@ function QuestieMap.utils:RescaleIcon(frameRef, mapScale)
             end
 
             if scale > 1 then
-                frame:SetSize(scale * ZOOM_MODIFIER, scale * ZOOM_MODIFIER);
+                frame:SetSize(scale, scale);
             end
         else
             Questie:Error("A frame is lacking the GetIconScale function for resizing!", frame.data.Id);

@@ -889,7 +889,7 @@ end
 
 -- handle tooltip based on the parent frame
 function QuestieCompat.SetupTooltip(frame, OnHide)
-    if (frame:GetParent() == WorldMapFrame) then
+    if (frame:GetParent() == WorldMapFrame or frame:GetParent() == WorldMapButton) then
         WorldMapPOIFrame.allowBlobTooltip = OnHide and true or false
         QuestieCompat.Tooltip = WorldMapTooltip
     else
@@ -1074,7 +1074,7 @@ QuestieCompat.LibUIDropDownMenu = {
         end
 
     end)
-		EasyMenu(menuList, menuFrame, anchor, x, y, displayMode, autoHideDelay) -- This still exist en 3.3.5, removed in 11.0
+		EasyMenu(menuList, menuFrame, anchor, x, y, displayMode, autoHideDelay) -- This still exist in 3.3.5, removed in 11.0
 	end,
 	CloseDropDownMenus = function(self, level)
         CloseDropDownMenus(level)
@@ -1087,9 +1087,9 @@ QuestieCompat.LibUIDropDownMenu = {
 
 QuestieCompat.KButtons = {
     Add = function(self, templateName, templateType)
-        local button = CreateFrame("Button", "Questie_WorldMapButton", WorldMapFrame)
+        local button = CreateFrame("Button", "Questie_WorldMapButton", WorldMapFrame.ScrollContainer or WorldMapFrame)
         button:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
-        button:SetPoint("TOPRIGHT", WorldMapButton, "TOPRIGHT", -4, -2);
+        button:SetPoint("TOPRIGHT", WorldMapScrollFrame or QuestieCompat.WorldMapFrame:GetCanvas() or WorldMapFrame, "TOPRIGHT", -4, -2);
         button:SetFrameLevel(99)
         button:SetSize(32, 32)
         button:RegisterForClicks("anyUp")

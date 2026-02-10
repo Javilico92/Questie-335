@@ -199,6 +199,12 @@ function QuestieMap.GetScaleValue()
             scaling = 0.9
         end
     end
+
+    -- Maintain icon scale when zooming (from Questie-Epoch)
+    if WorldMapDetailFrame then
+        scaling = scaling / WorldMapDetailFrame:GetScale()
+    end
+    
     return scaling
 end
 

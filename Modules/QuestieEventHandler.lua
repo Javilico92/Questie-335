@@ -279,6 +279,11 @@ function _EventHandler:PlayerLogin()
         return
     end
 
+    -- Maintain icon scale when map zoom changes (from Questie-Epoch)
+    if WorldMapDetailFrame then
+        hooksecurefunc(WorldMapDetailFrame, "SetScale", QuestieMap.RescaleIcons)
+    end
+
     do
         -- All this information was researched here: https://www.townlong-yak.com/framexml/live/GlobalStrings.lua
 

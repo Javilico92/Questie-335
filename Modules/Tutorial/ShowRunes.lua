@@ -4,8 +4,6 @@ local Tutorial = QuestieLoader:ImportModule("Tutorial")
 local l10n = QuestieLoader:ImportModule("l10n")
 ---@type AvailableQuests
 local AvailableQuests = QuestieLoader:ImportModule("AvailableQuests")
----@type QuestieLib
-local QuestieLib = QuestieLoader:ImportModule("QuestieLib");
 
 ---@return Frame
 function Tutorial.ShowRunes()

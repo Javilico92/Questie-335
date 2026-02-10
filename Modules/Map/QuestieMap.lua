@@ -64,7 +64,6 @@ local tunpack = unpack;
 
 local drawTimer
 local drawQueueTickRate
-local fadeLogicTimerShown
 local fadeLogicCoroutine
 
 
@@ -567,12 +566,12 @@ end
 --coordinates need to be 0-1 instead of 0-100
 --showFlag isn't required but may want to be Modified
 ---@return IconFrame, IconFrame
-function QuestieMap:DrawWorldIcon(data, areaID, x, y, showFlag)
+function QuestieMap:DrawWorldIcon(data, areaID, x, y, phase, showFlag)
     if type(data) ~= "table" then
         error("Questie" .. ": AddWorldMapIconMap: must have some data")
     end
 
-    if (not QuestieCompat.Is335 and not Phasing.IsSpawnVisible(phase)) then
+    if (not Phasing.IsSpawnVisible(phase)) then
         Questie:Debug(Questie.DEBUG_SPAM, "Skipping invisible phase", phase)
         return nil, nil
     end

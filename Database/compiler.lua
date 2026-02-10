@@ -759,7 +759,7 @@ skippers["spawnlist"] = function(stream)
         -- Skip over the 3 or 5 bytes (cata) of each spawn
         -- 3 bytes for the spawn-pair of 12-bit integers and 2 byte for the phase (cata)
         local skipBytes = 3;
-        if(Questie.IsCata or QuestieCompat.Is434) then
+        if(Questie.IsCata) then
         	skipBytes = 5
         end	
         stream._pointer = stream:ReadShort() * skipBytes + stream._pointer
@@ -781,7 +781,7 @@ skippers["objective"] = function(stream)
     for _=1,count do
         stream._pointer = stream._pointer + 3
         stream._pointer = stream:ReadByte() + stream._pointer
-        if(Questie.IsCata or QuestieCompat.Is434) then
+        if(Questie.IsCata) then
         	stream._pointer = stream._pointer + 1
         end	
     end
@@ -807,7 +807,7 @@ skippers["objectives"] = function(stream)
         for _=1, count do
             stream._pointer = stream:ReadByte() * 3 + 3 + stream._pointer
             stream._pointer = stream:ReadByte() + stream._pointer
-            if(Questie.IsCata or QuestieCompat.Is434) then
+            if(Questie.IsCata) then
             	stream._pointer = stream._pointer + 1
             end
         end

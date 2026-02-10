@@ -495,7 +495,7 @@ function QuestieQuest:CompleteQuest(questId)
         Questie.db.char.complete[questId] = (not QuestieDB.IsRepeatable(questId)) or QuestieDB.IsDailyQuest(questId) or QuestieDB.IsWeeklyQuest(questId);
     end
 
-    if Questie.IsWotlk or QuestieCompat.Is335 or Questie.IsCata then
+    if Questie.IsWotlk or Questie.IsCata then
         if allianceChampionMarkerQuests[questId] then
             Questie.db.char.complete[13700] = true -- Alliance Champion Marker
             Questie.db.char.complete[13686] = nil -- Alliance Tournament Eligibility Marker
@@ -1033,7 +1033,7 @@ function QuestieQuest:AddFinisher(quest)
                             local y = coords[2];
 
                             Questie:Debug(Questie.DEBUG_DEVELOP, "[QuestieQuest] Adding world icon as finisher:", finisherZone, x, y)
-                            finisherIcons[finisherZone] = QuestieMap:DrawWorldIcon(data, finisherZone, x, y)
+                            finisherIcons[finisherZone] = QuestieMap:DrawWorldIcon(data, finisherZone, x, y, coords[3])
 
                             if not finisherLocs[finisherZone] then
                                 finisherLocs[finisherZone] = { x, y }
@@ -1239,7 +1239,7 @@ _DetermineIconsToDraw = function(quest, objective, objectiveIndex, objectiveCent
             for zone, spawns in pairs(spawnData.Spawns) do
                 local uiMapId = ZoneDB:GetUiMapIdByAreaId(zone)
                 for _, spawn in pairs(spawns) do
-                    if (spawn[1] and spawn[2]) then
+                    if spawn[1] and spawn[2] and Phasing.IsSpawnVisible(spawn[3]) then
                         local drawIcon = {
                             AlreadySpawnedId = id,
                             data = data,

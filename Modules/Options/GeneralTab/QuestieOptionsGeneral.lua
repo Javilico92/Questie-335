@@ -712,7 +712,7 @@ _GetObjectiveSoundChoices = function()
         ["Bell Toll Alliance"] = "Bell Toll Alliance",
         ["Bell Toll Horde"]    = "Bell Toll Horde",
     }
-    if Questie.IsWotlk or Questie.IsCata or QuestieCompat.Is335 then
+    if Questie.IsWotlk or Questie.IsCata then
         choices["Explosion"] = "Explosion"
         choices["Shing!"] = "Shing!"
         choices["Wham!"] = "Wham!"
@@ -734,7 +734,7 @@ _GetObjectiveSoundChoicesSort = function()
         "Bell Toll Alliance",
         "Bell Toll Horde",
     }
-    if Questie.IsWotlk or Questie.IsCata or QuestieCompat.Is335 then
+    if Questie.IsWotlk or Questie.IsCata then
         tinsert(sorting, "Explosion")
         tinsert(sorting, "Shing!")
         tinsert(sorting, "Wham!")
@@ -757,7 +757,7 @@ _GetObjectiveProgressSoundChoices = function()
         ["Bell Toll Alliance"] = "Bell Toll Alliance",
         ["Bell Toll Horde"]    = "Bell Toll Horde",
     }
-    if Questie.IsWotlk or Questie.IsCata or QuestieCompat.Is335 then
+    if Questie.IsWotlk or Questie.IsCata then
         choices["Explosion"] = "Explosion"
         choices["Shing!"] = "Shing!"
         choices["Wham!"] = "Wham!"
@@ -780,7 +780,7 @@ _GetObjectiveProgressSoundChoicesSort = function()
         "Bell Toll Alliance",
         "Bell Toll Horde",
     }
-    if Questie.IsWotlk or Questie.IsCata or QuestieCompat.Is335 then
+    if Questie.IsWotlk or Questie.IsCata then
         tinsert(sorting, "Explosion")
         tinsert(sorting, "Shing!")
         tinsert(sorting, "Wham!")

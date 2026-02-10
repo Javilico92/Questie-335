@@ -6,6 +6,8 @@ QuestieMap.utils = QuestieMap.utils or {}
 ---@type QuestieLib
 local QuestieLib = QuestieLoader:ImportModule("QuestieLib");
 
+--- COMPATIBILITY ---
+--local WorldMapFrame = QuestieCompat.WorldMapFrame --(it make overlay not showing)
 local HBD = QuestieCompat.HBD or LibStub("HereBeDragonsQuestie-2.0")
 
 local ZOOM_MODIFIER = 1;

@@ -192,6 +192,7 @@ QuestieDB.classKeys = {
 }
 
 QuestieDB.specialFlags = {
+    NONE = 0,
     REPEATABLE = 1,
 }
 
@@ -510,19 +511,6 @@ function QuestieDB:IsExclusiveQuestInQuestLogOrComplete(exclusiveTo)
         if Questie.db.char.complete[exId] then
             return true
         end
-    end
-    return false
-end
-
----@param parentID number
----@return boolean
-function QuestieDB.IsParentQuestActive(parentID)
-    --! If you edit the logic here, also edit in AvailableQuests.IsLevelRequirementsFulfilled
-    if (not parentID) or (parentID == 0) then
-        return false
-    end
-    if QuestiePlayer.currentQuestlog[parentID] then
-        return true
     end
     return false
 end
@@ -1222,16 +1210,16 @@ function QuestieDB.GetQuest(questId) -- /dump QuestieDB.GetQuest(867)
         end
         if objectives[5] and type(objectives[5]) == "table" and #objectives[5] > 0 then
             for _, creditObjective in pairs(objectives[5]) do
-                -- if creditObjective[4] == 0 then
-                    --creditObjective[4] = nil
-                -- end
+                if creditObjective[4] == 0 then
+                    creditObjective[4] = nil
+                end
                 ---@type KillObjective
                 local killCreditObjective = {
                     Type = "killcredit",
                     IdList = creditObjective[1],
                     RootId = creditObjective[2],
-                    Text = creditObjective[3]
-                    -- Icon = creditObjective[4]
+                    Text = creditObjective[3],
+                    Icon = creditObjective[4]
                 }
 
                 --? There are quest(s) which have the killCredit at first so we need to switch them

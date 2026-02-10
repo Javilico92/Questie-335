@@ -161,7 +161,7 @@ function QuestieEventHandler:RegisterLateEvents()
     end)
 
     -- UI Achievement Events
-    if (Questie.IsWotlk or QuestieCompat.Is335 or Questie.IsCata or QuestieCompat.Is434) and Questie.db.profile.trackerEnabled then
+    if Questie.IsWotlk or Questie.IsCata and Questie.db.profile.trackerEnabled then
         -- Earned Achievement update
         Questie:RegisterEvent("ACHIEVEMENT_EARNED", function(index, achieveId, alreadyEarned)
             Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] ACHIEVEMENT_EARNED")
@@ -480,7 +480,7 @@ function _EventHandler:ChatMsgSkill()
     end
 
     -- Skill based Achievement updates
-    if Questie.IsWotlk or QuestieCompat.Is335 or Questie.IsCata then
+    if Questie.IsWotlk or Questie.IsCata then
         QuestieCombatQueue:Queue(function()
             QuestieTracker:Update()
         end)

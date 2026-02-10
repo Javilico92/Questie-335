@@ -1227,7 +1227,7 @@ function QuestieOptionsUtils.SetPfQuestIcons(info, value)
 end
 
 _GetIconThemes = function()
-    if Questie.IsWotlk or Questie.IsCata or QuestieCompat.Is335 then
+    if Questie.IsWotlk or Questie.IsCata then
         return {
             ['questie'] = "|T" .. Questie.icons["slay"] .. ":14|t Questie",
             ['blizzard'] = "|TInterface/buttons/adventureguidemicrobuttonalert.blp:20:20:0:0:32:32:2:28:2:28|t Blizzard",
@@ -1244,7 +1244,7 @@ _GetIconThemes = function()
 end
 
 _GetIconThemesSort = function()
-    if Questie.IsWotlk or Questie.IsCata or QuestieCompat.Is335 then
+    if Questie.IsWotlk or Questie.IsCata then
         return {
             "questie",
             "blizzard",

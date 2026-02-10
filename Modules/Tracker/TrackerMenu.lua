@@ -330,9 +330,9 @@ local function _GetWowheadLinkForLanguage()
     end
 
     local xpac
-    if Questie.IsCata or QuestieCompat.Is434 then
+    if Questie.IsCata then
         xpac = "cata/"
-    elseif Questie.IsWotlk or QuestieCompat.Is335 then
+    elseif Questie.IsWotlk then
         xpac = "wotlk/"
     elseif Questie.IsTBC then
         xpac = "tbc/"

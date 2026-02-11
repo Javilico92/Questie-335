@@ -41,11 +41,10 @@ function QuestieFramePool.Qframe:New(frameId, OnEnter)
         Questie:Debug(Questie.DEBUG_CRITICAL, "[QuestieFramePool] Over 5000 frames... maybe there is a leak?", frameId)
     end
 
-    newFrame.glow = CreateFrame("Button", "QuestieFrame" .. frameId .. "Glow", newFrame) -- glow frame
+    newFrame.glow = CreateFrame("Frame", "QuestieFrame" .. frameId .. "Glow", newFrame) -- glow frame
     newFrame.glow:SetFrameStrata("FULLSCREEN");
-    newFrame.glow:SetWidth(18)                                                           -- Set these to whatever height/width is needed
-    newFrame.glow:SetHeight(18)
-
+    newFrame.glow:SetWidth(9)                                                           -- Set these to whatever height/width is needed
+    newFrame.glow:SetHeight(9)
 
     newFrame:SetFrameStrata("FULLSCREEN");
     newFrame:SetWidth(16)  -- Set these to whatever height/width is needed
@@ -53,7 +52,7 @@ function QuestieFramePool.Qframe:New(frameId, OnEnter)
     newFrame:SetPoint("CENTER", -8, -8)
     newFrame:EnableMouse(true)
 
-    local newTexture = newFrame:CreateTexture(nil, "OVERLAY", nil, 0)
+    local newTexture = newFrame:CreateTexture(nil, "BACKGROUND", nil, 0)
     --t:SetTexture("Interface\\Icons\\INV_Misc_Eye_02.blp")
     --t:SetTexture("Interface\\Addons\\!Questie\\Icons\\available.blp")
     newTexture:SetWidth(16)
@@ -65,7 +64,7 @@ function QuestieFramePool.Qframe:New(frameId, OnEnter)
         newTexture:SetSnapToPixelGrid(false)
     end
 
-    local glowt = newFrame.glow:CreateTexture(nil, "OVERLAY", nil, -1)
+    local glowt = newFrame.glow:CreateTexture(nil, "BACKGROUND", nil, -1)
     glowt:SetWidth(18)
     glowt:SetHeight(18)
     glowt:SetAllPoints(newFrame.glow)
@@ -252,7 +251,7 @@ function _Qframe:BaseOnShow()
     local data = self.data
 
     if data and data.Type and data.Type == "complete" then
-        self:SetFrameLevel(self:GetFrameLevel() + 1)
+        self:SetFrameLevel(self:GetFrameLevel() + 2)
     end
     if ((self.miniMapIcon and Questie.db.profile.alwaysGlowMinimap) or ((not self.miniMapIcon) and Questie.db.profile.alwaysGlowMap)) and
         data and data.ObjectiveData and
@@ -267,7 +266,9 @@ function _Qframe:BaseOnShow()
         self.glow:Show()
         local frameLevel = self:GetFrameLevel()
         if frameLevel > 0 then
-            self.glow:SetFrameLevel(frameLevel - 1)
+            self.glow:SetFrameLevel(frameLevel - 2)
+        else
+            print("Framelevel ", frameLevel)
         end
     end
 end
@@ -289,7 +290,7 @@ function _Qframe:UpdateTexture(texture)
     else
         globalScale = Questie.db.profile.globalScale;
         objectiveColor = Questie.db.profile.questObjectiveColors;
-        alpha = 1;
+        alpha = 0.8;
     end
 
     self.texture:SetTexture(texture)

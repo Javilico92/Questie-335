@@ -602,6 +602,18 @@ local classicObjectiveLocales = {
         ["zhTW"] = false,
         ["zhCN"] = false,
     },
+    ["Use the Draco-Incarcinatrix 900 and defeat the dragonkin."] = {
+        ["ptBR"] = "Use o Draco-incarcinatrix 900 e dispara contra um filhote de draconiano nas Estepes Ardentes.",
+        ["ruRU"] = false,
+        ["deDE"] = "Benutze den Draco-Incarcinatrix 900 und besiege den Drachkinbrutling.",
+        ["koKR"] = false,
+        ["esMX"] = "Usa el Draco-Incarcinatrix 900 y dispara a una cría de dragonante en Las Estepas Ardientes.",
+        ["enUS"] = true,
+        ["frFR"] = "Utilisez le Draco-Incarcinatrix 900 et tire sur un Rejeton draconien dans les Steppes ardentes.",
+        ["esES"] = "Usa el Draco-Incarcinatrix 900 y dispara a una cría de dragonante en Las Estepas Ardientes.",
+        ["zhTW"] = false,
+        ["zhCN"] = false,
+    },
 }
 
 for k, v in pairs(classicObjectiveLocales) do

@@ -11,7 +11,7 @@ A fork of the WoW Classic [Questie](https://github.com/Questie/Questie) addon ai
 [![Stars](https://img.shields.io/github/stars/Javilico92/Questie-335)](https://img.shields.io/github/stars/Javilico92/Questie-335)
 
 [![Downloads](https://img.shields.io/github/downloads/Javilico92/Questie-335/total.svg)](https://github.com/Javilico92/Questie-335/releases/)
-[![Downloads Latest](https://img.shields.io/github/downloads/Javilico92/Questie-335/v10.3.11/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
+[![Downloads Latest](https://img.shields.io/github/downloads/Javilico92/Questie-335/v10.4.0/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
 [![Date Latest](https://img.shields.io/github/release-date/Javilico92/Questie-335.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
 [![Commits Since Latest](https://img.shields.io/github/commits-since/Javilico92/Questie-335/latest.svg)](https://github.com/Javilico92/Questie-335/commits/master)
 

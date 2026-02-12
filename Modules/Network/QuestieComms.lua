@@ -164,7 +164,6 @@ end
 function QuestieComms:Initialize()
     -- Lets us send any length of message. Also implements ChatThrottleLib to not get disconnected.
     Questie:RegisterComm(_QuestieComms.prefix, _QuestieComms.OnCommReceived);
-
     -- TODO: replace with getting data over own comms in properly throttled manner
     -- see: https://github.com/Questie/Questie/issues/3540
     Questie:RegisterComm("REPUTABLE", DailyQuests.FilterDailies);
@@ -1023,7 +1022,7 @@ function _QuestieComms:OnCommReceived_unsafe(message, distribution, sender)
             --print("Decompressing normal data")
             decompressedData = QuestieSerializer:Deserialize(message)
         end
-
+        
         --Check if the message version is the same base value
         if distribution == "YELL" and decompressedData.msgId and _QuestieComms.packets[decompressedData.msgId] then
             decompressedData.playerName = sender;

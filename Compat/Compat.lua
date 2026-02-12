@@ -1754,9 +1754,9 @@ function QuestieCompat:ADDON_LOADED(event, addon)
     end
 
 	QuestieLoader.PopulateGlobals = QuestieCompat.PopulateGlobals
-    --QuestieStream._writeByte = QuestieCompat._writeByte
-    --QuestieStream._readByte = QuestieCompat._readByte
-    --QuestieStream.Save = QuestieCompat.Save
+    QuestieStream._writeByte = QuestieCompat._writeByte
+    QuestieStream._readByte = QuestieCompat._readByte
+    QuestieStream.Save = QuestieCompat.Save
     ZoneDB.private.RunTests = QuestieCompat.NOOP
     QuestieLib.TextWrap = QuestieCompat.TextWrap
     QuestieCoords.GetPlayerMapPosition = QuestieCompat.GetPlayerMapPosition

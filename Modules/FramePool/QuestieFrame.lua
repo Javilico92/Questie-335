@@ -26,7 +26,11 @@ local _Qframe = {}
 ---@return IconFrame
 function QuestieFramePool.Qframe:New(frameId, OnEnter)
     ---@class IconFrame : Button
-    local newFrame = CreateFrame("Button", "QuestieFrame" .. frameId)
+    local newFrame = CreateFrame("Button", "QuestieFrame" .. frameId, UIParent)
+    if not newFrame then
+        Questie:Error("[QuestieFrame] Failed to create frame " .. frameId)
+        return nil
+    end
     newFrame.frameId = frameId;
 
     -- Add the frames to the ignore list of the Minimap Button Bag (MBB) addon
@@ -41,10 +45,12 @@ function QuestieFramePool.Qframe:New(frameId, OnEnter)
         Questie:Debug(Questie.DEBUG_CRITICAL, "[QuestieFramePool] Over 5000 frames... maybe there is a leak?", frameId)
     end
 
-    newFrame.glow = CreateFrame("Frame", "QuestieFrame" .. frameId .. "Glow", newFrame) -- glow frame
-    newFrame.glow:SetFrameStrata("FULLSCREEN");
-    newFrame.glow:SetWidth(9)                                                           -- Set these to whatever height/width is needed
-    newFrame.glow:SetHeight(9)
+    -- Create glow as a texture instead of a frame to prevent stacking issues
+    local glowt = newFrame:CreateTexture(nil, "BACKGROUND", nil, -1)
+    glowt:SetWidth(18)
+    glowt:SetHeight(18)
+    glowt:SetAllPoints(newFrame)
+    newFrame.glow = glowt
 
     newFrame:SetFrameStrata("FULLSCREEN");
     newFrame:SetWidth(16)  -- Set these to whatever height/width is needed
@@ -52,7 +58,7 @@ function QuestieFramePool.Qframe:New(frameId, OnEnter)
     newFrame:SetPoint("CENTER", -8, -8)
     newFrame:EnableMouse(true)
 
-    local newTexture = newFrame:CreateTexture(nil, "BACKGROUND", nil, 0)
+    local newTexture = newFrame:CreateTexture(nil, "OVERLAY", nil, 0)
     --t:SetTexture("Interface\\Icons\\INV_Misc_Eye_02.blp")
     --t:SetTexture("Interface\\Addons\\!Questie\\Icons\\available.blp")
     newTexture:SetWidth(16)
@@ -64,10 +70,7 @@ function QuestieFramePool.Qframe:New(frameId, OnEnter)
         newTexture:SetSnapToPixelGrid(false)
     end
 
-    local glowt = newFrame.glow:CreateTexture(nil, "BACKGROUND", nil, -1)
-    glowt:SetWidth(18)
-    glowt:SetHeight(18)
-    glowt:SetAllPoints(newFrame.glow)
+    -- Glow texture is now created above as newFrame.glow
 
     ---@class IconTexture : Texture
     newFrame.texture = newTexture;
@@ -100,8 +103,7 @@ function QuestieFramePool.Qframe:New(frameId, OnEnter)
 
     newFrame.glowTexture:SetTexture(Questie.icons["glow"])
     newFrame.glow:Hide()
-    newFrame.glow:SetPoint("CENTER", -9, -9) -- 2 pixels bigger than normal icon
-    newFrame.glow:EnableMouse(false)
+     -- Textures don't have SetPoint or EnableMouse, these are handled differently now
 
     newFrame:SetScript("OnEnter", OnEnter);        --Script Toolip
     newFrame:SetScript("OnLeave", _Qframe.OnLeave) --Script Exit Tooltip
@@ -230,7 +232,7 @@ function _Qframe:OnClick(button)
 end
 
 function _Qframe:GlowUpdate()
-    if self.glow and self.glow.IsShown and self.glow:IsShown() then
+     if self.glow and self.glow:IsShown() then
         --Due to this always being 1:1 we can assume that if one isn't correct, the other isn't either
         --We can also assume that both change at the same time so we only check one.
         if (self.glow:GetWidth() ~= self:GetWidth() * 1.13) then ---self.glow:GetHeight() ~= self:GetHeight() * 1.13
@@ -251,7 +253,7 @@ function _Qframe:BaseOnShow()
     local data = self.data
 
     if data and data.Type and data.Type == "complete" then
-        self:SetFrameLevel(self:GetFrameLevel() + 2)
+        self:SetFrameLevel(self:GetFrameLevel() + 1)
     end
     if ((self.miniMapIcon and Questie.db.profile.alwaysGlowMinimap) or ((not self.miniMapIcon) and Questie.db.profile.alwaysGlowMap)) and
         data and data.ObjectiveData and
@@ -260,16 +262,11 @@ function _Qframe:BaseOnShow()
         ) then
         self.glow:SetWidth(self:GetWidth() * 1.13)
         self.glow:SetHeight(self:GetHeight() * 1.13)
-        self.glow:SetPoint("CENTER", self, 0, 0)
+        --self.glow:SetPoint("CENTER", self, 0, 0)
         local _, _, _, alpha = self.texture:GetVertexColor()
         self.glowTexture:SetVertexColor(data.ObjectiveData.Color[1], data.ObjectiveData.Color[2], data.ObjectiveData.Color[3], alpha or 1)
         self.glow:Show()
-        local frameLevel = self:GetFrameLevel()
-        if frameLevel > 0 then
-            self.glow:SetFrameLevel(frameLevel - 2)
-        else
-            print("Framelevel ", frameLevel)
-        end
+        -- Textures don't have frame level, they use draw layer instead
     end
 end
 
@@ -290,7 +287,7 @@ function _Qframe:UpdateTexture(texture)
     else
         globalScale = Questie.db.profile.globalScale;
         objectiveColor = Questie.db.profile.questObjectiveColors;
-        alpha = 0.8;
+        alpha = 1;
     end
 
     self.texture:SetTexture(texture)

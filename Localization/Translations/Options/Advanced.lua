@@ -442,7 +442,7 @@ local advancedOptionsLocales = {
         ["esMX"] = "Habilitar sugerencias de errores para todas las versiones del juego",
         ["enUS"] = true,
         ["zhCN"] = false,
-        ["zhTW"] = false,
+        ["zhTW"] = "啟用錯誤提示 (所有遊戲版本)",
         ["esES"] = "Habilitar sugerencias de errores para todas las versiones del juego",
         ["frFR"] = "Activer les indices de bugs pour toutes les versions du jeu",
     },

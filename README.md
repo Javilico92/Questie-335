@@ -7,11 +7,11 @@ A fork of the WoW Classic [Questie](https://github.com/Questie/Questie) addon ai
 
 # Questie
 
-[![Discord](https://img.shields.io/badge/discord-Questie-738bd7)](https://discord.gg/s33MAYKeZd)
+[![Questie official Discord (not mine)](https://img.shields.io/badge/discord-Questie-738bd7)](https://discord.gg/s33MAYKeZd)
 [![Stars](https://img.shields.io/github/stars/Javilico92/Questie-335)](https://img.shields.io/github/stars/Javilico92/Questie-335)
 
 [![Downloads](https://img.shields.io/github/downloads/Javilico92/Questie-335/total.svg)](https://github.com/Javilico92/Questie-335/releases/)
-[![Downloads Latest](https://img.shields.io/github/downloads/Javilico92/Questie-335/v10.6.0/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
+[![Downloads Latest](https://img.shields.io/github/downloads/Javilico92/Questie-335/v10.7.0/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
 [![Date Latest](https://img.shields.io/github/release-date/Javilico92/Questie-335.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
 [![Commits Since Latest](https://img.shields.io/github/commits-since/Javilico92/Questie-335/latest.svg)](https://github.com/Javilico92/Questie-335/commits/master)
 
@@ -26,8 +26,8 @@ If you have problems, please read the [Frequently Asked Questions](https://githu
 
 ## Information
 - [Frequently Asked Questions](https://github.com/Questie/Questie/wiki/FAQ)
-- Come chat with us on [our Discord server](https://discord.gg/s33MAYKeZd).
-- You can use the [issue tracker](https://github.com/Questie/Questie/issues) to report bugs and post feature requests (requires a Github account).
+- Come chat with Questie authors (dont ask things related with this 3.3.5 version) [our Discord server](https://discord.gg/s33MAYKeZd).
+- You can use the [issue tracker](https://github.com/Javilico92/Questie-335/issues) to report bugs and post feature requests (requires a Github account).
 - When creating an issue please follow the templated structure to speed up a possible fix.
 - If you get an error message from the WoW client, please include the **complete** text or a screenshot of it in your report.
     - You need to enter `/console scriptErrors 1` once in the ingame chat for Lua error messages to be shown. You can later disable them again with `/console scriptErrors 0`.
@@ -75,15 +75,11 @@ If you'd like to support the development of Questie by donating, you can do so v
 
 ### Quest Communication
 - You can see party members quest progress on the tooltip.
-- At least Questie version 5.0.0 is required by everyone in the party for it to work, tell your friends to update!
-
-![QuestieComms](https://cdn.discordapp.com/attachments/263036731165638656/636099163460861962/unknown.png)
+- At least our Questie-335 version 10.6.0 is required by everyone in the party for it to work, tell your friends to update!
 
 ### Tooltips
 - Show tooltips on map notes and quest NPCs/objects.
 - Holding Shift while hovering over a map icon displays more information, like quest XP.
-
-![QuestXP](https://cdn.discordapp.com/attachments/579999220170227716/635540231306608641/unknown.png)
 
 #### Quest Information
 

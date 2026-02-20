@@ -147,7 +147,7 @@ function QuestieOptions.tabs.tracker:Initialize()
                         name = function() return l10n("List Achievements First") end,
                         desc = function() return l10n("When this is checked, the Questie Tracker will list Achievements first then Quests.") end,
                         disabled = function() return not Questie.db.profile.trackerEnabled end,
-                        hidden = function() return not (Questie.IsWotlk or QuestieCompat.Is335) and (not Questie.IsCata) end,
+                        hidden = function() return (not Questie.IsWotlk) and (not Questie.IsCata) end,
                         get = function() return Questie.db.profile.listAchievementsFirst end,
                         set = function(_, value)
                             Questie.db.profile.listAchievementsFirst = value
@@ -158,7 +158,7 @@ function QuestieOptions.tabs.tracker:Initialize()
                     openQuestLog = {
                         type = "select",
                         order = 7,
-                        values = _GetShortcuts(),
+                        values = _GetShortcuts,
                         style = 'dropdown',
                         name = function()
                             if Questie.IsWotlk or Questie.IsCata then
@@ -184,7 +184,7 @@ function QuestieOptions.tabs.tracker:Initialize()
                     untrackQuest = {
                         type = "select",
                         order = 8,
-                        values = _GetShortcuts(),
+                        values = _GetShortcuts,
                         style = 'dropdown',
                         name = function()
                             if Questie.IsWotlk or Questie.IsCata then
@@ -537,7 +537,7 @@ function QuestieOptions.tabs.tracker:Initialize()
                     setTomTom = {
                         type = "select",
                         order = 10,
-                        values = _GetShortcuts(),
+                        values = _GetShortcuts,
                         style = 'dropdown',
                         name = function() return l10n('Set |cFF54e33bTomTom|r Target') end,
                         desc = function()

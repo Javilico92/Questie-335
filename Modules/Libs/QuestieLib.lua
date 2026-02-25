@@ -343,7 +343,7 @@ function QuestieLib:CacheItemNames(questId)
     end
 end
 
-function QuestieLib:Euclid(x, y, i, e)
+function QuestieLib.Euclid(x, y, i, e)
     -- No need for absolute values as these are used only as squared
     local xd = x - i
     local yd = y - e
@@ -547,7 +547,7 @@ end
 --- Wow's own unpack stops at first nil. this version is not speed optimized.
 --- Supports just above QuestieLib.tpack func as it requires the 'n' field.
 ---@param tbl table A table packed with QuestieLib.tpack
----@return table 'n' values of the tbl
+---@return table|nil 'n' values of the tbl
 function QuestieLib.tunpack(tbl)
     if tbl.n == 0 then
         return nil

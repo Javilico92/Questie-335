@@ -729,6 +729,9 @@ function SeasonOfDiscovery:LoadNPCs()
             [npcKeys.zoneID] = zoneIDs.EASTERN_PLAGUELANDS,
             [npcKeys.spawns] = {[zoneIDs.EASTERN_PLAGUELANDS] = {{47,58}}},
         },
+        [230319] = { -- Deliana
+            [npcKeys.spawns] = {[zoneIDs.IRONFORGE]={{43.53,52.64}}},
+        },
         [230775] = { -- Rage Talon Quartermaster
             [npcKeys.zoneID] = zoneIDs.LOWER_BLACKROCK_SPIRE,
             [npcKeys.spawns] = {[zoneIDs.LOWER_BLACKROCK_SPIRE] = {{-1, -1}}},
@@ -748,6 +751,10 @@ function SeasonOfDiscovery:LoadNPCs()
         [232929] = { -- Gregory
             [npcKeys.zoneID] = zoneIDs.WINTERSPRING,
             [npcKeys.spawns] = {[zoneIDs.WINTERSPRING] = {{53.36,83.59}}},
+        },
+        [233158] = { -- Azgaloth
+            [npcKeys.zoneID] = zoneIDs.DEMON_FALL_CANYON,
+            [npcKeys.spawns] = {[zoneIDs.DEMON_FALL_CANYON] = {{-1,-1}}},
         },
 
         -- fake NPCs

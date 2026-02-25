@@ -109,7 +109,7 @@ function QuestieCoords:WriteCoords()
     end
 end
 
----@return table<{x: number, y: number}>, number | nil
+---@return Coordinates|nil, number | nil
 function QuestieCoords.GetPlayerMapPosition()
     local mapID = GetBestMapForUnit("player")
     if (not mapID) then
@@ -133,7 +133,7 @@ end
 
 function QuestieCoords:Update()
     if (Questie.db.profile.minimapCoordinatesEnabled) or (Questie.db.profile.mapCoordinatesEnabled) then
-        QuestieCoords.WriteCoords();
+        QuestieCoords:WriteCoords();
     end
 end
 

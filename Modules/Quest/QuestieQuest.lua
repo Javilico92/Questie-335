@@ -47,6 +47,8 @@ local AvailableQuests = QuestieLoader:ImportModule("AvailableQuests")
 local Phasing = QuestieLoader:ImportModule("Phasing")
 ---@type QuestFinisher
 local QuestFinisher = QuestieLoader:ImportModule("QuestFinisher")
+---@type DistanceUtils
+local DistanceUtils = QuestieLoader:ImportModule("DistanceUtils")
 
 --- COMPATIBILITY ---
 local C_Timer = QuestieCompat.C_Timer
@@ -88,6 +90,14 @@ function QuestieQuest.ResetAutoblacklistCategory(category)
             QuestieDB.autoBlacklist[questId] = nil
         end
     end
+end
+
+function QuestieQuest.ToggleAvailableQuests(showIcons)
+    Questie:Debug(Questie.DEBUG_DEVELOP, "[QuestieQuest:ToggleAvailableQuests] showIcons:", showIcons)
+    if showIcons then
+        AvailableQuests.CalculateAndDrawAll()
+    end
+    QuestieQuest:ToggleNotes(showIcons)
 end
 
 function QuestieQuest:ToggleNotes(showIcons)
@@ -570,7 +580,6 @@ end
 function QuestieQuest:UpdateQuest(questId)
     Questie:Debug(Questie.DEBUG_DEVELOP, "[QuestieQuest:UpdateQuest]", questId)
 
-    ---@type Quest
     local quest = QuestieDB.GetQuest(questId)
 
     if quest and (not Questie.db.char.complete[questId]) then
@@ -609,7 +618,7 @@ function QuestieQuest:UpdateQuest(questId)
             -- Quest was somehow reset back to incomplete after being completed (quest.WasComplete == true).
             -- The "or" check looks for a sourceItemId then checks to see if it's NOT in the players bag.
             -- Player destroyed quest items? Or some other quest mechanic removed the needed quest item.
-            if quest and (quest.WasComplete or (quest.sourceItemId > 0 and QuestieQuest:CheckQuestSourceItem(questId) == false)) then
+            if quest and (quest.WasComplete or (quest.sourceItemId > 0 and QuestieQuest:CheckQuestSourceItem(questId, false) == false)) then
                 Questie:Debug(Questie.DEBUG_DEVELOP, "[QuestieQuest:UpdateQuest] Quest was once complete or Quest Item(s) were removed. Resetting quest.")
 
                 -- Reset quest objectives
@@ -794,6 +803,7 @@ local function _AddRequiredSourceItemObjective(quest)
             -- Save the itemObjective table from the quests objectives table
             local objectives = QuestieDB.QueryQuestSingle(quest.Id, "objectives")[3]
 
+            -- TODO: This is not required anymore since we validate the database for this case
             -- Look for an itemObjective Id that matches a requiredSourceItem Id - if found exit
             if objectives then
                 for _, itemObjectiveIndex in pairs(objectives) do
@@ -963,9 +973,6 @@ function QuestieQuest:PopulateObjective(quest, objectiveIndex, objective, blockI
             maxPerType = Questie.db.profile.iconLimit
         end
 
-        local closestStarter = QuestieMap:FindClosestStarter()
-        local objectiveCenter = closestStarter[quest.Id]
-
         local zoneCount = 0
         local zones = {}
         local objectiveZone
@@ -981,9 +988,19 @@ function QuestieQuest:PopulateObjective(quest, objectiveIndex, objective, blockI
             zoneCount = zoneCount + 1
         end
 
+        local objectiveCenter
         if zoneCount == 1 then -- this objective happens in 1 zone, clustering should be relative to that zone
             local x, y = HBD:GetWorldCoordinatesFromZone(0.5, 0.5, ZoneDB:GetUiMapIdByAreaId(objectiveZone))
             objectiveCenter = { x = x, y = y }
+        else
+            objectiveCenter = DistanceUtils.GetNearestFinisherOrStarter(quest.Starts)
+        end
+
+        if (not objectiveCenter) or (not objectiveCenter.x) or (not objectiveCenter.y) then
+            -- When an NPC doesn't have any spawns objectiveCenter will be nil.
+            -- Also for some areas HBD will return nil for the world coordinates.
+            -- This will create a distance of 0 but it doesn't matter.
+            objectiveCenter = { x = 0, y = 0 }
         end
 
         local iconsToDraw, _ = _DetermineIconsToDraw(quest, objective, objectiveIndex, objectiveCenter)
@@ -1102,9 +1119,7 @@ _DetermineIconsToDraw = function(quest, objective, objectiveIndex, objectiveCent
                         -- Cache world coordinates for clustering calculations
                         drawIcon.worldX = x
                         drawIcon.worldY = y
-                        -- There are instances when X and Y are not in the same map such as in dungeons etc, we default to 0 if it is not set
-                        -- This will create a distance of 0 but it doesn't matter.
-                        local distance = QuestieLib:Euclid(objectiveCenter.x or 0, objectiveCenter.y or 0, x, y);
+                        local distance = QuestieLib.Euclid(objectiveCenter.x or 0, objectiveCenter.y or 0, x, y);
                         drawIcon.distance = distance or 0 -- cache for clustering
                         -- there can be multiple icons at same distance at different directions
                         --local distance = floor(distance)
@@ -1286,19 +1301,18 @@ function QuestieQuest:PopulateObjectiveNotes(quest) -- this should be renamed to
 end
 
 ---@param quest Quest
----@return true?
 function QuestieQuest:PopulateQuestLogInfo(quest)
     if (not quest) then
-        return nil
+        return
     end
 
     Questie:Debug(Questie.DEBUG_INFO, "[QuestieQuest:PopulateQuestLogInfo] ", quest.Id)
 
-    local questLogEngtry = QuestLogCache.GetQuest(quest.Id) -- DO NOT MODIFY THE RETURNED TABLE
+    local questLogEntry = QuestLogCache.GetQuest(quest.Id) -- DO NOT MODIFY THE RETURNED TABLE
 
-    if (not questLogEngtry) then return end
+    if (not questLogEntry) then return end
 
-    if questLogEngtry.isComplete ~= nil and questLogEngtry.isComplete == 1 then
+    if questLogEntry.isComplete ~= nil and questLogEntry.isComplete == 1 then
         quest.isComplete = true
     end
 
@@ -1368,8 +1382,6 @@ function QuestieQuest:PopulateQuestLogInfo(quest)
         QuestFinisher.AddFinisher(quest)
         quest.isComplete = true
     end
-
-    return true
 end
 
 ---@param self QuestObjective @quest.Objectives[] entry

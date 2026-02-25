@@ -6,13 +6,15 @@ local QuestieStream = QuestieLoader:ImportModule("QuestieStreamLib")
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
 ---@type QuestieOptions
 local QuestieOptions = QuestieLoader:ImportModule("QuestieOptions")
----@type QuestieEventHandler
-local QuestieEventHandler = QuestieLoader:ImportModule("QuestieEventHandler")
+---@type EventHandler
+local EventHandler = QuestieLoader:ImportModule("EventHandler")
+---@type GroupEventHandler
+local GroupEventHandler = QuestieLoader:ImportModule("GroupEventHandler")
 ---@type QuestieQuest
 local QuestieQuest = QuestieLoader:ImportModule("QuestieQuest")
 ---@type QuestEventHandler
 local QuestEventHandler = QuestieLoader:ImportModule("QuestEventHandler")
----@class AvailableQuests
+---@type AvailableQuests
 local AvailableQuests = QuestieLoader:ImportModule("AvailableQuests")
 ---@type ZoneDB
 local ZoneDB = QuestieLoader:ImportModule("ZoneDB")
@@ -1285,7 +1287,8 @@ function QuestieCompat:QuestieTooltips_RegisterObjectiveTooltip(questId, key, ob
     end
 end
 
-local _EventHandler = QuestieEventHandler.private
+local _GroupEventHandler = GroupEventHandler.private
+local _EventHandler = EventHandler.private
 local chatMessagePattern = {
     questInfo = {
         ERR_QUEST_OBJECTIVE_COMPLETE_S,
@@ -1337,21 +1340,23 @@ function QuestieCompat.GroupRosterUpdate(event)
     -- Only want to do logic when number increases, not decreases.
     if QuestiePlayer.numberOfGroupMembers < currentMembers then
         if QuestiePlayer.numberOfGroupMembers == 0 then
-            _EventHandler:GroupJoined()
+            _GroupEventHandler:GroupJoined()
         end
         -- Tell comms to send information to members.
         --Questie:SendMessage("QC_ID_BROADCAST_FULL_QUESTLIST")
         QuestiePlayer.numberOfGroupMembers = currentMembers
     else
         if currentMembers == 0 then
-            _EventHandler:GroupLeft()
+            _GroupEventHandler:GroupLeft()
         end
         -- We do however always want the local to be the current number to allow up and down.
         QuestiePlayer.numberOfGroupMembers = currentMembers
     end
 end
 
-function QuestieCompat.QuestieEventHandler_RegisterLateEvents()
+local _QuestEventHandler = QuestEventHandler.private
+
+function QuestieCompat.EventHandler_RegisterLateEvents()
     -- In fullscreen mode, WorldMap intercepts keyboard input,
     -- preventing the MODIFIER_STATE_CHANGED event
     if WorldMapFrame:GetScript("OnKeyDown") then
@@ -1398,34 +1403,8 @@ function QuestieCompat.QuestieEventHandler_RegisterLateEvents()
             end
         end)
     end
-end
 
-local _QuestEventHandler = QuestEventHandler.private
-local QUEST_COMPLETE_MSG = string.gsub(ERR_QUEST_COMPLETE_S, "(%%s)", "(.+)")
-local completeQuestCache = {}
-
-local DAILY_QUESTS_MSG = DAILY_QUESTS_REMAINING:gsub("%%d", "(%%d+)"):gsub("|4(.-)$", "")
-
-function QuestieCompat:CHAT_MSG_SYSTEM(event, message)
-    local questName = message:match(QUEST_COMPLETE_MSG)
-    local questId = completeQuestCache[questName]
-    if questId then
-        _QuestEventHandler:QuestTurnedIn(questId)
-        _QuestEventHandler:QuestRemoved(questId)
-        completeQuestCache[questName] = nil
-    end
-
-    if Questie.db.profile.resetDailyQuests then
-        local dailyQuestCount = tonumber(message:match(DAILY_QUESTS_MSG))
-        if dailyQuestCount and (dailyQuestCount == GetMaxDailyQuests()) then
-            QuestieCompat.C_Timer.After(1, function()
-                QuestieCompat.ResetDailyQuests(true)
-            end)
-        end
-    end
-end
-
-function QuestieCompat.QuestEventHandler_RegisterEvents()
+    -- Old QuestEventHandler events
     QuestieCompat.frame:RegisterEvent("QUEST_QUERY_COMPLETE")
     QuestieCompat.frame:RegisterEvent("CHAT_MSG_SYSTEM")
 
@@ -1462,8 +1441,33 @@ function QuestieCompat.QuestEventHandler_RegisterEvents()
     Questie:UnregisterEvent("QUEST_REMOVED")
     hooksecurefunc("AbandonQuest", function()
         local questId = QuestieCompat.abandonQuestID or select(9, GetQuestLogTitle(GetQuestLogSelection()))
-        _QuestEventHandler:QuestRemoved(QuestieCompat.abandonQuestID)
+        QuestEventHandler:QuestRemoved(QuestieCompat.abandonQuestID)
     end)
+
+end
+
+local QUEST_COMPLETE_MSG = string.gsub(ERR_QUEST_COMPLETE_S, "(%%s)", "(.+)")
+local completeQuestCache = {}
+
+local DAILY_QUESTS_MSG = DAILY_QUESTS_REMAINING:gsub("%%d", "(%%d+)"):gsub("|4(.-)$", "")
+
+function QuestieCompat:CHAT_MSG_SYSTEM(event, message)
+    local questName = message:match(QUEST_COMPLETE_MSG)
+    local questId = completeQuestCache[questName]
+    if questId then
+        QuestEventHandler:QuestTurnedIn(questId)
+        QuestEventHandler:QuestRemoved(questId)
+        completeQuestCache[questName] = nil
+    end
+
+    if Questie.db.profile.resetDailyQuests then
+        local dailyQuestCount = tonumber(message:match(DAILY_QUESTS_MSG))
+        if dailyQuestCount and (dailyQuestCount == GetMaxDailyQuests()) then
+            QuestieCompat.C_Timer.After(1, function()
+                QuestieCompat.ResetDailyQuests(true)
+            end)
+        end
+    end
 end
 
 function QuestieCompat.QuestieTracker_Initialize(trackerQuestFrame)
@@ -1739,7 +1743,7 @@ function QuestieCompat:ADDON_LOADED(event, addon)
         "HBDHooks",
         "QuestieDebugOffer",
         "SeasonOfDiscovery",
-        "QuestieDBMIntegration"
+        "QuestieDBMIntegration",
     }
 	
 	if not Questie.db.profile.useQuestieLinks then
@@ -1770,8 +1774,7 @@ function QuestieCompat:ADDON_LOADED(event, addon)
 	QuestieLink.GetQuestLinkStringById = rawget(QuestieLink, "GetQuestLinkStringById") or QuestieCompat.GetQuestLinkStringById
 	QuestieLink.GetQuestHyperLink = rawget(QuestieLink, "GetQuestHyperLink") or QuestieCompat.GetQuestLinkStringById
 
-    hooksecurefunc(QuestieEventHandler, "RegisterLateEvents", QuestieCompat.QuestieEventHandler_RegisterLateEvents)
-    hooksecurefunc(QuestEventHandler, "RegisterEvents", QuestieCompat.QuestEventHandler_RegisterEvents)
+    hooksecurefunc(EventHandler, "RegisterLateEvents", QuestieCompat.EventHandler_RegisterLateEvents)
     hooksecurefunc(TrackerLinePool, "Initialize", QuestieCompat.QuestieTracker_Initialize)
     hooksecurefunc(QuestieQuest, "ToggleNotes", QuestieCompat.HBDPins.UpdateWorldMap)
 	hooksecurefunc("ReloadUI", QuestieCompat.OnReloadUi)

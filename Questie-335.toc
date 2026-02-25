@@ -1,12 +1,12 @@
 ## Interface: 30300
-## Title: Questie-335|cFF00FF00 v10.7.0|r
+## Title: Questie-335|cFF00FF00 v10.10.0-b1|r
 ## Author: Aero/Logon/Muehe/TheCrux(BreakBB)/Drejjmit/Dyaxler/Schaka/Zoey/Everyone else
 ## Notes: A standalone Classic QuestHelper
 ## Notes-esMX: Ayundante de misión
 ## Notes-esES: Ayundante de misión
 ## Notes-ptBR: Ajudante de missão
 ## Notes-frFR: Assistant de quête
-## Version: 10.7.0
+## Version: 10.10.0-b1
 ## RequiredDeps:
 ## OptionalDeps: Ace3, CallbackHandler-1.0, HereBeDragons, Krowi_WorldMapButtons, LibDataBroker-1.1, LibDBIcon-1.0, LibSharedMedia-3.0, LibStub, LibUIDropDownMenu
 ## SavedVariables: QuestieConfig
@@ -37,6 +37,7 @@ Database\QuestXP\DB\xpDB-wotlk.lua
 Modules\QuestieStream.lua
 
 # Zones
+Database\Zones\dungeons.lua
 Database\Zones\zoneTables.lua
 Database\Zones\zoneDB.lua
 
@@ -60,7 +61,6 @@ Database\Corrections\QuestieCorrections.lua
 Database\Corrections\QuestieItemBlacklist.lua
 Database\Corrections\QuestieNPCBlacklist.lua
 Database\Corrections\QuestieQuestBlacklist.lua
-#Database\Corrections\SoMPhases.lua
 Database\Corrections\Holidays\QuestieEvent.lua
 Database\Corrections\Holidays\quests\Brewfest.lua
 Database\Corrections\Holidays\quests\ChildrensWeek.lua
@@ -113,6 +113,7 @@ Localization\lookups\Wotlk\lookupObjects\lookupObjects.xml
 Localization\lookups\Wotlk\lookupQuests\lookupQuests.xml
 
 # Libs
+Modules\Libs\DistanceUtils.lua
 Modules\Libs\QuestieLib.lua
 Modules\Libs\QuestieSerializer.lua
 Modules\Libs\QuestieCombatQueue.lua
@@ -124,7 +125,10 @@ Modules\QuestieInit.lua
 Modules\MinimapIcon.lua
 Modules\QuestieProfessions.lua
 Modules\QuestieReputation.lua
-Modules\QuestieEventHandler.lua
+Modules\EventHandler\EventHandler.lua
+Modules\EventHandler\AchievementEventHandler.lua
+Modules\EventHandler\GroupEventHandler.lua
+Modules\EventHandler\QuestEventHandler.lua
 Modules\Migration.lua
 Modules\Phasing.lua
 Modules\QuestieMenu\Townsfolk.lua
@@ -141,6 +145,7 @@ Modules\QuestiePlayer.lua
 #Modules\QuestieDebugOffer.lua
 Modules\WorldMapButton\WorldMapButton.lua
 #Modules\WorldMapButton\QuestieWorldMapButtonTemplate.xml
+Modules\DebugFunctions.lua
 
 # QuestLinks
 Modules\QuestLinks\ChatFilter.lua
@@ -173,7 +178,6 @@ Modules\Quest\AvailableQuests\AvailableQuests.lua
 Modules\Quest\QuestLogCache.lua
 Modules\Quest\DailyQuests.lua
 Modules\Quest\IsleOfQuelDanas.lua
-Modules\Quest\QuestEventHandler.lua
 Modules\Quest\QuestFinisher.lua
 Modules\Quest\QuestgiverFrame.lua
 Modules\Quest\QuestieQuest.lua
@@ -205,14 +209,19 @@ Modules\Journey\QuestieSearchResults.lua
 # Tracker
 Modules\Tracker\QuestieTracker.lua
 Modules\Tracker\TrackerUtils.lua
-Modules\Tracker\TrackerMenu.lua
 Modules\Tracker\TrackerFadeTicker.lua
 Modules\Tracker\TrackerBaseFrame.lua
 Modules\Tracker\TrackerHeaderFrame.lua
 Modules\Tracker\TrackerQuestFrame.lua
 Modules\Tracker\TrackerQuestTimers.lua
-Modules\Tracker\TrackerItemButton.lua
-Modules\Tracker\TrackerLinePool.lua
+Modules\Tracker\LinePool\AchievementCriteriaCheckmark.lua
+Modules\Tracker\LinePool\ExpandQuestButton.lua
+Modules\Tracker\LinePool\ExpandZoneButton.lua
+Modules\Tracker\LinePool\TrackerItemButton.lua
+Modules\Tracker\LinePool\TrackerMenu.lua
+Modules\Tracker\LinePool\VoiceOverPlayButton.lua
+Modules\Tracker\LinePool\TrackerLine.lua
+Modules\Tracker\LinePool\TrackerLinePool.lua
 
 # Tutorial
 Modules\Tutorial\ChooseObjectiveType.lua

@@ -1,16 +1,18 @@
----@class QuestieEventHandler
-local QuestieEventHandler = QuestieLoader:CreateModule("QuestieEventHandler")
-local _EventHandler = QuestieEventHandler.private
+---@class EventHandler
+local EventHandler = QuestieLoader:CreateModule("EventHandler")
+local _EventHandler = EventHandler.private
 
 -------------------------
 --Import modules.
 -------------------------
----@type QuestieQuest
-local QuestieQuest = QuestieLoader:ImportModule("QuestieQuest")
+---@type QuestEventHandler
+local QuestEventHandler = QuestieLoader:ImportModule("QuestEventHandler")
+---@type AchievementEventHandler
+local AchievementEventHandler = QuestieLoader:ImportModule("AchievementEventHandler")
+---@type GroupEventHandler
+local GroupEventHandler = QuestieLoader:ImportModule("GroupEventHandler")
 ---@type QuestieJourney
 local QuestieJourney = QuestieLoader:ImportModule("QuestieJourney")
----@type QuestieComms
-local QuestieComms = QuestieLoader:ImportModule("QuestieComms")
 ---@type QuestieProfessions
 local QuestieProfessions = QuestieLoader:ImportModule("QuestieProfessions")
 ---@type QuestieTracker
@@ -50,10 +52,6 @@ local WatchFrameHook = QuestieLoader:ImportModule("WatchFrameHook")
 ---@type AutoCompleteFrame
 local AutoCompleteFrame = QuestieLoader:ImportModule("AutoCompleteFrame")
 
---- COMPATIBILITY ---
-local C_Timer = QuestieCompat.C_Timer
-local UnitInParty = QuestieCompat.UnitInParty
-
 local questAcceptedMessage = string.gsub(ERR_QUEST_ACCEPTED_S, "(%%s)", "(.+)")
 local questCompletedMessage = string.gsub(ERR_QUEST_COMPLETE_S, "(%%s)", "(.+)")
 
@@ -63,11 +61,11 @@ local trackerMinimizedByDungeon = false
 ---en/br/es/fr/gb/it/mx: "You are now %s with %s." (e.g. "You are now Honored with Stormwind."), all other languages are very alike
 local FACTION_STANDING_CHANGED_PATTERN
 
-function QuestieEventHandler:RegisterEarlyEvents()
+function EventHandler:RegisterEarlyEvents()
     Questie:RegisterEvent("PLAYER_LOGIN", _EventHandler.PlayerLogin)
 end
 
-function QuestieEventHandler:RegisterLateEvents()
+function EventHandler:RegisterLateEvents()
     Questie:RegisterEvent("PLAYER_LEVEL_UP", _EventHandler.PlayerLevelUp)
     Questie:RegisterEvent("PLAYER_REGEN_DISABLED", _EventHandler.PlayerRegenDisabled)
     Questie:RegisterEvent("PLAYER_REGEN_ENABLED", _EventHandler.PlayerRegenEnabled)
@@ -84,12 +82,16 @@ function QuestieEventHandler:RegisterLateEvents()
 
     -- Events to update a players professions and reputations
     Questie:RegisterBucketEvent("CHAT_MSG_SKILL", 2, _EventHandler.ChatMsgSkill)
-    Questie:RegisterBucketEvent("CHAT_MSG_COMBAT_FACTION_CHANGE", 2, _EventHandler.ChatMsgCompatFactionChange)
+    Questie:RegisterBucketEvent("CHAT_MSG_COMBAT_FACTION_CHANGE", 2, function()
+        QuestEventHandler:ReputationChange()
+        _EventHandler:ChatMsgCompatFactionChange()
+    end)
     Questie:RegisterEvent("CHAT_MSG_SYSTEM", _EventHandler.ChatMsgSystem)
 
     -- Spell objectives
     Questie:RegisterEvent("NEW_RECIPE_LEARNED", function() -- Needed for some spells that don't necessarily appear in the spellbook, but are definitely spells
         Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] NEW_RECIPE_LEARNED")
+        QuestEventHandler.NewRecipeLearned()
         AvailableQuests.CalculateAndDrawAll()
     end)
 
@@ -105,7 +107,10 @@ function QuestieEventHandler:RegisterLateEvents()
             end)
         end
     end)
-    Questie:RegisterEvent("QUEST_ACCEPTED", QuestieAuto.QUEST_ACCEPTED)
+    Questie:RegisterEvent("QUEST_ACCEPTED", function(_, ...)
+        QuestEventHandler:QuestAccepted(...)
+        QuestieAuto:QUEST_ACCEPTED(...)
+    end)
     Questie:RegisterEvent("QUEST_DETAIL", function(...) -- When the quest is presented!
         QuestieAuto.QUEST_DETAIL(...)
         if Questie.IsSoD or Questie.db.profile.enableBugHintsForAllFlavors then
@@ -126,9 +131,17 @@ function QuestieEventHandler:RegisterLateEvents()
     Questie:RegisterEvent("QUEST_COMPLETE", function(...)                           -- When complete window shows
         QuestieAuto.QUEST_COMPLETE(...)
         if Questie.IsSoD or Questie.db.profile.enableBugHintsForAllFlavors then
-            QuestieDebugOffer.QuestDialog(...)
+            QuestieDebugOffer.QuestDialog()
         end
     end)
+    Questie:RegisterEvent("QUEST_REMOVED", QuestEventHandler.QuestRemoved)
+    Questie:RegisterEvent("QUEST_TURNED_IN", QuestEventHandler.QuestTurnedIn)
+    Questie:RegisterEvent("QUEST_LOG_UPDATE", QuestEventHandler.QuestLogUpdate)
+    Questie:RegisterEvent("QUEST_WATCH_UPDATE", QuestEventHandler.QuestWatchUpdate)
+    Questie:RegisterEvent("QUEST_AUTOCOMPLETE", QuestEventHandler.QuestAutoComplete)
+    Questie:RegisterEvent("UNIT_QUEST_LOG_CHANGED", QuestEventHandler.UnitQuestLogChanged)
+    Questie:RegisterEvent("CURRENCY_DISPLAY_UPDATE", QuestEventHandler.CurrencyDisplayUpdate)
+    Questie:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_HIDE", QuestEventHandler.PlayerInteractionManagerFrameHide)
 
     Questie:RegisterEvent("ZONE_CHANGED_NEW_AREA", function()
         Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] ZONE_CHANGED_NEW_AREA")
@@ -166,75 +179,22 @@ function QuestieEventHandler:RegisterLateEvents()
 
     -- UI Achievement Events
     if Questie.IsWotlk or Questie.IsCata and Questie.db.profile.trackerEnabled then
-        -- Earned Achievement update
-        Questie:RegisterEvent("ACHIEVEMENT_EARNED", function(index, achieveId, alreadyEarned)
-            Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] ACHIEVEMENT_EARNED")
-            QuestieTracker:UntrackAchieveId(achieveId)
-            QuestieTracker:UpdateAchieveTrackerCache(achieveId)
-
-            if (not AchievementFrame) then
-                AchievementFrame_LoadUI()
-            end
-
-            AchievementFrameAchievements_ForceUpdate()
-
-            QuestieCombatQueue:Queue(function()
-                QuestieTracker:Update()
-            end)
+        Questie:RegisterEvent("ACHIEVEMENT_EARNED", function(_, achieveId)
+            AchievementEventHandler.AchievementEarned(achieveId)
         end)
 
-        -- Track/Untrack Achievement updates
-        Questie:RegisterEvent("TRACKED_ACHIEVEMENT_LIST_CHANGED", function(index, achieveId, added)
-            Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] TRACKED_ACHIEVEMENT_LIST_CHANGED")
-            QuestieTracker:UpdateAchieveTrackerCache(achieveId)
-        end)
-
-        -- Timed based Achievement updates
-        -- TODO: Fired when a timed event for an achievement begins or ends. The achievement does not have to be actively tracked for this to trigger.
-        Questie:RegisterEvent("TRACKED_ACHIEVEMENT_UPDATE", function(self, achieveId)
-            Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] TRACKED_ACHIEVEMENT_UPDATE")
-            QuestieCombatQueue:Queue(function()
-                if QuestieCompat.Is335 then
-                    QuestieTracker:UpdateAchieveTrackerCache(achieveId)
-                end
-                QuestieTracker:Update()
-            end)
+        Questie:RegisterEvent("TRACKED_ACHIEVEMENT_UPDATE", AchievementEventHandler.TrackedAchievementUpdate)
+        Questie:RegisterEvent("TRACKED_ACHIEVEMENT_LIST_CHANGED", function(_, achieveId)
+            AchievementEventHandler.TrackedAchievementListChanged(achieveId)
         end)
 
         -- This fires pretty often, multiple times for a single Achievement change and also for things most likely not related to Achievements at all.
         -- We use a bucket to hinder this from spamming
-        Questie:RegisterBucketEvent("CRITERIA_UPDATE", 2, function()
-            Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] CRITERIA_UPDATE")
+        Questie:RegisterBucketEvent("CRITERIA_UPDATE", 2, AchievementEventHandler.CriteriaUpdate)
 
-            if Questie.db.char.trackedAchievementIds and next(Questie.db.char.trackedAchievementIds) then
-                QuestieCombatQueue:Queue(function()
-                    QuestieTracker:Update()
-                end)
-            end
-        end)
-        -- Money based Achievement updates
-        Questie:RegisterEvent("CHAT_MSG_MONEY", function()
-            Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] CHAT_MSG_MONEY")
-            QuestieCombatQueue:Queue(function()
-                QuestieTracker:Update()
-            end)
-        end)
-
-        -- Emote based Achievement updates
-        Questie:RegisterEvent("CHAT_MSG_TEXT_EMOTE", function()
-            Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] CHAT_MSG_TEXT_EMOTE")
-            QuestieCombatQueue:Queue(function()
-                QuestieTracker:Update()
-            end)
-        end)
-
-        -- Player equipment changed based Achievement updates
-        Questie:RegisterEvent("PLAYER_EQUIPMENT_CHANGED", function()
-            Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] PLAYER_EQUIPMENT_CHANGED")
-            QuestieCombatQueue:Queue(function()
-                QuestieTracker:Update()
-            end)
-        end)
+        Questie:RegisterEvent("CHAT_MSG_MONEY", AchievementEventHandler.ChatMsgMoney)
+        Questie:RegisterEvent("CHAT_MSG_TEXT_EMOTE", AchievementEventHandler.ChatMsgTextEmote)
+        Questie:RegisterEvent("PLAYER_EQUIPMENT_CHANGED", AchievementEventHandler.PlayerEquipmentChanged)
     end
 
     -- Questie Debug Offer
@@ -252,23 +212,20 @@ function QuestieEventHandler:RegisterLateEvents()
     -- Questie Comms Events
 
     -- Party join event for QuestieComms, Use bucket to hinder this from spamming (Ex someone using a raid invite addon etc)
-    Questie:RegisterBucketEvent("GROUP_ROSTER_UPDATE", 1, _EventHandler.GroupRosterUpdate)
-    Questie:RegisterEvent("GROUP_JOINED", _EventHandler.GroupJoined)
-    Questie:RegisterEvent("GROUP_LEFT", _EventHandler.GroupLeft)
+    Questie:RegisterBucketEvent("GROUP_ROSTER_UPDATE", 1, GroupEventHandler.GroupRosterUpdate)
+    Questie:RegisterEvent("GROUP_JOINED", GroupEventHandler.GroupJoined)
+    Questie:RegisterEvent("GROUP_LEFT", GroupEventHandler.GroupLeft)
 
     -- Nameplate / Target Frame Objective Events
     Questie:RegisterEvent("NAME_PLATE_UNIT_ADDED", QuestieNameplate.NameplateCreated)
     Questie:RegisterEvent("NAME_PLATE_UNIT_REMOVED", QuestieNameplate.NameplateDestroyed)
     Questie:RegisterEvent("PLAYER_TARGET_CHANGED", function(...)
-        QuestieNameplate.DrawTargetFrame()
+        QuestieNameplate:DrawTargetFrame()
         --if Questie.IsSoD then QuestieDebugOffer.NPCTarget() end;
     end)
 
     -- quest announce
     Questie:RegisterEvent("CHAT_MSG_LOOT", function(_, text, notPlayerName, _, _, playerName)
-        if QuestieCompat.Is335 then
-            playerName = QuestieCompat.ChatMessageLoot(text)
-        end
         QuestieTracker.QuestItemLooted(_, text)
         QuestieAnnounce.ItemLooted(_, text, notPlayerName, _, _, playerName)
     end)
@@ -281,11 +238,6 @@ function _EventHandler:PlayerLogin()
         Questie:Error("Config DB from saved variables is not loaded and initialized. Please report this issue on Questie github or discord.")
         error("Config DB from saved variables is not loaded and initialized. Please report this issue on Questie github or discord.")
         return
-    end
-
-    -- Maintain icon scale when map zoom changes (from Questie-Epoch)
-    if WorldMapDetailFrame then
-        hooksecurefunc(WorldMapDetailFrame, "SetScale", QuestieMap.RescaleIcons)
     end
 
     do
@@ -413,7 +365,6 @@ function _EventHandler:ModifierStateChanged(key, down)
 
         -- Questie Map Icons
         if MouseIsOver(WorldMapFrame) and WorldMapFrame:IsShown() or MouseIsOver(Minimap) then
-            local GameTooltip = QuestieCompat.Tooltip
             if GameTooltip and GameTooltip:IsShown() and GameTooltip._Rebuild then
                 GameTooltip:Hide()
                 GameTooltip:ClearLines()
@@ -509,46 +460,6 @@ function _EventHandler:ChatMsgCompatFactionChange()
     end
 end
 
-function _EventHandler.GroupRosterUpdate()
-    local currentMembers = GetNumGroupMembers()
-    -- Only want to do logic when number increases, not decreases.
-    if QuestiePlayer.numberOfGroupMembers < currentMembers then
-        -- Tell comms to send information to members.
-        --Questie:SendMessage("QC_ID_BROADCAST_FULL_QUESTLIST")
-        QuestiePlayer.numberOfGroupMembers = currentMembers
-    else
-        -- We do however always want the local to be the current number to allow up and down.
-        QuestiePlayer.numberOfGroupMembers = currentMembers
-    end
-end
-
-function _EventHandler:GroupJoined()
-    Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] GROUP_JOINED")
-    local checkTimer
-    --We want this to be fairly quick.
-    checkTimer = C_Timer.NewTicker(0.2, function()
-        local partyPending = UnitInParty("player")
-        local isInParty = UnitInParty("party1")
-        local isInRaid = UnitInRaid("raid1")
-        if partyPending then
-            if (isInParty or isInRaid) then
-                Questie:Debug(Questie.DEBUG_DEVELOP, "[QuestieEventHandler] Player joined party/raid, ask for questlogs")
-                --Request other players log.
-                Questie:SendMessage("QC_ID_REQUEST_FULL_QUESTLIST")
-                checkTimer:Cancel()
-            end
-        else
-            Questie:Debug(Questie.DEBUG_DEVELOP, "[QuestieEventHandler] Player no longer in a party or pending invite. Cancel timer")
-            checkTimer:Cancel()
-        end
-    end)
-end
-
-function _EventHandler:GroupLeft()
-    --Resets both QuestieComms.remoteQuestLog and QuestieComms.data
-    QuestieComms:ResetAll()
-end
-
 local trackerHiddenByCombat, optionsHiddenByCombat, journeyHiddenByCombat = false, false, false
 function _EventHandler:PlayerRegenDisabled()
     Questie:Debug(Questie.DEBUG_DEVELOP, "[EVENT] PLAYER_REGEN_DISABLED")
@@ -577,7 +488,7 @@ function _EventHandler:PlayerRegenDisabled()
     if QuestieJourney then
         if QuestieJourney:IsShown() then
             journeyHiddenByCombat = true
-            QuestieJourney.ToggleJourneyWindow()
+            QuestieJourney:ToggleJourneyWindow()
         end
     end
 end
@@ -601,7 +512,7 @@ function _EventHandler:PlayerRegenEnabled()
     end
 
     if journeyHiddenByCombat then
-        QuestieJourney.ToggleJourneyWindow()
+        QuestieJourney:ToggleJourneyWindow()
         journeyHiddenByCombat = false
     end
 end

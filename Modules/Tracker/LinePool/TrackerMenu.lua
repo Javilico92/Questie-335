@@ -14,8 +14,6 @@ local TrackerUtils = QuestieLoader:ImportModule("TrackerUtils")
 -------------------------
 ---@type QuestieQuest
 local QuestieQuest = QuestieLoader:ImportModule("QuestieQuest")
----@type QuestieMap
-local QuestieMap = QuestieLoader:ImportModule("QuestieMap")
 ---@type QuestieLink
 local QuestieLink = QuestieLoader:ImportModule("QuestieLink")
 ---@type QuestieCombatQueue
@@ -24,13 +22,11 @@ local QuestieCombatQueue = QuestieLoader:ImportModule("QuestieCombatQueue")
 local QuestieLib = QuestieLoader:ImportModule("QuestieLib")
 ---@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
+---@type DistanceUtils
+local DistanceUtils = QuestieLoader:ImportModule("DistanceUtils")
 
 ---@type l10n
 local l10n = QuestieLoader:ImportModule("l10n")
-
---- COMPATIBILITY ---
-local C_Timer = QuestieCompat.C_Timer
-local GetQuestLogIndexByID = QuestieCompat.GetQuestLogIndexByID
 
 local LibDropDown = QuestieCompat.LibUIDropDownMenu or LibStub:GetLibrary("LibUIDropDownMenuQuestie-4.0")
 
@@ -39,6 +35,9 @@ TrackerMenu.menuFrame = LibDropDown:Create_UIDropDownMenu("QuestieTrackerMenuFra
 local tinsert = table.insert
 
 -- Create local Quest Menu functions
+---@param menu table
+---@param quest Quest
+---@param objective QuestObjective
 TrackerMenu.addFocusOption = function(menu, quest, objective)
     if Questie.db.char.TrackerFocus and type(Questie.db.char.TrackerFocus) == "string" and Questie.db.char.TrackerFocus == tostring(quest.Id) .. " " .. tostring(objective.Index) then
         tinsert(menu, {
@@ -61,17 +60,33 @@ TrackerMenu.addFocusOption = function(menu, quest, objective)
     end
 end
 
-TrackerMenu.addTomTomOption = function(menu, quest, objective)
+---@param menu table
+---@param quest Quest
+---@param objective QuestObjective
+TrackerMenu.addTomTomOptionForQuest = function(menu, quest)
     tinsert(menu, {
         text = l10n('Set |cFF54e33bTomTom|r Target'),
         func = function()
             LibDropDown:CloseDropDownMenus()
 
-            local spawn, zone, name = QuestieMap:GetNearestQuestSpawn(quest)
-            if (not spawn) and objective ~= nil then
-                spawn, zone, name = QuestieMap:GetNearestSpawn(objective)
+            local spawn, zone, name = DistanceUtils.GetNearestSpawnForQuest(quest)
+            if spawn then
+                TrackerUtils:SetTomTomTarget(name, zone, spawn[1], spawn[2])
             end
+        end
+    })
+end
 
+---@param menu table
+---@param quest Quest
+---@param objective QuestObjective
+TrackerMenu.addTomTomOptionForObjective = function(menu, objective)
+    tinsert(menu, {
+        text = l10n('Set |cFF54e33bTomTom|r Target'),
+        func = function()
+            LibDropDown:CloseDropDownMenus()
+
+            local spawn, zone, name = DistanceUtils.GetNearestObjective(objective.spawnList)
             if spawn then
                 TrackerUtils:SetTomTomTarget(name, zone, spawn[1], spawn[2])
             end
@@ -356,7 +371,7 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_URL"] = {
         self:GetParent():Hide()
     end,
     OnShow = function(self)
-        local questID = self.text.text_arg1 or self.data
+        local questID = self.text.text_arg1
         local quest_wow = QuestieDB.GetQuest(questID)
         local name = quest_wow.name
 
@@ -379,8 +394,7 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_URL"] = {
         end)
     end,
     whileDead = true,
-    hideOnEscape = true,
-    timeout = 0 -- 335
+    hideOnEscape = true
 }
 
 -- Create Quest Menu
@@ -392,7 +406,7 @@ function TrackerMenu:GetMenuForQuest(quest)
         local objectiveMenu = {}
 
         TrackerMenu.addFocusOption(objectiveMenu, quest, objective)
-        TrackerMenu.addTomTomOption(objectiveMenu, nil, objective)
+        TrackerMenu.addTomTomOptionForObjective(objectiveMenu, objective)
         TrackerMenu.addShowHideObjectivesOption(objectiveMenu, quest, objective)
         TrackerMenu.addShowObjectivesOnMapOption(objectiveMenu, quest, objective)
 
@@ -404,7 +418,7 @@ function TrackerMenu:GetMenuForQuest(quest)
             local objectiveMenu = {}
 
             TrackerMenu.addFocusOption(objectiveMenu, quest, objective)
-            TrackerMenu.addTomTomOption(objectiveMenu, nil, objective)
+            TrackerMenu.addTomTomOptionForObjective(objectiveMenu, objective)
             TrackerMenu.addShowHideObjectivesOption(objectiveMenu, quest, objective)
             TrackerMenu.addShowObjectivesOnMapOption(objectiveMenu, quest, objective)
 
@@ -418,7 +432,7 @@ function TrackerMenu:GetMenuForQuest(quest)
 
     TrackerMenu.addObjectiveOption(menu, subMenu, quest)
     TrackerMenu.addFocusUnfocusOption(menu, quest)
-    TrackerMenu.addTomTomOption(menu, quest, nil)
+    TrackerMenu.addTomTomOptionForQuest(menu, quest, nil)
     TrackerMenu.minMaxQuestOption(menu, quest)
     TrackerMenu.addShowHideQuestsOption(menu, quest)
     TrackerMenu.addShowFinisherOnMapOption(menu, quest)
@@ -430,7 +444,7 @@ function TrackerMenu:GetMenuForQuest(quest)
     tinsert(menu, {
         text = "|cFF39c0edWoWHead URL|r",
         func = function()
-            StaticPopup_Show("QUESTIE_WOWHEAD_URL", quest.Id, nil, quest.Id)
+            StaticPopup_Show("QUESTIE_WOWHEAD_URL", quest.Id)
         end
     })
 
@@ -517,7 +531,7 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_AURL"] = {
         self:GetParent():Hide()
     end,
     OnShow = function(self)
-        local achieveID = self.text.text_arg1 or self.data
+        local achieveID = self.text.text_arg1
         local name = select(2, GetAchievementInfo(achieveID))
 
         self.text:SetFont("GameFontNormal", 12)
@@ -539,8 +553,7 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_AURL"] = {
         end)
     end,
     whileDead = true,
-    hideOnEscape = true,
-    timeout = 0 -- 335
+    hideOnEscape = true
 }
 
 -- Create Achievement Menu
@@ -560,7 +573,7 @@ function TrackerMenu:GetMenuForAchievement(achieve)
     tinsert(menu, {
         text = "|cFF39c0edWoWHead URL|r",
         func = function()
-            StaticPopup_Show("QUESTIE_WOWHEAD_AURL", achieve.Id, nil, achieve.Id)
+            StaticPopup_Show("QUESTIE_WOWHEAD_AURL", achieve.Id)
         end
     })
 

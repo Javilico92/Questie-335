@@ -39,8 +39,8 @@ local Townsfolk = QuestieLoader:ImportModule("Townsfolk")
 local QuestieQuest = QuestieLoader:ImportModule("QuestieQuest")
 ---@type IsleOfQuelDanas
 local IsleOfQuelDanas = QuestieLoader:ImportModule("IsleOfQuelDanas")
----@type QuestieEventHandler
-local QuestieEventHandler = QuestieLoader:ImportModule("QuestieEventHandler")
+---@type EventHandler
+local EventHandler = QuestieLoader:ImportModule("EventHandler")
 ---@type QuestieJourney
 local QuestieJourney = QuestieLoader:ImportModule("QuestieJourney")
 ---@type HBDHooks
@@ -236,7 +236,7 @@ QuestieInit.Stages[3] = function() -- run as a coroutine
     Questie:Debug(Questie.DEBUG_INFO, "[QuestieInit:Stage3] Stage 3 start.")
 
     -- register events that rely on questie being initialized
-    QuestieEventHandler:RegisterLateEvents()
+    EventHandler:RegisterLateEvents()
 
     QuestieTooltips:Initialize()
     TrackerQuestTimers:Initialize()
@@ -275,7 +275,7 @@ QuestieInit.Stages[3] = function() -- run as a coroutine
     QuestieQuest:GetAllQuestIds()
     coYield()
 
-    QuestEventHandler:RegisterEvents()
+    QuestEventHandler:Initialize()
 
     coYield()
     QuestieCombatQueue.Initialize()
@@ -401,7 +401,7 @@ function QuestieInit:Init()
 
     if Questie.db.profile.trackerEnabled then
         -- This needs to be called ASAP otherwise tracked Achievements in the Blizzard WatchFrame shows upon login
-        WatchFrameHook.Hide()
+        --WatchFrameHook.Hide()
 
         if (not Questie.IsWotlk) and (not Questie.IsCata) then
             -- Need to hook this ASAP otherwise the scroll bars show up

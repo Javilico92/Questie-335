@@ -12,8 +12,6 @@ local QuestieFramePool = QuestieLoader:ImportModule("QuestieFramePool");
 local QuestieDBMIntegration = QuestieLoader:ImportModule("QuestieDBMIntegration");
 ---@type QuestieLib
 local QuestieLib = QuestieLoader:ImportModule("QuestieLib");
----@type QuestiePlayer
-local QuestiePlayer = QuestieLoader:ImportModule("QuestiePlayer");
 ---@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB");
 ---@type ZoneDB
@@ -65,6 +63,8 @@ local tunpack = unpack;
 local drawTimer
 local drawQueueTickRate
 local fadeLogicCoroutine
+
+local _MinimapIconSetFade, _MinimapIconFadeLogic
 
 
 --* TODO: How the frames are handled needs to be reworked, why are we getting them from _G
@@ -199,12 +199,6 @@ function QuestieMap.GetScaleValue()
             scaling = 0.9
         end
     end
-
-    -- Maintain icon scale when zooming (from Questie-Epoch)
-    if WorldMapDetailFrame then
-        scaling = scaling / WorldMapDetailFrame:GetScale()
-    end
-    
     return scaling
 end
 
@@ -545,6 +539,11 @@ function QuestieMap:DrawManualIcon(data, areaID, x, y, typ)
     iconMinimap.texture:SetVertexColor(colorsMinimap[1], colorsMinimap[2], colorsMinimap[3], 1);
     iconMinimap.miniMapIcon = true;
 
+    if (not iconMinimap.FadeLogic) then
+        iconMinimap.SetFade = _MinimapIconSetFade
+        iconMinimap.FadeLogic = _MinimapIconFadeLogic
+    end
+
     -- add the minimap icon
     QuestieMap:QueueDraw(QuestieMap.ICON_MINIMAP_TYPE, Questie, iconMinimap, iconMinimap.UiMapID, x / 100, y / 100, true, true);
     tinsert(QuestieMap.manualFrames[typ][data.id], iconMinimap:GetName())
@@ -644,68 +643,16 @@ function QuestieMap:DrawWorldIcon(data, areaID, x, y, phase, showFlag)
     end
 
     if (not iconMinimap.FadeLogic) then
-        function iconMinimap:SetFade(value)
-            if self.lastGlowFade ~= value then
-                self.lastGlowFade = value
-                if self.glowTexture then
-                    local r, g, b = self.glowTexture:GetVertexColor()
-                    self.glowTexture:SetVertexColor(r, g, b, value)
-                end
-                self.texture:SetVertexColor(self.texture.r, self.texture.g, self.texture.b, value)
-            end
-        end
-
-        function iconMinimap:FadeLogic()
-            local profile = Questie.db.profile
-            if self.miniMapIcon and self.x and self.y and self.texture and self.UiMapID and self.texture.SetVertexColor and HBD and HBD.GetPlayerZonePosition and QuestieLib and QuestieLib.Euclid then
-                if (QuestieMap.playerX and QuestieMap.playerY) then
-                    local x, y
-                    if (not self.worldX) then
-                        x, y = HBD:GetWorldCoordinatesFromZone(self.x / 100, self.y / 100, self.UiMapID)
-                        self.worldX = x
-                        self.worldY = y
-                    else
-                        x = self.worldX
-                        y = self.worldY
-                    end
-                    if (x and y) then
-                        --Very small value before, hard to work with.
-                        local distance = QuestieLib:Euclid(QuestieMap.playerX, QuestieMap.playerY, x, y) / 10;
-
-                        if (distance > profile.fadeLevel) then
-                            local fade = 1 - (math.min(10, (distance - profile.fadeLevel)) * normalizedValue);
-                            self:SetFade(fade)
-                        elseif (distance < profile.fadeOverPlayerDistance) and profile.fadeOverPlayer then
-                            local fadeAmount = profile.fadeOverPlayerLevel + distance * (1 - profile.fadeOverPlayerLevel) / profile.fadeOverPlayerDistance
-                            if self.faded and fadeAmount > profile.iconFadeLevel then
-                                fadeAmount = profile.iconFadeLevel
-                            end
-                            self:SetFade(fadeAmount)
-                        else
-                            if self.faded then
-                                self:SetFade(profile.iconFadeLevel)
-                            else
-                                self:SetFade(1)
-                            end
-                        end
-                    end
-                else
-                    if self.faded then
-                        self:SetFade(profile.iconFadeLevel)
-                    else
-                        self:SetFade(1)
-                    end
-                end
-            end
-        end
-
-        -- We do not want to hook the OnUpdate again!
-        -- iconMinimap:SetScript("OnUpdate", )
+        iconMinimap.SetFade = _MinimapIconSetFade
+        iconMinimap.FadeLogic = _MinimapIconFadeLogic
     end
 
     QuestieMap:QueueDraw(QuestieMap.ICON_MINIMAP_TYPE, Questie, iconMinimap, uiMapId, x / 100, y / 100, true, floatOnEdge)
     QuestieMap:QueueDraw(QuestieMap.ICON_MAP_TYPE, Questie, iconMap, uiMapId, x / 100, y / 100, showFlag)
     local r, g, b = iconMinimap.texture:GetVertexColor()
+	if data.Id == 9498 then
+	print("La Avanzada del Halcón - x ", x, " y ", y)
+	end
     QuestieDBMIntegration:RegisterHudQuestIcon(tostring(iconMap), data.Icon, uiMapId, x, y, r, g, b)
 
     if (not QuestieMap.questIdFrames[data.Id]) then
@@ -726,319 +673,6 @@ function QuestieMap:DrawWorldIcon(data, areaID, x, y, phase, showFlag)
     return iconMap, iconMinimap;
 end
 
---- The return type also contains, distance, zone and type but we never really use it.
----@type table<QuestId, {x:X, y:Y}>
-local closestStarter = {}
-function QuestieMap:FindClosestStarter()
-    local playerX, playerY, _ = HBD:GetPlayerWorldPosition();
-    local playerZone = HBD:GetPlayerWorldPosition();
-    for questId in pairs(QuestiePlayer.currentQuestlog) do
-        if (not closestStarter[questId]) then
-            local quest = QuestieDB.GetQuest(questId);
-            if quest then
-                closestStarter[questId] = {
-                    distance = 999999,
-                    x = -1,
-                    y = -1,
-                    zone = -1,
-                    type = "",
-                }
-                for starterType, starters in pairs(quest.Starts) do
-                    if (starterType == "GameObject") then
-                        for _, ObjectID in ipairs(starters or {}) do
-                            local obj = QuestieDB:GetObject(ObjectID)
-                            if (obj ~= nil and obj.spawns ~= nil) then
-                                for Zone, Spawns in pairs(obj.spawns) do
-                                    if (Zone ~= nil and Spawns ~= nil) then
-                                        for _, coords in ipairs(Spawns) do
-                                            if (coords[1] == -1 or coords[2] == -1) then -- instace locations
-                                                local dungeonLocation = ZoneDB:GetDungeonLocation(Zone)
-                                                if dungeonLocation ~= nil then
-                                                    for _, value in ipairs(dungeonLocation) do
-                                                        if (value[1] and value[2]) then
-                                                            local x, y, _ = HBD:GetWorldCoordinatesFromZone(value[1] / 100, value[2] / 100, ZoneDB:GetUiMapIdByAreaId(value[3]))
-                                                            if (x and y) then
-                                                                local distance = QuestieLib:Euclid(playerX or 0, playerY or 0, x, y);
-                                                                if (closestStarter[questId].distance > distance) then
-                                                                    closestStarter[questId].distance = distance;
-                                                                    closestStarter[questId].x = x;
-                                                                    closestStarter[questId].y = y;
-                                                                    closestStarter[questId].zone = ZoneDB:GetUiMapIdByAreaId(Zone);
-                                                                    closestStarter[questId].type = "GameObject - " .. obj.name;
-                                                                end
-                                                            end
-                                                        end
-                                                    end
-                                                end
-                                            else
-                                                local uiMapId = ZoneDB:GetUiMapIdByAreaId(Zone)
-                                                local x, y, _ = HBD:GetWorldCoordinatesFromZone(coords[1] / 100, coords[2] / 100, uiMapId)
-                                                if (x and y) then
-                                                    local distance = QuestieLib:Euclid(playerX or 0, playerY or 0, x, y);
-                                                    if (closestStarter[questId].distance > distance) then
-                                                        closestStarter[questId].distance = distance;
-                                                        closestStarter[questId].x = x;
-                                                        closestStarter[questId].y = y;
-                                                        closestStarter[questId].zone = uiMapId
-                                                        closestStarter[questId].type = "GameObject - " .. obj.name;
-                                                    end
-                                                end
-                                            end
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                    elseif (starterType == "NPC") then
-                        for _, NPCID in ipairs(starters or {}) do
-                            local NPC = QuestieDB:GetNPC(NPCID)
-                            if (NPC ~= nil and NPC.spawns ~= nil and NPC.friendly) then
-                                for Zone, Spawns in pairs(NPC.spawns) do
-                                    if (Zone ~= nil and Spawns ~= nil) then
-                                        for _, coords in ipairs(Spawns) do
-                                            if (coords[1] == -1 or coords[2] == -1) then
-                                                local dungeonLocation = ZoneDB:GetDungeonLocation(Zone)
-                                                if dungeonLocation ~= nil then
-                                                    for _, value in ipairs(dungeonLocation) do
-                                                        if (value[1] and value[2]) then
-                                                            local uiMapId = ZoneDB:GetUiMapIdByAreaId(value[3])
-                                                            local x, y, _ = HBD:GetWorldCoordinatesFromZone(value[1] / 100, value[2] / 100, uiMapId)
-                                                            if (x and y) then
-                                                                local distance = QuestieLib:Euclid(playerX or 0, playerY or 0, x, y);
-                                                                if (closestStarter[questId].distance > distance) then
-                                                                    closestStarter[questId].distance = distance;
-                                                                    closestStarter[questId].x = x;
-                                                                    closestStarter[questId].y = y;
-                                                                    closestStarter[questId].zone = ZoneDB:GetUiMapIdByAreaId(Zone);
-                                                                    closestStarter[questId].type = "NPC - " .. NPC.name;
-                                                                end
-                                                            end
-                                                        end
-                                                    end
-                                                end
-                                            elseif (coords[1] and coords[2]) then
-                                                local uiMapId = ZoneDB:GetUiMapIdByAreaId(Zone)
-                                                local x, y, _ = HBD:GetWorldCoordinatesFromZone(coords[1] / 100, coords[2] / 100, uiMapId)
-                                                if (x and y) then
-                                                    local distance = QuestieLib:Euclid(playerX or 0, playerY or 0, x, y);
-                                                    if (closestStarter[questId].distance > distance) then
-                                                        closestStarter[questId].distance = distance;
-                                                        closestStarter[questId].x = x;
-                                                        closestStarter[questId].y = y;
-                                                        closestStarter[questId].zone = ZoneDB:GetUiMapIdByAreaId(Zone);
-                                                        closestStarter[questId].type = "NPC - " .. NPC.name;
-                                                    end
-                                                end
-                                            end
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-                if (closestStarter[questId].x == -1) then
-                    closestStarter[questId].distance = 0;
-                    closestStarter[questId].x = playerX;
-                    closestStarter[questId].y = playerY;
-                    closestStarter[questId].zone = playerZone;
-                    closestStarter[questId].type = "player";
-                end
-            end
-        end
-    end
-    return closestStarter;
-end
-
-function QuestieMap:FindClosestFinisher(quest)
-    if (not quest) then
-        return nil
-    end
-
-    local playerX, playerY, _ = HBD:GetPlayerWorldPosition();
-    local playerZone = HBD:GetPlayerWorldPosition();
-
-    local closestFinisher = {
-        distance = 999999,
-        x = -1,
-        y = -1,
-        zone = -1,
-    }
-    for finisherType, finisher in pairs(quest.Finisher) do
-        if (finisherType == "GameObject") then
-            for _, ObjectID in ipairs(finisher or {}) do
-                local obj = QuestieDB:GetObject(ObjectID)
-                if (obj ~= nil and obj.spawns ~= nil) then
-                    for Zone, Spawns in pairs(obj.spawns) do
-                        if (Zone ~= nil and Spawns ~= nil) then
-                            for _, coords in ipairs(Spawns) do
-                                if (coords[1] == -1 or coords[2] == -1) then -- instace locations
-                                    local dungeonLocation = ZoneDB:GetDungeonLocation(Zone)
-                                    if dungeonLocation ~= nil then
-                                        for _, value in ipairs(dungeonLocation) do
-                                            if (value[1] and value[2]) then
-                                                local x, y, _ = HBD:GetWorldCoordinatesFromZone(value[1] / 100, value[2] / 100, ZoneDB:GetUiMapIdByAreaId(value[3]))
-                                                if (x and y) then
-                                                    local distance = QuestieLib:Euclid(playerX or 0, playerY or 0, x, y);
-                                                    if (closestFinisher.distance > distance) then
-                                                        closestFinisher.distance = distance;
-                                                        closestFinisher.x = x;
-                                                        closestFinisher.y = y;
-                                                        closestFinisher.zone = ZoneDB:GetUiMapIdByAreaId(Zone);
-                                                        closestFinisher.name = obj.name;
-                                                    end
-                                                end
-                                            end
-                                        end
-                                    end
-                                else
-                                    local uiMapId = ZoneDB:GetUiMapIdByAreaId(Zone)
-                                    local x, y, _ = HBD:GetWorldCoordinatesFromZone(coords[1] / 100, coords[2] / 100, uiMapId)
-                                    if (x and y) then
-                                        local distance = QuestieLib:Euclid(playerX or 0, playerY or 0, x, y);
-                                        if (closestFinisher.distance > distance) then
-                                            closestFinisher.distance = distance;
-                                            closestFinisher.x = x;
-                                            closestFinisher.y = y;
-                                            closestFinisher.zone = uiMapId
-                                            closestFinisher.name = obj.name;
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end
-        elseif (finisherType == "NPC") then
-            for _, NPCID in ipairs(finisher or {}) do
-                local NPC = QuestieDB:GetNPC(NPCID)
-                if (NPC ~= nil and NPC.spawns ~= nil and NPC.friendly) then
-                    for Zone, Spawns in pairs(NPC.spawns) do
-                        if (Zone ~= nil and Spawns ~= nil) then
-                            for _, coords in ipairs(Spawns) do
-                                if (coords[1] == -1 or coords[2] == -1) then
-                                    local dungeonLocation = ZoneDB:GetDungeonLocation(Zone)
-                                    if dungeonLocation ~= nil then
-                                        for _, value in ipairs(dungeonLocation) do
-                                            if (value[1] and value[2]) then
-                                                local uiMapId = ZoneDB:GetUiMapIdByAreaId(value[3])
-                                                local x, y, _ = HBD:GetWorldCoordinatesFromZone(value[1] / 100, value[2] / 100, uiMapId)
-                                                if (x and y) then
-                                                    local distance = QuestieLib:Euclid(playerX or 0, playerY or 0, x, y);
-                                                    if (closestFinisher.distance > distance) then
-                                                        closestFinisher.distance = distance;
-                                                        closestFinisher.x = x;
-                                                        closestFinisher.y = y;
-                                                        closestFinisher.zone = ZoneDB:GetUiMapIdByAreaId(Zone);
-                                                        closestFinisher.name = NPC.name;
-                                                    end
-                                                end
-                                            end
-                                        end
-                                    end
-                                elseif (coords[1] and coords[2]) then
-                                    local uiMapId = ZoneDB:GetUiMapIdByAreaId(Zone)
-                                    local x, y, _ = HBD:GetWorldCoordinatesFromZone(coords[1] / 100, coords[2] / 100, uiMapId)
-                                    if (x and y) then
-                                        local distance = QuestieLib:Euclid(playerX or 0, playerY or 0, x, y);
-                                        if (closestFinisher.distance > distance) then
-                                            closestFinisher.distance = distance;
-                                            closestFinisher.x = x;
-                                            closestFinisher.y = y;
-                                            closestFinisher.zone = ZoneDB:GetUiMapIdByAreaId(Zone);
-                                            closestFinisher.name = NPC.name;
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
-    if (closestFinisher.x == -1) then
-        closestFinisher.x = playerX;
-        closestFinisher.y = playerY;
-        closestFinisher.zone = playerZone;
-    end
-    return {closestFinisher.x, closestFinisher.y}, closestFinisher.zone, closestFinisher.name
-end
-
-function QuestieMap:GetNearestSpawn(objective)
-    if not objective then
-        return nil
-    end
-    local playerX, playerY, playerI = HBD:GetPlayerWorldPosition()
-    local bestDistance = 999999999
-    local bestSpawn, bestSpawnZone, bestSpawnId, bestSpawnType, bestSpawnName
-    -- TODO: This is just a temporary workaround - We have to find out why "objective.spawnList" can be nil
-    if objective and objective.spawnList and next(objective.spawnList) then
-        for id, spawnData in pairs(objective.spawnList) do
-            for zone, spawns in pairs(spawnData.Spawns) do
-                for _, spawn in pairs(spawns) do
-                    local uiMapId = ZoneDB:GetUiMapIdByAreaId(zone)
-                    local dX, dY, dInstance = HBD:GetWorldCoordinatesFromZone(spawn[1] / 100.0, spawn[2] / 100.0, uiMapId)
-                    local dist = HBD:GetWorldDistance(dInstance, playerX, playerY, dX, dY)
-                    if dist then
-                        if dInstance ~= playerI then
-                            dist = 500000 + dist * 100 -- hack
-                        end
-                        if dist < bestDistance then
-                            bestDistance = dist
-                            bestSpawn = spawn
-                            bestSpawnZone = zone
-                            bestSpawnId = id
-                            bestSpawnType = spawnData.Type
-                            bestSpawnName = spawnData.Name
-                        end
-                    end
-                end
-            end
-        end
-    end
-    return bestSpawn, bestSpawnZone, bestSpawnName, bestSpawnId, bestSpawnType, bestDistance
-end
-
----@param quest Quest
-function QuestieMap:GetNearestQuestSpawn(quest)
-    if not quest then
-        return nil
-    end
-    if quest:IsComplete() == 1 then
-        return QuestieMap:FindClosestFinisher(quest)
-    end
-
-    local bestDistance = 999999999
-    local bestSpawn, bestSpawnZone, bestSpawnId, bestSpawnType, bestSpawnName
-
-    for _, objective in pairs(quest.Objectives) do
-        local spawn, zone, Name, id, Type, dist = QuestieMap:GetNearestSpawn(objective)
-        if spawn and dist < bestDistance and ((not objective.Needed) or objective.Needed ~= objective.Collected) then
-            bestDistance = dist
-            bestSpawn = spawn
-            bestSpawnZone = zone
-            bestSpawnId = id
-            bestSpawnType = Type
-            bestSpawnName = Name
-        end
-    end
-
-    for _, objective in pairs(quest.SpecialObjectives) do
-        local spawn, zone, Name, id, Type, dist = QuestieMap:GetNearestSpawn(objective)
-        if spawn and dist < bestDistance and ((not objective.Needed) or objective.Needed ~= objective.Collected) then
-            bestDistance = dist
-            bestSpawn = spawn
-            bestSpawnZone = zone
-            bestSpawnId = id
-            bestSpawnType = Type
-            bestSpawnName = Name
-        end
-    end
-    return bestSpawn, bestSpawnZone, bestSpawnName, bestSpawnId, bestSpawnType, bestDistance
-end
-
 QuestieMap.zoneWaypointColorOverrides = { -- this is used when the default orange color doesn't work well in specific zones. Not needed after 769ea832ff772b10c57351eb199348393625a99b
     --    [14] = {0,0.1,0.9,0.7}, -- durotar
     --    [38] = {0,0.1,0.9,0.7} -- loch modan
@@ -1054,6 +688,61 @@ function QuestieMap:DrawWaypoints(icon, waypoints, zone, color)
         local lineFrames = QuestieFramePool:CreateWaypoints(icon, waypoints, nil, color or QuestieMap.zoneWaypointColorOverrides[zone], zone)
         for _, lineFrame in ipairs(lineFrames) do
             QuestieMap:DrawLineIcon(lineFrame, zone, waypoints[1][1][1], waypoints[1][1][2])
+        end
+    end
+end
+
+_MinimapIconSetFade = function(self, value)
+    if self.lastGlowFade ~= value then
+        self.lastGlowFade = value
+        if self.glowTexture then
+            local r, g, b = self.glowTexture:GetVertexColor()
+            self.glowTexture:SetVertexColor(r, g, b, value)
+        end
+        self.texture:SetVertexColor(self.texture.r, self.texture.g, self.texture.b, value)
+    end
+end
+
+_MinimapIconFadeLogic = function(self)
+    local profile = Questie.db.profile
+    if self.miniMapIcon and self.x and self.y and self.texture and self.UiMapID and self.texture.SetVertexColor and HBD and HBD.GetPlayerZonePosition and QuestieLib and QuestieLib.Euclid then
+        if (QuestieMap.playerX and QuestieMap.playerY) then
+            local x, y
+            if (not self.worldX) then
+                x, y = HBD:GetWorldCoordinatesFromZone(self.x / 100, self.y / 100, self.UiMapID)
+                self.worldX = x
+                self.worldY = y
+            else
+                x = self.worldX
+                y = self.worldY
+            end
+            if (x and y) then
+                --Very small value before, hard to work with.
+                local distance = QuestieLib.Euclid(QuestieMap.playerX, QuestieMap.playerY, x, y) / 10;
+
+                if (distance > profile.fadeLevel) then
+                    local fade = 1 - (math.min(10, (distance - profile.fadeLevel)) * normalizedValue);
+                    self:SetFade(fade)
+                elseif (distance < profile.fadeOverPlayerDistance) and profile.fadeOverPlayer then
+                    local fadeAmount = profile.fadeOverPlayerLevel + distance * (1 - profile.fadeOverPlayerLevel) / profile.fadeOverPlayerDistance
+                    if self.faded and fadeAmount > profile.iconFadeLevel then
+                        fadeAmount = profile.iconFadeLevel
+                    end
+                    self:SetFade(fadeAmount)
+                else
+                    if self.faded then
+                        self:SetFade(profile.iconFadeLevel)
+                    else
+                        self:SetFade(1)
+                    end
+                end
+            end
+        else
+            if self.faded then
+                self:SetFade(profile.iconFadeLevel)
+            else
+                self:SetFade(1)
+            end
         end
     end
 end

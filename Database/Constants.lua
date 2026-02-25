@@ -1,10 +1,6 @@
 ---@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
 
---- COMPATIBILITY ---
-local WOW_PROJECT_ID = QuestieCompat.WOW_PROJECT_ID
-local WOW_PROJECT_WRATH_CLASSIC = QuestieCompat.WOW_PROJECT_WRATH_CLASSIC
-
 QuestieDB.sortKeys = {
     SEASONAL = -22,
     HERBALISM = -24,
@@ -49,9 +45,7 @@ QuestieDB.sortKeys = {
     BLACKROCK_ERUPTION = -644,
 }
 
-local isWotlk = WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC
-
-QuestieDB.factionTemplate = isWotlk and { -- [id] = EnemyGroup
+QuestieDB.factionTemplate = Questie.IsWotlk and { -- [id] = EnemyGroup
     [1] = 12,
     [2] = 10,
     [3] = 12,

@@ -64,6 +64,9 @@ function CataItemFixes.Load()
         [8705] = { -- OOX-22/FE Distress Beacon
             [itemKeys.startQuest] = 25475,
         },
+        [9597] = { -- Mountain Giant Muisek
+            [itemKeys.npcDrops] = {40026},
+        },
         [10441] = { -- Glowing Shard
             [itemKeys.startQuest] = 0,
         },
@@ -81,6 +84,12 @@ function CataItemFixes.Load()
         },
         [11114] = { -- Dinosaur Bone
             [itemKeys.npcDrops] = {6501,6502,6503,6504,9162,9163,9164},
+        },
+        [11569] = { -- Preserved Threshadon Meat
+            [itemKeys.npcDrops] = {},
+        },
+        [11570] = { -- Preserved Pheromone Mixture
+            [itemKeys.npcDrops] = {},
         },
         [11818] = { -- Grimesilt Outhouse Key
             [itemKeys.startQuest] = 0,
@@ -697,6 +706,9 @@ function CataItemFixes.Load()
         [60857] = { -- Recovered Supplies
             [itemKeys.npcDrops] = {},
         },
+        [60862] = { -- Forsaken Insignia
+            [itemKeys.npcDrops] = {45197},
+        },
         [60879] = { -- Commander's Holy Symbol
             [itemKeys.npcDrops] = {4278},
         },
@@ -709,11 +721,17 @@ function CataItemFixes.Load()
         [61294] = { -- Infectis Scuttler
             [itemKeys.npcDrops] = {45657},
         },
+        [61310] = { -- Arcane Remnant
+            [itemKeys.startQuest] = 27480,
+        },
         [61317] = { -- Vermillion Egg
             [itemKeys.npcDrops] = {45651,45682},
         },
         [61376] = { -- Suspended Starlight
             [itemKeys.npcDrops] = {},
+        },
+        [61505] = { -- Partially Digested Head
+            [itemKeys.startQuest] = 27574,
         },
         [61929] = { -- Broken Spectacles
             [itemKeys.npcDrops] = {45874},

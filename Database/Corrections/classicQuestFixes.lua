@@ -101,8 +101,17 @@ function QuestieQuestFixes:Load()
         [117] = {
             [questKeys.name] = "Thunderbrew",
         },
+        [121] = { -- Messenger to Stormwind
+            [questKeys.nextQuestInChain] = 143,
+        },
+        [123] = {
+            [questKeys.startedBy] = {{97,100,448,478},nil,{1307}},
+        },
         [136] = {
             [questKeys.startedBy] = {{513,515,126,171,456,127,517,458,391},nil,{1357}},
+        },
+        [144] = { -- Messenger to Westfall
+            [questKeys.nextQuestInChain] = 145,
         },
         [148] = {
             [questKeys.preQuestSingle] = {}, -- #1173
@@ -589,6 +598,9 @@ function QuestieQuestFixes:Load()
         },
         [976] = {
             [questKeys.triggerEnd] = {"Protect Feero Ironhand", {[zoneIDs.DARKSHORE]={{43.54,94.39}}}},
+        },
+        [979] = { -- Find Ranshalla
+            [questKeys.nextQuestInChain] = 4901,
         },
         [984] = {
             [questKeys.triggerEnd] = {"Find a corrupt furbolg camp",{[zoneIDs.DARKSHORE]={{50.91,34.74},{39.86,53.89},{42.68,86.53},{39.95,78.41}}}},
@@ -1602,7 +1614,7 @@ function QuestieQuestFixes:Load()
             [questKeys.objectives] = {{{1749,"Advice from Lady Prestor"}}},
         },
         [4224] = {
-            [questKeys.objectives] = {{{9563,"Ragged John's Story"}}},
+            [questKeys.objectives] = {{{9563,"Ragged John's Story",Questie.ICON_TYPE_TALK}}},
         },
         [4245] = {
             [questKeys.triggerEnd] = {"Protect A-Me 01 until you reach Karna Remtravel",{[zoneIDs.UN_GORO_CRATER]={{46.43, 13.78}}}},
@@ -2004,8 +2016,17 @@ function QuestieQuestFixes:Load()
         [5582] = {
             [questKeys.startedBy] = {{10678},nil,{13920}},
         },
+        [5621] = { -- Garments of the Moon
+            [questKeys.objectives] = {{{12427,"Heal and fortify Sentinel Shaya",Questie.ICON_TYPE_INTERACT}}},
+        },
         [5622] = {
             [questKeys.questLevel] = 5, -- #2306
+        },
+        [5624] = { -- Garments of the Light
+            [questKeys.objectives] = {{{12427,"Heal and fortify Guard Roberts",Questie.ICON_TYPE_INTERACT}}},
+        },
+        [5625] = { -- Garments of the Light
+            [questKeys.objectives] = {{{12427,"Heal and fortify Mountaineer Dolf",Questie.ICON_TYPE_INTERACT}}},
         },
         [5634] = {
             [questKeys.startedBy] = {{376},nil,nil},
@@ -2043,6 +2064,12 @@ function QuestieQuestFixes:Load()
         },
         [5647] = {
             [questKeys.startedBy] = {{11401},nil,nil}, -- #2424
+        },
+        [5648] = { -- Garments of Spirituality
+            [questKeys.objectives] = {{{12427,"Heal and fortify Grunt Kor'ja",Questie.ICON_TYPE_INTERACT}}},
+        },
+        [5650] = { -- Garments of Darkness
+            [questKeys.objectives] = {{{12427,"Heal and fortify Grunt Kor'ja",Questie.ICON_TYPE_INTERACT}}},
         },
         [5676] = {
             [questKeys.exclusiveTo] = {5677,5678},

@@ -1,8 +1,7 @@
 ---@class Sounds
 local Sounds = QuestieLoader:CreateModule("Sounds")
 
---- COMPATIBILITY ---
-local C_Timer = QuestieCompat.C_Timer
+local LSM30 = LibStub("LibSharedMedia-3.0")
 
 local soundTable
 local shouldPlayObjectiveSound = false
@@ -51,7 +50,11 @@ function Sounds.PlayQuestComplete()
 end
 
 function Sounds.GetSelectedSoundFile(typeSelected)
-    return soundTable[typeSelected]
+    local soundFile = soundTable[typeSelected]
+    if (not soundFile) then
+        soundFile = LSM30:Fetch("sound", typeSelected)
+    end
+    return soundFile
 end
 
 soundTable = {

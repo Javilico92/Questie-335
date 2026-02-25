@@ -179,6 +179,9 @@ function SeasonOfDiscovery:LoadItems()
         [221326] = { -- Sacred Stag Heart
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [225954] = { -- Charred Spell Notes
+            [itemKeys.npcDrops] = {227324},
+        },
         [226122] = { -- Dalton's Horn
             [itemKeys.class] = itemClasses.QUEST,
         },
@@ -208,6 +211,12 @@ function SeasonOfDiscovery:LoadItems()
         },
         [231842] = { -- Nandieb's Stave
             [itemKeys.npcDrops] = {232529},
+        },
+        [235045] = { -- Imperial Qiraji Regalia
+            [itemKeys.npcDrops] = {15275,15276,15299,15509,15510,15511,15516,15517,15543,15544},
+        },
+        [235046] = { -- Imperial Qiraji Armaments
+            [itemKeys.npcDrops] = {15275,15276,15299,15509,15510,15511,15516,15517,15543,15544},
         },
     }
 end

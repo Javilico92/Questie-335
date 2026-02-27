@@ -43,6 +43,12 @@ function SeasonOfDiscovery:LoadQuests()
         [8728] = { -- The Good News and The Bad News
             [questKeys.preQuestSingle] = {86444},
         },
+        [8735] = { -- The Nightmare's Corruption
+            [questKeys.preQuestSingle] = {86443},
+        },
+        [8742] = { -- The Might of Kalimdor
+            [questKeys.preQuestGroup] = {8741,86442,86445},
+        },
         [8922] = { -- A Supernatural Device
             [questKeys.preQuestSingle] = {84147,84148,84149,84150,84151,84152,84153,84154},
         },
@@ -571,6 +577,13 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.objectives] = {nil,nil,{{5359}}},
             [questKeys.zoneOrSort] = zoneIDs.BLACKFATHOM_DEEPS,
             [questKeys.questFlags] = questFlags.RAID,
+        },
+        [78924] = { -- In Search of Thaelrid
+            [questKeys.startedBy] = {{4786}},
+            [questKeys.finishedBy] = {{4787}},
+            [questKeys.zoneOrSort] = zoneIDs.BLACKFATHOM_DEEPS,
+            [questKeys.questFlags] = questFlags.RAID,
+            [questKeys.exclusiveTo] = {78921,78922}
         },
         [78925] = { -- Twilight Falls (Alliance)
             [questKeys.startedBy] = {{4784}},
@@ -1104,6 +1117,14 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.GNOMEREGAN,
             [questKeys.questFlags] = questFlags.RAID,
         },
+        [80142] = { -- Castpipe's Task
+            [questKeys.startedBy] = {{4077}},
+            [questKeys.finishedBy] = {{7950}},
+            [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
+            [questKeys.zoneOrSort] = zoneIDs.GNOMEREGAN,
+            [questKeys.questFlags] = questFlags.RAID,
+            [questKeys.nextQuestInChain] = 80143,
+        },
         [80143] = { -- Data Rescue
             [questKeys.extraObjectives] = {
                 {nil, Questie.ICON_TYPE_OBJECT, l10n("Step 1: obtain the Yellow Punch Card. You need the White Punch Card."), 0, {{"object", 142345}}},
@@ -1174,6 +1195,26 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.preQuestSingle] = {80153},
             [questKeys.zoneOrSort] = zoneIDs.GNOMEREGAN,
             [questKeys.questFlags] = questFlags.RAID,
+        },
+        [80164] = { -- Large Cluster Rockets
+            [questKeys.zoneOrSort] = sortKeys.LUNAR_FESTIVAL,
+            [questKeys.specialFlags] = specialFlags.REPEATABLE,
+        },
+        [80165] = { -- Cluster Rockets
+            [questKeys.zoneOrSort] = sortKeys.LUNAR_FESTIVAL,
+            [questKeys.specialFlags] = specialFlags.REPEATABLE,
+        },
+        [80166] = { -- Small Rockets
+            [questKeys.zoneOrSort] = sortKeys.LUNAR_FESTIVAL,
+            [questKeys.specialFlags] = specialFlags.REPEATABLE,
+        },
+        [80167] = { -- Large Rockets
+            [questKeys.zoneOrSort] = sortKeys.LUNAR_FESTIVAL,
+            [questKeys.specialFlags] = specialFlags.REPEATABLE,
+        },
+        [80168] = { -- Large Rockets
+            [questKeys.zoneOrSort] = sortKeys.LUNAR_FESTIVAL,
+            [questKeys.specialFlags] = specialFlags.REPEATABLE,
         },
         [80180] = { -- The Grand Betrayal
             [questKeys.zoneOrSort] = zoneIDs.GNOMEREGAN,
@@ -2430,7 +2471,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.IRONFORGE,
         },
         [84150] = { -- An Earnest Proposition
-            [questKeys.requiredClasses] = classIDs.PALADIN,
             [questKeys.zoneOrSort] = zoneIDs.IRONFORGE,
         },
         [84151] = { -- An Earnest Proposition
@@ -2825,6 +2865,11 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.preQuestSingle] = {84414},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
+        [84338] = { -- A Binding Contract
+            [questKeys.startedBy] = {nil,nil,{227730}},
+            [questKeys.zoneOrSort] = zoneIDs.BLACKROCK_DEPTHS,
+            [questKeys.reputationReward] = {{factionIDs.THORIUM_BROTHERHOOD,200}},
+        },
         [84235] = { -- Dive! Dive!
             [questKeys.objectives] = {{{229897,nil,Questie.ICON_TYPE_INTERACT}}},
             [questKeys.preQuestSingle] = {84136},
@@ -2972,6 +3017,10 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.objectives] = {{{228619,nil,Questie.ICON_TYPE_TALK}}},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
+        [84495] = { -- Fiery Plate Gauntlets
+            [questKeys.requiredSkill] = {profKeys.BLACKSMITHING,275},
+            [questKeys.zoneOrSort] = zoneIDs.WINTERSPRING,
+        },
         [84496] = { -- Sweet Serenity
             [questKeys.requiredSkill] = {profKeys.BLACKSMITHING,250},
             [questKeys.zoneOrSort] = sortKeys.BLACKSMITHING,
@@ -3010,6 +3059,22 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.requiredClasses] = classIDs.PALADIN,
             [questKeys.zoneOrSort] = zoneIDs.DIRE_MAUL,
         },
+        [84555] = { -- Nostro's Compendium
+            [questKeys.startedBy] = {nil,nil,{18401}},
+            [questKeys.zoneOrSort] = zoneIDs.DIRE_MAUL,
+        },
+        [84556] = { -- The Forging of Quel'Serrar
+            [questKeys.startedBy] = {nil,nil,{18513}},
+            [questKeys.requiredClasses] = classIDs.WARRIOR + classIDs.PALADIN,
+            [questKeys.preQuestSingle] = {84555},
+            [questKeys.zoneOrSort] = zoneIDs.STORMWIND_CITY,
+        },
+        [84557] = { -- The Forging of Quel'Serrar
+            [questKeys.requiredClasses] = classIDs.WARRIOR + classIDs.PALADIN,
+            [questKeys.preQuestSingle] = {84556},
+            [questKeys.zoneOrSort] = zoneIDs.STORMWIND_CITY,
+            [questKeys.reputationReward] = {{factionIDs.SHEN_DRALAR,200}},
+        },
         [84560] = { -- Celebrating Good Times
             [questKeys.preQuestSingle] = {7495},
             [questKeys.zoneOrSort] = zoneIDs.STORMWIND_CITY,
@@ -3023,7 +3088,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.PRIEST,
         },
         [84636] = { -- Prowler
-            [questKeys.startedBy] = {{228176}},
             [questKeys.objectives] = {{{230481,nil,Questie.ICON_TYPE_INTERACT}}},
             [questKeys.preQuestSingle] = {84235},
             [questKeys.zoneOrSort] = sortKeys.HUNTER,
@@ -3034,7 +3098,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.FELWOOD,
         },
         [84853] = { -- Tracks in the Snow
-            [questKeys.startedBy] = {{228176}},
             [questKeys.finishedBy] = {nil,{467315}},
             [questKeys.preQuestSingle] = {84636},
             [questKeys.zoneOrSort] = sortKeys.HUNTER,
@@ -3074,18 +3137,15 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.HUNTER,
         },
         [85063] = { -- Culmination
-            [questKeys.startedBy] = {{232929}},
             [questKeys.preQuestSingle] = {85458},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
         [85064] = { -- Worst Case Scenario
-            [questKeys.startedBy] = {{232929}},
             [questKeys.finishedBy] = {{231500}},
             [questKeys.preQuestSingle] = {85063},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
         [85065] = { -- A Most Curious Gnome
-            [questKeys.startedBy] = {{231500}},
             [questKeys.preQuestSingle] = {85064},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
@@ -3101,7 +3161,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
         [85068] = { -- Who Says You Can Never Go Back?
-            [questKeys.startedBy] = {{231500}},
             [questKeys.preQuestSingle] = {85067},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
@@ -3111,7 +3170,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
         [85087] = { -- A Desperate Escape
-            [questKeys.startedBy] = {{232998}},
             [questKeys.preQuestSingle] = {85074},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
@@ -3135,7 +3193,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.WARLOCK,
         },
         [85150] = { -- The Only Good Bug is a Dead Bug
-            [questKeys.startedBy] = {{15181}},
             [questKeys.preQuestSingle] = {85061},
             [questKeys.zoneOrSort] = sortKeys.HUNTER,
         },
@@ -3179,7 +3236,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.DRUID,
         },
         [85441] = { -- Thunderaan the Windseeker
-            [questKeys.finishedBy] = {{14347}},
             [questKeys.preQuestSingle] = {85442},
             [questKeys.zoneOrSort] = sortKeys.LEGENDARY,
         },
@@ -3199,7 +3255,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.nextQuestInChain] = 85447,
         },
         [85446] = { -- Scale of the Dragon Lord
-            [questKeys.finishedBy] = {{232596}},
             [questKeys.objectives] = {{{11583}},nil,{{231386},{232414}}},
             [questKeys.preQuestSingle] = {85447},
             [questKeys.zoneOrSort] = sortKeys.WARRIOR,
@@ -3212,15 +3267,13 @@ function SeasonOfDiscovery:LoadQuests()
         },
         [85453] = { -- No Good Deed Goes Unpunished
             [questKeys.startedBy] = {{232596}},
-            [questKeys.finishedBy] = {{232596}},
             [questKeys.preQuestSingle] = {85446},
             [questKeys.zoneOrSort] = sortKeys.WARRIOR,
             [questKeys.nextQuestInChain] = 85454,
             [questKeys.extraObjectives] = {{{[zoneIDs.WETLANDS]={{74.4,70.5}}}, Questie.ICON_TYPE_EVENT, l10n("Fight Riosustrasz near the edge")}},
         },
         [85454] = { -- A Just Reward
-            [questKeys.startedBy] = {{232596}},
-            [questKeys.finishedBy] = {{232624}},
+            [questKeys.requiredRaces] = raceIDs.NONE,
             [questKeys.objectives] = {{{232626,nil,Questie.ICON_TYPE_TALK}}},
             [questKeys.preQuestSingle] = {85453},
             [questKeys.zoneOrSort] = sortKeys.WARRIOR,
@@ -3235,7 +3288,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
         [85458] = { -- Darkwhisper Gorge
-            [questKeys.startedBy] = {{231500}},
             [questKeys.preQuestSingle] = {85457},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
@@ -3244,6 +3296,10 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.preQuestSingle] = {85112},
             [questKeys.zoneOrSort] = sortKeys.WARLOCK,
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_INTERACT, l10n("Place Suspicious Supplies on the bone piles"), 0, {{"object", 600000}}}},
+        },
+        [85480] = { -- Procrastimond's Gratitude
+            [questKeys.objectivesText] = {"You are a remarkable mortal, little one. The gift of foresight is not common among your kind.I must warn you, though. Such knowledge can influence events, even unintentionally. It is quite possible your future will take a different path than the one written in my library.I found this book which does not appear to belong in my collection. Please accept it, with my thanks.\n\nNOTE: You need to use \"Tarnished Bronze Scale\" in Tanaris, which is dropped by Chromaggus to get to Procrastimond."},
+            [questKeys.zoneOrSort] = sortKeys.PRIEST,
         },
         [85485] = { -- Soul of the Void
             [questKeys.objectives] = {nil,nil,{{231797}}},
@@ -3267,7 +3323,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.WARLOCK,
         },
         [85506] = { -- The Final Test
-            [questKeys.startedBy] = {{232802}},
             [questKeys.objectives] = {{{232924,nil,Questie.ICON_TYPE_TALK}},nil,{{231800}}},
             [questKeys.preQuestSingle] = {85505},
             [questKeys.zoneOrSort] = sortKeys.WARLOCK,
@@ -3316,7 +3371,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.SHAMAN,
         },
         [85557] = { -- Efficiency Is Priority One
-            [questKeys.startedBy] = {{14401}},
             [questKeys.preQuestSingle] = {85556},
             [questKeys.nextQuestInChain] = 85558,
             [questKeys.zoneOrSort] = sortKeys.SHAMAN,
@@ -3327,8 +3381,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.SHAMAN,
         },
         [85559] = { -- Night Falls
-            [questKeys.startedBy] = {{233084}},
-            [questKeys.finishedBy] = {{233084}},
             [questKeys.preQuestSingle] = {85251},
             [questKeys.zoneOrSort] = sortKeys.HUNTER,
         },
@@ -3413,8 +3465,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [85608] = { -- Pristine Enchanted South Seas Kelp
-            [questKeys.startedBy] = {{14904}},
-            [questKeys.finishedBy] = {{14904}},
             [questKeys.requiredClasses] = classIDs.DRUID,
             [questKeys.preQuestSingle] = {8112},
             [questKeys.requiredMinRep] = {factionIDs.ZANDALAR_TRIBE,42000},
@@ -3432,7 +3482,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [85611] = { -- Paragons of Power: The Haruspex's Tunic
-            [questKeys.finishedBy] = {{14904}},
             [questKeys.requiredClasses] = classIDs.DRUID,
             [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,150}},
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
@@ -3461,8 +3510,7 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [85616] = { -- The All-Seeing Eye of Zuldazar
-            [questKeys.startedBy] = {{14903}},
-            [questKeys.finishedBy] = {{14903}},
+            [questKeys.requiredRaces] = raceIDs.NONE,
             [questKeys.requiredClasses] = classIDs.PRIEST,
             [questKeys.preQuestSingle] = {8051},
             [questKeys.requiredMinRep] = {factionIDs.ZANDALAR_TRIBE,42000},
@@ -3490,7 +3538,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [85620] = { -- Paragons of Power: The Freethinker's Breastplate
-            [questKeys.finishedBy] = {{14902}},
             [questKeys.requiredClasses] = classIDs.PALADIN,
             [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,150}},
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
@@ -3512,8 +3559,7 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [85625] = { -- Kezan's Unstoppable Taint
-            [questKeys.startedBy] = {{14903}},
-            [questKeys.finishedBy] = {{14903}},
+            [questKeys.requiredRaces] = raceIDs.NONE,
             [questKeys.preQuestSingle] = {8108},
             [questKeys.requiredMinRep] = {factionIDs.ZANDALAR_TRIBE,42000},
             [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,100}},
@@ -3530,7 +3576,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [85628] = { -- Paragons of Power: The Demoniac's Robes
-            [questKeys.finishedBy] = {{14903}},
             [questKeys.requiredClasses] = classIDs.WARLOCK,
             [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,150}},
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
@@ -3555,7 +3600,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [85632] = { -- Paragons of Power: The Illusionist's Robes
-            [questKeys.finishedBy] = {{14903}},
             [questKeys.requiredClasses] = classIDs.MAGE,
             [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,150}},
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
@@ -3604,7 +3648,6 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [85640] = { -- Paragons of Power: The Predator's Mantle
-            [questKeys.finishedBy] = {{14905}},
             [questKeys.requiredClasses] = classIDs.HUNTER,
             [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,150}},
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
@@ -3675,9 +3718,7 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.BLACKSMITHING,
         },
         [85713] = { -- The Art of the Armorsmith
-            [questKeys.startedBy] = {{5164}},
             [questKeys.finishedBy] = {{5164}},
-            [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
             [questKeys.requiredSkill] = {profKeys.BLACKSMITHING,200},
             [questKeys.zoneOrSort] = sortKeys.BLACKSMITHING,
         },
@@ -3697,79 +3738,15 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.ORGRIMMAR,
             [questKeys.specialFlags] = specialFlags.REPEATABLE,
         },
-        [86326] = { -- Desert Power
-            [questKeys.startedBy] = {{234539}},
-            [questKeys.finishedBy] = {{234539}},
-            [questKeys.objectives] = {{{234539,nil,Questie.ICON_TYPE_TALK}}},
-            [questKeys.zoneOrSort] = zoneIDs.AHN_QIRAJ,
-        },
-        [86444] = { -- The Only Prescription
-            [questKeys.startedBy] = {{11811}},
-            [questKeys.finishedBy] = {{11811}},
-            [questKeys.preQuestSingle] = {8606},
-            [questKeys.sourceItemId] = 21112,
-            [questKeys.requiredSourceItems] = {21103,21104,21105,21106,21107,21108,21109,21110},
-            [questKeys.zoneOrSort] = zoneIDs.TANARIS,
-            [questKeys.requiredMinRep] = {factionIDs.BROOD_OF_NOZDORMU,0},
-            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,150}},
-        },
-        [86671] = { -- Imperial Qiraji Regalia
-            [questKeys.startedBy] = {{15378}},
-            [questKeys.finishedBy] = {{15378}},
-            [questKeys.zoneOrSort] = zoneIDs.AHN_QIRAJ,
-        },
-        [86672] = { -- Imperial Qiraji Armaments
-            [questKeys.startedBy] = {{15378}},
-            [questKeys.finishedBy] = {{15378}},
-            [questKeys.zoneOrSort] = zoneIDs.AHN_QIRAJ,
-        },
-        [86675] = { -- Volunteer's Battlegear
-            [questKeys.startedBy] = {{15176}},
-            [questKeys.finishedBy] = {{15176}},
-            [questKeys.preQuestSingle] = {8800},
-            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
-            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,50}},
-            [questKeys.specialFlags] = specialFlags.REPEATABLE,
-        },
-        [86676] = { -- Veteran's Battlegear
-            [questKeys.startedBy] = {{15176}},
-            [questKeys.finishedBy] = {{15176}},
-            [questKeys.preQuestSingle] = {8800},
-            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
-            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,50}},
-            [questKeys.specialFlags] = specialFlags.REPEATABLE,
-        },
-        [86677] = { -- Stalwart's Battlegear
-            [questKeys.startedBy] = {{15176}},
-            [questKeys.finishedBy] = {{15176}},
-            [questKeys.preQuestSingle] = {8800},
-            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
-            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,50}},
-            [questKeys.specialFlags] = specialFlags.REPEATABLE,
-        },
-        [86678] = { -- Champion's Battlegear
-            [questKeys.startedBy] = {{15176}},
-            [questKeys.finishedBy] = {{15176}},
-            [questKeys.preQuestSingle] = {8800},
-            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
-            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,50}},
-            [questKeys.specialFlags] = specialFlags.REPEATABLE,
-        },
-        [86724] = { -- Dust to Dust
-            [questKeys.startedBy] = {{17070}},
-            [questKeys.finishedBy] = {{17070}},
-            [questKeys.requiredRaces] = raceIDs.ALL_HORDE,
-            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
-            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,100}},
-        },
-        [86725] = { -- Dust to Dust
-            [questKeys.startedBy] = {{17068}},
-            [questKeys.finishedBy] = {{17068}},
-            [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
-            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
-            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,100}},
+        [85963] = { -- One Commendation Signet
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.ARGENT_DAWN,5}},
         },
         [85964] = { -- Ten Commendation Signets
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.ARGENT_DAWN,75}},
+        },
+        [85966] = { -- Ten Commendation Signets
             [questKeys.zoneOrSort] = sortKeys.REPUTATION,
             [questKeys.reputationReward] = {{factionIDs.ARGENT_DAWN,75}},
         },
@@ -3789,6 +3766,17 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.REPUTATION,
             [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,5}},
         },
+        [85971] = { -- One Commendation Signet
+            [questKeys.startedBy] = {{13278}},
+            [questKeys.finishedBy] = {{13278}},
+            [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.HYDRAXIAN_WATERLORDS,5}},
+        },
+        [85972] = { -- One Commendation Signet
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.HYDRAXIAN_WATERLORDS,5}},
+        },
         [85973] = { -- Ten Commendation Signets
             [questKeys.zoneOrSort] = sortKeys.REPUTATION,
             [questKeys.reputationReward] = {{factionIDs.HYDRAXIAN_WATERLORDS,75}},
@@ -3797,14 +3785,85 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = sortKeys.REPUTATION,
             [questKeys.reputationReward] = {{factionIDs.HYDRAXIAN_WATERLORDS,75}},
         },
-        [86674] = { -- The Perfect Poison
-            [questKeys.finishedBy] = {{16091}},
-            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
-            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,100}},
+        [85975] = { -- One Commendation Signet
+            [questKeys.startedBy] = {{14625}},
+            [questKeys.finishedBy] = {{14625}},
+            [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.THORIUM_BROTHERHOOD,5}},
+        },
+        [85976] = { -- Ten Commendation Signets
+            [questKeys.startedBy] = {{14625}},
+            [questKeys.finishedBy] = {{14625}},
+            [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.THORIUM_BROTHERHOOD,75}},
+        },
+        [85977] = { -- One Commendation Signet
+            [questKeys.startedBy] = {{14625}},
+            [questKeys.finishedBy] = {{14625}},
+            [questKeys.requiredRaces] = raceIDs.ALL_HORDE,
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.THORIUM_BROTHERHOOD,5}},
+        },
+        [85978] = { -- Ten Commendation Signets
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.THORIUM_BROTHERHOOD,75}},
+        },
+        [85979] = { -- One Commendation Signet
+            [questKeys.startedBy] = {{2496}},
+            [questKeys.finishedBy] = {{2496}},
+            [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.STEAMWHEEDLE_CARTEL,5}},
+        },
+        [85980] = { -- One Commendation Signet
+            [questKeys.startedBy] = {{2496}},
+            [questKeys.finishedBy] = {{2496}},
+            [questKeys.requiredRaces] = raceIDs.ALL_HORDE,
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.STEAMWHEEDLE_CARTEL,5}},
+        },
+        [85981] = { -- Ten Commendation Signets
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.STEAMWHEEDLE_CARTEL,75}},
+        },
+        [85982] = { -- Ten Commendation Signets
+            [questKeys.startedBy] = {{2496}},
+            [questKeys.finishedBy] = {{2496}},
+            [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.STEAMWHEEDLE_CARTEL,75}},
+        },
+        [85983] = { -- One Commendation Signet
+            [questKeys.startedBy] = {{14910}},
+            [questKeys.finishedBy] = {{14910}},
+            [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,5}},
+        },
+        [85984] = { -- One Commendation Signets
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,5}},
         },
         [85985] = { -- Ten Commendation Signets
             [questKeys.zoneOrSort] = sortKeys.REPUTATION,
             [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,75}},
+        },
+        [85986] = { -- Ten Commendation Signets
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.ZANDALAR_TRIBE,75}},
+        },
+        [85987] = { -- One Commendation Signet
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.TIMBERMAW_HOLD,5}},
+        },
+        [85988] = { -- Ten Commendation Signets
+            [questKeys.startedBy] = {{15395}},
+            [questKeys.finishedBy] = {{15395}},
+            [questKeys.requiredRaces] = raceIDs.ALL_HORDE,
+            [questKeys.zoneOrSort] = sortKeys.REPUTATION,
+            [questKeys.reputationReward] = {{factionIDs.TIMBERMAW_HOLD,5}},
         },
         [86160] = { -- Ten Commendation Signets
             [questKeys.zoneOrSort] = sortKeys.REPUTATION,
@@ -3813,6 +3872,122 @@ function SeasonOfDiscovery:LoadQuests()
         [86161] = { -- Ten Commendation Signets
             [questKeys.zoneOrSort] = sortKeys.REPUTATION,
             [questKeys.reputationReward] = {{factionIDs.TIMBERMAW_HOLD,75}},
+        },
+        [86326] = { -- Desert Power
+            [questKeys.startedBy] = {{234539}},
+            [questKeys.finishedBy] = {{234539}},
+            [questKeys.objectives] = {{{234539,nil,Questie.ICON_TYPE_TALK}}},
+            [questKeys.zoneOrSort] = zoneIDs.AHN_QIRAJ,
+        },
+        [86442] = { -- Nefarius's Corruption
+            [questKeys.preQuestSingle] = {8555},
+            [questKeys.zoneOrSort] = zoneIDs.BLACKWING_LAIR,
+            [questKeys.requiredMinRep] = {factionIDs.BROOD_OF_NOZDORMU,0},
+            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,200}},
+        },
+        [86443] = { -- The Nightmare Manifests
+            [questKeys.startedBy] = {{11832}},
+            [questKeys.finishedBy] = {{11832}},
+            [questKeys.triggerEnd] = {"The Redemption of Eranikus", {[zoneIDs.MOONGLADE]={{51.8,36.4}}}},
+            [questKeys.preQuestSingle] = {8735},
+            [questKeys.zoneOrSort] = zoneIDs.BLACKWING_LAIR,
+            [questKeys.requiredMinRep] = {factionIDs.BROOD_OF_NOZDORMU,0},
+            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,100},{factionIDs.BROOD_OF_NOZDORMU,100}},
+        },
+        [86444] = { -- The Only Prescription
+            [questKeys.preQuestSingle] = {8606},
+            [questKeys.sourceItemId] = 21112,
+            [questKeys.requiredSourceItems] = {21103,21104,21105,21106,21107,21108,21109,21110},
+            [questKeys.zoneOrSort] = zoneIDs.TANARIS,
+            [questKeys.requiredMinRep] = {factionIDs.BROOD_OF_NOZDORMU,0},
+            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,150}},
+        },
+        [86445] = { -- The Wrath of Neptulon
+            [questKeys.startedBy] = {{11811}},
+            [questKeys.preQuestSingle] = {8728},
+            [questKeys.zoneOrSort] = zoneIDs.AZSHARA,
+            [questKeys.requiredMinRep] = {factionIDs.BROOD_OF_NOZDORMU,0},
+            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,200}},
+            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Use Arcanite Buoy"),0,{{"object", 180669}}}},
+        },
+        [86671] = { -- Imperial Qiraji Regalia
+            [questKeys.startedBy] = {{15378}},
+            [questKeys.finishedBy] = {{15378}},
+            [questKeys.zoneOrSort] = zoneIDs.AHN_QIRAJ,
+        },
+        [86672] = { -- Imperial Qiraji Armaments
+            [questKeys.startedBy] = {{15378}},
+            [questKeys.finishedBy] = {{15378}},
+            [questKeys.zoneOrSort] = zoneIDs.AHN_QIRAJ,
+        },
+        [86675] = { -- Volunteer's Battlegear
+            [questKeys.startedBy] = {{15176}},
+            [questKeys.finishedBy] = {{15176}},
+            [questKeys.preQuestSingle] = {8800},
+            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
+            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,50}},
+            [questKeys.specialFlags] = specialFlags.REPEATABLE,
+        },
+        [86674] = { -- The Perfect Poison
+            [questKeys.finishedBy] = {{16091}},
+            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
+            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,100}},
+        },
+        [86676] = { -- Veteran's Battlegear
+            [questKeys.preQuestSingle] = {8800},
+            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
+            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,50}},
+            [questKeys.specialFlags] = specialFlags.REPEATABLE,
+        },
+        [86677] = { -- Stalwart's Battlegear
+            [questKeys.startedBy] = {{15176}},
+            [questKeys.preQuestSingle] = {8800},
+            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
+            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,50}},
+            [questKeys.specialFlags] = specialFlags.REPEATABLE,
+        },
+        [86678] = { -- Champion's Battlegear
+            [questKeys.startedBy] = {{15176}},
+            [questKeys.preQuestSingle] = {8800},
+            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
+            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,50}},
+            [questKeys.specialFlags] = specialFlags.REPEATABLE,
+        },
+        [86724] = { -- Dust to Dust
+            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
+            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,100}},
+        },
+        [86725] = { -- Dust to Dust
+            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
+            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,100}},
+        },
+        [86760] = { -- Darkmoon Beast Deck
+            [questKeys.startedBy] = {nil,nil,{235278}},
+            [questKeys.finishedBy] = {{14847}},
+            [questKeys.objectives] = {nil,nil,{{235278}}},
+            [questKeys.zoneOrSort] = sortKeys.DARKMOON_FAIRE,
+            [questKeys.reputationReward] = {{factionIDs.DARKMOON_FAIRE,150}},
+        },
+        [86761] = { -- Darkmoon Warlords Deck
+            [questKeys.startedBy] = {nil,nil,{235277}},
+            [questKeys.finishedBy] = {{14847}},
+            [questKeys.objectives] = {nil,nil,{{235277}}},
+            [questKeys.zoneOrSort] = sortKeys.DARKMOON_FAIRE,
+            [questKeys.reputationReward] = {{factionIDs.DARKMOON_FAIRE,150}},
+        },
+        [86762] = { -- Darkmoon Elementals Deck
+            [questKeys.startedBy] = {nil,nil,{235276}},
+            [questKeys.finishedBy] = {{14847}},
+            [questKeys.objectives] = {nil,nil,{{235276}}},
+            [questKeys.zoneOrSort] = sortKeys.DARKMOON_FAIRE,
+            [questKeys.reputationReward] = {{factionIDs.DARKMOON_FAIRE,150}},
+        },
+        [86763] = { -- Darkmoon Portals Deck
+            [questKeys.startedBy] = {nil,nil,{235275}},
+            [questKeys.finishedBy] = {{14847}},
+            [questKeys.objectives] = {nil,nil,{{235275}}},
+            [questKeys.zoneOrSort] = sortKeys.DARKMOON_FAIRE,
+            [questKeys.reputationReward] = {{factionIDs.DARKMOON_FAIRE,150}},
         },
 
         --- Fake rune quests

@@ -61,6 +61,9 @@ function CataItemFixes.Load()
         [8170] = { -- Rugged Leather
             [itemKeys.vendors] = {},
         },
+        [8244] = { -- Flawless Draenethyst Sphere
+            [itemKeys.startQuest] = 25772,
+        },
         [8705] = { -- OOX-22/FE Distress Beacon
             [itemKeys.startQuest] = 25475,
         },
@@ -72,6 +75,9 @@ function CataItemFixes.Load()
         },
         [10458] = { -- Prayer to Elune
             [itemKeys.npcDrops] = {},
+        },
+        [10593] = { -- Imperfect Draenethyst Fragment
+            [itemKeys.startQuest] = 25771,
         },
         [10753] = { -- Amulet of Grol
             [itemKeys.npcDrops] = {41267},
@@ -796,11 +802,20 @@ function CataItemFixes.Load()
         [63027] = { -- Brazier Torch
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [63029] = { -- Creeper Egg
+            [itemKeys.npcDrops] = {47203},
+        },
         [63034] = { -- Dusty Prison Journal
             [itemKeys.npcDrops] = {},
         },
+        [63090] = { -- Muckgill's Flipper
+            [itemKeys.startQuest] = 28154,
+        },
         [63149] = { -- Cursed Shackles
             [itemKeys.npcDrops] = {},
+        },
+        [63250] = { -- The Battle for Hillsbrad
+            [itemKeys.startQuest] = 28196,
         },
         [63315] = { -- Cellblock Rations
             [itemKeys.npcDrops] = {47550},
@@ -823,8 +838,14 @@ function CataItemFixes.Load()
         [63685] = { -- Ancient Copper Scroll
             [itemKeys.npcDrops] = {},
         },
+        [63686] = { -- Daggerspine Attack Plans
+            [itemKeys.startQuest] = 28356,
+        },
         [64318] = { -- Fine Dark Cloth
             [itemKeys.npcDrops] = {},
+        },
+        [64380] = { -- Beating Yeti Heart
+            [itemKeys.npcDrops] = {2248,48628},
         },
         [64404] = { -- Ruby Crystal Cluster
             [itemKeys.npcDrops] = {48533,48639},

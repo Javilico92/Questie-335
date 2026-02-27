@@ -26,8 +26,12 @@ function QuestieQuestBlacklist:Load()
         [7668] = true, -- Not in the game (yet) Replaced with 8258 in Ph 4-- #1805
         [636] = true, -- Not in the game - #1900
         [6066] = true, -- Not in the game - #1957
+        [4601] = true, -- Duplicate of 2951
+        [4602] = true, -- Duplicate of 2951
         [4603] = true, -- Duplicate of 2953
         [4604] = true, -- Duplicate of 2953
+        [4605] = true, -- Duplicate of 2952
+        [4606] = true, -- Duplicate of 2952
         [8856] = true, -- Duplicate of 8497
         [13053] = true, -- Removed
         [11402] = true, -- GM Island quest
@@ -1849,6 +1853,11 @@ function QuestieQuestBlacklist:Load()
         [653] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [654] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [656] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [657] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [658] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [659] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [660] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [661] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [662] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [663] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [664] = QuestieCorrections.CATA_HIDE, -- Removed with cata
@@ -1858,6 +1867,7 @@ function QuestieQuestBlacklist:Load()
         [668] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [669] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [670] = QuestieCorrections.CATA_HIDE, -- Removed with cata
+        [676] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [677] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [678] = QuestieCorrections.CATA_HIDE, -- Removed with cata
         [679] = QuestieCorrections.CATA_HIDE, -- Removed with cata
@@ -3852,6 +3862,7 @@ function QuestieQuestBlacklist:Load()
         [28721] = QuestieCorrections.CATA_HIDE, -- Not in the game
         [28739] = true, -- Hidden quest
         [28751] = QuestieCorrections.CATA_HIDE, -- Not in the game
+        [28752] = QuestieCorrections.CATA_HIDE, -- Not in the game
         [28754] = QuestieCorrections.CATA_HIDE, -- Duplicate of 28758
         [28835] = QuestieCorrections.CATA_HIDE, -- Hidden quest
         [28844] = true, -- Not in the game
@@ -4351,7 +4362,13 @@ function QuestieQuestBlacklist:Load()
         [79492] = true, -- Metzen the Reindeer
         [79495] = true, -- Metzen the Reindeer
 
+        [80164] = true, -- Large Cluster Rockets
+        [80165] = true, -- Cluster Rockets
+        [80166] = true, -- Small Rockets
+        [80167] = true, -- Large Rockets
+        [80168] = true, -- Firework Launcher
         [80169] = true, -- Cluster Launcher
+        [80170] = true, -- Festive Recipes
 
         [79588] = true, -- Small Furry Paws
         [79589] = true, -- Torn Bear Pelts

@@ -328,6 +328,7 @@ local questsToBlacklistByPhase = {
         [4148] = true, -- Bloodpetal Zapper
         [5283] = true, -- The Art of the Armorsmith -- Replaced by 85713
         [5301] = true, -- The Art of the Armorsmith -- Replaced by 85712
+        [5124] = true, -- Fiery Plate Gauntlets -- Replaced by 84495
         [5141] = true, -- Dragonscale Leatherworking -- Replaced by 85702
         [5143] = true, -- Tribal Leatherworking -- Replaced by 85705
         [5144] = true, -- Elemental Leatherworking -- Replaced by 85703
@@ -339,6 +340,7 @@ local questsToBlacklistByPhase = {
         [5305] = true, -- Sweet Serenity - Replaced by 85700
         [5306] = true, -- Snakestone of the Shadow Huntress - Replaced by 85700
         [5307] = true, -- Corruption - Replaced by 85700
+        [7604] = true, -- A Binding Contract - Replaced by 84338
         [7636] = true, -- Stave of the Ancients - Replaced by 84546
         [7486] = true, -- A Hero's Reward - Replaced by 84545
         [7782] = true, -- The Lord of Blackrock - Replaced by 85643
@@ -353,6 +355,9 @@ local questsToBlacklistByPhase = {
         [8446] = true, -- Shrouded in Nightmare (Emerald Dream Dragons)
         [8620] = true, -- The Only Prescription - Replaced by 86444
         [9023] = true, -- The Perfect Poison - Replaced by 86674
+        [8729] = true, -- The Wrath of Neptulon - Replaced by 86445
+        [8730] = true, -- Nefarius's Corruption - Replaced by 86442
+        [8736] = true, -- The Nightmare Manifests - Replaced by 86443
 
         -- Original Blackfathom Deeps quests (instance reworked to raid, new quest IDs)
         [909] = true,
@@ -546,6 +551,10 @@ local questsToBlacklistByPhase = {
         [7881] = true, -- Carnival Boots
         [7890] = true, -- Heavy Grinding Stone
         [7889] = true, -- Coarse Weightstone
+        [7907] = true, -- Darkmoon Beast Deck
+        [7927] = true, -- Darkmoon Warlords Deck
+        [7928] = true, -- Darkmoon Elementals Deck
+        [7929] = true, -- Darkmoon Portals Deck
 
         -- ZG quests
         [8053] = true, -- Paragons of Power: The Freethinker's Armguards

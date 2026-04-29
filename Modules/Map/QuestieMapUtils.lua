@@ -6,25 +6,26 @@ QuestieMap.utils = QuestieMap.utils or {}
 ---@type QuestieLib
 local QuestieLib = QuestieLoader:ImportModule("QuestieLib");
 
---- COMPATIBILITY ---
---local WorldMapFrame = QuestieCompat.WorldMapFrame --(it make overlay not showing)
-local HBD = QuestieCompat.HBD or LibStub("HereBeDragonsQuestie-2.0")
-
 -- All the speed we can get is worth it.
-local tinsert = table.insert
 local pairs = pairs
 
+---@param frame IconFrame
 function QuestieMap.utils:SetDrawOrder(frame)
-    -- This is all fixes to always be on top of HandyNotes notes Let the frame level wars begin.
-    -- HandyNotes uses GetFrameLevel + 6, so we use +7
+    -- We need to add 2015, because of the regular WorldMapFrame.ScrollContainer which seems to start at 2000
     if frame.miniMapIcon then
-        local frameLevel = Minimap:GetFrameLevel() + 7
+        local frameLevel = Minimap:GetFrameLevel() + 2015
+        if frame.isManualIcon then
+            frameLevel = frameLevel - 1 -- This is to make sure that manual icons are always below other icons
+        end
         local frameStrata = Minimap:GetFrameStrata()
         frame:SetParent(Minimap)
         frame:SetFrameStrata(frameStrata)
         frame:SetFrameLevel(frameLevel)
     else
-        local frameLevel = WorldMapFrame:GetFrameLevel() + 7
+        local frameLevel = WorldMapFrame:GetFrameLevel() + 2015
+        if frame.isManualIcon then
+            frameLevel = frameLevel - 1 -- This is to make sure that manual icons are always below other icons
+        end
         local frameStrata = WorldMapFrame:GetFrameStrata()
         frame:SetParent(QuestieCompat.WorldMapFrame:GetCanvas() or WorldMapFrame)
         frame:SetFrameStrata(frameStrata)

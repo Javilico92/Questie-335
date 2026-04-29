@@ -49,6 +49,13 @@ function SeasonOfDiscovery:LoadQuests()
         [8742] = { -- The Might of Kalimdor
             [questKeys.preQuestGroup] = {8741,86442,86445},
         },
+        [8801] = { -- C'Thun's Legacy
+            [questKeys.nextQuestInChain] = 86670,
+        },
+        [8447] = { -- Waking Legends
+            [questKeys.preQuestSingle] = {86679},
+            [questKeys.triggerEnd] = {"Waking Legends.",{[zoneIDs.MOONGLADE]={{40.0,48.6}}}},
+        },
         [8922] = { -- A Supernatural Device
             [questKeys.preQuestSingle] = {84147,84148,84149,84150,84151,84152,84153,84154},
         },
@@ -3910,6 +3917,19 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,200}},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Use Arcanite Buoy"),0,{{"object", 180669}}}},
         },
+        [86449] = { -- Treasure of the Timeless One
+            [questKeys.preQuestSingle] = {8742},
+            [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
+            [questKeys.requiredMinRep] = {factionIDs.BROOD_OF_NOZDORMU,0},
+            [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,200}},
+        },
+        [86670] = { -- The Savior of Kalimdor
+            [questKeys.startedBy] = {{15379}},
+            [questKeys.finishedBy] = {{15192}},
+            [questKeys.preQuestSingle] = {8801},
+            [questKeys.zoneOrSort] = zoneIDs.AHN_QIRAJ,
+            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,200},{factionIDs.BROOD_OF_NOZDORMU,1000}},
+        },
         [86671] = { -- Imperial Qiraji Regalia
             [questKeys.startedBy] = {{15378}},
             [questKeys.finishedBy] = {{15378}},
@@ -3919,6 +3939,12 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.startedBy] = {{15378}},
             [questKeys.finishedBy] = {{15378}},
             [questKeys.zoneOrSort] = zoneIDs.AHN_QIRAJ,
+        },
+        [86673] = { -- The Fall of Ossirian
+            [questKeys.startedBy] = {{15339},nil,{21220}},
+            [questKeys.finishedBy] = {{15181}},
+            [questKeys.zoneOrSort] = zoneIDs.RUINS_OF_AHN_QIRAJ,
+            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,200},{factionIDs.BROOD_OF_NOZDORMU,200}},
         },
         [86675] = { -- Volunteer's Battlegear
             [questKeys.startedBy] = {{15176}},
@@ -3952,6 +3978,12 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.zoneOrSort] = zoneIDs.SILITHUS,
             [questKeys.reputationReward] = {{factionIDs.BROOD_OF_NOZDORMU,50}},
             [questKeys.specialFlags] = specialFlags.REPEATABLE,
+        },
+        [86679] = { -- Shrouded in Nightmare
+            [questKeys.startedBy] = {{14887,14888,14889,14890},nil,{20644}},
+            [questKeys.finishedBy] = {{11832}},
+            [questKeys.zoneOrSort] = sortKeys.EPIC,
+            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,200}},
         },
         [86724] = { -- Dust to Dust
             [questKeys.zoneOrSort] = zoneIDs.SILITHUS,

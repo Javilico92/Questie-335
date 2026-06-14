@@ -187,6 +187,10 @@ function QuestieQuestFixes:Load()
         [310] = {
             [questKeys.childQuests] = {308,403},
         },
+        [337] = { -- An Old History Book
+            [questKeys.startedBy] = {{3,48,202,203,205,206,210,212,215,218,511,531,533,570,604,785,787,889,891,892,898,909,910,920,948,1110,1251,1270,1487},nil,{2794}},
+            [questKeys.objectivesText] = {"Return the book: The History of Stormwind, to the Stormwind Library. NOTE: This is a very rare drop!"},
+        },
         [353] = {
             [questKeys.preQuestSingle] = {}, -- #2364
         },
@@ -1897,7 +1901,9 @@ function QuestieQuestFixes:Load()
             [questKeys.preQuestSingle] = {},
         },
         [5103] = {
+            [questKeys.requiredLevel] = 55,
             [questKeys.requiredSourceItems] = {12812},
+            [questKeys.requiredSkill] = {profKeys.BLACKSMITHING,270},
         },
         [5122] = {
             [questKeys.specialFlags] = specialFlags.REPEATABLE, -- #1140
@@ -1912,6 +1918,10 @@ function QuestieQuestFixes:Load()
             [questKeys.requiredClasses] = classIDs.WARRIOR + classIDs.PALADIN + classIDs.SHAMAN,
             [questKeys.objectives] = {{{10918,"Listen to Lorax's Tale"}}},
             [questKeys.zoneOrSort] = sortKeys.BLACKSMITHING,
+            [questKeys.requiredSkill] = {profKeys.BLACKSMITHING,270},
+        },
+        [5127] = {
+            [questKeys.requiredSkill] = {profKeys.BLACKSMITHING,270},
         },
         [5143] = {
             [questKeys.preQuestSingle] = {2853},
@@ -2030,6 +2040,7 @@ function QuestieQuestFixes:Load()
         },
         [5526] = {
             [questKeys.zoneOrSort] = zoneIDs.DIRE_MAUL,
+            [questKeys.requiredSourceItems] = {18501},
         },
         [5561] = {
             [questKeys.objectives] = {nil,nil,nil,nil,{{{4700,4701,4702},4700,"Kodos Tamed"}}},

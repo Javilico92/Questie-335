@@ -664,9 +664,7 @@ function QuestieMap:DrawWorldIcon(data, areaID, x, y, phase, showFlag)
     QuestieMap:QueueDraw(QuestieMap.ICON_MINIMAP_TYPE, Questie, iconMinimap, uiMapId, x / 100, y / 100, true, floatOnEdge)
     QuestieMap:QueueDraw(QuestieMap.ICON_MAP_TYPE, Questie, iconMap, uiMapId, x / 100, y / 100, showFlag)
     local r, g, b = iconMinimap.texture:GetVertexColor()
-	if data.Id == 9498 then
-	print("La Avanzada del Halcón - x ", x, " y ", y)
-	end
+
     QuestieDBMIntegration:RegisterHudQuestIcon(tostring(iconMap), data.Icon, uiMapId, x, y, r, g, b)
 
     if (not QuestieMap.questIdFrames[data.Id]) then

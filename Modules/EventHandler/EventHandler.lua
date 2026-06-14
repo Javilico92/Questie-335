@@ -362,9 +362,9 @@ function _EventHandler:ModifierStateChanged(key, down)
         -- Since we're hooking into Blizzards GameTooltip, it's possible that certain edge cases would
         -- cause our Tooltips to appear instead and since the mouse isn't over "our" frame, it's not
         -- getting reset properly and getting stuck to the Mouse Cursor.
-
         -- Questie Map Icons
         if MouseIsOver(WorldMapFrame) and WorldMapFrame:IsShown() or MouseIsOver(Minimap) then
+            local GameTooltip = QuestieCompat.Tooltip
             if GameTooltip and GameTooltip:IsShown() and GameTooltip._Rebuild then
                 GameTooltip:Hide()
                 GameTooltip:ClearLines()

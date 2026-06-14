@@ -52,10 +52,6 @@ function SeasonOfDiscovery:LoadQuests()
         [8801] = { -- C'Thun's Legacy
             [questKeys.nextQuestInChain] = 86670,
         },
-        [8447] = { -- Waking Legends
-            [questKeys.preQuestSingle] = {86679},
-            [questKeys.triggerEnd] = {"Waking Legends.",{[zoneIDs.MOONGLADE]={{40.0,48.6}}}},
-        },
         [8922] = { -- A Supernatural Device
             [questKeys.preQuestSingle] = {84147,84148,84149,84150,84151,84152,84153,84154},
         },
@@ -2868,6 +2864,11 @@ function SeasonOfDiscovery:LoadQuests()
             [questKeys.objectives] = {nil,nil,{{227690}}},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
         },
+        [84331] = { -- The Miracle
+            [questKeys.objectives] = {nil,{{462201}}},
+            [questKeys.preQuestSingle] = {84329},
+            [questKeys.zoneOrSort] = sortKeys.PRIEST,
+        },
         [84332] = { -- A Thane's Gratitude
             [questKeys.preQuestSingle] = {84414},
             [questKeys.zoneOrSort] = sortKeys.PALADIN,
@@ -3982,6 +3983,12 @@ function SeasonOfDiscovery:LoadQuests()
         [86679] = { -- Shrouded in Nightmare
             [questKeys.startedBy] = {{14887,14888,14889,14890},nil,{20644}},
             [questKeys.finishedBy] = {{11832}},
+            [questKeys.zoneOrSort] = sortKeys.EPIC,
+            [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,200}},
+        },
+        [86680] = { -- Waking Legends
+            [questKeys.triggerEnd] = {"Waking Legends.",{[zoneIDs.MOONGLADE]={{40.0,48.6}}}},
+            [questKeys.preQuestSingle] = {86679},
             [questKeys.zoneOrSort] = sortKeys.EPIC,
             [questKeys.reputationReward] = {{factionIDs.CENARION_CIRCLE,200}},
         },

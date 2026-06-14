@@ -1,4 +1,4 @@
----@class QuestieComms
+---@class QuestieComms : QuestieModule
 local QuestieComms = QuestieLoader:CreateModule("QuestieComms");
 local _QuestieComms = QuestieComms.private
 -------------------------
@@ -28,6 +28,8 @@ local UnitInParty = QuestieCompat.UnitInParty
 local IsInRaid = QuestieCompat.IsInRaid
 
 local HBD = QuestieCompat.HBD or LibStub("HereBeDragonsQuestie-2.0")
+
+QuestieComms.data = {}
 
 -- Addon message prefix
 _QuestieComms.prefix = "questie";
@@ -164,6 +166,7 @@ end
 function QuestieComms:Initialize()
     -- Lets us send any length of message. Also implements ChatThrottleLib to not get disconnected.
     Questie:RegisterComm(_QuestieComms.prefix, _QuestieComms.OnCommReceived);
+
     -- TODO: replace with getting data over own comms in properly throttled manner
     -- see: https://github.com/Questie/Questie/issues/3540
     Questie:RegisterComm("REPUTABLE", DailyQuests.FilterDailies);

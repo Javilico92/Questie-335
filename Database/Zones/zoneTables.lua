@@ -249,6 +249,7 @@ ZoneDB.private.areaIdToUiMapId = {
     --[5789] = 402, -- End Time
     --[5789] = 403, -- End Time
     --[5892] = 410, -- Dragon Soul
+    [5786] = 370, -- Nexus Legendary
     [5788] = 398, -- Well of Eternity
     [5844] = 399, -- Hour of Twilight
     --[5844] = 400, -- Hour of Twilight
@@ -2756,6 +2757,7 @@ ZoneDB.private.subZoneToParentZone = {
   [4906] = 4820, -- The Shadow Throne -> Halls of Reflection
   [4908] = 4820, -- The Hidden Passage -> Halls of Reflection
   [4910] = 4812, -- Frostmourne -> Icecrown Citadel
+  [5786] = 4265, -- The Nexus -> The Nexus
   [14141] = 210, -- Icecrown -> Icecrown
   [14289] = 14288, -- Westspark Workshop -> Wintergrasp
   [14290] = 14288, -- The Steppe of Life -> Wintergrasp
@@ -3044,6 +3046,7 @@ ZoneDB.zoneIDs = {
     MOLTEN_FRONT = 5733,
     DARKMOON_FAIRE_ISLAND = 5861,
     DEMON_FALL_CANYON = 15475, -- SoD Dungeon
+    THE_TAINTED_SCAR = 15531, -- SoD Lord Kazzak Raid
 }
 
 -- https://wowpedia.fandom.com/wiki/InstanceID --> Classic

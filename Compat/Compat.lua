@@ -1404,6 +1404,30 @@ function QuestieCompat.EventHandler_RegisterLateEvents()
         end)
     end
 
+local QUEST_COMPLETE_MSG = string.gsub(ERR_QUEST_COMPLETE_S, "(%%s)", "(.+)")
+local completeQuestCache = {}
+
+local DAILY_QUESTS_MSG = DAILY_QUESTS_REMAINING:gsub("%%d", "(%%d+)"):gsub("|4(.-)$", "")
+
+function QuestieCompat:CHAT_MSG_SYSTEM(event, message)
+    local questName = message:match(QUEST_COMPLETE_MSG)
+    local questId = completeQuestCache[questName]
+    if questId then
+        QuestEventHandler:QuestTurnedIn(questId)
+        QuestEventHandler:QuestRemoved(questId)
+        completeQuestCache[questName] = nil
+    end
+
+    if Questie.db.profile.resetDailyQuests then
+        local dailyQuestCount = tonumber(message:match(DAILY_QUESTS_MSG))
+        if dailyQuestCount and (dailyQuestCount == GetMaxDailyQuests()) then
+            QuestieCompat.C_Timer.After(1, function()
+                QuestieCompat.ResetDailyQuests(true)
+            end)
+        end
+    end
+end
+
     -- Old QuestEventHandler events
     QuestieCompat.frame:RegisterEvent("QUEST_QUERY_COMPLETE")
     QuestieCompat.frame:RegisterEvent("CHAT_MSG_SYSTEM")
@@ -1429,6 +1453,10 @@ function QuestieCompat.EventHandler_RegisterLateEvents()
         local questTitle = GetTitleText()
         local questId = QuestieCompat.GetQuestIDFromName(questTitle)
         if questId and questId > 0 then
+            print("completeQuestCache")
+            print(questId)
+            print(questTitle)
+            print(completeQuestCache);
             completeQuestCache[questTitle] = questId
         end
     end)
@@ -1444,30 +1472,6 @@ function QuestieCompat.EventHandler_RegisterLateEvents()
         QuestEventHandler:QuestRemoved(QuestieCompat.abandonQuestID)
     end)
 
-end
-
-local QUEST_COMPLETE_MSG = string.gsub(ERR_QUEST_COMPLETE_S, "(%%s)", "(.+)")
-local completeQuestCache = {}
-
-local DAILY_QUESTS_MSG = DAILY_QUESTS_REMAINING:gsub("%%d", "(%%d+)"):gsub("|4(.-)$", "")
-
-function QuestieCompat:CHAT_MSG_SYSTEM(event, message)
-    local questName = message:match(QUEST_COMPLETE_MSG)
-    local questId = completeQuestCache[questName]
-    if questId then
-        QuestEventHandler:QuestTurnedIn(questId)
-        QuestEventHandler:QuestRemoved(questId)
-        completeQuestCache[questName] = nil
-    end
-
-    if Questie.db.profile.resetDailyQuests then
-        local dailyQuestCount = tonumber(message:match(DAILY_QUESTS_MSG))
-        if dailyQuestCount and (dailyQuestCount == GetMaxDailyQuests()) then
-            QuestieCompat.C_Timer.After(1, function()
-                QuestieCompat.ResetDailyQuests(true)
-            end)
-        end
-    end
 end
 
 function QuestieCompat.QuestieTracker_Initialize(trackerQuestFrame)

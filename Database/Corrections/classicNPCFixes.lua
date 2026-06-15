@@ -20,6 +20,8 @@ function QuestieNPCFixes:Load()
     return {
         [300] = {
             [npcKeys.spawns] = {[zoneIDs.DUSKWOOD]={{35,80},{36.81,83.79},{38,80}}}, -- #1047
+            [npcKeys.minLevel] = 30,
+            [npcKeys.maxLevel] = 30,
         },
         [314] = {
             [npcKeys.zoneID] = zoneIDs.DUSKWOOD,
@@ -1029,6 +1031,11 @@ function QuestieNPCFixes:Load()
             [npcKeys.spawns] = {[zoneIDs.BURNING_STEPPES] = {{28.96,28.93}}},
             [npcKeys.zoneID] = zoneIDs.BURNING_STEPPES,
         },
+        [8917] = {
+            -- Quarry Slave (not inside BRD, but at the entrance and this is the best way to show him, since there is no map for inside Blackrock Mountain)
+            [npcKeys.zoneID] = zoneIDs.BLACKROCK_DEPTHS,
+            [npcKeys.spawns] = {[zoneIDs.BLACKROCK_DEPTHS] = {{-1,-1}}},
+        },
         [8925] = {
             [npcKeys.zoneID] = zoneIDs.BLACKROCK_DEPTHS,
             [npcKeys.spawns] = {[zoneIDs.BLACKROCK_DEPTHS] = {{-1,-1}}},
@@ -1057,6 +1064,11 @@ function QuestieNPCFixes:Load()
             [npcKeys.zoneID] = zoneIDs.TANARIS,
             [npcKeys.spawns] = {[zoneIDs.TANARIS] = {{59.3,37.95}}},
         },
+        [9026] = {
+            -- Overmaster Pyron (not inside BRD, but at the entrance and this is the best way to show him, since there is no map for inside Blackrock Mountain)
+            [npcKeys.zoneID] = zoneIDs.BLACKROCK_DEPTHS,
+            [npcKeys.spawns] = {[zoneIDs.BLACKROCK_DEPTHS] = {{-1,-1}}},
+        },
         [9027] = {
             [npcKeys.zoneID] = zoneIDs.BLACKROCK_DEPTHS,
             [npcKeys.spawns] = {[zoneIDs.BLACKROCK_DEPTHS] = {{-1,-1}}},
@@ -1080,6 +1092,11 @@ function QuestieNPCFixes:Load()
         [9032] = {
             [npcKeys.zoneID] = zoneIDs.BLACKROCK_DEPTHS,
             [npcKeys.spawns] = {[zoneIDs.BLACKROCK_DEPTHS] = {{-1,-1}}},
+        },
+        [9046] = {
+            -- Scarshield Quartermaster (not inside UBRS, but at the entrance and this is the best way to show him, since there is no map for inside Blackrock Mountain)
+            [npcKeys.zoneID] = zoneIDs.UPPER_BLACKROCK_SPIRE,
+            [npcKeys.spawns] = {[zoneIDs.UPPER_BLACKROCK_SPIRE] = {{-1,-1}}},
         },
         [9077] = {
             [npcKeys.waypoints] = {},
@@ -2422,30 +2439,6 @@ function QuestieNPCFixes:Load()
         },
         [15712] = {
             [npcKeys.spawns] = {[zoneIDs.EASTERN_PLAGUELANDS] = {{28.09,86.15}}},
-        },
-        [15731] = {
-            [npcKeys.spawns] = {[zoneIDs.IRONFORGE] = {{59.1,65.5}}},
-        },
-        [15733] = {
-            [npcKeys.spawns] = {[zoneIDs.IRONFORGE] = {{63.3,73.7}}},
-        },
-        [15734] = {
-            [npcKeys.spawns] = {[zoneIDs.IRONFORGE] = {{61.0,77.1}}},
-        },
-        [15735] = {
-            [npcKeys.spawns] = {[zoneIDs.IRONFORGE] = {{59.3,64.1}}},
-        },
-        [15736] = {
-            [npcKeys.spawns] = {[zoneIDs.ORGRIMMAR] = {{30.0,72.2}}},
-        },
-        [15737] = {
-            [npcKeys.spawns] = {[zoneIDs.ORGRIMMAR] = {{33.4,75.4}}},
-        },
-        [15738] = {
-            [npcKeys.spawns] = {[zoneIDs.ORGRIMMAR] = {{28.8,65.7}}},
-        },
-        [15739] = {
-            [npcKeys.spawns] = {[zoneIDs.ORGRIMMAR] = {{33.1,71.5}}},
         },
         [15797] = {
             [npcKeys.spawns] = {[zoneIDs.SILITHUS] = {{49.47,37.3}}},

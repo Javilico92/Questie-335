@@ -62,6 +62,8 @@ _QuestieEvent.eventNamesForQuests = {}
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
 ---@type QuestieCorrections
 local QuestieCorrections = QuestieLoader:ImportModule("QuestieCorrections")
+---@type BlacklistFilter
+local BlacklistFilter = QuestieLoader:ImportModule("BlacklistFilter")
 ---@type ContentPhases
 local ContentPhases = QuestieLoader:ImportModule("ContentPhases")
 ---@type QuestieNPCFixes
@@ -136,8 +138,7 @@ function QuestieEvent:Load()
         _QuestieEvent.eventNamesForQuests[questId] = eventName
 
         if activeEvents[eventName] == true and _WithinDates(startDay, startMonth, endDay, endMonth) then
-
-            if ((not questData[5]) or (Questie.IsClassic and questData[5] == QuestieCorrections.CLASSIC_HIDE)) then
+            if (not questData[5]) or (not BlacklistFilter.IsFlagged(questData[5])) then
                 QuestieCorrections.hiddenQuests[questId] = nil
                 QuestieEvent.activeQuests[questId] = true
             end
@@ -341,7 +342,8 @@ QuestieEvent.eventDates = {
         endDate = "28/11"
     },
     ["Hallow's End"] = {startDate = "18/10", endDate = "31/10"},
-    ["Winter Veil"] = {startDate = "15/12", endDate = "1/1"}
+    ["Winter Veil"] = {startDate = "15/12", endDate = "1/1"},
+	["Day of the Dead"] = {startDate = "1/11", endDate = "2/11"},
 }
 
 -- ["EventName"] = false -> event doesn't exists in expansion

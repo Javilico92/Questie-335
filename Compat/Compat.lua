@@ -1287,7 +1287,6 @@ function QuestieCompat:QuestieTooltips_RegisterObjectiveTooltip(questId, key, ob
     end
 end
 
-local _GroupEventHandler = GroupEventHandler.private
 local _EventHandler = EventHandler.private
 local chatMessagePattern = {
     questInfo = {
@@ -1340,14 +1339,14 @@ function QuestieCompat.GroupRosterUpdate(event)
     -- Only want to do logic when number increases, not decreases.
     if QuestiePlayer.numberOfGroupMembers < currentMembers then
         if QuestiePlayer.numberOfGroupMembers == 0 then
-            _GroupEventHandler:GroupJoined()
+            GroupEventHandler.GroupJoined()
         end
         -- Tell comms to send information to members.
         --Questie:SendMessage("QC_ID_BROADCAST_FULL_QUESTLIST")
         QuestiePlayer.numberOfGroupMembers = currentMembers
     else
         if currentMembers == 0 then
-            _GroupEventHandler:GroupLeft()
+            GroupEventHandler.GroupLeft()
         end
         -- We do however always want the local to be the current number to allow up and down.
         QuestiePlayer.numberOfGroupMembers = currentMembers
@@ -1453,10 +1452,6 @@ end
         local questTitle = GetTitleText()
         local questId = QuestieCompat.GetQuestIDFromName(questTitle)
         if questId and questId > 0 then
-            print("completeQuestCache")
-            print(questId)
-            print(questTitle)
-            print(completeQuestCache);
             completeQuestCache[questTitle] = questId
         end
     end)

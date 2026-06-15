@@ -19,8 +19,8 @@ tinsert(eventQuests, {"Winter Veil", 6984}) -- A Smokywood Pastures' Thank You!
 tinsert(eventQuests, {"Winter Veil", 7045}) -- A Smokywood Pastures' Thank You!
 tinsert(eventQuests, {"Winter Veil", 7063}) -- The Feast of Winter Veil
 tinsert(eventQuests, {"Winter Veil", 7061}) -- The Feast of Winter Veil
-tinsert(eventQuests, {"Winter Veil", 6963}) -- Stolen Winter Veil Treats
-tinsert(eventQuests, {"Winter Veil", 7042}) -- Stolen Winter Veil Treats
+tinsert(eventQuests, {"Winter Veil", 6963, nil, nil, QuestieCorrections.CATA_HIDE}) -- Stolen Winter Veil Treats
+tinsert(eventQuests, {"Winter Veil", 7042, nil, nil, QuestieCorrections.CATA_HIDE}) -- Stolen Winter Veil Treats
 tinsert(eventQuests, {"Winter Veil", 7062}) -- The Reason for the Season
 tinsert(eventQuests, {"Winter Veil", 8763}) -- The Hero of the Day
 tinsert(eventQuests, {"Winter Veil", 8799}) -- The Hero of the Day
@@ -50,13 +50,12 @@ tinsert(eventQuests, {"Winter Veil", 79495}) -- Metzen the Reindeer
 tinsert(eventQuests, {"Winter Veil", 79637, "25/12", "2/1"}) -- A Ticking Present
 
 -- TBC quests
-tinsert(eventQuests, {"Winter Veil", 11528, "25/12", "2/1"}) -- A Winter Veil Gift
-tinsert(eventQuests, {"Winter Veil", 13203, "25/12", "2/1"}) -- A Winter Veil Gift
-tinsert(eventQuests, {"Winter Veil", 13966, "25/12", "2/1"}) -- A Winter Veil Gift
+tinsert(eventQuests, {"Winter Veil", 11528, "25/12", "2/1", QuestieCorrections.CATA_HIDE}) -- A Winter Veil Gift
+tinsert(eventQuests, {"Winter Veil", 13203, "25/12", "2/1", QuestieCorrections.CATA_HIDE}) -- A Winter Veil Gift
+tinsert(eventQuests, {"Winter Veil", 13966, "25/12", "2/1", QuestieCorrections.CATA_HIDE}) -- A Winter Veil Gift
 
 -- Cata quests
-tinsert(eventQuests, {"Winter Veil", 13966}) -- A Winter Veil Gift
-tinsert(eventQuests, {"Winter Veil", 29382}) -- Thanks, But No Thanks
-tinsert(eventQuests, {"Winter Veil", 29383}) -- Thanks, But No Thanks
-tinsert(eventQuests, {"Winter Veil", 29385}) -- A Winter Veil Gift
-tinsert(eventQuests, {"Winter Veil", 28878}) -- A Winter Veil Gift
+tinsert(eventQuests, {"Winter Veil", 29382, "25/12", "2/1"}) -- Thanks, But No Thanks
+tinsert(eventQuests, {"Winter Veil", 29383, "25/12", "2/1"}) -- Thanks, But No Thanks
+tinsert(eventQuests, {"Winter Veil", 29385, "25/12", "2/1"}) -- A Winter Veil Gift
+--tinsert(eventQuests, {"Winter Veil", 28878, "25/12", "2/1"}) -- A Winter Veil Gift

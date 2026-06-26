@@ -193,9 +193,6 @@ function QuestieObjectFixes:Load()
                 [zoneIDs.TIRISFAL_GLADES]={{82.8,72.7},{83,71.4},{83,71.5}},
             },
         },
-        [176344] = {
-            [objectKeys.spawns] = {[zoneIDs.THOUSAND_NEEDLES]={{31.79,32.58}}},
-        },
         [176589] = {
             [objectKeys.spawns] = {
                 [zoneIDs.BURNING_STEPPES]={{13.2,30.8},{15.1,30.3},{18.8,48.7},{20.9,46.6},{21,46.4},{25.1,62.5},{26.4,59.2},{28.8,62.6},{31.4,61.7},{31.5,61.7},{31.9,69.4},{35.4,49.1},{35.5,49.1},{42.6,37.6},{43.1,34.4},{43.1,34.5},{44.2,57.1},{51,61.9},{54.3,63.4},{54.7,36.4},{56.3,53.7},{57.4,61.5},{57.6,61.6},{63.2,36.9},{63.7,60.8},{66.5,40},{76.4,47.2},{76.4,47.5},{76.5,47.2},{76.5,47.5},{82.5,34.2},{83,38},{92.1,53.2}},
@@ -260,67 +257,60 @@ function QuestieObjectFixes:Load()
         [188123] = {
             [objectKeys.spawns] = {}, -- Mailbox possibly added in TBC/BC. Not there in Classic
         },
-        [190483] = {
-            [objectKeys.spawns] = {[zoneIDs.THOUSAND_NEEDLES]={{33.76,39.99}}},
-            [objectKeys.zoneID] = zoneIDs.THOUSAND_NEEDLES,
-        },
-        [190484] = {
-            [objectKeys.spawns] = {[zoneIDs.THOUSAND_NEEDLES]={{39.34,41.53}}},
-            [objectKeys.zoneID] = zoneIDs.THOUSAND_NEEDLES,
-        },
         [375544] = {
             [objectKeys.name] = "Wooden Figurine",
             [objectKeys.spawns] = {[zoneIDs.ASHENVALE]={{26.61,22.03}}},
             [objectKeys.zoneID] = zoneIDs.ASHENVALE,
         },
         -- Fake IDs
-        [400014] = {
+        -- For Classic fixes 400001-409999
+        [400001] = {
             [objectKeys.name] = "Unlit Torch",
             [objectKeys.spawns] = {[zoneIDs.ASHENVALE]={{26.79,22.43}}},
             [objectKeys.zoneID] = zoneIDs.ASHENVALE,
         },
-        [400060] = {
+        [400002] = {
             [objectKeys.name] = "Serpent Statue", -- Desolace for quest 6027
             [objectKeys.spawns] = {[zoneIDs.DESOLACE]={{28.24,6.67}}},
             [objectKeys.zoneID] = zoneIDs.DESOLACE,
         },
-        [400061] = {
+        [400003] = {
             [objectKeys.name] = "Maraudon Orange Crystal Pool", -- Desolace for quest 7041
             [objectKeys.spawns] = {[zoneIDs.DESOLACE]={{33.22,65.67}}},
             [objectKeys.zoneID] = zoneIDs.DESOLACE,
         },
-        [400062] = {
+        [400004] = {
             [objectKeys.name] = "Rookery Egg", -- Rookery Egg in UBRS
             [objectKeys.spawns] = {[zoneIDs.LOWER_BLACKROCK_SPIRE]={{-1,-1}}},
             [objectKeys.zoneID] = zoneIDs.LOWER_BLACKROCK_SPIRE,
         },
-        [400063] = {
+        [400005] = {
             [objectKeys.name] = "Challenge to Urok",
             [objectKeys.spawns] = {[zoneIDs.LOWER_BLACKROCK_SPIRE]={{-1,-1}}},
             [objectKeys.zoneID] = zoneIDs.LOWER_BLACKROCK_SPIRE,
         },
-        [500000] = {
+        [400006] = {
             [objectKeys.name] = "Feralas Ahi Fishing Location",
             [objectKeys.questStarts] = {},
             [objectKeys.questEnds] = {},
             [objectKeys.spawns] = {[zoneIDs.FERALAS]={{62.1,51.4},{62.2,49.9},{62.4,52.4},{62.4,52.5},{62.6,49.3},{62.6,50.2},{62.7,50.6},{62.8,51.5},{62.9,52.5},{63.5,53.6},{63.7,52.4},{64,53.2}}},
             [objectKeys.zoneID] = zoneIDs.FERALAS
         },
-        [500001] = {
+        [400007] = {
             [objectKeys.name] = "Misty Reed Mahi Mahi Fishing Location",
             [objectKeys.questStarts] = {},
             [objectKeys.questEnds] = {},
             [objectKeys.spawns] = {[zoneIDs.SWAMP_OF_SORROWS]={{74.4,3.7},{74.5,3.3},{74.5,3.8},{75.1,95.9},{76,95.4},{76.3,4.3},{77.4,4.3},{77.4,95.5},{78.7,5.3},{78.9,95.7},{79.1,94.7},{79.8,94.7},{80.2,94.2},{81.2,93.6},{82.1,94.2},{84.4,91.6},{84.5,92.9},{84.9,92.1},{85.6,89.2},{86.2,88},{86.4,86.4},{86.6,16.8},{86.6,85.6},{87.3,80.7},{87.4,82.1},{87.7,79.7},{87.7,81.9},{88.5,76.6},{89.1,20},{89.8,23},{89.9,74.5},{90.2,22.4},{90.3,73.4},{90.4,71.9},{90.4,73.6},{90.5,73.5},{90.6,73},{90.7,72.1},{91.1,82.2},{91.4,30.1},{91.5,82.1},{91.7,30.4},{91.8,82.9},{93.6,37.2},{93.8,66.5},{94,38.4},{94.2,40.6},{94.2,65.1},{94.3,39.3},{94.3,64.3},{94.8,41.6},{95,43.8},{95.1,45.2},{95.2,45.9},{95.3,56.2},{95.7,47.5}}},
             [objectKeys.zoneID] = zoneIDs.SWAMP_OF_SORROWS
         },
-        [500002] = {
+        [400008] = {
             [objectKeys.name] = "Sar'theris Striker Fishing Location",
             [objectKeys.questStarts] = {},
             [objectKeys.questEnds] = {},
             [objectKeys.spawns] = {[zoneIDs.DESOLACE]={{22.2,87.6},{22.8,76.8},{24.3,82.5},{24.5,81.9},{24.9,81.3},{25.6,81},{25.8,77.4},{25.8,77.5},{25.9,78.7},{26,80.1},{26.2,75.4},{26.2,76.2},{27.2,42.9},{33,36.8},{35.3,31.7},{36.1,32.8},{36.1,34.8},{38.8,23.2},{40.1,22.1}}},
             [objectKeys.zoneID] = zoneIDs.DESOLACE
         },
-        [500003] = {
+        [400009] = {
             [objectKeys.name] = "Savage Coast Blue Sailfin Fishing Location",
             [objectKeys.questStarts] = {},
             [objectKeys.questEnds] = {},

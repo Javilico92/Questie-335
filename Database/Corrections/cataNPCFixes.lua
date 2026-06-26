@@ -29,6 +29,9 @@ function CataNpcFixes.Load()
         [302] = { -- Blind Mary
             [npcKeys.spawns] = {[zoneIDs.DUSKWOOD] = {{82.02,59.32}}},
         },
+        [330] = { -- Princess
+            [npcKeys.waypoints] = {[zoneIDs.ELWYNN_FOREST] = {{{32.47,86.71},{32.54,86.67},{32.61,86.64},{32.67,86.60},{32.74,86.56},{32.81,86.52},{32.87,86.48},{32.94,86.44},{33.01,86.41},{33.08,86.37},{33.15,86.33},{33.21,86.30},{33.28,86.26},{33.35,86.22},{33.38,86.14},{33.38,86.03},{33.38,85.92},{33.38,85.81},{33.37,85.70},{33.37,85.60},{33.36,85.49},{33.35,85.38},{33.35,85.27},{33.34,85.17},{33.34,85.06},{33.31,84.96},{33.27,84.88},{33.21,84.82},{33.14,84.76},{33.08,84.70},{33.02,84.65},{32.96,84.59},{32.90,84.53},{32.84,84.48},{32.78,84.42},{32.71,84.36},{32.65,84.31},{32.59,84.27},{32.53,84.33},{32.48,84.41},{32.43,84.50},{32.39,84.58},{32.34,84.66},{32.29,84.74},{32.24,84.82},{32.20,84.90},{32.15,84.99},{32.10,85.07},{32.07,85.16},{32.07,85.27},{32.10,85.37},{32.12,85.47},{32.15,85.57},{32.18,85.67},{32.21,85.77},{32.24,85.87},{32.26,85.97},{32.29,86.07},{32.32,86.17},{32.34,86.27},{32.37,86.37},{32.40,86.47},{32.43,86.57},{32.47,86.71}}}},
+        },
         [334] = { -- Gath'Ilzogg
             [npcKeys.spawns] = {[zoneIDs.REDRIDGE_MOUNTAINS] = {{57.76,56.3}}},
         },
@@ -46,11 +49,14 @@ function CataNpcFixes.Load()
         [464] = { -- Watch Captain Parker
             [npcKeys.waypoints] = {},
         },
+        [486] = { -- Tharil'zun
+            [npcKeys.spawns] = {[zoneIDs.REDRIDGE_MOUNTAINS] = {{60.31,47.4}}},
+        },
         [511] = { -- Insane Ghoul
             [npcKeys.waypoints] = {},
         },
         [522] = { -- Mor'ladim
-            [npcKeys.waypoints] = {[zoneIDs.DUSKWOOD]={{{17.61,29.49},{17.52,29.80},{17.45,30.20},{17.41,30.61},{17.40,31.03},{17.41,31.44},{17.43,31.86},{17.46,32.27},{17.60,32.62},{17.82,32.87},{17.97,33.22},{18.17,33.49},{18.40,33.74},{18.53,34.10},{18.48,34.51},{18.46,34.60},{18.33,34.96},{18.20,35.33},{18.06,35.69},{17.93,36.06},{17.81,36.43},{17.68,36.80},{17.55,37.17},{17.53,37.58},{17.40,37.91},{17.17,38.15},{17.01,38.35},{17.00,38.37},{16.80,38.65},{16.55,38.82},{16.43,39.17},{16.54,39.22},{16.71,38.90},{16.90,38.60},{17.11,38.31},{17.32,38.04},{17.48,37.72},{17.55,37.31},{17.65,36.95},{17.74,36.68},{17.87,36.31},{18.01,35.95},{18.14,35.58},{18.28,35.22},{18.42,34.86},{18.51,34.47},{18.51,34.06},{18.34,33.75},{18.21,33.46},{18.25,33.28},{18.31,33.03},{18.37,32.76},{18.44,32.45},{18.42,32.05},{18.41,32.01},{18.26,31.85},{18.00,31.75},{17.78,31.51},{17.68,31.12},{17.61,30.72},{17.64,30.30},{17.67,29.89},{17.70,29.47},{17.72,29.21},{17.61,29.49}}}},
+            [npcKeys.waypoints] = {[zoneIDs.DUSKWOOD] = {{{17.61,29.49},{17.52,29.80},{17.45,30.20},{17.41,30.61},{17.40,31.03},{17.41,31.44},{17.43,31.86},{17.46,32.27},{17.60,32.62},{17.82,32.87},{17.97,33.22},{18.17,33.49},{18.40,33.74},{18.53,34.10},{18.48,34.51},{18.46,34.60},{18.33,34.96},{18.20,35.33},{18.06,35.69},{17.93,36.06},{17.81,36.43},{17.68,36.80},{17.55,37.17},{17.53,37.58},{17.40,37.91},{17.17,38.15},{17.01,38.35},{17.00,38.37},{16.80,38.65},{16.55,38.82},{16.43,39.17},{16.54,39.22},{16.71,38.90},{16.90,38.60},{17.11,38.31},{17.32,38.04},{17.48,37.72},{17.55,37.31},{17.65,36.95},{17.74,36.68},{17.87,36.31},{18.01,35.95},{18.14,35.58},{18.28,35.22},{18.42,34.86},{18.51,34.47},{18.51,34.06},{18.34,33.75},{18.21,33.46},{18.25,33.28},{18.31,33.03},{18.37,32.76},{18.44,32.45},{18.42,32.05},{18.41,32.01},{18.26,31.85},{18.00,31.75},{17.78,31.51},{17.68,31.12},{17.61,30.72},{17.64,30.30},{17.67,29.89},{17.70,29.47},{17.72,29.21},{17.61,29.49}}}},
             [npcKeys.spawns] = {[zoneIDs.DUSKWOOD] = {{17.61,29.49}}},
         },
         [658] = { -- Sten Stoutarm
@@ -62,14 +68,20 @@ function CataNpcFixes.Load()
         [682] = { -- Stranglethorn Tiger
             [npcKeys.spawns] = {[33] = {{55.72,27.51},{55.69,27.97},{56.32,28.45},{58.13,29.80},{58.58,27.82},{57.61,26.64},{58.83,27.17},{60.30,27.71},{60.29,28.32},{61.03,29.64},{61.30,29.47},{61.39,30.60},{61.52,25.68},{61.28,31.16},{61.94,35.27},{61.29,34.65},{60.83,33.66},{59.67,32.77}}},
         },
+        [684] = { -- Shadowmaw Panther
+            [npcKeys.spawns] = {[33] = {{45.21,60.19},{50.37,55.96},{50.83,64.56},{52.64,59.71},{44.4,58.82},{46.73,56.8},{48.96,56.37},{49.98,59.92},{52.78,54.81},{51.27,54.87},{63.26,48.16},{59.23,47.44},{67.29,37.56},{63.08,36.89},{65.9,38.21},{66.31,41.28},{65.51,45.24},{66.6,44.1},{62.77,43.07},{61.52,50.81},{62.53,47.85},{60.7,47.04},{61.29,48.59},{60.72,49.89},{61.7,41.38},{66.58,44.06}}},
+        },
         [728] = { -- Bhag'thera
             [npcKeys.spawns] = {[33] = {{66.70,43.37},{63.11,48.16},{62.18,51.55},{61.38,49.75},{61.89,51.35},{66.83,38.58}}},
         },
-        [729] = { --Sin'Dall
+        [729] = { -- Sin'Dall
             [npcKeys.spawns] = {[33] = {{38.52,32.54}}},
         },
         [730] = { -- Tethis
             [npcKeys.spawns] = {[33] = {{65.64,58.52},{63.71,62.76},{59.79,59.32},{60.19,62.71},{62.84,61.32},{64.84,64.91}}},
+        },
+        [731] = { -- King Bangalash
+            [npcKeys.spawns] = {[33] = {{47.77,59.54}}},
         },
         [736] = { -- Panther
             [npcKeys.spawns] = {[33] = {{35.51,19.86},{35.64,18.93},{35.47,20.26},{34.97,18.84},{34.52,19.13},{33.76,20.08},{33.38,20.35},{33.31,20.52},{33.40,20.79},{33.87,21.11},{34.98,22.08},{34.98,22.08},{36.57,23.31},{34.34,21.95},{32.79,23.87},{32.51,25.43},{32.66,26.37},{32.66,26.37},{32.70,27.43},{32.85,27.75},{32.86,29.12},{32.60,30.31}}},
@@ -119,6 +131,12 @@ function CataNpcFixes.Load()
         },
         [1416] = { -- Grimand Elmore
             [npcKeys.waypoints] = {},
+        },
+        [1422] = { -- Corporal Sethman
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{46.98,10.84,phases.SETHMAN_VISIBLE}}},
+        },
+        [1490] = { -- Zanzil Witch Doctor
+            [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{61.8,40.9},{62.14,41.76},{59.46,48.72},{60.38,43.09}}},
         },
         [1494] = { -- Negolash
             [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{50.75,79.65}}},
@@ -170,9 +188,20 @@ function CataNpcFixes.Load()
         [2249] = { -- Ferocious Yeti
             [npcKeys.name] = "Ferocious Yeti",
         },
+        [2487] = { -- Fleet Master Seahorn
+            [npcKeys.spawns] = {
+                [zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {
+                    {41.09,73.27,phases.BOOTY_BAY_REGULAR},
+                    {41.53,72.95,phases.BOOTY_BAY_ATTACK},
+                },
+            },
+        },
         [2611] = { -- Fozruk
             [npcKeys.spawns] = {[zoneIDs.ARATHI_HIGHLANDS] = {{43.67,67.08}}},
             [npcKeys.waypoints] = {},
+        },
+        [2635] = { -- Elder Snapjaw Crocolisk
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{47.34,56.16},{49.29,55.17},{50.4,53.29},{48.74,50.01},{48.5,52.19},{50.83,50.83},{50.82,49.58},{50.9,48.22},{49.79,44.5}}},
         },
         [2714] = { -- Forsaken Courier
             [npcKeys.spawns] = {[zoneIDs.ARATHI_HIGHLANDS] = {{51.03,64.80}}},
@@ -266,6 +295,13 @@ function CataNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.ASHENVALE] = {{41.66,35.7}}},
             [npcKeys.waypoints] = {},
         },
+        [4260] = { -- Venture Co. Shredder
+            [npcKeys.waypoints] = {},
+        },
+        [5833] = { -- Margol the Rager
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE] = {{73.49,82.39}}},
+            [npcKeys.waypoints] = {[zoneIDs.SEARING_GORGE] = {{{73.49,82.39},{73.45,82.23},{73.41,82.08},{73.37,81.92},{73.33,81.76},{73.27,81.49},{73.14,81.02},{73.01,80.54},{72.90,80.07},{72.78,79.59},{72.68,79.11},{72.73,78.61},{72.80,78.27},{72.83,78.13},{72.87,77.97},{72.92,77.81},{72.96,77.65},{73.00,77.50},{73.04,77.34},{73.08,77.19},{73.12,77.03},{73.16,76.87},{73.20,76.71},{73.23,76.55},{73.25,76.39},{73.26,76.22},{73.27,76.05},{73.28,75.89},{73.28,75.72},{73.28,75.55},{73.28,75.38},{73.28,75.21},{73.27,75.04},{73.28,74.87},{73.28,74.78},{73.28,74.69},{73.29,74.52},{73.29,74.35},{73.28,74.19},{73.26,74.02},{73.19,73.90},{73.09,73.83},{72.98,73.79},{72.83,73.74},{72.49,73.64},{72.32,73.60},{72.21,73.56},{72.10,73.53},{71.99,73.50},{71.88,73.46},{71.77,73.42},{71.66,73.39},{71.55,73.35},{71.44,73.31},{71.33,73.28},{71.22,73.24},{71.11,73.21},{71.00,73.17},{70.89,73.14},{70.78,73.08},{70.68,73.02},{70.57,72.96},{70.47,72.89},{70.37,72.82},{70.27,72.75},{70.16,72.68},{70.06,72.61},{69.96,72.54},{69.86,72.47},{69.75,72.40},{69.65,72.33},{69.55,72.26},{69.45,72.19},{69.35,72.12},{69.25,72.04},{69.15,71.96},{69.11,71.94}}}},
+        },
         [6577] = { -- Bingles Blastenheimer
             [npcKeys.waypoints] = {},
         },
@@ -330,6 +366,13 @@ function CataNpcFixes.Load()
                 },
             },
         },
+        [9046] = { -- Scarshield Quartermaster
+            [npcKeys.zoneID] = zoneIDs.SEARING_GORGE,
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE] = {{43.34,99.17}}},
+        },
+        [9176] = { -- Gorlop
+            [npcKeys.waypoints] = {[zoneIDs.BURNING_STEPPES] = {{{39.95,60.48},{40.24,60.42},{40.52,60.36},{40.81,60.31},{41.10,60.27},{41.38,60.18},{41.67,60.07},{41.95,59.95},{42.01,59.92},{42.02,59.92},{42.30,59.85},{42.59,59.84},{42.88,59.88},{43.16,59.97},{43.45,60.05},{43.74,60.11},{43.89,60.13},{43.91,60.14}}}},
+        },
         [9684] = { -- Lar'korwi
             [npcKeys.spawns] = {[zoneIDs.UN_GORO_CRATER] = {{69.98,40.96}}},
         },
@@ -392,6 +435,10 @@ function CataNpcFixes.Load()
         [13158] = { -- Lieutenant Sanders
             [npcKeys.waypoints] = {},
         },
+        [14387] = { -- Lothos Riftwaker
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE] = {{32.12,94.7}}},
+            [npcKeys.zoneID] = zoneIDs.SEARING_GORGE,
+        },
         [14431] = { -- Fury Shelda
             [npcKeys.waypoints] = {},
         },
@@ -401,6 +448,38 @@ function CataNpcFixes.Load()
         [14508] = { -- Short John Mithril
             [npcKeys.spawns] = {[5287]={{45,25.38}}},
             [npcKeys.waypoints] = {},
+        },
+        [14625] = { -- Overseer Oilfist
+            [npcKeys.spawns] = {
+                [zoneIDs.SEARING_GORGE] = {
+                    {38.12,26.97,phases.SEARING_GORGE_NPCS_TOWERS},
+                    {50.01,39.05,phases.SEARING_GORGE_CAVE_ASSAULT},
+                },
+            },
+        },
+        [14626] = { -- Taskmaster Scrange
+            [npcKeys.spawns] = {
+                [zoneIDs.SEARING_GORGE] = {
+                    {36.81,28.24,phases.SEARING_GORGE_NPCS_TOWERS},
+                    {42.24,34.49,phases.SEARING_GORGE_CAVE_ASSAULT},
+                },
+            },
+        },
+        [14627] = { -- Hansel Heavyhands
+            [npcKeys.spawns] = {
+                [zoneIDs.SEARING_GORGE] = {
+                    {38.47,27.86,phases.SEARING_GORGE_NPCS_TOWERS},
+                    {42.25,34.63,phases.SEARING_GORGE_CAVE_ASSAULT},
+                },
+            },
+        },
+        [14628] = { -- Evonice Sootsmoker
+            [npcKeys.spawns] = {
+                [zoneIDs.SEARING_GORGE] = {
+                    {38.93,27.96,phases.SEARING_GORGE_NPCS_TOWERS},
+                    {43.77,28.71,phases.SEARING_GORGE_CAVE_ASSAULT},
+                },
+            },
         },
         [14822] = { -- Sayge
             [npcKeys.spawns] = {[zoneIDs.DARKMOON_FAIRE_ISLAND]={{53.24,75.84},{-1,-1}}},
@@ -806,6 +885,9 @@ function CataNpcFixes.Load()
         [17363] = { -- Totem of Yor
             [npcKeys.spawns] = {[zoneIDs.AZUREMYST_ISLE]={{63.12,67.87}}},
         },
+        [17375] = { -- Stillpine Captive
+            [npcKeys.spawns] = {[zoneIDs.AZUREMYST_ISLE]={{26.87,62.99},{27.99,63.44},{28.56,67.02},{27.7,65.43},{28.17,67.44},{27.7,62.24},{27.35,62.2},{27.25,66.91},{28.11,65.84},{25.7,67.77},{25.45,68.37},{24.41,67.84},{24.53,67.21},{25.04,66.59},{25.47,66.6}}},
+        },
         [17378] = { -- Swamp Gas
             [npcKeys.spawns] = {[zoneIDs.ZANGARMARSH]={{80.31,79.08},{80.24,82.92},{46.56,58.12},{58.66,52.6},{60.45,54.79},{63.86,66.45},{65.49,73.2},{75.27,83.79},{78.27,79.3},{85.59,49.5},{59.43,35.4},{80.61,66.9},{66.19,69.71},{68.9,73.43},{78.56,70.84},{79.93,39.55},{13.36,43.2},{11.96,46.32},{11.87,60.64},{54.5,55.08},{78.59,46.28},{71.75,34.12},{84.3,30.61},{86.94,46.59},{30.41,21.14},{16.03,20.21},{9.75,51.88},{30.04,50.25},{34.49,42.49},{32.56,38.26},{31.56,32.57},{61.18,54.14},{68.07,73.66},{43.3,60.58},{20.68,32.1},{35.8,42.25},{42.51,59.04},{21.52,33.01},{43.54,59.21},{37.06,42.96},{80.76,70.9},{51.2,32.36},{81.86,85.31},{81.45,69.57},{61.51,43.49},{77.39,40.43},{17.83,61.84},{25.04,55.58},{40.31,60.19},{50.9,67.48},{28.38,44.15},{30.99,31.6},{22.26,37.76},{18.59,66.24},{68.91,68.19},{76.65,84.78},{50.89,57.18},{39.63,37.57},{25.11,53.52},{33.56,66.67},{60.61,52.06},{49.29,30.94},{77.61,86.82},{44.51,62.87},{35.71,23.68},{37.02,27.52},{16.79,24.66},{27.39,64.85},{26.26,60.83},{17.32,59.18},{70.51,44.51},{26.88,36.66},{68.14,55.12},{69.92,71.33},{28.77,39.4},{61.29,38.19},{75.64,48.53},{28.52,49.3},{38.89,60.9},{60.59,47.06},{39.38,51.83},{23.17,28.2},{61.55,35.26},{44.81,61.21},{25.79,59.68},{38.6,38.04},{32.64,65.83},{17.69,68.06},{70.75,57.88},{41.14,62.0},{38.53,62.35},{24.8,57.66},{32.59,31.23},{70.22,45.77},{52.24,65.99},{44.58,54.51},{69.42,57.48},{33.63,60.82},{38.36,51.62},{34.4,60.05}}},
         },
@@ -823,6 +905,9 @@ function CataNpcFixes.Load()
         },
         [17589] = { -- Veridian Broodling
             [npcKeys.spawns] = {[zoneIDs.BLOODMYST_ISLE]={{68.84,27.87},{67.8,27.3},{72.45,25.42},{71.7,27.11},{71.79,25.74},{73.62,20.92},{72.66,19.42},{74.77,16.56},{76.95,19.51},{73.92,13.78},{74.9,13.31},{77.85,22.51},{76.99,20.81},{77.5,11.9},{78.1,8.83},{75.25,11.37},{76.12,8.43},{77.07,7.86},{72.92,10.48},{71.87,14.98},{69.75,14.95},{70.37,16.18},{69.01,18.59},{68.55,22.5},{73.65,29.13},{76.12,32.93},{75.68,30.43}}},
+        },
+        [17591] = { -- Blood Elf Bandit
+            [npcKeys.spawns] = {[zoneIDs.AZUREMYST_ISLE]={{26.21,67.0},{28.45,78.55},{36.27,60.96},{53.17,61.63},{65.1,39.27},{53.88,40.83},{54.39,21.66},{59.13,18.55},{34.1,18.78},{33.82,26.22},{36.7,32.66},{36.83,20.96},{51.78,17.52},{50.49,29.18},{46.49,39.52},{43.08,63.46},{35.27,64.86},{33.92,70.78},{32.31,62.66},{27.6,52.19}}},
         },
         [17713] = { -- Bloodcursed Naga
             [npcKeys.spawns] = {[zoneIDs.BLOODMYST_ISLE]={{79.05,16.27},{82.04,21.1},{80.92,22.28},{81.35,21.57},{79.86,14.92},{79.99,17.91},{81.02,16.16},{82.04,18.08},{81.04,19.55},{81.43,18.85},{82.18,24.17},{82.98,16.51},{82.71,25.63},{81.59,25.06},{81.18,25.67},{82.09,16.62},{81.86,14.66},{80.97,13.72},{78.96,13.61},{79.83,12.1},{80.02,10.39},{80.97,45.51},{79.57,48.68},{82.43,47.45},{82.07,43.49},{82.94,48.49},{83.95,44.53},{82.99,50.62},{80.51,51.48},{83.07,52.31},{83.05,52.17},{84.32,56.31},{80.87,53.87},{80.44,53.57},{83.3,54.61},{85.56,57.55},{85.08,57.05},{86.92,56.75},{85.29,53.36},{87.6,55.06},{85.68,52.09},{86.6,51.87},{87.59,53.1}}},
@@ -991,11 +1076,17 @@ function CataNpcFixes.Load()
         [27216] = { -- Bizzle Quicklift
             [npcKeys.spawns] = {[zoneIDs.DUROTAR]={{41.53,17.6}}},
         },
+        [28082] = { -- High-Shaman Rakjak
+            [npcKeys.spawns] = {[zoneIDs.SHOLAZAR_BASIN]={{54.99,69.11}}},
+        },
         [28092] = { -- The Etymidian
             [npcKeys.spawns] = {[zoneIDs.UN_GORO_CRATER]={{47.38,9.21}}},
         },
         [28138] = { -- Elder Harkek
             [npcKeys.spawns] = {[zoneIDs.SHOLAZAR_BASIN]={{55.49,69.7}}},
+        },
+        [28114] = { -- Mistcaller Soo-gan
+            [npcKeys.spawns] = {[zoneIDs.SHOLAZAR_BASIN]={{42.15,38.65}}},
         },
         [28160] = { -- Archmage Pentarus
             [npcKeys.spawns] = {[zoneIDs.DALARAN]={{68.55,42.05}}},
@@ -1024,6 +1115,9 @@ function CataNpcFixes.Load()
         },
         [28919] = { -- Noth the Plaguebringer
             [npcKeys.spawns] = {[zoneIDs.PLAGUELANDS_THE_SCARLET_ENCLAVE]={{55.89,52.4}}},
+        },
+        [29006] = { -- Oracle Soo-nee
+            [npcKeys.spawns] = {[zoneIDs.SHOLAZAR_BASIN]={{53.34,56.43}}},
         },
         [29631] = { -- Awilo Lon'gomba
             [npcKeys.spawns] = {[zoneIDs.DALARAN]={{69.96,39.01}}},
@@ -2005,6 +2099,9 @@ function CataNpcFixes.Load()
         [41381] = { -- Nordu
             [npcKeys.spawns] = {[zoneIDs.MOUNT_HYJAL]={{27.4,55.56}}},
         },
+        [41402] = { -- Abandoned Bloodwash Crate
+            [npcKeys.spawns] = {[zoneIDs.BLASTED_LANDS]={{62.95,64.27},{60.6,62.86},{61.55,63.07}}},
+        },
         [41455] = { -- Overseer Idra'kess
             [npcKeys.spawns] = {[zoneIDs.SHIMMERING_EXPANSE]={{36.84,79.75}}},
         },
@@ -2101,8 +2198,22 @@ function CataNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.ABYSSAL_DEPTHS]={{31.5,65.62},{32.04,64.44},{33.6,64.37},{27.49,62.49},{28.55,63.23},{35.18,63.06},{34.29,59.9},{31.26,61},{31.2,59.36},{30.1,60.09},{27.21,60.92},{26.28,55.96},{28.27,56.05},{29.22,57.71},{30.11,55.01},{27.08,54.66}}},
         },
         [42288] = { -- Robby Flay
+            [npcKeys.spawns] = {[zoneIDs.STORMWIND_CITY] = {{50.56,71.89}}},
+        },
+        [42308] = { -- Lieutenant Horatio Laine
             [npcKeys.spawns] = {
-                [zoneIDs.STORMWIND_CITY] = {{50.56,71.89}},
+                [zoneIDs.WESTFALL] = {
+                    {60.04,19.28,phases.HORATIO_JANSEN_STEAD},
+                    {56.26,47.48,phases.HORATIO_SENTINEL_HILL},
+                },
+            },
+        },
+        [42309] = { -- Stormwind Investigator
+            [npcKeys.spawns] = {
+                [zoneIDs.WESTFALL] = {
+                    {60.04,19.28,phases.HORATIO_SENTINEL_HILL},
+                    {60.04,19.28,phases.GRYAN_FP},
+                },
             },
         },
         [42340] = { -- Rescue Balloon
@@ -2170,6 +2281,10 @@ function CataNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.DEEPHOLM] = {{64.01,45.93}}},
             [npcKeys.waypoints] = waypointPresets.ALLIANCE_GUNSHIP,
         },
+        [42736] = { -- Lashtail Hatchling
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{33.73,37.18,phases.LASHTAIL_VISIBLE}}},
+            [npcKeys.zoneID] = zoneIDs.STRANGLETHORN_VALE,
+        },
         [42747] = { -- Slain Crew Member's Spirit
             [npcKeys.spawns] = {[zoneIDs.DEEPHOLM] = {{64.01,45.93}}},
             [npcKeys.waypoints] = waypointPresets.ALLIANCE_GUNSHIP,
@@ -2196,6 +2311,10 @@ function CataNpcFixes.Load()
         [43082] = { -- First Mate Moody
             [npcKeys.spawns] = {[zoneIDs.DEEPHOLM] = {{64.01,45.93}}},
             [npcKeys.waypoints] = waypointPresets.ALLIANCE_GUNSHIP,
+        },
+        [43110] = { -- Gurubashi Arena Challenger
+            [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{46.18,26.95}}},
+            [npcKeys.zoneID] = zoneIDs.THE_CAPE_OF_STRANGLETHORN,
         },
         [43116] = { -- Pebble
             [npcKeys.spawns] = {
@@ -2232,6 +2351,10 @@ function CataNpcFixes.Load()
                 },
             },
         },
+        [43245] = { -- Zanzil the Outcast
+            [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{61.13,43.34}}},
+            [npcKeys.zoneID] = zoneIDs.THE_CAPE_OF_STRANGLETHORN,
+        },
         [43300] = { -- Messner
             [npcKeys.spawns] = {[zoneIDs.REDRIDGE_MOUNTAINS] = {{47.65,41.8}}},
         },
@@ -2247,12 +2370,28 @@ function CataNpcFixes.Load()
         [43344] = { -- Berracite
             [npcKeys.waypoints] = {[zoneIDs.DEEPHOLM] = {{{34.26,34.92},{34.49,34.58},{34.58,34.26},{34.60,33.95},{34.52,33.53},{34.52,33.30}}}},
         },
+        [43376] = { -- Freewheelin' Juntz Fitztittle
+            [npcKeys.waypoints] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{{56.68,53.83},{56.57,54.10},{56.48,54.32},{56.36,54.64},{56.33,55.08},{56.35,55.25},{56.39,55.62},{56.45,56.19},{56.50,56.87},{56.51,56.91},{56.51,57.01},{56.54,57.32},{56.55,57.65},{56.56,57.82},{56.33,57.93}}}},
+        },
+        [43377] = { -- Ephram "Midriff" Moonfall
+            [npcKeys.waypoints] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{{55.62,51.89},{55.80,52.00},{55.97,52.11},{56.00,51.97},{55.92,51.71},{55.87,51.44},{55.87,51.16},{55.92,50.88},{55.98,50.61},{56.05,50.34},{56.19,50.15},{56.34,49.98},{56.51,49.86},{56.69,49.75},{56.87,49.66},{57.06,49.65},{57.25,49.66},{57.44,49.68},{57.62,49.63},{57.81,49.56},{57.97,49.44},{57.96,49.16},{57.93,48.88},{57.91,48.60},{57.84,48.39},{57.66,48.49},{57.48,48.59},{57.30,48.69},{57.13,48.81},{56.96,48.94},{56.79,49.06},{56.62,49.18},{56.45,49.32},{56.29,49.47},{56.16,49.68},{56.09,49.79},{56.02,49.92},{55.88,50.13},{55.77,50.35},{55.70,50.61},{55.63,50.88},{55.53,51.13},{55.43,51.36},{55.32,51.59},{55.14,51.69},{54.95,51.73},{54.79,51.68},{54.76,51.40},{54.66,51.17},{54.61,51.10},{54.49,50.92},{54.42,50.75},{54.32,50.57},{54.23,50.56},{54.41,50.66},{54.44,50.84},{54.45,51.08},{54.46,51.37},{54.48,51.65},{54.58,51.89},{54.63,51.93},{54.82,51.95},{54.94,51.89},{55.12,51.81},{55.30,51.80},{55.49,51.86},{55.59,51.87}}}},
+        },
         [43443] = { -- Keeshan's Riverboat
             [npcKeys.spawns] = {[zoneIDs.REDRIDGE_MOUNTAINS] = {{34.43,45.91}}},
             [npcKeys.zoneID] = zoneIDs.REDRIDGE_MOUNTAINS,
         },
+        [43511] = { -- Deck Stain
+            [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{44.67,92.92},{44.61,93.25},{44.39,92.59},{44.62,93.37},{44.87,93.36},{44.85,92.99},{44.68,93.09},{44.71,92.77},{44.61,92.64}}},
+            [npcKeys.zoneID] = zoneIDs.THE_CAPE_OF_STRANGLETHORN,
+        },
         [43513] = { -- Verlok Pillartumbler
             [npcKeys.spawns] = {[zoneIDs.DEEPHOLM] = {{69.89,24.77},{71.22,24.55},{69.03,24.15},{68.94,23.99},{69.36,23.92},{68.28,24.42},{68.52,25.9},{69.02,23.97},{68.38,25.91},{69.64,24.35},{67.69,24.36},{68.89,24.27},{71.22,24.57},{67.54,24.54},{67.59,24.48},{69.81,24.82},{69.85,24.76},{69.24,24.89},{68.45,25.92},{69.4,24.82},{68.97,25.43},{69.88,24.68},{67.69,24.49},{70.14,24.68},{69.46,24.21},{68.89,24.03},{68.95,24.04},{69.89,24.62},{70.59,24.71},{69.72,24.58},{68.71,24.25},{67.46,24.7},{70.8,24.69},{69.88,24.68},{69,25.34},{69.73,24.78},{68.91,24.46},{71.22,24.54},{70.93,24.69},{69.46,24.77},{68.58,25.8},{67.7,24.38},{68.34,25.84},{67.64,24.55},{69.6,26.39},{68.93,24},{68.68,24.19},{68.97,24.27},{69.13,24.74},{67.46,24.69},{67.49,24.6},{69.38,24.78},{69.35,24.77},{67.83,24},{67.74,24.3},{71.01,24.63},{69.08,24.26},{71.22,24.57},{68.28,25.85},{68.71,24.4},{68.52,25.82},{68.89,25.29},{68.46,25.84},{69.31,24.67},{67.59,24.61},{69.78,24.62}}},
+        },
+        [43596] = { -- Venture Co. Oil Worker
+            [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{63.14,61.85},{63.05,61.52},{62.57,61.92},{63.56,62.01},{63.44,61.5},{63.29,61.31},{62.6,61.16},{62.56,61.24},{63.06,61.42},{62.82,62.36},{62.85,62.47},{62.75,62.42},{62.7,62.21},{59.65,62.17},{59.64,62.06},{59.7,62.11},{59.69,62.23},{59.65,62.25},{59.61,62.11},{59.61,61.97},{62.49,53.58},{62.48,53.33},{62.4,53.4},{62.22,54.12},{62.29,54.1},{62.98,53.74},{62.51,52.94},{62.15,53.28},{62.02,53.06},{61.96,53.28},{62.41,53.25},{62.36,53.51},{62.37,53.77},{62.39,54.17},{62.23,54.04},{60.55,55.87},{60.46,55.83},{60.58,55.83},{60.53,55.84},{60.47,55.73},{60.44,55.61},{55.24,70.15},{55.09,70.16},{55.15,70.24},{58.1,67.86},{58.08,67.76},{58,66.98},{58.31,67.02},{58.03,67.22},{58.07,67.69},{58.02,67.07},{58.75,67.05},{58.65,66.84},{58.35,67.06},{58.82,67.4},{58.8,67.84},{58.49,66.82},{58.85,67.84},{58.1,67.38},{58.14,67.47},{58.09,67.46},{58.1,67.42},{57.96,67.54},{58.04,67.66},{57.95,67.37},{57.99,67.6},{58.11,67.66},{57.95,67.46},{55.31,70.25},{55.36,70.39},{55.26,70.33},{55.19,70.29},{55.23,70.29},{55.41,70.21},{55.41,70.28},{55.32,70.44},{55.21,70.43},{55.29,70.3},{55.34,70.31},{55.25,70.36},{55.43,70.35},{55.26,70.34},{55.32,70.3},{55.12,70.14}}},
+        },
+        [43611] = { -- John J. Keeshan
+            [npcKeys.spawns] = {[zoneIDs.REDRIDGE_MOUNTAINS] = {{77.68,65.51}}},
         },
         [43623] = { -- Sinking From Within: Grog Credit
             [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{50.56,91.52}}},
@@ -2303,8 +2442,32 @@ function CataNpcFixes.Load()
                 },
             },
         },
+        [43884] = { -- Osborn Obnoticus
+            [npcKeys.spawns] = {
+                [zoneIDs.STRANGLETHORN_VALE] = {
+                    {56.37,20.3,phases.BERRIN_EMERINE_OSBORN_CAGE},
+                    {47.13,10.55,phases.BERRIN_EMERINE_OSBORN_RESCUED},
+                },
+            },
+        },
         [43885] = { -- Emerine Junis
-            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{47.67,10.34}}},
+            [npcKeys.spawns] = {
+                [zoneIDs.STRANGLETHORN_VALE] = {
+                    {56.41,20.3,phases.BERRIN_EMERINE_OSBORN_CAGE},
+                    {47.67,10.34,phases.BERRIN_EMERINE_OSBORN_RESCUED},
+                },
+            },
+        },
+        [43886] = { -- Berrin Burnquill
+            [npcKeys.spawns] = {
+                [zoneIDs.STRANGLETHORN_VALE] = {
+                    {56.45,20.3,phases.BERRIN_EMERINE_OSBORN_CAGE},
+                    {47.98,12.01,phases.BERRIN_EMERINE_OSBORN_RESCUED},
+                },
+            },
+        },
+        [43912] = { -- Chief Esquivel
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{66.1,11.73}}},
         },
         [43950] = { -- Lurking Worgen
             [npcKeys.spawns] = {[zoneIDs.DUSKWOOD] = {{18.57,57.26}}},
@@ -2399,6 +2562,9 @@ function CataNpcFixes.Load()
                     {79.22,78.29,phases.THORDUN_IN_KEEP},
                 },
             },
+        },
+        [45212] = { -- Gory
+            [npcKeys.spawns] = {[zoneIDs.WESTERN_PLAGUELANDS] = {{54.07,65.78}}},
         },
         [45238] = { -- Harrison Jones
             [npcKeys.spawns] = {[zoneIDs.ULDUM] = {{64.56,28.6}}},
@@ -2677,6 +2843,10 @@ function CataNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.MOUNT_HYJAL]={{43.8,45.95}}},
             [npcKeys.zoneID] = zoneIDs.MOUNT_HYJAL,
         },
+        [47004] = { -- Magtoor
+            [npcKeys.spawns] = {[zoneIDs.SWAMP_OF_SORROWS]={{26.94,33.57}}},
+            [npcKeys.zoneID] = zoneIDs.SWAMP_OF_SORROWS,
+        },
         [47080] = { -- Lucien Tosselwrench
             [npcKeys.spawns] = {[zoneIDs.BADLANDS]={{26.49,62.3}}},
             [npcKeys.zoneID] = zoneIDs.BADLANDS,
@@ -2710,11 +2880,27 @@ function CataNpcFixes.Load()
         [47255] = { -- Gobbles
             [npcKeys.spawns] = {[zoneIDs.ULDUM]={{24.49,64.46}}},
         },
+        [47280] = { -- Lunk
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE]={{59.09,57.98}}},
+            [npcKeys.zoneID] = zoneIDs.SEARING_GORGE,
+        },
+        [47332] = { -- Lunk
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE]={{41.12,39.5}}},
+            [npcKeys.zoneID] = zoneIDs.SEARING_GORGE,
+        },
         [47374] = { -- Patch
             [npcKeys.spawns] = {
                 [zoneIDs.TWILIGHT_HIGHLANDS] = {
                     {29.58,41.07,phases.TWILIGHT_CARAVAN_AMBUSH_HORDE},
                     {29.31,52.39,phases.GRIM_BATOL_ATTACK_HORDE},
+                },
+            },
+        },
+        [47393] = { -- Mountain-Lord Rendan
+            [npcKeys.spawns] = {
+                [zoneIDs.SEARING_GORGE] = {
+                    {39.43,67.87,phases.SEARING_GORGE_NPCS_TOWERS},
+                    {40.8,51.65,phases.SEARING_GORGE_CAVE_ASSAULT},
                 },
             },
         },
@@ -2724,12 +2910,27 @@ function CataNpcFixes.Load()
         [47422] = { -- Baited Black Drake
             [npcKeys.spawns] = {[zoneIDs.TWILIGHT_HIGHLANDS]={{47.91,59.48},{49.55,63.06},{49.94,64.4},{47.66,61.35},{47.89,61.89},{49.34,63.3},{46.14,64.25},{47.18,60.64},{47.65,58.8},{46.82,61.18}}},
         },
+        [47429] = { -- Lunk
+            [npcKeys.spawns] = {
+                [zoneIDs.SEARING_GORGE] = {
+                    {39.83,67.9,phases.LUNK_IRON_SUMMIT},
+                    {38.98,26.01,phases.LUNK_THORIUM_POINT},
+                },
+            },
+        },
+        [47467] = { -- Brotherhood Flying Machine
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE]={{41.44,55.72}}},
+            [npcKeys.zoneID] = zoneIDs.SEARING_GORGE,
+        },
         [47484] = { -- Yetimus the Yeti Lord
             [npcKeys.waypoints] = {[zoneIDs.HILLSBRAD_FOOTHILLS]={{{47.33,50.21},{47.60,52.35},{47.74,54.12},{47.24,55.72},{46.43,56.85},{45.60,57.74},{44.32,57.47},{42.86,57.13},{41.88,56.26},{41.45,55.05},{41.43,53.60},{41.51,52.12}}}},
         },
         [47493] = { -- Warlord Krogg
-            [npcKeys.spawns] = {
-                [zoneIDs.TWILIGHT_HIGHLANDS]={{29.63,40.98}}},
+            [npcKeys.spawns] = {[zoneIDs.TWILIGHT_HIGHLANDS]={{29.63,40.98}}},
+        },
+        [47553] = { -- Rasha'krak
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE]={{37.14,42.31}}},
+            [npcKeys.waypoints] = {[zoneIDs.SEARING_GORGE]={{{30.75,43.55},{30.93,43.62},{30.95,43.63},{31.29,43.73},{31.62,43.82},{31.96,43.88},{32.30,43.94},{32.64,43.97},{32.98,43.96},{33.32,43.94},{33.66,43.92},{33.99,43.86},{34.03,43.85},{34.31,43.75},{34.55,43.61},{34.83,43.55},{35.16,43.46},{35.36,43.40},{35.70,43.31},{35.95,43.16},{36.10,42.98},{36.16,42.90},{36.42,42.61},{36.50,42.55},{36.82,42.36},{37.13,42.18},{37.43,42.01},{37.63,41.89},{37.79,41.80},{38.02,41.66},{38.10,41.61},{38.32,41.49},{38.44,41.42},{38.42,41.43},{38.56,41.35},{38.87,41.17},{39.19,40.99},{39.50,40.76},{39.80,40.52},{40.09,40.28},{40.38,40.02},{40.41,39.99},{40.45,39.94},{40.73,39.65},{40.93,39.42},{41.07,39.30},{41.15,39.23},{41.35,39.02},{41.63,38.74},{41.92,38.46},{42.01,38.40},{42.50,37.77},{42.57,37.52}}}},
         },
         [47591] = { -- Baradin Crocolisk
             [npcKeys.spawns] = {[zoneIDs.TOL_BARAD]={{44.78,55.45},{37.67,51.43},{39.25,47.63},{37.78,52.88},{43.23,50.08},{38.76,53.22},{43.35,44.55},{36.99,48.26},{36.89,42.55},{35.6,42.25},{34.66,46.94},{38.67,47.15},{34.98,51.4},{40.58,43.79},{39.3,40.69},{45,42.88},{37.32,49.52},{41.7,53.48},{40.63,48.52},{37.72,55.84},{39.04,45.1},{38.93,42.14},{38.03,42.54},{43.62,44.08},{38.3,43.78}}},
@@ -2865,6 +3066,25 @@ function CataNpcFixes.Load()
                     {44.08,10.54,phases.ISORATH_NIGHTMARE},
                 },
             },
+        },
+        [48312] = { -- High Warlock Xi'lun
+            [npcKeys.spawns] = {
+                [zoneIDs.BURNING_STEPPES] = {
+                    {69.63,42.89,phases.BS_PRE_ASSAULT},
+                    {70.16,47.25,phases.BS_POST_ASSAULT},
+                },
+            },
+        },
+        [48314] = { -- Dragon-Lord Neeralak
+            [npcKeys.spawns] = {
+                [zoneIDs.BURNING_STEPPES] = {
+                    {70.17,47.3,phases.BS_PRE_ASSAULT},
+                    {69.68,42.95,phases.BS_POST_ASSAULT},
+                },
+            },
+        },
+        [48346] = { -- John J. Keeshan
+            [npcKeys.spawns] = {[zoneIDs.BURNING_STEPPES] = {{73.55,67.24}}},
         },
         [48515] = { -- Stormpike Battle Master
             [npcKeys.spawns] = {[zoneIDs.HILLSBRAD_FOOTHILLS] = {{27.20,86.37}}},
@@ -3437,6 +3657,96 @@ function CataNpcFixes.Load()
             [npcKeys.zoneID] = zoneIDs.BADLANDS,
             [npcKeys.questStarts] = {27930},
         },
+        [100039] = { -- Lunk's Adventure: Spider Rider
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE] = {{59.09,57.98}}},
+            [npcKeys.zoneID] = zoneIDs.SEARING_GORGE,
+            [npcKeys.questEnds] = {27959},
+        },
+        [100040] = { -- Lunk's Adventure: Cranky Little Dwarfs
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE] = {{41.12,39.5}}},
+            [npcKeys.zoneID] = zoneIDs.SEARING_GORGE,
+            [npcKeys.questEnds] = {27983},
+        },
+        [100041] = { -- Prayer to Elune
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE] = {{23.12,35.43}}},
+            [npcKeys.zoneID] = zoneIDs.SEARING_GORGE,
+            [npcKeys.questEnds] = {27985},
+        },
+        [100042] = { -- Minions of Calcinder, From Whence He Came
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.SEARING_GORGE] = {{43.36,28.59}}},
+            [npcKeys.zoneID] = zoneIDs.SEARING_GORGE,
+            [npcKeys.questEnds] = {28061,28062},
+        },
+        [100043] = { -- The Kodocaller's Horn
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.BURNING_STEPPES] = {{44.62,61.12}}},
+            [npcKeys.zoneID] = zoneIDs.BURNING_STEPPES,
+            [npcKeys.questEnds] = {28252},
+        },
+        [100044] = { -- Step Two: The Bloodletter
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.SWAMP_OF_SORROWS] = {{77.3,46.3}}},
+            [npcKeys.zoneID] = zoneIDs.SWAMP_OF_SORROWS,
+            [npcKeys.questEnds] = {27768},
+        },
+        [100045] = { -- The Future of the Rockpool
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.BLASTED_LANDS] = {{72.6,63.1},{73.1,71},{70.7,78.9},{56.9,85.3},{65.2,85.3}}},
+            [npcKeys.zoneID] = zoneIDs.BLASTED_LANDS,
+            [npcKeys.questEnds] = {25707},
+        },
+        [100046] = { -- Eliminate the Outcast
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{61.21,44.29}}},
+            [npcKeys.zoneID] = zoneIDs.THE_CAPE_OF_STRANGLETHORN,
+            [npcKeys.questEnds] = {26551,26810},
+        },
+        [100047] = { -- Through the Troll Hole
+            [npcKeys.name] = "!",
+            [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{61.21,44.29}}},
+            [npcKeys.zoneID] = zoneIDs.THE_CAPE_OF_STRANGLETHORN,
+            [npcKeys.questStarts] = {26552,26811},
+        },
+        [100048] = { -- Through the Troll Hole
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{78.51,35.68}}},
+            [npcKeys.zoneID] = zoneIDs.STRANGLETHORN_VALE,
+            [npcKeys.questEnds] = {26552,26811},
+        },
+        [100049] = { -- High Priestess Jeklik
+            [npcKeys.name] = "!",
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{78.51,35.68}}},
+            [npcKeys.zoneID] = zoneIDs.STRANGLETHORN_VALE,
+            [npcKeys.questStarts] = {26553,26812},
+        },
+        [100050] = { -- High Priestess Jeklik
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{78.32,43.86}}},
+            [npcKeys.zoneID] = zoneIDs.STRANGLETHORN_VALE,
+            [npcKeys.questEnds] = {26553,26812},
+        },
+        [100051] = { -- Plunging Into Zul'Gurub
+            [npcKeys.name] = "!",
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{78.32,43.86}}},
+            [npcKeys.zoneID] = zoneIDs.STRANGLETHORN_VALE,
+            [npcKeys.questStarts] = {26554,26813},
+        },
+        [100052] = { -- Plunging Into Zul'Gurub
+            [npcKeys.name] = "?",
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{82.1,35.37}}},
+            [npcKeys.zoneID] = zoneIDs.STRANGLETHORN_VALE,
+            [npcKeys.questEnds] = {26554,26813},
+        },
+        [100053] = { -- High Priest Venoxis
+            [npcKeys.name] = "!",
+            [npcKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE] = {{82.1,35.37}}},
+            [npcKeys.zoneID] = zoneIDs.STRANGLETHORN_VALE,
+            [npcKeys.questStarts] = {26555,26814},
+        },
     }
 end
 
@@ -3447,6 +3757,9 @@ function CataNpcFixes:LoadFactionFixes()
     local phases = Phasing.phases
 
     local npcFixesHorde = {
+        [7783] = { -- Loramus Thalipedes
+            [npcKeys.spawns] = {[zoneIDs.BLASTED_LANDS] = {{39.36,35.78}}},
+        },
         --[[[15898] = { -- Lunar Festival Vendor
             [npcKeys.spawns] = {
                 [zoneIDs.ORGRIMMAR]={{41.27,32.36}},
@@ -3603,6 +3916,9 @@ function CataNpcFixes:LoadFactionFixes()
     }
 
     local npcFixesAlliance = {
+        [7783] = { -- Loramus Thalipedes
+            [npcKeys.spawns] = {[zoneIDs.BLASTED_LANDS] = {{62.31,26.09}}},
+        },
         --[[[15898] = { -- Lunar Festival Vendor
             [npcKeys.spawns] = {
                 [zoneIDs.STORMWIND_CITY]={{37.32,64.04}},

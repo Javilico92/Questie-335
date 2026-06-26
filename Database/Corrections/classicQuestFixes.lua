@@ -9,8 +9,12 @@ local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
 local ZoneDB = QuestieLoader:ImportModule("ZoneDB")
 ---@type QuestieProfessions
 local QuestieProfessions = QuestieLoader:ImportModule("QuestieProfessions")
+---@type QuestieCorrections
+local QuestieCorrections = QuestieLoader:ImportModule("QuestieCorrections")
 ---@type l10n
 local l10n = QuestieLoader:ImportModule("l10n")
+
+QuestieCorrections.itemObjectiveFirst[5088] = true
 
 -- Further information on how to use this can be found at the wiki
 -- https://github.com/Questie/Questie/wiki/Corrections
@@ -576,26 +580,14 @@ function QuestieQuestFixes:Load()
             [questKeys.questLevel] = 1,
             [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
             [questKeys.requiredClasses] = classIDs.NONE,
-            [questKeys.objectivesText] = nil,
-            [questKeys.triggerEnd] = nil,
-            [questKeys.objectives] = {},
-            [questKeys.sourceItemId] = nil,
-            [questKeys.preQuestGroup] = nil,
-            [questKeys.preQuestSingle] = nil,
-            [questKeys.childQuests] = nil,
-            [questKeys.inGroupWith] = nil,
-            [questKeys.exclusiveTo] = nil,
-            [questKeys.zoneOrSort] = 148,
-            [questKeys.requiredSkill] = nil,
-            [questKeys.requiredMinRep] = nil,
-            [questKeys.requiredMaxRep] = nil,
-            [questKeys.requiredSourceItems] = nil,
+            [questKeys.zoneOrSort] = zoneIDs.DARKSHORE,
             [questKeys.nextQuestInChain] = 0,
             [questKeys.questFlags] = 8,
             [questKeys.specialFlags] = specialFlags.REPEATABLE,
             [questKeys.parentQuest] = 949, -- workaround, can't mimic ingame 100%
         },
         [961] = {
+            [questKeys.finishedBy] = {{3616}},
             [questKeys.preQuestSingle] = nil,
             [questKeys.exclusiveTo] = nil,
             [questKeys.specialFlags] = specialFlags.REPEATABLE,
@@ -743,7 +735,7 @@ function QuestieQuestFixes:Load()
             [questKeys.specialFlags] = specialFlags.REPEATABLE, -- #1348
         },
         [1198] = {
-            [questKeys.requiredRaces] = raceIDs.NONE,
+            [questKeys.requiredRaces] = raceIDs.NONE, -- horde CAN get this quest
         },
         [1204] = {
             [questKeys.preQuestSingle] = {}, -- #938
@@ -1260,6 +1252,14 @@ function QuestieQuestFixes:Load()
         [2801] = {
             [questKeys.objectives] = {nil,nil,nil,nil,{{{7572},7572,"A Tale of Sorrow"}}},
         },
+        [2841] = {
+            [questKeys.exclusiveTo] = {2842},
+            [questKeys.childQuests] = {},
+        },
+        [2842] = {
+            [questKeys.requiredLevel] = 20,
+            [questKeys.parentQuest] = 0,
+        },
         [2843] = {
             [questKeys.triggerEnd] = {"Goblin Transponder", {[zoneIDs.STRANGLETHORN_VALE]={{27.56,77.42}}}},
         },
@@ -1444,6 +1444,7 @@ function QuestieQuestFixes:Load()
 			},
         },
         [3629] = {
+            [questKeys.specialFlags] = specialFlags.NONE,
             [questKeys.requiredSpecialization] = specKeys.ENGINEERING,
         },
         [3630] = {
@@ -1754,10 +1755,10 @@ function QuestieQuestFixes:Load()
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Use the Empty Worg Pup Cage to capture it."), 0, {{"monster", 10221}}}},
         },
         [4734] = {
-            [questKeys.objectives] = {nil,{{400062,"Test the Eggscilliscope Prototype"}}},
+            [questKeys.objectives] = {nil,{{400004,"Test the Eggscilliscope Prototype"}}},
         },
         [4735] = {
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_OBJECT, l10n("Collect eggs using the Collectronic Module."), 0, {{"object", 400062}}}},
+            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_OBJECT, l10n("Collect eggs using the Collectronic Module."), 0, {{"object", 400004}}}},
         },
         [4736] = {
             [questKeys.requiredRaces] = raceIDs.ALL_ALLIANCE,
@@ -1828,8 +1829,8 @@ function QuestieQuestFixes:Load()
         [4867] = {
             [questKeys.requiredSourceItems] = {12533,12534},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_OBJECT, l10n("Combine Omokk's Head with the Roughshod Pike."),0,{{"object", 175621}}},
-			                               {nil, Questie.ICON_TYPE_OBJECT, l10n("Use it to instantly kill one nearby ogre."),0,{{"object", 400063}}},
-			},
+                                           {nil, Questie.ICON_TYPE_OBJECT, l10n("Use it to instantly kill one nearby ogre."),0,{{"object", 400005}}},
+            },
         },
         [4881] = {
             [questKeys.startedBy] = {{10617},nil,{12564}},
@@ -1892,8 +1893,7 @@ function QuestieQuestFixes:Load()
             [questKeys.preQuestSingle] = {}, -- #1824
         },
         [5088] = {
-            [questKeys.triggerEnd] = {"Light the Sacred Fire of Life", {[zoneIDs.THOUSAND_NEEDLES]={{38.08,35.35}}}},
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_OBJECT, l10n("Light the Sacred Fire of Life"),0,{{"object", 175944}}}},
+            [questKeys.objectives] = {nil,{{175944}},{{12925}}},
         },
         [5089] = {
             [questKeys.startedBy] = {{9568},nil,{12780}},
@@ -2267,7 +2267,7 @@ function QuestieQuestFixes:Load()
             },
         },
         [6027] = {
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_OBJECT, l10n("Summon Lord Kragaru"), 0, {{"object", 400060}}}},
+            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_OBJECT, l10n("Summon Lord Kragaru"), 0, {{"object", 400002}}}},
         },
         [6041] = {
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_OBJECT, l10n("Plant the bomb!"), 0, {{"object", 177668}}}},

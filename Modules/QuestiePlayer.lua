@@ -21,6 +21,7 @@ local GetHomePartyInfo = QuestieCompat.GetHomePartyInfo
 local GetClassColor = QuestieCompat.GetClassColor
 local LE_PARTY_CATEGORY_INSTANCE = QuestieCompat.LE_PARTY_CATEGORY_INSTANCE
 
+---@type table<QuestId, Quest>
 QuestiePlayer.currentQuestlog = {} --Gets populated by QuestieQuest:GetAllQuestIds(), this is either an object to the quest in question, or the ID if the object doesn't exist.
 _QuestiePlayer.playerLevel = -1
 local playerRaceId = -1

@@ -60,6 +60,9 @@ function CataObjectFixes.Load()
         [164781] = { -- Yellow Power Crystal
             [objectKeys.spawns] = {[zoneIDs.UN_GORO_CRATER]={{42.98,45.54},{42.52,33.91},{38.13,41.81},{46.2,19.53},{39.74,26.91},{34.67,33.25},{27.74,46.43},{32.98,29.54},{37.82,20.53},{43.83,21.45},{46.21,19.69},{46.87,14.92},{47.35,12.89},{39.34,14.47},{37.75,20.61},{31.27,18.55},{30.13,21.21},{26.39,29.08},{19.61,38.82},{25.52,39.9},{24.73,40.49}}},
         },
+        [179832] = { -- Pillaclencher's Ornate Pillow
+            [objectKeys.spawns] = {[zoneIDs.SEARING_GORGE] = {{45.86,29.54}}},
+        },
         [180453] = { -- Hive'Regal Glyphed Crystal
             [objectKeys.spawns] = {[zoneIDs.SILITHUS]={{55.61,90.54}}},
         },
@@ -336,9 +339,24 @@ function CataObjectFixes.Load()
             [objectKeys.spawns] = {[zoneIDs.BADLANDS] = {{49.13,57.28},{54.02,46.75},{17.07,65.65},{14.32,53.07},{22.85,47.96},{35.5,50.75},{27.27,38.97},{33.84,36.98},{28.34,58.8},{39.33,59.84},{44.18,35.91}}},
             [objectKeys.zoneID] = zoneIDs.BADLANDS,
         },
+        [206573] = { -- Dark Ember
+            [objectKeys.spawns] = {[zoneIDs.SEARING_GORGE] = {{53.44,44.82}}},
+        },
         [206585] = { -- Totem of Ruumbo
             [objectKeys.questStarts] = {27989,27994,27995},
             [objectKeys.questEnds] = {27989,27994,28100},
+        },
+        [206971] = { -- War Reaver Parts
+            [objectKeys.spawns] = {[zoneIDs.BURNING_STEPPES] = {{44.13,37.25},{45.62,32.83},{44.05,34.97},{42.84,37.48},{47.51,37.38},{46.39,40.27},{52.32,34.98},{52.28,35.06},{48.14,36.25},{43.81,38.37},{45.27,41.07},{50.99,42.54},{56.58,38.14},{56.4,37.16},{55.74,40.64},{57.21,40.87},{57.35,35.98},{60.52,35.83},{53.36,40.15},{54.42,39.82},{49.05,37.28},{44.68,41.44},{48.09,35.18},{49.84,35.59},{48.24,38.21},{53.14,34.37},{52.13,35.05},{45.97,39.73},{43.17,38.45},{55.38,36.23},{55.7,39.96},{57.6,40.83}}},
+        },
+        [206972] = { -- War Reaver Parts
+            [objectKeys.spawns] = {[zoneIDs.BURNING_STEPPES] = {{44.13,37.25},{45.62,32.83},{44.05,34.97},{42.84,37.48},{47.51,37.38},{46.39,40.27},{52.32,34.98},{52.28,35.06},{48.14,36.25},{43.81,38.37},{45.27,41.07},{50.99,42.54},{56.58,38.14},{56.4,37.16},{55.74,40.64},{57.21,40.87},{57.35,35.98},{60.52,35.83},{53.36,40.15},{54.42,39.82},{49.05,37.28},{44.68,41.44},{48.09,35.18},{49.84,35.59},{48.24,38.21},{53.14,34.37},{52.13,35.05},{45.97,39.73},{43.17,38.45},{55.38,36.23},{55.7,39.96},{57.6,40.83}}},
+        },
+        [206973] = { -- War Reaver Parts
+            [objectKeys.spawns] = {[zoneIDs.BURNING_STEPPES] = {{44.13,37.25},{45.62,32.83},{44.05,34.97},{42.84,37.48},{47.51,37.38},{46.39,40.27},{52.32,34.98},{52.28,35.06},{48.14,36.25},{43.81,38.37},{45.27,41.07},{50.99,42.54},{56.58,38.14},{56.4,37.16},{55.74,40.64},{57.21,40.87},{57.35,35.98},{60.52,35.83},{53.36,40.15},{54.42,39.82},{49.05,37.28},{44.68,41.44},{48.09,35.18},{49.84,35.59},{48.24,38.21},{53.14,34.37},{52.13,35.05},{45.97,39.73},{43.17,38.45},{55.38,36.23},{55.7,39.96},{57.6,40.83}}},
+        },
+        [206974] = { -- War Reaver Parts
+            [objectKeys.spawns] = {[zoneIDs.BURNING_STEPPES] = {{44.13,37.25},{45.62,32.83},{44.05,34.97},{42.84,37.48},{47.51,37.38},{46.39,40.27},{52.32,34.98},{52.28,35.06},{48.14,36.25},{43.81,38.37},{45.27,41.07},{50.99,42.54},{56.58,38.14},{56.4,37.16},{55.74,40.64},{57.21,40.87},{57.35,35.98},{60.52,35.83},{53.36,40.15},{54.42,39.82},{49.05,37.28},{44.68,41.44},{48.09,35.18},{49.84,35.59},{48.24,38.21},{53.14,34.37},{52.13,35.05},{45.97,39.73},{43.17,38.45},{55.38,36.23},{55.7,39.96},{57.6,40.83}}},
         },
         [207162] = { -- Crate of Fine Cloth
             [objectKeys.spawns] = {[zoneIDs.TWILIGHT_HIGHLANDS] = {{80.78,29.09}}},
@@ -635,127 +653,133 @@ function CataObjectFixes.Load()
             [objectKeys.zoneID] = zoneIDs.TIRISFAL_GLADES,
         },
 
-        --- fake object IDs
-        [460000] = {
+        -- Below are fake objects
+        -- For Cata fixes 430001-439999
+        [430001] = {
             [objectKeys.name] = "Harpy Signal Fire",
             [objectKeys.zoneID] = zoneIDs.MOUNT_HYJAL,
             [objectKeys.spawns] = {[zoneIDs.MOUNT_HYJAL] = {{32.81,46.53},{35.59,47.3},{36.53,44.72},{38.33,44.18},{49.77,46.3},{44.66,51.24}}},
         },
-        [460001] = {
+        [430002] = {
             [objectKeys.name] = "Fossil Archaeology Object",
         },
-        [460002] = {
+        [430003] = {
             [objectKeys.name] = "Makeshift Cage",
             [objectKeys.zoneID] = zoneIDs.DUN_MOROGH,
             [objectKeys.spawns] = {[zoneIDs.DUN_MOROGH] = {{37.43,51.86},{37.4,50.15},{33.18,53.23},{31.99,48.64},{34.11,53.54},{36.81,51.81},{34.89,51.89},{34.4,52.17},{33.66,52.11},{33.36,51.43},{36.77,50.89},{32.83,49.93},{33.42,50.07},{36.03,51.78},{34.56,50.42},{35.59,50.61},{36.31,50.26}}},
         },
-        [460003] = {
+        [430004] = {
             [objectKeys.name] = "Goblin Detonator",
             [objectKeys.zoneID] = zoneIDs.AZSHARA,
             [objectKeys.spawns] = {[zoneIDs.AZSHARA] = {{14.41,75.74}}},
         },
-        [460004] = {
+        [430005] = {
             [objectKeys.name] = "Vision of the Battlemaiden",
             [objectKeys.zoneID] = zoneIDs.SHIMMERING_EXPANSE,
             [objectKeys.spawns] = {[zoneIDs.SHIMMERING_EXPANSE] = {{40.49,75.58}}},
         },
-        [460005] = {
+        [430006] = {
             [objectKeys.name] = "Vision of the Battlemaiden",
             [objectKeys.zoneID] = zoneIDs.SHIMMERING_EXPANSE,
             [objectKeys.spawns] = {[zoneIDs.SHIMMERING_EXPANSE] = {{33.1,77.81}}},
         },
-        [460006] = {
+        [430007] = {
             [objectKeys.name] = "Vision of the Battlemaiden",
             [objectKeys.zoneID] = zoneIDs.SHIMMERING_EXPANSE,
             [objectKeys.spawns] = {[zoneIDs.SHIMMERING_EXPANSE] = {{28.92,78.64}}},
         },
-        [460007] = {
+        [430008] = {
             [objectKeys.name] = "Flameward",
             [objectKeys.zoneID] = zoneIDs.MOUNT_HYJAL,
             [objectKeys.spawns] = {[zoneIDs.MOUNT_HYJAL] = {{34.78,52.74},{33.04,64.58},{38.31,63.93},{41.83,56.12},{40.51,53.14}}},
         },
-        [460008] = {
+        [430009] = {
             [objectKeys.name] = "Rod of Subjugation",
             [objectKeys.spawns] = {[zoneIDs.MOUNT_HYJAL]={{23.9,55.9}}},
             [objectKeys.zoneID] = zoneIDs.MOUNT_HYJAL,
         },
-        [460009] = {
+        [430010] = {
             [objectKeys.name] = "Rod of Subjugation",
             [objectKeys.spawns] = {[zoneIDs.MOUNT_HYJAL]={{25.25,54.8}}},
             [objectKeys.zoneID] = zoneIDs.MOUNT_HYJAL,
         },
-        [460010] = {
+        [430011] = {
             [objectKeys.name] = "Bonfire",
             [objectKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE]={{52.96,66.59}}},
             [objectKeys.zoneID] = zoneIDs.STRANGLETHORN_VALE,
         },
-        [460011] = {
+        [430012] = {
             [objectKeys.name] = "Grain Sack",
             [objectKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN]={{54.97,41.94}}},
             [objectKeys.zoneID] = zoneIDs.THE_CAPE_OF_STRANGLETHORN,
         },
-        [460012] = {
+        [430013] = {
             [objectKeys.name] = "Sack of Spices",
             [objectKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN]={{33.66,30.18}}},
             [objectKeys.zoneID] = zoneIDs.THE_CAPE_OF_STRANGLETHORN,
         },
-        [460013] = {
+        [430014] = {
             [objectKeys.name] = "Krom'gar Elf Killer",
             [objectKeys.spawns] = {[zoneIDs.STONETALON_MOUNTAINS]={{73.33,45.12},{73.60,44.81},{73.28,44.77},{73.01,44.96},{72.82,44.35},{73.15,44.49},{73.44,44.34},{72.99,43.75},{73.15,43.53},{73.43,43.39},{73.23,43.15},{73.16,42.86},{73.70,42.65}}},
             [objectKeys.zoneID] = zoneIDs.STONETALON_MOUNTAINS,
         },
-        [460014] = {
+        [430015] = {
             [objectKeys.name] = "Mark of the World Tree",
         },
-        [460015] = {
+        [430016] = {
             [objectKeys.name] = "Felwood Bee Hive",
             [objectKeys.spawns] = {[zoneIDs.FELWOOD]={{49.03,84.95},{48.74,84.98},{48.58,84.43},{48.34,84.62},{46.92,88.14},{46.52,90.53},{45.78,86.46},{47.34,85.70},{48.19,87.39},{51.19,84.19},{50.76,85.02},{49.94,86.24},{49.74,86.48},{49.12,86.24},{48.73,86.30},{48.75,87.55},{48.83,88.62},{49.46,89.44},{48.89,89.28},{48.29,89.76},{49.08,90.81},{49.00,91.35},{48.47,92.23},{48.23,92.26},{47.74,91.68},{48.35,91.20},{48.35,91.20}}},
             [objectKeys.zoneID] = zoneIDs.FELWOOD,
         },
-        [460016] = {
+        [430017] = {
             [objectKeys.name] = "Durnholde Keep Barrel",
             [objectKeys.spawns] = {[zoneIDs.OLD_HILLSBRAD_FOOTHILLS]={{76.60,68.80},{77.14,66.30},{74.68,68.79},{69.09,62.61},{68.03,59.82},{-1,-1}}},
             [objectKeys.zoneID] = zoneIDs.OLD_HILLSBRAD_FOOTHILLS,
         },
-        [460017] = {
+        [430018] = {
             [objectKeys.name] = "Felwood Rich Soil", -- For Seeking Soil
             [objectKeys.spawns] = {[zoneIDs.FELWOOD]={{50.00,30.20},{48.11,31.21},{49.36,30.67},{48.72,28.15},{48.04,27.57},{47.65,28.81},{48.29,29.18}}},
             [objectKeys.zoneID] = zoneIDs.FELWOOD,
         },
-        [460018] = {
+        [430019] = {
             [objectKeys.name] = "Wickerman Ashes",
             [objectKeys.spawns] = {[zoneIDs.TIRISFAL_GLADES]={{62.5,67.97},{62.41,68},{62.31,67.96},{62.34,68.13},{62.26,68.14},{62.15,68.22},{62.21,68.28},{62.12,68.36},{62.14,68.51}}},
             [objectKeys.zoneID] = zoneIDs.TIRISFAL_GLADES,
         },
-        [460019] = {
+        [430020] = {
             [objectKeys.name] = "Chain Lever",
             [objectKeys.spawns] = {[zoneIDs.REDRIDGE_MOUNTAINS]={{27.77,17.94}}},
             [objectKeys.zoneID] = zoneIDs.REDRIDGE_MOUNTAINS,
         },
-        [460020] = {
+        [430021] = {
             [objectKeys.name] = "Blackrock Holding Pen",
             [objectKeys.spawns] = {[zoneIDs.REDRIDGE_MOUNTAINS]={{68.92,58.76},{68.98,60.11},{69.8,59.14}}},
             [objectKeys.zoneID] = zoneIDs.REDRIDGE_MOUNTAINS,
         },
-        [460021] = {
+        [430022] = {
             [objectKeys.name] = "Ward of Ilgalar",
             [objectKeys.spawns] = {[zoneIDs.REDRIDGE_MOUNTAINS]={{71.94,44.82}}},
             [objectKeys.zoneID] = zoneIDs.REDRIDGE_MOUNTAINS,
         },
-        [460022] = {
+        [430023] = {
             [objectKeys.name] = "Cultist Cage",
             [objectKeys.spawns] = {[zoneIDs.WESTERN_PLAGUELANDS]={{64.71,46.24},{67.17,45.51},{68.03,47.98},{67.58,46.85},{64.98,47.89},{65.56,46.69},{65.65,49.15},{66.74,48.84},{67.2,48.55},{66.69,47.04}}},
             [objectKeys.zoneID] = zoneIDs.WESTERN_PLAGUELANDS,
         },
-        [460024] = {
+        [430024] = {
             [objectKeys.name] = "Timeless Eye",
             [objectKeys.spawns] = {[zoneIDs.TANARIS]={{57.89,56.05}}},
             [objectKeys.zoneID] = zoneIDs.TANARIS,
         },
-        [460025] = {
+        [430025] = {
             [objectKeys.name] = "Timeless Eye",
             [objectKeys.spawns] = {[5786]={{59.2,20.4}},[zoneIDs.THE_NEXUS] = {{-1,-1}}},
             [objectKeys.zoneID] = 5786,
+        },
+        [430026] = {
+            [objectKeys.name] = "Kurzen Cage",
+            [objectKeys.spawns] = {[zoneIDs.STRANGLETHORN_VALE]={{56.40,20.29}}},
+            [objectKeys.zoneID] = zoneIDs.STRANGLETHORN_VALE,
         },
     }
 end
@@ -809,6 +833,9 @@ function CataObjectFixes:LoadFactionFixes()
         [203461] = { -- Fuel Sampling Station
             [objectKeys.spawns] = {[zoneIDs.ABYSSAL_DEPTHS]={{51.49,60.41}}},
         },
+        [207125] = { -- Crate of Left Over Supplies
+            [objectKeys.spawns] = {[zoneIDs.BURNING_STEPPES] = {{54.79,24.41}}},
+        },
     }
 
     local objectFixesAlliance = {
@@ -855,6 +882,9 @@ function CataObjectFixes:LoadFactionFixes()
         },
         [203461] = { -- Fuel Sampling Station
             [objectKeys.spawns] = {[zoneIDs.ABYSSAL_DEPTHS]={{55.8,72.44}}},
+        },
+        [207125] = { -- Crate of Left Over Supplies
+            [objectKeys.spawns] = {[zoneIDs.BURNING_STEPPES] = {{73.73,67.34}}},
         },
     }
 

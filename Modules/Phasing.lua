@@ -177,6 +177,15 @@ local phases = {
     BERRIN_EMERINE_OSBORN_RESCUED = 1105,
     BOOTY_BAY_REGULAR = 1106,
     BOOTY_BAY_ATTACK = 1107,
+    HOLLEE_RUINS = 1108,
+    HOLLEE_CAMP = 1109,
+    SERENDIA_FP = 1110,
+    SERENDIA_INN = 1111,
+    GRIMCLAW_THICKET = 1112,
+    GRIMCLAW_INN = 1113,
+    BARGE_AT_PEACE = 1114,
+    BARGE_UNDER_ATTACK = 1115,
+    KELSEY_AT_COVE = 1116,
 }
 Phasing.phases = phases
 
@@ -691,6 +700,42 @@ function Phasing.IsSpawnVisible(phase)
 
     if phase == phases.BOOTY_BAY_ATTACK then
         return complete[26678] and (not complete[26703]) or false
+    end
+
+    if phase == phases.HOLLEE_RUINS then
+        return not complete[13605]
+    end
+
+    if phase == phases.HOLLEE_CAMP then
+        return complete[13605] or false
+    end
+
+    if phase == phases.SERENDIA_FP then
+        return not complete[13520]
+    end
+
+    if phase == phases.SERENDIA_INN then
+        return complete[13520] or false
+    end
+
+    if phase == phases.GRIMCLAW_THICKET then
+        return not complete[13599]
+    end
+
+    if phase == phases.GRIMCLAW_INN then
+        return complete[13599] or false
+    end
+
+    if phase == phases.BARGE_AT_PEACE then
+        return (((not complete[25515]) and (not complete[25517]) and (not complete[25524])) or ((not complete[25516]) and (not complete[25518]) and (not complete[25526]))) or complete[25542] or complete[25543] or complete[25561] or complete[25562] or false
+    end
+
+    if phase == phases.BARGE_UNDER_ATTACK then
+        return (complete[25515] and complete[25517] and complete[25524] and (not complete[25542]) and (not complete[25561])) or (complete[25516] and complete[25518] and complete[25526] and (not complete[25543]) and (not complete[25562])) or false
+    end
+
+    if phase == phases.KELSEY_AT_COVE then
+        return (not complete[26889])
     end
 
     return false

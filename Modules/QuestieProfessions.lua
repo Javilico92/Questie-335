@@ -15,6 +15,8 @@ local alternativeProfessionNames = {}
 -- Fast local references
 local ExpandSkillHeader, GetNumSkillLines, GetSkillLineInfo, IsSpellKnown = ExpandSkillHeader, GetNumSkillLines, GetSkillLineInfo, IsSpellKnown
 
+QuestieProfessions.professionTable = professionTable -- Prevent nil for k, professionId in pairs(QuestieProfessions.professionTable) do
+
 hooksecurefunc("AbandonSkill", function(skillIndex)
     local skillName = GetSkillLineInfo(skillIndex)
     if skillName and professionTable[skillName] then
@@ -44,8 +46,6 @@ function QuestieProfessions:Init()
     for professionName, professionId in pairs(alternativeProfessionNames) do
         professionTable[professionName] = professionId
     end
-
-    QuestieProfessions.professionTable = professionTable
 end
 
 --- Returns if a skill increased and learning a new profession, does not however return if a skill is unlearned

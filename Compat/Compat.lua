@@ -696,7 +696,6 @@ end
 function QuestieCompat.GetQuestID(questStarter, title)
     local title = title or GetTitleText()
     local guid = QuestieCompat.UnitGUID("npc")
-
 	return QuestieDB.GetQuestIDFromName(title, guid, questStarter)
 end
 
@@ -1412,8 +1411,8 @@ function QuestieCompat:CHAT_MSG_SYSTEM(event, message)
     local questName = message:match(QUEST_COMPLETE_MSG)
     local questId = completeQuestCache[questName]
     if questId then
-        QuestEventHandler:QuestTurnedIn(questId)
-        QuestEventHandler:QuestRemoved(questId)
+        QuestEventHandler.QuestTurnedIn(questId)
+        QuestEventHandler.QuestRemoved(questId)
         completeQuestCache[questName] = nil
     end
 
@@ -1464,7 +1463,7 @@ end
     Questie:UnregisterEvent("QUEST_REMOVED")
     hooksecurefunc("AbandonQuest", function()
         local questId = QuestieCompat.abandonQuestID or select(9, GetQuestLogTitle(GetQuestLogSelection()))
-        QuestEventHandler:QuestRemoved(QuestieCompat.abandonQuestID)
+        QuestEventHandler.QuestRemoved(QuestieCompat.abandonQuestID)
     end)
 
 end

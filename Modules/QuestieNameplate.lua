@@ -243,6 +243,8 @@ function _QuestieNameplate.GetTargetFrameIconFrame()
     elseif SUFUnittarget then
         targetFrame = SUFUnittarget
         frame:SetFrameLevel(SUFUnittarget:GetFrameLevel() + 1)
+    elseif XPerl_Target then
+        targetFrame = XPerl_Target
     end
 
     frame:SetParent(targetFrame)

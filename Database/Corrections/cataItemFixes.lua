@@ -48,6 +48,13 @@ function CataItemFixes.Load()
         [5382] = { -- Anaya's Pendant
             [itemKeys.npcDrops] = {33181},
         },
+        [5464] = { -- Iron Shaft
+            [itemKeys.relatedQuests] = {26477},
+            [itemKeys.npcDrops] = {},
+        },
+        [5475] = { -- Wooden Key
+            [itemKeys.class] = itemClasses.QUEST,
+        },
         [5508] = { -- Fallen Moonstone
             [itemKeys.npcDrops] = {3758,3759,3762,3763},
         },
@@ -58,6 +65,9 @@ function CataItemFixes.Load()
         [5533] = { -- Ilkrud Magthrull's Tome
             [itemKeys.npcDrops] = {},
         },
+        [5847] = { -- Mirefin Head
+            [itemKeys.npcDrops] = {4358,4359,4360,4361,4362,4363,23841},
+        },
         [8170] = { -- Rugged Leather
             [itemKeys.vendors] = {},
         },
@@ -66,6 +76,9 @@ function CataItemFixes.Load()
         },
         [8705] = { -- OOX-22/FE Distress Beacon
             [itemKeys.startQuest] = 25475,
+        },
+        [8973] = { -- Thick Yeti Hide
+            [itemKeys.npcDrops] = {40224},
         },
         [9597] = { -- Mountain Giant Muisek
             [itemKeys.npcDrops] = {40026},
@@ -136,11 +149,41 @@ function CataItemFixes.Load()
         [18950] = { -- Chambermaid Pillaclencher's Pillow
             [itemKeys.startQuest] = 0,
         },
+        [18960] = { -- Lookout's Spyglass
+            [itemKeys.npcDrops] = {5840},
+        },
         [19424] = { -- Sayge's Fortune #24
             [itemKeys.startQuest] = 0,
         },
-        [18960] = { -- Lookout's Spyglass
-            [itemKeys.npcDrops] = {5840},
+        [19716] = { -- Primal Hakkari Bindings
+            [itemKeys.npcDrops] = {},
+        },
+        [19717] = { -- Primal Hakkari Armsplint
+            [itemKeys.npcDrops] = {},
+        },
+        [19718] = { -- Primal Hakkari Stanchion
+            [itemKeys.npcDrops] = {},
+        },
+        [19719] = { -- Primal Hakkari Girdle
+            [itemKeys.npcDrops] = {},
+        },
+        [19720] = { -- Primal Hakkari Sash
+            [itemKeys.npcDrops] = {},
+        },
+        [19721] = { -- Primal Hakkari Shawl
+            [itemKeys.npcDrops] = {},
+        },
+        [19722] = { -- Primal Hakkari Tabard
+            [itemKeys.npcDrops] = {},
+        },
+        [19723] = { -- Primal Hakkari Kossack
+            [itemKeys.npcDrops] = {},
+        },
+        [19724] = { -- Primal Hakkari Aegis
+            [itemKeys.npcDrops] = {},
+        },
+        [19802] = { -- Heart of Hakkar
+            [itemKeys.npcDrops] = {},
         },
         [20743] = { -- Unstable Mana Crystal
             [itemKeys.npcDrops] = {},
@@ -154,8 +197,11 @@ function CataItemFixes.Load()
         [22978] = { -- Emitter Spare Part
             [itemKeys.npcDrops] = {},
         },
+        [23777] = { -- Diabolical Plans
+            [itemKeys.startQuest] = 26443,
+        },
         [23798] = { -- Diabolical Plans
-            [itemKeys.npcDrops] = {6073},
+            [itemKeys.startQuest] = 26447,
         },
         [24025] = { -- Deathclaw's Paw
             [itemKeys.npcDrops] = {17661},
@@ -163,7 +209,22 @@ function CataItemFixes.Load()
         [24026] = { -- Elder Brown Bear Flank
             [itemKeys.npcDrops] = {17348},
         },
+        [24040] = { -- Blood Mushroom
+            [itemKeys.npcDrops] = {},
+        },
+        [24041] = { -- Aquatic Stinkhorn
+            [itemKeys.npcDrops] = {17673},
+        },
+        [24042] = { -- Ruinous Polyspore
+            [itemKeys.npcDrops] = {},
+        },
+        [24043] = { -- Fel Cone Fungus
+            [itemKeys.npcDrops] = {},
+        },
         [24049] = { -- Ysera's Tear
+            [itemKeys.npcDrops] = {},
+        },
+        [24081] = { -- Satyrnaar Fel Wood
             [itemKeys.npcDrops] = {},
         },
         [24416] = { -- Corrupted Flower
@@ -177,6 +238,9 @@ function CataItemFixes.Load()
         },
         [33009] = { -- Tender Strider Meat
             [itemKeys.npcDrops] = {2956,2957},
+        },
+        [34130] = { -- Recovery Diver's Potion
+            [itemKeys.class] = itemClasses.QUEST,
         },
         [38567] = { -- Maraudine Prisoner Manifest
             [itemKeys.startQuest] = 14330,
@@ -286,6 +350,12 @@ function CataItemFixes.Load()
         [48766] = { -- Kaja'mite Chunk
             [itemKeys.npcDrops] = {},
         },
+        [48953] = { -- Bleached Skull
+            [itemKeys.npcDrops] = {},
+        },
+        [49136] = { -- Blood-Filled Leech
+            [itemKeys.npcDrops] = {36059},
+        },
         [49164] = { -- Cenarion Supply Crate
             [itemKeys.npcDrops] = {},
         },
@@ -385,6 +455,9 @@ function CataItemFixes.Load()
         },
         [50746] = { -- Tara's Tar Scraper
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [51549] = { -- Pirate Booty
+            [itemKeys.npcDrops] = {},
         },
         [51956] = { -- Blessed Offerings
             [itemKeys.class] = itemClasses.QUEST,
@@ -848,6 +921,9 @@ function CataItemFixes.Load()
             [itemKeys.npcDrops] = {47203},
         },
         [63034] = { -- Dusty Prison Journal
+            [itemKeys.npcDrops] = {},
+        },
+        [63053] = { -- Codemaster's Code
             [itemKeys.npcDrops] = {},
         },
         [63090] = { -- Muckgill's Flipper

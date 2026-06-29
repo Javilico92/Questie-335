@@ -583,6 +583,7 @@ function QuestieTracker:Update()
         for _, questId in pairs(sortedQuestIds) do
             if not questId then break end
 
+            ---@type Quest
             local quest = questDetails[questId].quest
             local complete = quest:IsComplete()
             local zoneName = questDetails[questId].zoneName
@@ -904,7 +905,9 @@ function QuestieTracker:Update()
                                     -- Set Objective based on states
                                     local objDesc = objective.Description:gsub("%.", "")
 
-                                    if (objective.Completed ~= true or (objective.Completed == true and #quest.Objectives > 1)) then
+                                    -- Sometimes the API returns messy objective data (finished=false, but numRequired==numFulfilled)
+                                    local questIsIncompleteButObjectiveIsComplete = ((not quest.isComplete) and objective.Completed == true and #quest.Objectives == 1)
+                                    if (objective.Completed ~= true or (objective.Completed == true and #quest.Objectives > 1) or questIsIncompleteButObjectiveIsComplete) then
                                         local lineEnding = tostring(objective.Collected) .. "/" .. tostring(objective.Needed)
 
                                         -- Set Objective text
@@ -1898,6 +1901,12 @@ function QuestieTracker:AQW_Insert(index, expire)
         return
     end
 
+    local questId = select(8, GetQuestLogTitle(index))
+    if (not QuestiePlayer.currentQuestlog[questId]) then
+        -- AQW_Insert is called before QUEST_ACCEPTED
+        return
+    end
+
     -- This prevents double calling this function
     local now = GetTime()
     if index and index == QuestieTracker.last_aqw and (now - lastAQW) < 0.1 then
@@ -1911,8 +1920,8 @@ function QuestieTracker:AQW_Insert(index, expire)
     -- that is all the player will see. This also prevents hitting the Blizzard Quest Watch Limit.
     RemoveQuestWatch(index, true)
 
-    local questId = select(8, GetQuestLogTitle(index))
     if questId == 0 then
+        -- TODO: Is this still needed?
         -- When an objective progresses in TBC "index" is the questId, but when a quest is manually added to the quest watch
         -- (e.g. shift clicking it in the quest log) "index" is the questLogIndex.
         questId = index

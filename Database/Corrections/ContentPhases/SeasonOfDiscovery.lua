@@ -194,7 +194,6 @@ local questsToBlacklistByPhase = {
         [8801] = true, -- C'Thun's Legacy
     },
     [7] = { -- SoD Phase 7 == Era Phase 6: Naxxramas
-        [9085] = true,
         [9142] = true,
         [9165] = true,
         [9141] = true,
@@ -271,7 +270,6 @@ local questsToBlacklistByPhase = {
         [9116] = true,
         [9117] = true,
         [9118] = true,
-        [9120] = true,
         [9121] = true,
         [9122] = true,
         [9123] = true,
@@ -285,20 +283,11 @@ local questsToBlacklistByPhase = {
         [9132] = true,
         [9136] = true,
         [9137] = true,
-        [9153] = true,
+        [9154] = true,
         [9211] = true,
         [9213] = true,
-        [9221] = true,
-        [9222] = true,
-        [9223] = true,
-        [9224] = true,
-        [9225] = true,
-        [9226] = true,
-        [9227] = true,
-        [9228] = true,
         [9229] = true,
         [9230] = true,
-        [9232] = true,
         [9233] = true,
         [9234] = true,
         [9235] = true,
@@ -317,6 +306,22 @@ local questsToBlacklistByPhase = {
         [9251] = true,
         -- Silithus/EPL PvP
         [9248] = true,
+        [87360] = true, -- The Fall of Kel'Thuzad
+        [87361] = true, -- Laid to Rest
+        [87362] = true, -- Hope Begins in the Dark
+        [87364] = true, -- Seal the Deal
+        [88721] = true, -- Superior Armaments of Battle - Friend of the Dawn
+        [88722] = true, -- Superior Armaments of Battle - Honored Amongst the Dawn
+        [88723] = true, -- Superior Armaments of Battle - Revered Amongst the Dawn
+        [88724] = true, -- Superior Armaments of Battle - Exalted Amongst the Dawn
+        [88725] = true, -- Epic Armaments of Battle - Friend of the Dawn
+        [88726] = true, -- Epic Armaments of Battle - Honored Amongst the Dawn
+        [88727] = true, -- Epic Armaments of Battle - Revered Amongst the Dawn
+        [88728] = true, -- Epic Armaments of Battle - Exalted Amongst the Dawn
+        [88730] = true, -- The Only Song I Know...
+        [88744] = true, -- Under the Shadow
+        [88745] = true, -- Shadows of Doom
+        [88748] = true, -- Cracked Necrotic Crystal
     },
     [8] = { -- Never appearing in Season of Discovery
         [1203] = true, -- Jarl Needs a Blade - Replaced by 81570
@@ -325,6 +330,9 @@ local questsToBlacklistByPhase = {
         [2849] = true, -- Wild Leather Vest - Replaced by 82657
         [2856] = true, -- Wild Leather Vest - Replaced by 82656
         [2881] = true, -- Troll Necklace Bounty - Replaced by 82210
+        [2950] = true, -- Nogg's Ring Redo - Replaced by 80141
+        [3446] = true, -- Into the Depths - Replaced by 82096
+        [4146] = true, -- Zapper Fuel - Replcaed by 82101
         [4148] = true, -- Bloodpetal Zapper
         [5283] = true, -- The Art of the Armorsmith -- Replaced by 85713
         [5301] = true, -- The Art of the Armorsmith -- Replaced by 85712
@@ -362,6 +370,8 @@ local questsToBlacklistByPhase = {
         [8745] = true, -- Treasure of the Timeless One - Replaced by 86449
         [8791] = true, -- The Fall of Ossirian - Replaced by 86673
         [8802] = true, -- The Savior of Kalimdor - Replaced by 86670
+        [85643] = true, -- The Lord of Blackrock - Replaced by 88969
+        [85644] = true, -- The Lord of Blackrock - Replaced by 88968
 
         -- Original Blackfathom Deeps quests (instance reworked to raid, new quest IDs)
         [909] = true,
@@ -623,6 +633,31 @@ local questsToBlacklistByPhase = {
         [8764] = true, -- The Changing of Paths - Protector No More
         [8765] = true, -- The Changing of Paths - Invoker No More
         [8766] = true, -- The Changing of Paths - Conqueror No More
+
+        -- Original Naxxramas quests
+        [9120] = true, -- The Fall of Kel'Thuzad
+        [9232] = true, -- The Only Song I Know...
+
+        -- Invasion quests
+        [9094] = true, -- Argent Dawn Gloves
+        [9085] = true, -- Shadows of Doom
+        [9153] = true, -- Under the Shadow
+        [9292] = true, -- Cracked Necrotic Crystal
+        [9310] = true, -- Faint Necrotic Crystal
+        [9318] = true, -- Blessed Wizard Oil
+        [9317] = true, -- Consecrated Sharpening Stones
+        [9333] = true, -- Argent Dawn Gloves
+        [9334] = true, -- Blessed Wizard Oil
+        [9335] = true, -- Consecrated Sharpening Stones
+
+        [9221] = true, -- Superior Armaments of Battle - Friend of the Dawn
+        [9222] = true, -- Epic Armaments of Battle - Friend of the Dawn
+        [9223] = true, -- Superior Armaments of Battle - Honored Amongst the Dawn
+        [9224] = true, -- Epic Armaments of Battle - Honored Amongst the Dawn
+        [9225] = true, -- Epic Armaments of Battle - Revered Amongst the Dawn
+        [9226] = true, -- Superior Armaments of Battle - Revered Amongst the Dawn
+        [9227] = true, -- Superior Armaments of Battle - Exalted Amongst the Dawn
+        [9228] = true, -- Epic Armaments of Battle - Exalted Amongst the Dawn
     },
 }
 

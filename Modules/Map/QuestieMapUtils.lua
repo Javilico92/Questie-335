@@ -85,6 +85,12 @@ function QuestieMap.utils:CalcHotzones(points, rangeR, count)
 
     local hotzones = {}
     local pointsCount = #points
+    if rangeR <= 1 then
+        for j=1, pointsCount do
+            hotzones[j] = { points[j] }
+        end
+        return hotzones
+    end
 
     if pointsCount == 1 then
         -- This is execution shortcut to skip loop in case table size == 1
@@ -139,11 +145,7 @@ end
 function QuestieMap.utils:IsExplored(uiMapId, x, y)
     local IsExplored = false
     if uiMapId then
-        local exploredAreaIDs =
-            C_MapExplorationInfo.GetExploredAreaIDsAtPosition(uiMapId,
-                                                              CreateVector2D(
-                                                                  x / 100,
-                                                                  y / 100))
+        local exploredAreaIDs = C_MapExplorationInfo.GetExploredAreaIDsAtPosition(uiMapId, CreateVector2D(x / 100, y / 100))
         if exploredAreaIDs then
             IsExplored = true -- Explored
         elseif (uiMapId == 1453) then

@@ -1000,7 +1000,7 @@ function QuestieTBCQuestFixes:Load()
             [questKeys.zoneOrSort] = sortKeys.INVASION,
         },
         [9339] = {
-            [questKeys.objectivesText] = nil,
+            [questKeys.objectivesText] = {},
         },
         [9355] = {
             [questKeys.preQuestSingle] = {10143,10483},
@@ -1012,7 +1012,7 @@ function QuestieTBCQuestFixes:Load()
             [questKeys.startedBy] = {{15407},nil,{23249}},
         },
         [9365] = {
-            [questKeys.objectivesText] = nil,
+            [questKeys.objectivesText] = {},
         },
         [9370] = {
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Place the Signaling Gem"), 0, {{"object", 181449}}}},
@@ -1226,6 +1226,9 @@ function QuestieTBCQuestFixes:Load()
         [9619] = {
             [questKeys.requiredSourceItems] = {},
         },
+        [9629] = {
+            [questKeys.objectives] = {{{17326,nil,Questie.ICON_TYPE_INTERACT}}},
+        },
         [9635] = {
             [questKeys.requiredSkill] = {202,305},
         },
@@ -1235,12 +1238,22 @@ function QuestieTBCQuestFixes:Load()
         [9645] = {
             [questKeys.triggerEnd] = {"Journal Entry Read", {[3457]={{-1,-1}}}},
         },
+        [9663] = {
+            [questKeys.objectives] = {{{17440,"High Chief Stillpine Warned",Questie.ICON_TYPE_TALK},{17116,"Exarch Menelaous Warned",Questie.ICON_TYPE_TALK},{17240,"Admiral Odesyus Warned",Questie.ICON_TYPE_TALK}}},
+        },
         [9666] = {
-            [questKeys.objectives] = {{{17701}},nil,nil,nil,{{{17701},17701,"Declaration of Power"}}},
+            [questKeys.objectives] = {{{17701},{17701,nil,Questie.ICON_TYPE_INTERACT}}},
         },
         [9667] = {
             [questKeys.preQuestSingle] = {9559},
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_SLAY, l10n("Kill Bristlelimb Furbolgs to lure High Chief Bristlelimb"), 0, {{"monster", 17320}, {"monster", 17321}}}},
+            [questKeys.extraObjectives] = {
+                {nil,Questie.ICON_TYPE_SLAY, l10n("Kill Bristlelimb Furbolgs to lure High Chief Bristlelimb"), 0, {{"monster", 17320}, {"monster", 17321}}},
+                {nil,Questie.ICON_TYPE_INTERACT,l10n("Open the cage"),0,{{"object",181928}}},
+            },
+            [questKeys.objectives] = {{{17682,nil,Questie.ICON_TYPE_INTERACT}}},
+        },
+        [9668] = {
+            [questKeys.nextQuestInChain] = 9693,
         },
         [9669] = {
             [questKeys.requiredLevel] = 16,
@@ -1329,7 +1342,7 @@ function QuestieTBCQuestFixes:Load()
             [questKeys.requiredRaces] = raceIDs.DRAENEI,
         },
         [9756] = {
-            [questKeys.objectives] = {{{17824,"Sunhawk Information Recovered"}},nil,nil,nil},
+            [questKeys.objectives] = {{{17824,"Sunhawk Information Recovered",Questie.ICON_TYPE_TALK}}},
         },
         [9757] = {
             [questKeys.requiredRaces] = raceIDs.DRAENEI,
@@ -2804,8 +2817,8 @@ function QuestieTBCQuestFixes:Load()
         },
         [11026] = {
             [questKeys.preQuestSingle] = {11009},
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_SLAY, l10n("Use the Banishing Crystal and slay demons near the summoned portal"), 0, {{"monster", 20557},{"monster", 22195},{"monster", 22291},{"monster", 19973},{"monster", 22204}}}},
-            [questKeys.objectives] = {nil,nil,nil,nil,{{{20557,22195,22291,19973,22204},20557}}},
+            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_SLAY, l10n("Use the Banishing Crystal and slay demons near the summoned portal"), 0, {{"monster", 20557},{"monster", 22195},{"monster", 22291},{"monster", 19973},{"monster", 22204},{"monster", 22304},{"monster", 23174}}}},
+            [questKeys.objectives] = {nil,nil,nil,nil,{{{20557,22195,22291,19973,22204,22304,23174},20557}}},
         },
         [11030] = {
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Purchase 1 Unstable Flask of the Beast for the cost of 10 Apexis Shards"), 0, {{"object", 185920}}}},
@@ -2883,8 +2896,8 @@ function QuestieTBCQuestFixes:Load()
             [questKeys.requiredRaces] = raceIDs.NONE,
         },
         [11051] = {
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_SLAY, l10n("Use the Banishing Crystal and slay demons near the summoned portal"), 0, {{"monster", 20557},{"monster", 22195},{"monster", 22291},{"monster", 19973},{"monster", 22204}}}},
-            [questKeys.objectives] = {nil,nil,nil,nil,{{{20557,22195,22291,19973,22204},20557}}},
+            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_SLAY, l10n("Use the Banishing Crystal and slay demons near the summoned portal"), 0, {{"monster", 20557},{"monster", 22195},{"monster", 22291},{"monster", 19973},{"monster", 22204},{"monster", 22304},{"monster", 23174}}}},
+            [questKeys.objectives] = {nil,nil,nil,nil,{{{20557,22195,22291,19973,22204,22304,23174},20557}}},
         },
         [11052] = {
             [questKeys.exclusiveTo] = {10708},
@@ -3076,14 +3089,19 @@ function QuestieTBCQuestFixes:Load()
             [questKeys.requiredSourceItems] = {33040},
         },
         [11142] = {
-            [questKeys.triggerEnd] = {"Survey Alcaz Island", {[zoneIDs.DUSTWALLOW_MARSH]={{69.96,19.55}}}},
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_TALK, l10n("Speak to Cassa Crimsonwing to fly on a gryphon"), 0, {{"monster", 23704}}}},
+            [questKeys.objectives] = {{{23704,nil,Questie.ICON_TYPE_TALK}}},
+        },
+        [11145] = {
+            [questKeys.requiredSourceItems] = {33061},
+            [questKeys.objectives] = {{{23720,nil,Questie.ICON_TYPE_INTERACT}}},
+            [questKeys.extraObjectives] = {{nil,Questie.ICON_TYPE_INTERACT,l10n("Open the cage"),0,{{"object",410020}}}},
         },
         [11146] = {
             [questKeys.objectives] = {nil,nil,nil,nil,{{{4351,4352},4351,"Raptors Captured"}}},
         },
         [11152] = {
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Lay the Wreath at the Hyal Family Monument"), 0, {{"object", 186322}}}},
+            [questKeys.objectives] = {nil,{{186322,nil,Questie.ICON_TYPE_EVENT}}},
+            [questKeys.extraObjectives] = {{nil,Questie.ICON_TYPE_INTERACT,l10n("Use the cannon"),0,{{"object",186432}}}},
         },
         [11159] = {
             [questKeys.preQuestSingle] = {11161},

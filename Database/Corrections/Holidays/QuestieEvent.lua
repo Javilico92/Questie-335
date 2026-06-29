@@ -321,11 +321,10 @@ end
 -- EUROPEAN FORMAT! NO FUCKING AMERICAN SHIDAZZLE FORMAT!
 -- NOTE: As TrinityCore 3.3.5a tells, if not, change at your own!!!
 QuestieEvent.eventDates = {
-    ["Lunar Festival"] = { -- WARNING THIS DATE VARIES!!!!
-        startDate = "22/1",
-        endDate = "04/2"
+    ["Love is in the Air"] = { -- WARNING THIS DATE VARIES!!!!
+        startDate = "06/2",
+        endDate = "19/2"
     },
-    ["Love is in the Air"] = {startDate = "06/2", endDate = "19/2"},
     ["Noblegarden"] = { -- WARNING THIS DATE VARIES!!!!
         startDate = "12/4",
         endDate = "18/4"
@@ -337,10 +336,7 @@ QuestieEvent.eventDates = {
         startDate = "28/9",
         endDate = "04/10"
     },
-    ["Pilgrim's Bounty"] = {
-        startDate = "22/11",
-        endDate = "28/11"
-    },
+    ["Pilgrim's Bounty"] = {startDate = "22/11", endDate = "28/11"},
     ["Hallow's End"] = {startDate = "18/10", endDate = "31/10"},
     ["Winter Veil"] = {startDate = "15/12", endDate = "1/1"},
 	["Day of the Dead"] = {startDate = "1/11", endDate = "2/11"},
@@ -368,7 +364,7 @@ QuestieEvent.lunarFestival = {
     ["23"] = {startDate = "20/1", endDate = "10/2"},
     ["24"] = {startDate = "3/2", endDate = "23/2"},
     ["25"] = {startDate = "29/1", endDate = "12/2"},
-    ["26"] = {startDate = "22/1", endDate = "04/2"},
+    ["26"] = {startDate = "22/1", endDate = "04/2"}, -- current year
     ["27"] = {startDate = "7/2", endDate = "21/2"},
     ["28"] = {startDate = "27/1", endDate = "10/2"}
 }

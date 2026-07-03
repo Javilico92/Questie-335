@@ -106,7 +106,7 @@ function QuestieOptions.tabs.advanced:Initialize()
                 width = 0.5,
                 hidden = (not Questie.IsTBC),
                 name = function() return l10n("Quel'Danas Settings"); end,
-                disabled = function() return not Questie.db.profile.autoaccept end,
+                disabled = function() return not Questie.db.profile.autoAccept.enabled end,
                 args = {
                     isleOfQuelDanasPhase = {
                         type = "select",
@@ -431,15 +431,15 @@ _GetLanguages = function()
     local languages = {
         ["auto"] = l10n("Automatic"),
         ["enUS"] = "English",
+        ["deDE"] = "Deutsch",
         ["esES"] = "Español",
         ["esMX"] = "Español (América Latina)",
-        ["ptBR"] = "Português",
         ["frFR"] = "Français",
-        ["deDE"] = "Deutsch",
+        ["koKR"] = "한국어",
+        ["ptBR"] = "Português",
         ["ruRU"] = "Русский",
         ["zhCN"] = "简体中文",
         ["zhTW"] = "繁體中文",
-        ["koKR"] = "한국어",
     }
     if QUESTIE_LOCALES_OVERRIDE ~= nil then
         languages[QUESTIE_LOCALES_OVERRIDE.locale] = QUESTIE_LOCALES_OVERRIDE.localeName

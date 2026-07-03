@@ -284,6 +284,12 @@ local questsToBlacklistByPhase = {
         [9136] = true,
         [9137] = true,
         [9154] = true,
+        [9260] = true,
+        [9261] = true,
+        [9262] = true,
+        [9263] = true,
+        [9264] = true,
+        [9265] = true,
         [9211] = true,
         [9213] = true,
         [9229] = true,
@@ -635,8 +641,9 @@ local questsToBlacklistByPhase = {
         [8766] = true, -- The Changing of Paths - Conqueror No More
 
         -- Original Naxxramas quests
-        [9120] = true, -- The Fall of Kel'Thuzad
-        [9232] = true, -- The Only Song I Know...
+        [9120] = true, -- The Fall of Kel'Thuzad - Replaced by 87360
+        [9230] = true, -- Ramaladni's Icy Grasp - Replaced by 88729
+        [9232] = true, -- The Only Song I Know... - Replaced by 88730
 
         -- Invasion quests
         [9094] = true, -- Argent Dawn Gloves
@@ -658,6 +665,15 @@ local questsToBlacklistByPhase = {
         [9226] = true, -- Superior Armaments of Battle - Revered Amongst the Dawn
         [9227] = true, -- Superior Armaments of Battle - Exalted Amongst the Dawn
         [9228] = true, -- Epic Armaments of Battle - Exalted Amongst the Dawn
+
+        [78506] = true, -- Elemental Distress - Replaced by 85772
+
+        [88713] = true, -- Never at Rest - Same as 87377 but in a different catch-up version
+        [88714] = true, -- Never at Rest - Same as 87377 but in a different catch-up version
+        [88715] = true, -- Never at Rest - Same as 87377 but in a different catch-up version
+        [88716] = true, -- Never at Rest - Same as 87377 but in a different catch-up version
+        [88717] = true, -- Never at Rest - Same as 87377 but in a different catch-up version
+        [88718] = true, -- Never at Rest - Same as 87377 but in a different catch-up version
     },
 }
 

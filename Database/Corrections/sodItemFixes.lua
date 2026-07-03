@@ -222,7 +222,7 @@ function SeasonOfDiscovery:LoadItems()
             [itemKeys.class] = itemClasses.QUEST,
         },
         [234006] = { -- Monstrous Silithid Chitin
-            [itemKeys.npcDrops] = {11727,13136,15240,15286,15288,15341,15348,234798},
+            [itemKeys.npcDrops] = {11698,11724,11727,13136,15240,15286,15288,15341,15348,234798},
         },
         [234007] = { -- Spiked Silithid Chitin
             [itemKeys.npcDrops] = {11698,11724,11727,13136,15230,15233,15235,15236,15240,15318,15319,15320,15323,15324,15325,15327,15336,234798},
@@ -236,12 +236,6 @@ function SeasonOfDiscovery:LoadItems()
         [235046] = { -- Imperial Qiraji Armaments
             [itemKeys.npcDrops] = {15275,15276,15299,15509,15510,15511,15516,15517,15543,15544},
         },
-        [235785] = { -- Deadwind Cage "Key"
-            [itemKeys.npcDrops] = {7369,7371,7372,7379},
-        },
-        [235787] = { -- Ancient Ironwood Branch
-            [itemKeys.npcDrops] = {226923},
-        },
         [235788] = { -- Enthusiastic Wisp
             [itemKeys.npcDrops] = {238431},
         },
@@ -253,6 +247,12 @@ function SeasonOfDiscovery:LoadItems()
         },
         [236350] = { -- The Phylactery of Kel'Thuzad
             [itemKeys.npcDrops] = {15990},
+        },
+        [236786] = { -- Heart of Doom
+            [itemKeys.objectDrops] = {525416},
+        },
+        [237143] = { -- Orders from the High General
+            [itemKeys.npcDrops] = {238745}
         },
     }
 end

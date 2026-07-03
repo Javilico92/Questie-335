@@ -1,4 +1,4 @@
----@type Tutorial
+---@class Tutorial
 local Tutorial = QuestieLoader:ImportModule("Tutorial")
 ---@type l10n
 local l10n = QuestieLoader:ImportModule("l10n")
@@ -10,7 +10,6 @@ local QuestieLib = QuestieLoader:ImportModule("QuestieLib");
 --- COMPATIBILITY ---
 local BackdropTemplateMixin = not QuestieCompat.Is335 and BackdropTemplateMixin
 
----@return Frame
 function Tutorial.CreateChooseObjectiveTypeFrame()
     local baseFrame = CreateFrame("Frame", "QuestieTutorialChooseObjectiveType", UIParent, BackdropTemplateMixin and "BackdropTemplate")
     baseFrame:SetSize(740, 358)

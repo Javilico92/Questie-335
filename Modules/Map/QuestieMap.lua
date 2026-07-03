@@ -379,6 +379,7 @@ function QuestieMap:ShowNPC(npcID, icon, scale, title, body, disableShiftToRemov
                     for _, value in ipairs(dungeonLocation) do
                         QuestieMap:DrawManualIcon(data, value[1], value[2], value[3], typ)
                     end
+                    manualIcons[zone] = QuestieMap:DrawManualIcon(data, zone, coords[1], coords[2], typ)
                 -- world spawn
                 else
                     manualIcons[zone] = QuestieMap:DrawManualIcon(data, zone, coords[1], coords[2], typ)
@@ -389,7 +390,7 @@ function QuestieMap:ShowNPC(npcID, icon, scale, title, body, disableShiftToRemov
     -- draw waypoints
     if npc.waypoints then
         for zone, waypoints in pairs(npc.waypoints) do
-            if not ZoneDB:GetDungeonLocation(zone) and waypoints[1] and waypoints[1][1] and waypoints[1][1][1] then
+            if waypoints[1] and waypoints[1][1] and waypoints[1][1][1] then
                 if not manualIcons[zone] then
                     manualIcons[zone] = QuestieMap:DrawManualIcon(data, zone, waypoints[1][1][1], waypoints[1][1][2])
                 end
@@ -443,6 +444,7 @@ function QuestieMap:ShowObject(objectID, icon, scale, title, body, disableShiftT
                     for _, value in ipairs(dungeonLocation) do
                         QuestieMap:DrawManualIcon(data, value[1], value[2], value[3], typ)
                     end
+                    QuestieMap:DrawManualIcon(data, zone, coords[1], coords[2], typ)
                     -- world spawn
                 else
                     QuestieMap:DrawManualIcon(data, zone, coords[1], coords[2], typ)
@@ -664,7 +666,6 @@ function QuestieMap:DrawWorldIcon(data, areaID, x, y, phase, showFlag)
     QuestieMap:QueueDraw(QuestieMap.ICON_MINIMAP_TYPE, Questie, iconMinimap, uiMapId, x / 100, y / 100, true, floatOnEdge)
     QuestieMap:QueueDraw(QuestieMap.ICON_MAP_TYPE, Questie, iconMap, uiMapId, x / 100, y / 100, showFlag)
     local r, g, b = iconMinimap.texture:GetVertexColor()
-
     QuestieDBMIntegration:RegisterHudQuestIcon(tostring(iconMap), data.Icon, uiMapId, x, y, r, g, b)
 
     if (not QuestieMap.questIdFrames[data.Id]) then

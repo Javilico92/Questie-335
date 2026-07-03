@@ -17,6 +17,14 @@ function SeasonOfDiscovery:LoadNPCs()
                 [zoneIDs.STRANGLETHORN_VALE] = {{27.2, 77.0},{39.5, 5.0}},
             },
         },
+        [16786] = { -- Argent Quartermaster
+            [npcKeys.questStarts] = {9321,9337,9341,87434,87436,87438,87440,88746,88883},
+            [npcKeys.questEnds] = {9321,9337,9341,87434,87436,87438,87440,88746,88883},
+        },
+        [16787] = { -- Argent Outfitter
+            [npcKeys.questStarts] = {9320,9336,9343,87433,87435,87437,87439,88747,88882},
+            [npcKeys.questEnds] = {9320,9336,9343,87433,87435,87437,87439,88747,88882},
+        },
         [202060] = { -- Frozen Murloc
             [npcKeys.spawns] = {
                 [zoneIDs.ELWYNN_FOREST] = {{76.8, 51.4}},
@@ -587,7 +595,6 @@ function SeasonOfDiscovery:LoadNPCs()
             },
         },
         [218920] = {
-            [npcKeys.name] = "Agent Keanna",
             [npcKeys.spawns] = {
                 [zoneIDs.DEADWIND_PASS] = {{52.1,34.12}},
             },
@@ -805,22 +812,8 @@ function SeasonOfDiscovery:LoadNPCs()
                 [zoneIDs.TIRISFAL_GLADES] = {{31.3,66.4}},
             },
         },
-        [238382] = { -- Kug Softjaw
-            [npcKeys.minLevel] = 58,
-            [npcKeys.maxLevel] = 58,
-            [npcKeys.zoneID] = zoneIDs.NAXXRAMAS,
-            [npcKeys.spawns] = {[zoneIDs.NAXXRAMAS] = {{-1,-1}}},
-            [npcKeys.questStarts] = {87362,87364},
-            [npcKeys.questEnds] = {87362,87364},
-        },
-        [238431] = { -- Enthusiastic Wisp
-            [npcKeys.zoneID] = zoneIDs.WINTERSPRING,
-            [npcKeys.spawns] = {[zoneIDs.WINTERSPRING] = {{52.19,90.51}}},
-        },
         [237818] = { -- Harrison Jones
             [npcKeys.spawns] = {[zoneIDs.DEADWIND_PASS] = {{52.3,34.08}}},
-            [npcKeys.questStarts] = {86968},
-            [npcKeys.questEnds] = {86967},
         },
         [237819] = { -- Injured Adventurer
             [npcKeys.spawns] = {[zoneIDs.DEADWIND_PASS] = {{65.43,78.64}}},
@@ -836,7 +829,14 @@ function SeasonOfDiscovery:LoadNPCs()
             [npcKeys.questEnds] = {87283},
         },
         [238376] = { -- Brother Luctus
-            [npcKeys.spawns] = {[zoneIDs.EASTERN_PLAGUELANDS] = {{80.56,65.46}}},
+            [npcKeys.spawns] = {
+                [zoneIDs.EASTERN_PLAGUELANDS] = {{80.56,65.46}},
+                [zoneIDs.AZSHARA] = {{32,54}},
+                [zoneIDs.BURNING_STEPPES] = {{65.43,55.13}},
+                [zoneIDs.SWAMP_OF_SORROWS] = {{32,54}},
+                [zoneIDs.WINTERSPRING] = {{58.41,35.97}},
+                [zoneIDs.TANARIS] = {{53.9,28.6}},
+            },
         },
 
         -- fake NPCs

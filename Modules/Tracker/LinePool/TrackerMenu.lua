@@ -32,6 +32,9 @@ local LibDropDown = QuestieCompat.LibUIDropDownMenu or LibStub:GetLibrary("LibUI
 
 TrackerMenu.menuFrame = LibDropDown:Create_UIDropDownMenu("QuestieTrackerMenuFrame", UIParent)
 
+--- COMPATIBILITY ---
+local GetQuestLogIndexByID = QuestieCompat.GetQuestLogIndexByID
+
 local tinsert = table.insert
 
 -- Create local Quest Menu functions

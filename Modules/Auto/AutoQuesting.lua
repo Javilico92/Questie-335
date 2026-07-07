@@ -11,35 +11,29 @@ local _StartStoppedTalkingTimer, _AllQuestWindowsClosed, _IsAllowedNPC, _IsQuest
 
 local shouldRunAuto = true
 
-local INDIZES_AVAILABLE = 7
 local INDIZES_COMPLETE = 6
-local IS_TRIVIAL_INDEX_OFFSET = 2
-local IS_REPEATABLE_INDEX_OFFSET = 4
 
 function AutoQuesting.OnQuestDetail()
     if (not shouldRunAuto) or (not Questie.db.profile.autoAccept.enabled) or AutoQuesting.IsModifierHeld() or (not _IsAllowedNPC()) or (not _IsQuestAllowedToAccept()) then
         return
     end
 
+    local questId = GetQuestID()
+    if questId == 0 then
+        -- GetQuestID returns 0 when the dialog is closed. Nothing left to do for us
+        return
+    end
+
     local doAcceptQuest = true
     if (not Questie.db.profile.autoAccept.trivial) then
-        local questId = GetQuestID()
-        -- GetQuestID returns 0 when the dialog is closed
-        if questId > 0 then
         local questLevel = QuestieDB.QueryQuestSingle(questId, "questLevel")
         doAcceptQuest = (not QuestieDB.IsTrivial(questLevel))
-        else
-            doAcceptQuest = false
-        end
     end
     if (not Questie.db.profile.autoAccept.repeatable) then
-        local questId = GetQuestID()
-        -- GetQuestID returns 0 when the dialog is closed
-        if questId > 0 then
             doAcceptQuest = (not QuestieDB.IsRepeatable(questId))
-        else
-            doAcceptQuest = false
         end
+    if (not Questie.db.profile.autoAccept.pvp) then
+        doAcceptQuest = (not QuestieDB.IsPvPQuest(questId))
     end
 
     if doAcceptQuest then
@@ -99,30 +93,36 @@ function AutoQuesting.OnGossipShow()
     end
 
     if Questie.db.profile.autoAccept.enabled then
-        local availableQuests = { QuestieCompat.GetAvailableQuests() }
+        local availableQuests = QuestieCompat.GetAvailableQuests()
         if #availableQuests > 0 then
             local indexToAccept = 0
 
             if Questie.db.profile.autoAccept.trivial and Questie.db.profile.autoAccept.repeatable then
                 indexToAccept = 1
             else
-                for i = 1, #availableQuests, INDIZES_AVAILABLE do
+                for i = 1, #availableQuests do
                     local shouldAccept = true
                     if (not Questie.db.profile.autoAccept.trivial) then
-                        local isTrivial = availableQuests[i + IS_TRIVIAL_INDEX_OFFSET]
+                        local isTrivial = availableQuests[i].isTrivial
                         if isTrivial then
                             shouldAccept = false
                         end
                     end
                     if (not Questie.db.profile.autoAccept.repeatable) then
-                        local isRepeatable = availableQuests[i + IS_REPEATABLE_INDEX_OFFSET]
+                        local isRepeatable = availableQuests[i].repeatable
                         if isRepeatable then
+                            shouldAccept = false
+                        end
+                    end
+                    if (not Questie.db.profile.autoAccept.pvp) then
+                        local isPvP = QuestieDB.IsPvPQuest(availableQuests[i].questID)
+                        if isPvP then
                             shouldAccept = false
                         end
                     end
 
                     if shouldAccept then
-                        indexToAccept = math.floor(i / INDIZES_AVAILABLE) + 1
+                        indexToAccept = i
                         break
                     end
                 end

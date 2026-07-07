@@ -1,6 +1,6 @@
 -- HereBeDragons is a data API for the World of Warcraft mapping system
 
-local MAJOR, MINOR = "HereBeDragonsQuestie-2.0", 27
+local MAJOR, MINOR = "HereBeDragonsQuestie-2.0", 29
 assert(LibStub, MAJOR .. " requires LibStub")
 
 ---@class HereBeDragonsQuestie-2.0
@@ -16,12 +16,11 @@ HereBeDragons.worldMapData     = HereBeDragons.worldMapData or {}
 HereBeDragons.transforms       = HereBeDragons.transforms or {}
 HereBeDragons.callbacks        = HereBeDragons.callbacks or CBH:New(HereBeDragons, nil, nil, false)
 
-local WOW_INTERFACE_VER = select(4, GetBuildInfo())
 local WoWClassic = (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC)
-local WoWBC = (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) and WOW_INTERFACE_VER >= 20500 and WOW_INTERFACE_VER < 30000
-local WoWWrath = (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) and WOW_INTERFACE_VER >= 30400 and WOW_INTERFACE_VER < 40000
-local WoWCata = (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) and WOW_INTERFACE_VER >= 40000 and WOW_INTERFACE_VER < 50000
-local TWW = WOW_INTERFACE_VER >= 110002
+local WoWBC = (WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC)
+local WoWWrath = (WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC)
+local WoWCata = (WOW_PROJECT_ID == WOW_PROJECT_CATACLYSM_CLASSIC)
+local TWW = select(4, GetBuildInfo()) >= 110002
 
 -- Data Constants
 local COSMIC_MAP_ID = 946
@@ -75,6 +74,14 @@ local instanceIDOverrides = {
     [2241] = 1,    -- Uldum N'zoth assault
     [2274] = 1,    -- Uldum N'zoth Minor Vision
     [2275] = 870,  -- Vale of Eternal Blossoms N'zoth Minor Vision
+}
+
+-- override map translations where a zone shares a continent map, but not the continent instance
+-- these values are obtained from C_Map.GetMapRectOnMap(zone, continent)
+local zoneTranslateOverrides = {
+    [2248] = {
+        [2274] = { 0.5, 0.948, 0.01, 0.456 }, -- Isle of Dorn to Khaz Algar
+    }
 }
 
 local dynamicInstanceIDOverrides = {}
@@ -369,6 +376,9 @@ end
 
 local function OnEvent(frame, event, ...)
     UpdateCurrentPosition(true)
+
+    -- try to work around missing zone changes where the event fires before the zone updates
+    StartUpdateTimer()
 end
 
 HereBeDragons.eventFrame:SetScript("OnEvent", OnEvent)
@@ -501,6 +511,12 @@ function HereBeDragons:TranslateZoneCoordinates(x, y, oZone, dZone, allowOutOfBo
 
     if oZone == WORLD_MAP_ID or dZone == WORLD_MAP_ID then
         return TranslateAzerothWorldMapCoordinates(self, x, y, oZone, dZone, allowOutOfBounds)
+    end
+
+    -- override translation for special cases that share a map but not an instance
+    -- these cases should typically just translate from a zone to their continent map
+    if zoneTranslateOverrides[oZone] and zoneTranslateOverrides[oZone][dZone] then
+        return Lerp(zoneTranslateOverrides[oZone][dZone][1], zoneTranslateOverrides[oZone][dZone][2], x), Lerp(zoneTranslateOverrides[oZone][dZone][3], zoneTranslateOverrides[oZone][dZone][4], y)
     end
 
     local xCoord, yCoord, instance = self:GetWorldCoordinatesFromZone(x, y, oZone)

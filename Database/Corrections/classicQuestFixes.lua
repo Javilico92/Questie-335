@@ -1617,6 +1617,9 @@ function QuestieQuestFixes:Load()
         [4122] = {
             [questKeys.preQuestSingle] = {4082}, -- #1349
         },
+        [4123] = {
+            [questKeys.requiredSourceItems] = {11078},
+        },
         [4126] = {
             [questKeys.preQuestSingle] = {},
         },
@@ -2904,6 +2907,9 @@ function QuestieQuestFixes:Load()
             [questKeys.requiredRaces] = raceIDs.ALL_HORDE,
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Place a tribute at Grom's Monument"),0,{{"object", 1324},}}},
         },
+        [8151] = {
+            [questKeys.startedBy] = {{3039,3352,4205,5116,5516}},
+        },
         [8166] = {
             [questKeys.specialFlags] = 0,
         },
@@ -2953,8 +2959,17 @@ function QuestieQuestFixes:Load()
         [8192] = {
             [questKeys.requiredClasses] = classIDs.DRUID,
         },
+        [8233] = {
+            [questKeys.startedBy] = {{918,3328,4163,4583,5165}},
+        },
+        [8250] = {
+            [questKeys.startedBy] = {{331,3047,4567,7311,7312}},
+        },
         [8251] = {
             [questKeys.preQuestSingle] = {},
+        },
+        [8254] = {
+            [questKeys.startedBy] = {{5489,6018,11406}},
         },
         [8258] = {
             [questKeys.exclusiveTo] = {7668}, -- 7668 before Phase 4
@@ -3054,59 +3069,198 @@ function QuestieQuestFixes:Load()
         [8367] = { -- For Great Honor
             [questKeys.zoneOrSort] = sortKeys.BATTLEGROUND,
         },
-        [8368] = {
+        [8368] = { -- Battle of Warsong Gulch
             [questKeys.exclusiveTo] = {8426,8427,8428,8429,8430},
+            [questKeys.requiredMaxLevel] = 19,
+        },
+        [8370] = { -- Conquering Arathi Basin
+            [questKeys.exclusiveTo] = {8436,8437,8438,8439},
+            [questKeys.requiredMaxLevel] = 29,
         },
         [8371] = { -- Concerted Efforts
             [questKeys.zoneOrSort] = sortKeys.BATTLEGROUND,
         },
-        [8372] = {
+        [8372] = { -- Fight for Warsong Gulch
             [questKeys.exclusiveTo] = {8399,8400,8401,8402,8403},
+            [questKeys.requiredMaxLevel] = 19,
         },
         [8373] = {
             [questKeys.objectives] = {nil,{{180449,"Clean up a stink bomb that's been dropped on Southshore!"}}},
         },
+        [8374] = { -- Claiming Arathi Basin
+            [questKeys.requiredMaxLevel] = 29,
+        },
+        [8384] = { -- Claiming Arathi Basin
+            [questKeys.requiredMaxLevel] = 29,
+        },
         [8385] = { -- Concerted Efforts
             [questKeys.zoneOrSort] = sortKeys.BATTLEGROUND,
+        },
+        [8386] = { -- Fight for Warsong Gulch
+            [questKeys.requiredMaxLevel] = 19,
         },
         [8388] = { -- For Great Honor
             [questKeys.zoneOrSort] = sortKeys.BATTLEGROUND,
         },
-        [8399] = {
+        [8389] = { -- Battle of Warsong Gulch
+            [questKeys.requiredMaxLevel] = 19,
+        },
+        [8390] = { -- Conquering Arathi Basin
+            [questKeys.requiredMaxLevel] = 29,
+        },
+        [8391] = { -- Claiming Arathi Basin
+            [questKeys.preQuestSingle] = {8374,8393},
+            [questKeys.requiredMaxLevel] = 39,
+        },
+        [8392] = { -- Claiming Arathi Basin
+            [questKeys.preQuestSingle] = {8374,8393,8394},
+            [questKeys.requiredMaxLevel] = 49,
+        },
+        [8393] = { -- Claiming Arathi Basin
+            [questKeys.exclusiveTo] = {8374,8394,8395,8396},
+            [questKeys.requiredMaxLevel] = 39,
+        },
+        [8394] = { -- Claiming Arathi Basin
+            [questKeys.exclusiveTo] = {8374,8393,8395,8396},
+            [questKeys.requiredMaxLevel] = 49,
+        },
+        [8395] = { -- Claiming Arathi Basin
+            [questKeys.exclusiveTo] = {8374,8393,8394,8396},
+            [questKeys.requiredMaxLevel] = 59,
+        },
+        [8396] = { -- Claiming Arathi Basin
+            [questKeys.exclusiveTo] = {8374,8393,8394,8395},
+        },
+        [8397] = { -- Fight for Warsong Gulch
+            [questKeys.preQuestSingle] = {8374,8393,8394,8395},
+        },
+        [8398] = { -- Fight for Warsong Gulch
+            [questKeys.preQuestSingle] = {8374,8393,8394,8395,8396},
+        },
+        [8399] = { -- Fight for Warsong Gulch
             [questKeys.exclusiveTo] = {8372,8400,8401,8402,8403},
+            [questKeys.requiredMaxLevel] = 29,
         },
-        [8400] = {
+        [8400] = { -- Fight for Warsong Gulch
             [questKeys.exclusiveTo] = {8372,8399,8401,8402,8403},
+            [questKeys.requiredMaxLevel] = 39,
         },
-        [8401] = {
+        [8401] = { -- Fight for Warsong Gulch
             [questKeys.exclusiveTo] = {8372,8399,8400,8402,8403},
+            [questKeys.requiredMaxLevel] = 49,
         },
-        [8402] = {
+        [8402] = { -- Fight for Warsong Gulch
             [questKeys.exclusiveTo] = {8372,8399,8400,8401,8403},
+            [questKeys.requiredMaxLevel] = 59,
         },
-        [8403] = {
+        [8403] = { -- Fight for Warsong Gulch
             [questKeys.exclusiveTo] = {8372,8399,8400,8401,8402},
         },
+        [8404] = { -- Fight for Warsong Gulch
+            [questKeys.preQuestSingle] = {8372,8399},
+            [questKeys.requiredMaxLevel] = 29,
+        },
+        [8405] = { -- Fight for Warsong Gulch
+            [questKeys.preQuestSingle] = {8372,8399,8400},
+            [questKeys.requiredMaxLevel] = 39,
+        },
+        [8406] = { -- Fight for Warsong Gulch
+            [questKeys.preQuestSingle] = {8372,8399,8400,8401},
+            [questKeys.requiredMaxLevel] = 49,
+        },
+        [8407] = { -- Fight for Warsong Gulch
+            [questKeys.preQuestSingle] = {8372,8399,8400,8401,8402},
+            [questKeys.requiredMaxLevel] = 59,
+        },
+        [8408] = { -- Fight for Warsong Gulch
+            [questKeys.preQuestSingle] = {8372,8399,8400,8401,8402,8403},
+        },
+        [8410] = {
+            [questKeys.exclusiveTo] = {8411}, -- other preQuestSingle
+            [questKeys.startedBy] = {{3032,13417}},
+        },
+        [8411] = {
+            [questKeys.exclusiveTo] = {8410}, -- other preQuestSingle
+        },
+        [8412] = {
+            [questKeys.preQuestSingle] = {8410,8411}, -- 8411 was missing
+        },
+        [8415] = {
+            [questKeys.startedBy] = {{928,5149}},
+        },
+        [8417] = {
+            [questKeys.startedBy] = {{3041,3354,4593,5113,5479,7315}},
+        },
+        [8419] = {
+            [questKeys.startedBy] = {{461,3326,4563,5172}},
+        },
         [8423] = {
-            [questKeys.preQuestSingle] = {8417},
+            [questKeys.exclusiveTo] = {8417}, -- breadcrumb
         },
-        [8426] = {
+        [8426] = { -- Battle of Warsong Gulch
             [questKeys.exclusiveTo] = {8368,8427,8428,8429,8430},
+            [questKeys.requiredMaxLevel] = 29,
         },
-        [8427] = {
+        [8427] = { -- Battle of Warsong Gulch
             [questKeys.exclusiveTo] = {8368,8426,8428,8429,8430},
+            [questKeys.requiredMaxLevel] = 39,
         },
-        [8428] = {
+        [8428] = { -- Battle of Warsong Gulch
             [questKeys.exclusiveTo] = {8368,8426,8427,8429,8430},
+            [questKeys.requiredMaxLevel] = 49,
         },
-        [8429] = {
+        [8429] = { -- Battle of Warsong Gulch
             [questKeys.exclusiveTo] = {8368,8426,8427,8428,8430},
+            [questKeys.requiredMaxLevel] = 59,
         },
-        [8430] = {
+        [8430] = { -- Battle of Warsong Gulch
             [questKeys.exclusiveTo] = {8368,8426,8427,8428,8429},
         },
-        [8438] = {
-            [questKeys.zoneOrSort] = sortKeys.ARATHI_BASIN,
+        [8431] = { -- Battle of Warsong Gulch
+            [questKeys.preQuestSingle] = {8368,8426},
+            [questKeys.requiredMaxLevel] = 29,
+        },
+        [8432] = { -- Battle of Warsong Gulch
+            [questKeys.preQuestSingle] = {8368,8426,8427},
+            [questKeys.requiredMaxLevel] = 39,
+        },
+        [8433] = { -- Battle of Warsong Gulch
+            [questKeys.preQuestSingle] = {8368,8426,8427,8428},
+            [questKeys.requiredMaxLevel] = 49,
+        },
+        [8434] = { -- Battle of Warsong Gulch
+            [questKeys.preQuestSingle] = {8368,8426,8427,8428,8429},
+            [questKeys.requiredMaxLevel] = 59,
+        },
+        [8435] = { -- Battle of Warsong Gulch
+            [questKeys.preQuestSingle] = {8368,8426,8427,8428,8429,8430},
+        },
+        [8436] = { -- Conquering Arathi Basin
+            [questKeys.exclusiveTo] = {8370,8437,8438,8439},
+            [questKeys.requiredMaxLevel] = 39,
+        },
+        [8437] = { -- Conquering Arathi Basin
+            [questKeys.exclusiveTo] = {8370,8436,8438,8439},
+            [questKeys.requiredMaxLevel] = 49,
+        },
+        [8438] = { -- Conquering Arathi Basin
+            [questKeys.exclusiveTo] = {8370,8436,8437,8439},
+            [questKeys.requiredMaxLevel] = 59,
+        },
+        [8440] = { -- Conquering Arathi Basin
+            [questKeys.preQuestSingle] = {8370,8436},
+            [questKeys.requiredMaxLevel] = 39,
+        },
+        [8441] = { -- Conquering Arathi Basin
+            [questKeys.preQuestSingle] = {8370,8436,8437},
+            [questKeys.requiredMaxLevel] = 49,
+        },
+        [8442] = { -- Conquering Arathi Basin
+            [questKeys.preQuestSingle] = {8370,8436,8437,8438},
+            [questKeys.requiredMaxLevel] = 59,
+        },
+        [8443] = { -- Conquering Arathi Basin
+            [questKeys.preQuestSingle] = {8370,8436,8437,8438,8439},
         },
         [8446] = {
             [questKeys.startedBy] = {{14887,14888,14889,14890},nil,{20644}},
@@ -3782,8 +3936,7 @@ function QuestieQuestFixes:Load()
             [questKeys.specialFlags] = specialFlags.REPEATABLE,
         },
         [9063] = {
-            [questKeys.exclusiveTo] = {9052},
-            [questKeys.zoneOrSort] = 493,
+            [questKeys.startedBy] = {{3033,4217,5505,12042}},
         },
         [9069] = {
             [questKeys.specialFlags] = specialFlags.REPEATABLE,
@@ -4216,29 +4369,8 @@ function QuestieQuestFixes:LoadFactionFixes()
             [questKeys.startedBy] = {{5753,5815},nil,nil},
             [questKeys.requiredRaces] = raceIDs.NONE,
         },
-        [8151] = {
-            [questKeys.startedBy] = {{3039,3352},nil,nil},
-        },
-        [8233] = {
-            [questKeys.startedBy] = {{3328,4583},nil,nil},
-        },
-        [8250] = {
-            [questKeys.startedBy] = {{3047,4567,7311},nil,nil},
-        },
-        [8254] = {
-            [questKeys.startedBy] = {{6018},nil,nil},
-        },
-        [8417] = {
-            [questKeys.startedBy] = {{3041,3354,4593},nil,nil},
-        },
-        [8419] = {
-            [questKeys.startedBy] = {{3326,4563},nil,nil},
-        },
         [8904] = {
             [questKeys.exclusiveTo] = {8900,8901,8902,8979}
-        },
-        [9063] = {
-            [questKeys.startedBy] = {{3033,12042},nil,nil},
         },
         [9330] = {
             [questKeys.startedBy] = {nil,{181332},{23182}},
@@ -4285,27 +4417,6 @@ function QuestieQuestFixes:LoadFactionFixes()
         [7562] = {
             [questKeys.startedBy] = {{5520,6382},nil,nil},
             [questKeys.requiredRaces] = raceIDs.NONE,
-        },
-        [8151] = {
-            [questKeys.startedBy] = {{4205,5116,5516},nil,nil},
-        },
-        [8233] = {
-            [questKeys.startedBy] = {{918,4163,5165},nil,nil},
-        },
-        [8250] = {
-            [questKeys.startedBy] = {{331,7312},nil,nil},
-        },
-        [8254] = {
-            [questKeys.startedBy] = {{5489,11406},nil,nil},
-        },
-        [8417] = {
-            [questKeys.startedBy] = {{5113,5479},nil,nil},
-        },
-        [8419] = {
-            [questKeys.startedBy] = {{461,5172},nil,nil},
-        },
-        [9063] = {
-            [questKeys.startedBy] = {{4217,5505,12042},nil,nil},
         },
         [9324] = {
             [questKeys.startedBy] = {nil,{181336},{23179}},

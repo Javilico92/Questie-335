@@ -162,7 +162,6 @@ local questTagCorrections = {
     [90094] = {1, "Elite"},
     [90113] = {1, "Elite"},
     [90114] = {1, "Elite"},
-    [90116] = {1, "Elite"},
     [90119] = {1, "Elite"},
     [90122] = {1, "Elite"},
     [90151] = {1, "Elite"},
@@ -192,6 +191,7 @@ local questTagCorrections = {
     [90339] = {1, "Elite"},
     [90343] = {1, "Elite"},
     [90344] = {1, "Elite"},
+    [90353] = {1, "Elite"},
 
     -- PvP quest manual overwrite for Anniversary servers
     [236] = {41, "PvP"},

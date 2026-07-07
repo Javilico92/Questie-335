@@ -1,5 +1,6 @@
 ---@type ZoneDB
 local ZoneDB = QuestieLoader:ImportModule("ZoneDB")
+local isHorde = UnitFactionGroup("Player") == "Horde"
 
 ---@class DungeonZoneEntry
 ---@field [1] string name
@@ -35,7 +36,7 @@ local dungeons = {
     [2367] = {"Old Hillsbrad Foothills",nil,440,{{440, 65.7, 49.8}}},
     [2437] = {"Ragefire Chasm",nil,1637,{{1637, 51.7, 49.8}}},
     [2557] = {"Dire Maul",2577,357,{{357, 59.2, 45.1}}},
-    [2597] = {"Alterac Valley",nil,36,{{36, 66.6, 51.3},}},
+    [2597] = {"Alterac Valley",nil,36,{(isHorde and {36, 39.5, 80.2}) or {36, 63.6, 58.8}}},
     [2677] = {"Blackwing Lair",nil,46,{{51, 34.8, 85.3}, {46, 29.4, 38.3}}},
     [2717] = {"Molten Core",nil,46,{{51, 34.8, 85.3}, {46, 29.4, 38.3}}},
     [2917] = {"Hall of Legends",nil,1637,{{1637, 40.4, 68.3}}},
@@ -105,6 +106,7 @@ local dungeons = {
     [5861] = {"Darkmoon Faire Island",nil,440,{{12, 41.79, 69.52},{215, 36.85, 35.86}}},
     [5892] = {"Dragon Soul",nil,440,{{440, 64.8, 50}}},
     [7307] = {"Upper Blackrock Spire",nil,51,{{51, 34.8, 85.3}, {46, 29.4, 38.3}}},
+    [10001] = {"Stratholme",nil,139,{{139, 43.5, 19.4}}}, -- The Gauntlet
     [10022] = {"Dire Maul",nil,357,{{357, 62.5,24.9}}}, -- North
     [10023] = {"Dire Maul",nil,357,{{357, 60.3,31.3}}}, -- West
     [10024] = {"Dire Maul",nil,357,{{357, 60.3,31.3}}}, -- West
@@ -115,6 +117,7 @@ local dungeons = {
     [15531] = {"The Tainted Scar",nil,4,{{4, 45.3,55.0}}},
     [15828] = {"The Burning of Andorhal",nil,22,{{22, 69.6,79.6}}},
     [16074] = {"Karazhan Crypts",nil,41,{{41, 39.99, 74.16}}},
+    [16236] = {"Scarlet Enclave",nil,139,{{139, 68.67, 87.84}}},
 }
 
 if Questie.IsCata then
@@ -134,13 +137,14 @@ if Questie.IsCata then
     dungeons[1583][4] = {{51, 34.9, 83.9}, {46, 21, 37.9}} -- Blackrock Spire
     dungeons[1584][4] = {{51, 34.9, 83.9}, {46, 21, 37.9}} -- Blackrock Depths
     dungeons[1977][4] = {{33, 72.1, 32.9}} -- Zul'Gurub
-    dungeons[2017][4] = {{139, 27.7, 11.5}, {139, 43.5, 19.4}} -- Stratholme
+    dungeons[2017][4] = {{139, 27.7, 11.5}} -- Stratholme
     dungeons[2100][4] = {{405, 29.1, 62.6}} -- Maraudon
     dungeons[2257][4] = {{1519, 69.49, 31.2}, {1537, 84.1, 53.1}} -- Deeprun Tram
     dungeons[2366][4] = {{440, 64.8, 50}} -- The Black Morass
     dungeons[2367][4] = {{440, 64.8, 50}} -- Old Hillsbrad Foothills
     dungeons[2437][4] = {{1637, 55.2, 51.2}} -- Ragefire Chasm
     dungeons[2557][4] = {{357, 62.1, 30.2}} -- Dire Maul
+    dungeons[2597][4] = {(isHorde and {267, 58.4, 33.3}) or {267, 44.5, 46}} -- Alterac Valley
     dungeons[2677][4] = {{51, 34.9, 83.9}, {46, 21, 37.9}} -- Blackwing Lair
     dungeons[2717][4] = {{51, 34.9, 83.9}, {46, 21, 37.9}} -- Molten Core
     dungeons[3428][4] = {{1377, 24.4, 87.5}} -- Temple of Ahn'Qiraj

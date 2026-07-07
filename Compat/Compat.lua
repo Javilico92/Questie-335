@@ -628,29 +628,38 @@ function QuestieCompat:QUEST_QUERY_COMPLETE(event)
     end
 end
 
--- https://wowpedia.fandom.com/wiki/API_IsQuestFlaggedCompleted
--- Determine if a quest has been completed.
-function QuestieCompat.IsQuestFlaggedCompleted(questID)
-	return Questie.db.char.complete[questID] or false
-end
-
 ---Returns the available quests at a quest giver.
 -- https://wowpedia.fandom.com/wiki/API_GetGossipAvailableQuests
 function QuestieCompat.GetAvailableQuests()
-	local availableQuests = {GetGossipAvailableQuests()}
-	local numAvailable = GetNumGossipAvailableQuests()
-	for i = 1, numAvailable do
-		local index = (i - 1) * 5
-		availableQuests[index + 3] = availableQuests[index + 3] and true or false
-		availableQuests[index + 4] = availableQuests[index + 4] and 2 or 1
-		availableQuests[index + 5] = availableQuests[index + 5] and true or false
-	end
+    local info = { GetGossipAvailableQuests() }
+    local numAvailable = GetNumGossipAvailableQuests()
+    local availableQuests = {}
+
     for i = 1, numAvailable do
-		local index = (i - 1) * 7
-		table.insert(availableQuests, index + 6, false)
-		table.insert(availableQuests, index + 7, false)
-	end
-	return unpack(availableQuests)
+        local index = (i - 1) * 5
+
+        local title = info[index + 1]
+        local questLevel = info[index + 2]
+        local isTrivial = info[index + 3]
+        local frequency = info[index + 4]
+        local repeatable = info[index + 5]
+
+        availableQuests[i] = {
+            title = title,
+            questLevel = questLevel,
+            isTrivial = isTrivial and true or false,
+            frequency = frequency or 1,
+            repeatable = repeatable and true or false,
+
+            isLegendary = false,
+            isIgnored = false,
+            isImportant = false,
+            isMeta = false,
+            questID = 0,
+        }
+    end
+
+    return availableQuests
 end
 
 -- Returns the quests which can be turned in at a quest giver.
@@ -669,6 +678,12 @@ function QuestieCompat.GetActiveQuests()
 		table.insert(activeQuests, index + 6, false)
 	end
 	return unpack(activeQuests)
+end
+
+-- https://wowpedia.fandom.com/wiki/API_IsQuestFlaggedCompleted
+-- Determine if a quest has been completed.
+function QuestieCompat.IsQuestFlaggedCompleted(questID)
+	return Questie.db.char.complete[questID] or false
 end
 
 local questTagToName = {

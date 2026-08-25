@@ -17,7 +17,7 @@ local migrationFunctions = {
     [2] = function()
         -- Blizzard removed some sounds from Era/SoD, which are present in WotLK
         local objectiveSound = Questie.db.profile.objectiveCompleteSoundChoiceName
-        if (not Questie.IsWotlk) and (not Questie.IsCata) and
+        if (not Questie.IsWotlk) and (not Questie.IsCata) and (not Questie.IsMoP) and
             objectiveSound == "Explosion" or
             objectiveSound == "Shing!" or
             objectiveSound == "Wham!" or
@@ -30,7 +30,7 @@ local migrationFunctions = {
         end
 
         local progressSound = Questie.db.profile.objectiveProgressSoundChoiceName
-        if (not Questie.IsWotlk) and (not Questie.IsCata) and
+        if (not Questie.IsWotlk) and (not Questie.IsCata) and (not Questie.IsMoP) and
             progressSound == "Explosion" or
             progressSound == "Shing!" or
             progressSound == "Wham!" or
@@ -93,6 +93,10 @@ local migrationFunctions = {
     end,
     [11] = function()
         Questie.db.profile.autoAccept.pvp = true
+    end,
+    [12] = function()
+        Questie.db.profile.autoAccept.rejectSharedInBattleground = false
+        Questie.db.profile.tutorialRejectInBattlegroundsDone = false
     end,
 }
 

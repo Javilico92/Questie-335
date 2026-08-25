@@ -222,6 +222,21 @@ local phases = {
     BALNAZZAR_DEAD = 1150,
     RIVENDARE_DEAD = 1151,
     KARGATH_DEAD = 1152,
+    CAYDEN_START_AMBUSH = 1153,
+    CAYDEN_FINISH_AMBUSH = 1154,
+    OHF_THRALL_PRISON = 1155,
+    OHF_THRALL_DESTINY = 1156,
+    LINDSAY_WPL_TREE = 1157,
+    LINDSAY_WPL_TENT = 1158,
+    LINDSAY_WPL_INN = 1159,
+    MGT_KT_DEAD = 1160,
+    THE_BARRENS_KADRAK_MORSHAN = 1161,
+    ZAZZO_GILNEAS = 1162,
+    ZAZZO_DEADWIND = 1163,
+    KALEC_TERMINUS = 1164,
+    STONETALON_CLIFFWALKER_JUSTICE = 1165,
+    STONETALON_CLIFFWALKER_RAMP = 1166,
+    STONETALON_CLIFFWALKER_GARROSH = 1167,
 }
 Phasing.phases = phases
 
@@ -916,6 +931,66 @@ function Phasing.IsSpawnVisible(phase)
 
     if phase == phases.KARGATH_DEAD then
         return complete[29653] or (questLog[29653] and questLog[29653].isComplete == 1) or complete[29654] or (questLog[29654] and questLog[29654].isComplete == 1) or false
+    end
+
+    if phase == phases.CAYDEN_START_AMBUSH then
+        return not complete[27648] and (not questLog[27648] or (questLog[27648] and questLog[27648].isComplete == 0)) or false
+    end
+
+    if phase == phases.CAYDEN_FINISH_AMBUSH then
+        return complete[27648] or (questLog[27648] and questLog[27648].isComplete == 1) or false
+    end
+
+    if phase == phases.OHF_THRALL_PRISON then
+        return not complete[29599] and (not questLog[29599] or (questLog[29599] and questLog[29599].isComplete == 0)) or false
+    end
+
+    if phase == phases.OHF_THRALL_DESTINY then
+        return complete[29599] or (questLog[29599] and questLog[29599].isComplete == 1) or false
+    end
+  
+    if phase == phases.LINDSAY_WPL_TREE then
+        return not complete[26936] or false
+    end
+
+    if phase == phases.LINDSAY_WPL_TENT then
+        return (complete[26936] and not complete[27083]) or false
+    end
+
+    if phase == phases.LINDSAY_WPL_INN then
+        return complete[27083] or false
+    end
+
+    if phase == phases.MGT_KT_DEAD then
+        return complete[29685] or (questLog[29685] and questLog[29685].isComplete == 1) or false
+    end
+
+    if phase == phases.THE_BARRENS_KADRAK_MORSHAN then
+        return not complete[13712] and (not questLog[13712] or (questLog[13712] and questLog[13712].isComplete == 0)) or false
+    end
+
+    if phase == phases.ZAZZO_GILNEAS then
+        return not complete[30107] or false
+    end
+
+    if phase == phases.ZAZZO_DEADWIND then
+        return complete[30107] or false
+    end
+
+    if phase == phases.KALEC_TERMINUS then
+        return complete[14391] or (questLog[14391] and questLog[14391].isComplete == 1) or false
+    end
+
+    if phase == phases.STONETALON_CLIFFWALKER_JUSTICE then
+        return not complete[26099] or false
+    end
+
+    if phase == phases.STONETALON_CLIFFWALKER_RAMP then
+        return complete[26099] and not complete[26115] or false
+    end
+
+    if phase == phases.STONETALON_CLIFFWALKER_GARROSH then
+        return complete[26115] or false
     end
 
     return false

@@ -145,7 +145,7 @@ function QuestieProfiler:CreateUI()
     })
 
     local scrollFrameTemplete
-    if (Questie.IsWotlk or Questie.IsCata) and (not QuestieCompat.Is335) then
+    if (Questie.IsWotlk or Questie.IsCata or Questie.IsMoP) and (not QuestieCompat.Is335) then
         scrollFrameTemplete = "ScrollFrameTemplate"
     else
         scrollFrameTemplete = "UIPanelScrollFrameTemplate"

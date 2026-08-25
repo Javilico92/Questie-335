@@ -408,7 +408,7 @@ _AddStarter = function(starter, quest, tooltipKey, limit)
     -- Only for NPCs since objects do not move
     if starter.waypoints then
         for zone, waypoints in pairs(starter.waypoints or {}) do
-            if not dungeons[zone] and waypoints[1] and waypoints[1][1] and waypoints[1][1][1] then
+            if dungeons and not dungeons[zone] and waypoints[1] and waypoints[1][1] and waypoints[1][1][1] then
                 if not starterIcons[zone] then
                     ---@class IconData
                     local data = {

@@ -31,6 +31,10 @@ local QuestieLib = QuestieLoader:ImportModule("QuestieLib")
 ---@type l10n
 local l10n = QuestieLoader:ImportModule("l10n")
 
+--local IsAddOnLoaded = C_AddOns.IsAddOnLoaded or IsAddOnLoaded
+--local GetItemCount = C_Item.GetItemCount or GetItemCount
+--local GetItemSpell = C_Item.GetItemSpell or GetItemSpell
+
 --- COMPATIBILITY ---
 local C_Timer = QuestieCompat.C_Timer
 local C_Map = QuestieCompat.C_Map
@@ -1044,7 +1048,7 @@ function TrackerUtils.AddQuestItemButtons(quest, complete, line, questItemButton
     local sourceItemId = QuestieDB.QueryQuestSingle(quest.Id, "sourceItemId")
     if sourceItemId and GetItemCount(sourceItemId) > 0 and TrackerUtils:IsQuestItemUsable(sourceItemId) then
         tinsert(usableQuestItems, sourceItemId)
-    end
+        end
 
     for _, itemId in pairs(quest.requiredSourceItems or {}) do
         if GetItemCount(itemId) > 0 and TrackerUtils:IsQuestItemUsable(itemId) then
@@ -1157,7 +1161,7 @@ function TrackerUtils.HasQuest()
     local hasQuest
 
     if (GetNumQuestWatches(true) == 0) then
-        if Questie.IsWotlk or Questie.IsCata then
+        if Questie.IsWotlk or Questie.IsCata or Questie.IsMoP then
             if (GetNumTrackedAchievements(true) == 0) then
                 hasQuest = false
             else

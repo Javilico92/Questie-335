@@ -22,6 +22,8 @@ local GetMinimapZoneText = GetMinimapZoneText;
 local IsInInstance = IsInInstance;
 local format = format;
 
+--local IsAddOnLoaded = C_AddOns.IsAddOnLoaded or IsAddOnLoaded
+
 
 local function GetMapTitleText()
     if QuestieCompat.Is335 then return WorldMapFrameTitle end

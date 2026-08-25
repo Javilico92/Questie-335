@@ -30,6 +30,7 @@ local GetQuestLogRewardMoney = QuestieCompat.GetQuestLogRewardMoney
 local GetClassColor = QuestieCompat.GetClassColor
 
 local HBDPins = QuestieCompat.HBDPins or LibStub("HereBeDragonsQuestie-Pins-2.0")
+--local GetCoinTextureString = C_CurrencyInfo.GetCoinTextureString or GetCoinTextureString
 
 
 local REPUTATION_ICON_PATH = QuestieLib.AddonPath .. "Icons\\reputation.blp"

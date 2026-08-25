@@ -19,6 +19,7 @@ local DebugInformation = {} -- stores text of debug data dump per session
 local debugIndex = 0 -- current debug index, used so we can still retrieve info from previous offers
 local openDebugWindows = {} -- determines if existing debug window is already open, prevents duplicates
 
+--local GetItemInfo = C_Item.GetItemInfo or GetItemInfo
 local GetBestMapForUnit = C_Map.GetBestMapForUnit
 local GetPlayerMapPosition = C_Map.GetPlayerMapPosition
 local strsplit, tContains, tostring, tonumber = strsplit, tContains, tostring, tonumber
@@ -403,7 +404,11 @@ local function _AppendUniversalText(input)
         PosY = pos.y * 100
         text = text .. "\n|cFFAAAAAAPlayer Coords:|r  [" .. mapID .. "]  " .. format("(%.3f, %.3f)", PosX, PosY)
     else
-        local zoneId = ZoneDB.instanceIdToUiMapId[select(8, GetInstanceInfo())]
+        local instanceId = select(8, GetInstanceInfo())
+        local zoneId = ZoneDB.instanceIdToUiMapId[instanceId]
+        if (not zoneId) then
+            zoneId = "Unknown instanceId " .. instanceId
+        end
         text = text .. "\n|cFFAAAAAAPlayer Coords:|r  [" .. zoneId .. "]  -1, -1"
     end
 

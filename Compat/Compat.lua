@@ -198,16 +198,167 @@ QuestieCompat.C_Timer = {
 }
 
 local mapIdToUiMapId = {}
+
+-- 3.3.5 compatibility fallback for instances without a Blizzard map.
+--
+-- IMPORTANT:
+-- This fallback is ONLY used when GetCurrentMapAreaID() returns 0.
+-- Dungeons, raids and battlegrounds which already expose a valid legacy
+-- map ID/floor keep using the original path unchanged.
+--
+-- Example normal path:
+--   The Oculus: 529 + floor 1 / 10 = 529.1 -> UiMapId 143
+--
+-- Example fallback path:
+--   The Slave Pens: AreaID 0 -> localized zone name -> AreaId 3717
+--   -> UiMapId 265
+local instanceZoneTextToUiMapId
+local instanceZoneTextLookupLocale
+
+local function BuildInstanceZoneTextLookup(l10n)
+    if not l10n or type(l10n.zoneCategoryLookup) ~= "table" then
+        return false
+    end
+
+    local cache = {}
+
+    -- Questie lookupZones.lua categories:
+    --   7 = Dungeons/Raids
+    --   8 = Battlegrounds
+    --
+    -- We intentionally restrict the fallback to instance categories so an
+    -- outdoor zone/subzone can never override normal map resolution.
+    local instanceCategories = {7, 8}
+
+    for _, categoryId in ipairs(instanceCategories) do
+        local zones = l10n.zoneCategoryLookup[categoryId]
+
+        if type(zones) == "table" then
+            for areaId, zoneName in pairs(zones) do
+                if type(areaId) == "number"
+                    and areaId > 0
+                    and type(zoneName) == "string"
+                    and zoneName ~= ""
+                then
+                    local ok, uiMapId = pcall(
+                        ZoneDB.GetUiMapIdByAreaId,
+                        ZoneDB,
+                        areaId
+                    )
+
+                    if ok and uiMapId then
+                        -- Base/enUS name.
+                        if not cache[zoneName] then
+                            cache[zoneName] = uiMapId
+                        end
+
+                        -- Name in Questie's currently selected UI locale.
+                        -- l10n() falls back to the key itself when no specific
+                        -- translation exists, so this is safe.
+                        local localizedName = l10n(zoneName)
+
+                        if type(localizedName) == "string"
+                            and localizedName ~= ""
+                            and not cache[localizedName]
+                        then
+                            cache[localizedName] = uiMapId
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    instanceZoneTextToUiMapId = cache
+
+    if l10n.GetUILocale then
+        instanceZoneTextLookupLocale = l10n:GetUILocale()
+    else
+        instanceZoneTextLookupLocale = GetLocale()
+    end
+
+    return true
+end
+
+local function ResolveInstanceUiMapIdByZoneText()
+    local inInstance = IsInInstance()
+
+    if not inInstance then
+        return nil
+    end
+
+    -- Import lazily. Compat.lua is loaded very early, while this fallback is
+    -- only needed later when the player is actually inside an unmapped
+    -- instance.
+    local l10n = QuestieLoader:ImportModule("l10n")
+
+    if not l10n then
+        return nil
+    end
+
+    local currentLocale
+    if l10n.GetUILocale then
+        currentLocale = l10n:GetUILocale()
+    else
+        currentLocale = GetLocale()
+    end
+
+    -- Rebuild if this is the first use or if Questie's UI locale changed.
+    if not instanceZoneTextToUiMapId
+        or instanceZoneTextLookupLocale ~= currentLocale
+    then
+        if not BuildInstanceZoneTextLookup(l10n) then
+            return nil
+        end
+    end
+
+    -- In old 3.3.5 instances the subzone is often empty/a room name.
+    -- Prefer the actual instance/zone names first.
+    local candidates = {
+        GetRealZoneText and GetRealZoneText(),
+        GetZoneText and GetZoneText(),
+        GetMinimapZoneText and GetMinimapZoneText(),
+        GetSubZoneText and GetSubZoneText(),
+    }
+
+    for _, zoneName in ipairs(candidates) do
+        if zoneName and zoneName ~= "" then
+            local uiMapId = instanceZoneTextToUiMapId[zoneName]
+
+            if uiMapId then
+                return uiMapId
+            end
+        end
+    end
+
+    return nil
+end
+
 -- convert current mapAreaID and mapLevel to UiMapId
 -- https://wowpedia.fandom.com/wiki/API_GetCurrentMapAreaID
 -- https://wowwiki-archive.fandom.com/wiki/API_GetCurrentMapDungeonLevel
 -- https://wowpedia.fandom.com/wiki/UiMapID#Classic
 function QuestieCompat.GetCurrentUiMapID()
-    local mapID = GetCurrentMapAreaID()
-    if mapID == 0 then -- both the "Cosmic" and "Azeroth" maps return a mapID of 0
-        mapID = GetCurrentMapContinent()
+    local mapID = GetCurrentMapAreaID() or 0
+    local mapLevel = GetCurrentMapDungeonLevel() or 0
+
+    if mapID == 0 then
+        -- Vanilla/TBC instances without a drawable Blizzard map can return
+        -- AreaID 0. Only in that situation do we use the zone-name fallback.
+        local instanceUiMapId = ResolveInstanceUiMapIdByZoneText()
+
+        if instanceUiMapId then
+            return instanceUiMapId
+        end
+
+        -- Preserve the original behavior for genuine world/continent contexts
+        -- or unknown instances that Questie cannot resolve.
+        mapID = GetCurrentMapContinent() or 0
     end
-    return mapIdToUiMapId[mapID + GetCurrentMapDungeonLevel()/10] or 946
+
+    -- Original/normal path. WotLK dungeon floors and BGs with a valid map ID
+    -- are completely untouched.
+    return mapIdToUiMapId[mapID + mapLevel / 10] or 946
 end
 
 -- maps mapAreaID to Zone and Continent index
@@ -294,6 +445,9 @@ QuestieCompat.C_Map = {
         local x, y, instanceID = QuestieCompat.HBD:GetWorldCoordinatesFromZone(mapPos.x, mapPos.y, uiMapID)
         return instanceID or 0, {x = x or 0, y = y or 0}
 	end,
+    GetMapChildrenInfo = function (uiMapID, mapType, allDescendants)
+        return {}
+    end,
 }
 
 -- https://www.townlong-yak.com/framexml/classic/Blizzard_MapCanvas/Blizzard_MapCanvas.lua

@@ -372,7 +372,7 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_URL"] = {
         self:GetParent():Hide()
     end,
     OnShow = function(self)
-        local questID = self.text.text_arg1
+        local questID = self.text.text_arg1 or self.data
         local quest_wow = QuestieDB.GetQuest(questID)
         local name = quest_wow.name
 
@@ -395,7 +395,8 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_URL"] = {
         end)
     end,
     whileDead = true,
-    hideOnEscape = true
+    hideOnEscape = true,
+    timeout = 0 -- 335 compatibility
 }
 
 -- Create Quest Menu
@@ -441,11 +442,11 @@ function TrackerMenu:GetMenuForQuest(quest)
     TrackerMenu.addLinkToChatOption(menu, quest)
     TrackerMenu.addUntrackOption(menu, quest)
     TrackerMenu.addAbandonedQuest(menu, quest)
-
+	print("QUESTIE_WOWHEAD_URL for quest ", quest.Id)
     tinsert(menu, {
         text = "|cFF39c0edWoWHead URL|r",
         func = function()
-            StaticPopup_Show("QUESTIE_WOWHEAD_URL", quest.Id)
+            StaticPopup_Show("QUESTIE_WOWHEAD_URL", quest.Id, nil, quest.Id) -- 335 compat?
         end
     })
 
@@ -532,7 +533,7 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_AURL"] = {
         self:GetParent():Hide()
     end,
     OnShow = function(self)
-        local achieveID = self.text.text_arg1
+        local achieveID = self.text.text_arg1 or self.data
         local name = select(2, GetAchievementInfo(achieveID))
 
         self.text:SetFont("GameFontNormal", 12)
@@ -554,7 +555,8 @@ StaticPopupDialogs["QUESTIE_WOWHEAD_AURL"] = {
         end)
     end,
     whileDead = true,
-    hideOnEscape = true
+    hideOnEscape = true,
+    timeout = 0 -- 335 compatibility
 }
 
 -- Create Achievement Menu
@@ -574,7 +576,7 @@ function TrackerMenu:GetMenuForAchievement(achieve)
     tinsert(menu, {
         text = "|cFF39c0edWoWHead URL|r",
         func = function()
-            StaticPopup_Show("QUESTIE_WOWHEAD_AURL", achieve.Id)
+            StaticPopup_Show("QUESTIE_WOWHEAD_AURL", achieve.Id, nil, achieve.Id) -- 335 Compat ?
         end
     })
 

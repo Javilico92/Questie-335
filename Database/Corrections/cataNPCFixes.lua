@@ -2045,6 +2045,10 @@ function CataNpcFixes.Load()
                 [zoneIDs.EVERSONG_WOODS] = {{47.25,46.48}},
             },
         },
+        [24111] = { -- Defender Mordun
+            [npcKeys.spawns] = {[zoneIDs.UTGARDE_KEEP] = {{67.56,70.9},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.UTGARDE_KEEP,
+        },
         [24222] = { -- Windy Cloud
             [npcKeys.spawns] = {[zoneIDs.NAGRAND] = {{58.46,42.35},{68.45,65.45},{56.02,37.81},{60.33,75.52},{43.92,77.98},{30.3,63.21},{31.48,73.63},{41.98,27.34},{50.84,29.54},{57.33,27.54},{44.59,46.1},{52.26,48.95},{21.65,32.48},{33.76,26.62},{65.74,56.2},{48.61,66.16},{54.41,22.62},{63.9,91.29},{69.82,43.8},{45.35,61.67},{31.87,49.2},{69.38,56.92},{63.72,61.52},{58.07,25.73},{36.38,30.55},{25.5,42.53},{71.06,42.77},{70.23,52.18},{65.1,45.85},{61.95,39.49},{26.19,16.29},{24.19,29.3},{14.84,42.99},{22.48,51.72},{24.16,75.94},{5.97,35.72},{43.26,52.97},{56.49,66.42},{31.68,46.23},{68.47,57.43},{67.19,77.25},{70.22,69.61},{26.06,53.57},{21.9,53.48},{25.52,28.28},{73.35,37.93},{37.71,77.74},{30.12,69.0},{53.67,73.97},{56.26,70.68},{54.2,79.38},{65.75,76.51},{35.08,42.23},{48.84,72.11},{55.11,80.34},{54.38,72.58},{59.25,70.99},{59.47,45.73},{50.29,46.07},{38.06,28.68},{68.71,70.41},{70.64,71.15},{51.12,45.99}}},
         },
@@ -2370,9 +2374,6 @@ function CataNpcFixes.Load()
         },
         [33444] = { -- Harbinger Aphotic
             [npcKeys.spawns] = {[zoneIDs.ASHENVALE] = {{20.34,42.47}}},
-        },
-        [37759] = { -- Omusa's Spirit
-            [npcKeys.spawns] = {[zoneIDs.THE_BARRENS] = {{43.6,52.2}}},
         },
         [33889] = { -- Krokk
             [npcKeys.spawns] = {[zoneIDs.ASHENVALE] = {{82.54,53.8}}},
@@ -2781,6 +2782,9 @@ function CataNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.GILNEAS] = {{78.11,66.11}}},
             [npcKeys.waypoints] = {[zoneIDs.GILNEAS] = {{{79.33,64.84},{79.16,65.02},{78.90,65.31},{78.84,65.34},{78.77,65.38},{78.69,65.42},{78.60,65.48},{78.44,65.63},{78.37,65.70},{78.31,65.78},{78.25,65.85},{78.19,65.93},{78.13,66.01},{78.10,66.11},{78.14,66.21},{78.17,66.32},{78.13,66.42},{78.07,66.50},{78.00,66.47},{77.95,66.38},{77.90,66.30},{77.90,66.30},{77.87,66.27},{77.82,66.18},{77.84,66.08},{77.90,65.99},{77.97,66.02},{77.97,66.02},{78.01,66.06},{78.08,66.12},{78.08,66.13}}}},
         },
+        [37759] = { -- Omusa's Spirit
+            [npcKeys.spawns] = {[zoneIDs.SOUTHERN_BARRENS] = {{43.69,52.34}}},
+        },
         [37776] = { -- Apprentice Nelphi
             [npcKeys.spawns] = {[zoneIDs.DALARAN] = {{44.86,72.41}}},
             [npcKeys.zoneID] = zoneIDs.DALARAN,
@@ -2796,6 +2800,10 @@ function CataNpcFixes.Load()
                     {70.88,39.84,phases.GILNEAS_CHAPTER_10},
                 },
             },
+        },
+        [37843] = { -- Gar'dul Top of Tower Quest Credit
+            [npcKeys.spawns] = {[zoneIDs.SOUTHERN_BARRENS] = {{40.72,69.24}}},
+            [npcKeys.zoneID] = zoneIDs.SOUTHERN_BARRENS,
         },
         [37847] = { -- Mankrik
             [npcKeys.spawns] = {[zoneIDs.SOUTHERN_BARRENS] = {{44.51,88.09}}},
@@ -2880,6 +2888,10 @@ function CataNpcFixes.Load()
         },
         [38240] = { -- Dweller of the North
             [npcKeys.name] = "Dweller of the North"
+        },
+        [38251] = { -- Bael'dun Escape Quest Credit
+            [npcKeys.spawns] = {[zoneIDs.SOUTHERN_BARRENS] = {{49.84,86.84}}},
+            [npcKeys.zoneID] = zoneIDs.SOUTHERN_BARRENS,
         },
         [38255] = { -- Maximillian of Northshire
             [npcKeys.spawns] = {[zoneIDs.UN_GORO_CRATER] = {{30.62,51.14}}},
@@ -5567,6 +5579,10 @@ function CataNpcFixes.Load()
         },
         [57913] = { -- Chromie
             [npcKeys.spawns] = {[zoneIDs.WELL_OF_ETERNITY] = {{87.32,49.23},{-1,-1}}},
+        },
+        [58038] = { -- Wrathion
+            [npcKeys.spawns] = {[zoneIDs.HILLSBRAD_FOOTHILLS] = {{70.53,46.79}}},
+            [npcKeys.zoneID] = zoneIDs.HILLSBRAD_FOOTHILLS,
         },
         [80001] = { -- Maintain a Trot for 8 seconds
             [npcKeys.name] = "Maintain a Trot for 8 seconds",

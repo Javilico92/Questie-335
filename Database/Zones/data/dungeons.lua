@@ -1,5 +1,7 @@
 ---@type ZoneDB
 local ZoneDB = QuestieLoader:ImportModule("ZoneDB")
+---@type Expansions
+local Expansions = QuestieLoader:ImportModule("Expansions")
 local isHorde = UnitFactionGroup("Player") == "Horde"
 
 ---@class DungeonZoneEntry
@@ -50,7 +52,7 @@ local dungeons = {
     [3606] = {"Hyjal Summit",nil,440,{{440, 65.7, 49.8}}},
     [3607] = {"Serpentshire Cavern",nil,3521,{{3521, 50.4, 40.9}}},
     [3713] = {"The Blood Furnace",nil,3483,{{3483, 46.0, 51.8}}},
-    [3714] = {"The Shattered Halls",3535,3483,{{3483, 47.7, 52.0}}},
+    [3714] = {"The Shattered Halls",nil,3483,{{3483, 47.7, 52.0}}},
     [3715] = {"The Steamvault",nil,3521,{{3521, 50.4, 40.9}}},
     [3716] = {"The Underbog",nil,3521,{{3521, 50.4, 40.9}}},
     [3717] = {"The Slave Pens",nil,3521,{{3521, 50.4, 40.9}}},
@@ -106,6 +108,7 @@ local dungeons = {
     [5844] = {"Hour of Twilight",nil,440,{{440, 64.8, 50}}},
     [5861] = {"Darkmoon Faire Island",nil,440,{{12, 41.79, 69.52},{215, 36.85, 35.86}}},
     [5892] = {"Dragon Soul",nil,440,{{440, 64.8, 50}}},
+    [6298] = {"Brawl'gar Arena",nil,1637,{{1637, 70.7, 30.6}}},
     [7307] = {"Upper Blackrock Spire",nil,51,{{51, 34.8, 85.3}, {46, 29.4, 38.3}}},
     [10001] = {"Stratholme",nil,139,{{139, 43.5, 19.4}}}, -- The Gauntlet
     [10022] = {"Dire Maul",nil,357,{{357, 62.5,24.9}}}, -- North
@@ -116,12 +119,12 @@ local dungeons = {
     [10027] = {"Dire Maul",nil,357,{{357, 64.8,30.2}}}, -- East
     [15475] = {"Demon Fall Canyon",nil,331,{{331, 84.7, 74.4}}},
     [15531] = {"The Tainted Scar",nil,4,{{4, 45.3,55.0}}},
-    [15828] = {"The Burning of Andorhal",nil,22,{{22, 69.6,79.6}}},
+    [15828] = {"The Burning of Andorhal",nil,28,{{28, 69.6,79.6}}},
     [16074] = {"Karazhan Crypts",nil,41,{{41, 39.99, 74.16}}},
     [16236] = {"Scarlet Enclave",nil,139,{{139, 68.67, 87.84}}},
 }
 
-if Questie.IsCata or Questie.IsMoP then
+if Expansions.Current >= Expansions.Cata then
     dungeons[491][3] = 4709 -- Utgarde Keep
     dungeons[491][4] = {{4709, 41, 94.6}} -- Utgarde Keep
     dungeons[717][4] = {{1519, 52.4, 70}} -- The Stockade

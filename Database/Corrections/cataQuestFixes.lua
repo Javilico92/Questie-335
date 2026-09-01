@@ -806,6 +806,9 @@ function CataQuestFixes.Load()
             [questKeys.requiredLevel] = 54,
             [questKeys.preQuestSingle] = {8321},
         },
+        [8308] = { -- Brann Bronzebeard's Lost Letter
+            [questKeys.startedBy] = {nil,nil,{20461}},
+        },
         [8318] = { -- Secret Communication
             [questKeys.preQuestSingle] = {},
         },
@@ -3722,6 +3725,10 @@ function CataQuestFixes.Load()
         [24569] = { -- Siegebreaker
             [questKeys.preQuestGroup] = {24546,24551},
         },
+        [24573] = { -- Honoring the Dead
+            [questKeys.preQuestSingle] = {24569},
+            [questKeys.objectives] = {nil,nil,nil,nil,{{{3703,37747},3703,nil,Questie.ICON_TYPE_EVENT},{{6387,37756},6387,nil,Questie.ICON_TYPE_EVENT},{{5944,37758},5944,nil,Questie.ICON_TYPE_EVENT},{{10378,37759},10378,nil,Questie.ICON_TYPE_EVENT}}},
+        },
         [24575] = { -- Liberation Day
             [questKeys.requiredSourceItems] = {49881},
             [questKeys.objectives] = {{{37694,"Enslaved Gilnean freed",Questie.ICON_TYPE_INTERACT}}},
@@ -3729,6 +3736,10 @@ function CataQuestFixes.Load()
         },
         [24577] = { -- Desolation Hold Inspection
             [questKeys.objectives] = {{{37811,"Gar'dul Notified",Questie.ICON_TYPE_TALK}}},
+            [questKeys.extraObjectives] = {{nil,Questie.ICON_TYPE_TALK,l10n("Take a ride to Desolation Hold"),0,{{"monster",37679}}}},
+        },
+        [24591] = { -- Changing of the Gar'dul
+            [questKeys.objectives] = {{{37843,nil,Questie.ICON_TYPE_EVENT},{37811,nil,Questie.ICON_TYPE_EVENT}}},
         },
         [24593] = { -- Neither Human Nor Beast
             [questKeys.preQuestSingle] = {},
@@ -3740,12 +3751,18 @@ function CataQuestFixes.Load()
         [24601] = { -- The Nightmare Scar
             [questKeys.extraObjectives] = {{nil,Questie.ICON_TYPE_TALK,l10n("Start the event"),0,{{"monster",37570}}}},
         },
+        [24604] = { -- Concern for Mankrik
+            [questKeys.nextQuestInChain] = 24603,
+        },
         [24612] = { -- A Gift for the Emissary of Orgrimmar
             [questKeys.finishedBy] = {{39605}},
         },
         [24618] = { -- Claim the Battle Scar
             [questKeys.preQuestSingle] = {24591},
             [questKeys.objectives] = {{{37923}},{{201876,nil,Questie.ICON_TYPE_EVENT}}},
+        },
+        [24619] = { -- Parts-is-Parts
+            [questKeys.extraObjectives] = {{nil,Questie.ICON_TYPE_INTERACT,l10n("Use Calder's Bonesaw on its remains"),0,{{"monster",37922},{"monster",37923},{"monster",37925},{"monster",37926},{"monster",37971},{"monster",37977}}}},
         },
         [24622] = { -- A Troll's Truest Companion
             [questKeys.requiredRaces] = raceIDs.ALL_HORDE,
@@ -3774,6 +3791,9 @@ function CataQuestFixes.Load()
         },
         [24628] = { -- Preparations
             [questKeys.preQuestSingle] = {24617},
+        },
+        [24632] = { -- Tauren Vengeance
+            [questKeys.nextQuestInChain] = 24684,
         },
         [24633] = { -- Mahka's Plea
             [questKeys.preQuestSingle] = {24653},
@@ -4023,6 +4043,9 @@ function CataQuestFixes.Load()
         },
         [24744] = { -- The Biggest Egg Ever
             [questKeys.extraObjectives] = {{nil,Questie.ICON_TYPE_SLAY,l10n("Kill the Mechachicken"),0,{{"monster",38224}}}},
+        },
+        [24747] = { -- Sabotage!
+            [questKeys.objectives] = {{{38109,nil,Questie.ICON_TYPE_INTERACT},{38251,nil,Questie.ICON_TYPE_EVENT}}},
         },
         [24751] = { -- The Basics: Hitting Things
             [questKeys.requiredRaces] = raceIDs.ALL_HORDE,
@@ -4968,6 +4991,10 @@ function CataQuestFixes.Load()
         [25355] = { -- Lightning in a Bottle
             [questKeys.preQuestSingle] = {25277},
         },
+        [25356] = { -- To the Summit
+            [questKeys.objectives] = {nil,nil,nil,nil,{{{40358,39898},40358,nil,Questie.ICON_TYPE_TALK}}},
+            [questKeys.nextQuestInChain] = 25487,
+        },
         [25357] = { -- Buy Us Some Time
             [questKeys.exclusiveTo] = {},
         },
@@ -5170,8 +5197,9 @@ function CataQuestFixes.Load()
             [questKeys.preQuestSingle] = {25949,25558},
         },
         [25478] = { -- To the Summit
-            [questKeys.objectives] = {{{40358,nil,Questie.ICON_TYPE_TALK}}},
+            [questKeys.objectives] = {nil,nil,nil,nil,{{{40358,39898},40358,nil,Questie.ICON_TYPE_TALK}}},
             [questKeys.preQuestSingle] = {},
+            [questKeys.nextQuestInChain] = 25487,
         },
         [25479] = { -- To New Thalanaar
             [questKeys.objectives] = {nil,nil,nil,nil,{{{40358,40367},40358,nil,Questie.ICON_TYPE_TALK}}},
@@ -5184,6 +5212,9 @@ function CataQuestFixes.Load()
         },
         [25486] = { -- The Grimtotem are Coming
             [questKeys.zoneOrSort] = zoneIDs.FERALAS,
+            [questKeys.preQuestSingle] = {},
+        },
+        [25487] = { -- The Grimtotem are Coming
             [questKeys.preQuestSingle] = {},
         },
         [25496] = { -- Grudge Match
@@ -6076,7 +6107,8 @@ function CataQuestFixes.Load()
             [questKeys.objectives] = {{{41628,nil,Questie.ICON_TYPE_INTERACT}}},
         },
         [25940] = { -- Last Stand at Whistling Grove
-            [questKeys.preQuestSingle] = {25428},
+            [questKeys.preQuestSingle] = {},
+            [questKeys.preQuestGroup] = {25428,25392},
             [questKeys.exclusiveTo] = {25462},
         },
         [25942] = { -- Buy Us Some Time
@@ -7720,9 +7752,10 @@ function CataQuestFixes.Load()
         },
         [26701] = { -- Flight to Brackenwall
             [questKeys.nextQuestInChain] = 26682,
+            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_TALK, l10n("Get a ride to Dustwallow Marsh"), 0, {{"monster", 16227}}}},
         },
         [26702] = { -- Flight to Theramore
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_TALK, l10n("Get a ride to Theramore"), 0, {{"monster", 16227}}}},
+            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_TALK, l10n("Get a ride to Dustwallow Marsh"), 0, {{"monster", 16227}}}},
             [questKeys.nextQuestInChain] = 27210,
         },
         [26703] = { -- Bloodsail's End
@@ -8836,7 +8869,7 @@ function CataQuestFixes.Load()
             [questKeys.preQuestGroup] = {27257,27259,27261},
         },
         [27261] = { -- Questioning Reethe
-            [questKeys.triggerEnd] = {"Question Reethe with Ogron", {[zoneIDs.DUSTWALLOW_MARSH]={{42.47,38.07}}}},
+            [questKeys.objectives] = {{{4980,nil,Questie.ICON_TYPE_EVENT}}},
         },
         [27262] = { -- Suspicious Hoofprints
             [questKeys.preQuestSingle] = {27249},
@@ -9248,6 +9281,9 @@ function CataQuestFixes.Load()
             [questKeys.preQuestSingle] = {},
             [questKeys.preQuestGroup] = {27408,27409},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Redeem Remains"), 0, {{"object", 186332}}}},
+        },
+        [27415] = { -- The Brood of Onyxia
+            [questKeys.preQuestSingle] = {27416},
         },
         [27416] = { -- The Brood of Onyxia
             [questKeys.preQuestSingle] = {27414},
@@ -10699,7 +10735,7 @@ function CataQuestFixes.Load()
             [questKeys.preQuestGroup] = {27976,27977},
         },
         [27981] = { -- Heat That Just Don't Quit
-            [questKeys.objectives] = {{nil, nil, {62827,nil,Questie.ICON_TYPE_INTERACT}}},
+            [questKeys.objectives] = {nil,nil,{{62827,nil,Questie.ICON_TYPE_INTERACT}}},
             [questKeys.preQuestSingle] = {27965},
         },
         [27982] = { -- Twilight Collars
@@ -11491,10 +11527,12 @@ function CataQuestFixes.Load()
         [28295] = { -- Meetup with the Caravan
             [questKeys.exclusiveTo] = {28558},
             [questKeys.zoneOrSort] = zoneIDs.TANARIS,
+            [questKeys.nextQuestInChain] = 27003,
         },
         [28296] = { -- Meetup with the Caravan
             [questKeys.exclusiveTo] = {28557},
             [questKeys.zoneOrSort] = zoneIDs.TANARIS,
+            [questKeys.nextQuestInChain] = 27003,
         },
         [28297] = { -- Meet with Ormak Grimshot
             [questKeys.nextQuestInChain] = 28461,
@@ -12275,6 +12313,7 @@ function CataQuestFixes.Load()
         [28554] = { -- Warchief's Command: Dustwallow Marsh!
             [questKeys.objectives] = {},
             [questKeys.requiredMaxLevel] = 38,
+            [questKeys.nextQuestInChain] = 26682,
         },
         [28556] = { -- Breaking the Hand
             [questKeys.objectives] = {{{48862,nil,Questie.ICON_TYPE_EVENT},{48864,nil,Questie.ICON_TYPE_EVENT},{48865,nil,Questie.ICON_TYPE_EVENT},{48867,nil,Questie.ICON_TYPE_EVENT}}},

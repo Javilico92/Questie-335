@@ -346,7 +346,9 @@ local function _GetWowheadLinkForLanguage()
     end
 
     local xpac
-    if Questie.IsCata then
+    if Questie.IsMoP then
+        xpac = "mop-classic/"
+    elseif Questie.IsCata then
         xpac = "cata/"
     elseif Questie.IsWotlk then
         xpac = "wotlk/"
@@ -442,7 +444,7 @@ function TrackerMenu:GetMenuForQuest(quest)
     TrackerMenu.addLinkToChatOption(menu, quest)
     TrackerMenu.addUntrackOption(menu, quest)
     TrackerMenu.addAbandonedQuest(menu, quest)
-	print("QUESTIE_WOWHEAD_URL for quest ", quest.Id)
+
     tinsert(menu, {
         text = "|cFF39c0edWoWHead URL|r",
         func = function()

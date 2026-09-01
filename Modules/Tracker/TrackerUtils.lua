@@ -14,6 +14,8 @@ local QuestieCombatQueue = QuestieLoader:ImportModule("QuestieCombatQueue")
 -------------------------
 --Import Questie modules.
 -------------------------
+---@type Expansions
+local Expansions = QuestieLoader:ImportModule("Expansions")
 ---@type QuestiePlayer
 local QuestiePlayer = QuestieLoader:ImportModule("QuestiePlayer")
 ---@type QuestieDB
@@ -34,6 +36,7 @@ local l10n = QuestieLoader:ImportModule("l10n")
 --local IsAddOnLoaded = C_AddOns.IsAddOnLoaded or IsAddOnLoaded
 --local GetItemCount = C_Item.GetItemCount or GetItemCount
 --local GetItemSpell = C_Item.GetItemSpell or GetItemSpell
+--local IsEquippableItem = C_Item.IsEquippableItem or IsEquippableItem
 
 --- COMPATIBILITY ---
 local C_Timer = QuestieCompat.C_Timer

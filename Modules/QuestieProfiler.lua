@@ -1,4 +1,6 @@
 local QuestieProfiler = QuestieLoader:CreateModule("Profiler")
+---@type Expansions
+local Expansions = QuestieLoader:ImportModule("Expansions")
 
 --- COMPATIBILITY ---
 local C_Timer = QuestieCompat.C_Timer

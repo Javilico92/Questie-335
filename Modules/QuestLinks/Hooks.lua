@@ -7,6 +7,8 @@ local Hooks = QuestieLoader:CreateModule("Hooks")
 local QuestieTracker = QuestieLoader:ImportModule("QuestieTracker")
 ---@type QuestieLink
 local QuestieLink = QuestieLoader:ImportModule("QuestieLink")
+---@type Expansions
+local Expansions = QuestieLoader:ImportModule("Expansions")
 
 --- COMPATIBILITY ---
 local GetQuestLogTitle = QuestieCompat.GetQuestLogTitle
@@ -24,7 +26,7 @@ function Hooks:HookQuestLogTitle()
         end
 
         local questLogLineIndex
-        if Questie.IsWotlk or Questie.IsCata or Questie.IsMoP then
+        if Expansions.Current >= Expansions.Wotlk then
             -- With Wotlk the offset is no longer required cause the API already hands the correct index
             questLogLineIndex = self:GetID()
         else

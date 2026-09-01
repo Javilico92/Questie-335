@@ -77,6 +77,18 @@ function CataObjectFixes.Load()
         [144052] = { -- Sandsorrow Watch Water Hole
             [objectKeys.name] = "Sandsorrow Watch Water Hole",
         },
+        [144128] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [144129] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [144131] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195603] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
         [147557] = { -- Stolen Silver
             [objectKeys.spawns] = {[zoneIDs.THE_BARRENS] = {{63.72,58.80}}},
         },
@@ -270,6 +282,9 @@ function CataObjectFixes.Load()
         [181598] = { -- Silithyst Geyser
             [objectKeys.spawns] = {[zoneIDs.SILITHUS] = {{18.8,80.4},{25.6,76.7},{27.2,72.1},{28.9,73},{30.4,70.5},{30.58,76.64},{33.67,73.11},{34.52,69.41},{35.01,64.8},{36.3,22.8},{37.18,62.94},{37.8,26},{37.84,59.34},{38.01,29.99},{38.4,66.4},{39.7,33.8},{40.4,21.4},{40.9,26.1},{41,65.6},{41.7,60.1},{41.9,36.2},{42,28.9},{42.4,69.7},{42.5,83.6},{43,75.7},{43.1,64.3},{43.5,25.7},{43.5,77},{43.74,60.8},{44.4,72.4},{44.9,30.1},{45.27,22.34},{45.2,80.8},{46.3,69.3},{46.4,66.1},{46.51,72.47},{46.7,26.4},{47.4,74.9},{47.7,39.2},{48.54,31.14},{48.4,69.3},{49.1,76.4},{50,50},{50.7,77},{51.1,72.4},{51.6,43.3},{51.7,46.9},{52.89,76.2},{53.23,41.64},{54.3,46.8},{57.18,47.23},{57.8,51.1},{59,49.5},{60,41},{60.8,46.1},{61.84,53.6},{62.2,44.8},{62.57,42.58},{63.1,57.1},{64.9,54.5},{65.55,59.42},{65.74,41.31},{66,63.9},{67.2,42.2}}},
         },
+        [181626] = { -- Warped Crates
+            [objectKeys.spawns] = {[zoneIDs.DUSTWALLOW_MARSH] = {{46.61,24.59},{46.61,24.26}}},
+        },
         [181679] = { -- Fel Brazier
             [objectKeys.spawns] = {[zoneIDs.THE_SHATTERED_HALLS] = {{31.71,60.44},{31.71,63.29},{-1,-1}}},
         },
@@ -460,6 +475,9 @@ function CataObjectFixes.Load()
         [190108] = { -- Candy Bucket
             [objectKeys.spawns] = {[zoneIDs.EASTERN_PLAGUELANDS] = {{75.57,52.3}}},
         },
+        [192826] = { -- Drakkari History Tablet
+            [objectKeys.spawns] = {[zoneIDs.GUNDRAK] = {{-1,-1}}},
+        },
         [194070] = { -- Candy Bucket
             [objectKeys.spawns] = {[zoneIDs.STORM_PEAKS] = {{30.92,37.16}}},
         },
@@ -498,6 +516,57 @@ function CataObjectFixes.Load()
         },
         [195602] = { -- Animate Besalt Chunk
             [objectKeys.spawns] = {[zoneIDs.AZSHARA] = {{46.6,16.4},{47.4,16.7},{47.8,17.4},{48.1,17.9},{48.3,18.5},{48.6,18.4},{49.1,18.8},{49.4,19.6},{49.5,19.3},{49.9,19.9},{50.9,20.5},{51.3,20.2},{51.5,20.2},{52.5,20.3},{52.9,20.8},{53.7,21.1},{53.7,21.5}}},
+        },
+        [195604] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195605] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195606] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195607] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195608] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195609] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195610] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195611] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195612] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195613] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195614] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195615] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195616] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195617] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195618] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195619] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
+        },
+        [195620] = { -- Mailbox
+            [objectKeys.factionID] = 1732,
         },
         [195622] = { -- Kaja'mite Ore
             [objectKeys.spawns] = {[zoneIDs.THE_LOST_ISLES] = {{31.76,73.52}}},

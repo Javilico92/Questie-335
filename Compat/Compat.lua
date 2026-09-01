@@ -40,6 +40,8 @@ local QuestieNameplate = QuestieLoader:ImportModule("QuestieNameplate")
 local QuestieCorrections = QuestieLoader:ImportModule("QuestieCorrections")
 ---@class QuestieLink
 local QuestieLink = QuestieLoader:ImportModule("QuestieLink")
+---@class Expansions
+local Expansions = QuestieLoader:ImportModule("Expansions")
 
 -- addon/folder name
 QuestieCompat.addonName = ...
@@ -61,8 +63,14 @@ QuestieCompat.WOW_PROJECT_CLASSIC = 2
 QuestieCompat.WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
 QuestieCompat.WOW_PROJECT_WRATH_CLASSIC = 11
 QuestieCompat.WOW_PROJECT_CATACLYSM_CLASSIC = 14
+QuestieCompat.WOW_PROJECT_MISTS_CLASSIC = 19
 QuestieCompat.WOW_PROJECT_ID = tonumber(GetAddOnMetadata(QuestieCompat.addonName, "X-WOW_PROJECT_ID"))
 
+if Expansions and QuestieCompat.WOW_PROJECT_ID == QuestieCompat.WOW_PROJECT_WRATH_CLASSIC
+then
+    Expansions.Current = Expansions.Wotlk
+end
+    
 -- check for a specific type of group
 QuestieCompat.LE_PARTY_CATEGORY_HOME = 1 -- home-realm parties
 QuestieCompat.LE_PARTY_CATEGORY_INSTANCE = 2 -- instance-specific groups
@@ -581,6 +589,15 @@ function QuestieCompat.HaveQuestData(questID)
 	return true
 end
 
+-- Clean quest title (if using addon like QuestLevelPatch)
+local function NormalizeQuestTitle(title)
+    if not title then
+        return nil
+    end
+
+    return title:gsub("^%[[^%]]+%]%s*", "")
+end
+
 -- https://wowpedia.fandom.com/wiki/API_GetQuestLogTitle?oldid=2214753
 -- Returns information about a quest in your quest log.
 -- Patch 6.0.2 (2014-10-14): Removed returns 'questTag'.
@@ -869,15 +886,17 @@ function QuestieCompat.GetQuestID(questStarter, title)
 end
 
 function QuestieCompat.GetQuestIDFromName(questTitle)
+    questTitle = NormalizeQuestTitle(questTitle)
+
     for questLogIndex = 1, MAX_QUEST_LOG_INDEX do
         local title, _, _, _, isHeader, _, _, _, id = GetQuestLogTitle(questLogIndex)
-        if (not title) then
-            break -- We exceeded the valid quest log entries
+
+        if not title then
+            break
         end
-        if (not isHeader) then
-            if (questTitle == title) then
-                return id
-            end
+
+        if not isHeader and NormalizeQuestTitle(title) == questTitle then
+            return id
         end
     end
 end
@@ -1579,6 +1598,7 @@ local DAILY_QUESTS_MSG = DAILY_QUESTS_REMAINING:gsub("%%d", "(%%d+)"):gsub("|4(.
 function QuestieCompat:CHAT_MSG_SYSTEM(event, message)
     local questName = message:match(QUEST_COMPLETE_MSG)
     local questId = completeQuestCache[questName]
+    Questie:Debug(Questie.DEBUG_INFO, "QUEST_COMPLETE_MSG received for quest ", questName, questId, QUEST_COMPLETE_MSG);
     if questId then
         QuestEventHandler.QuestTurnedIn(questId)
         QuestEventHandler.QuestRemoved(questId)

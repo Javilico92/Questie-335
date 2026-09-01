@@ -49,6 +49,8 @@ local Phasing = QuestieLoader:ImportModule("Phasing")
 local QuestFinisher = QuestieLoader:ImportModule("QuestFinisher")
 ---@type DistanceUtils
 local DistanceUtils = QuestieLoader:ImportModule("DistanceUtils")
+---@type Expansions
+local Expansions = QuestieLoader:ImportModule("Expansions")
 
 --- COMPATIBILITY ---
 local C_Timer = QuestieCompat.C_Timer
@@ -514,7 +516,7 @@ function QuestieQuest:CompleteQuest(questId)
         Questie.db.char.complete[questId] = (not QuestieDB.IsRepeatable(questId)) or QuestieDB.IsDailyQuest(questId) or QuestieDB.IsWeeklyQuest(questId);
     end
 
-    if Questie.IsWotlk or Questie.IsCata or Questie.IsMoP then
+    if Expansions.Current >= Expansions.Wotlk then
         if allianceChampionMarkerQuests[questId] then
             Questie.db.char.complete[13700] = true -- Alliance Champion Marker
             Questie.db.char.complete[13686] = nil -- Alliance Tournament Eligibility Marker

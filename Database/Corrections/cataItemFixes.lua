@@ -301,6 +301,9 @@ function CataItemFixes.Load()
         [27480] = { -- Soul Device
             [itemKeys.objectDrops] = {182940},
         },
+        [31697] = { -- Dread Relic
+            [itemKeys.npcDrops] = {},
+        },
         [31880] = { -- Blood Elf Orphan Whistle
             [itemKeys.class] = itemClasses.QUEST,
         },
@@ -313,11 +316,17 @@ function CataItemFixes.Load()
         [33833] = { -- Nazan's Riding Crop
             [itemKeys.npcDrops] = {17307},
         },
+        [34028] = { -- "Honorary Brewer" Hand Stamp
+            [itemKeys.npcDrops] = {},
+        },
         [34130] = { -- Recovery Diver's Potion
             [itemKeys.class] = itemClasses.QUEST,
         },
         [38567] = { -- Maraudine Prisoner Manifest
             [itemKeys.startQuest] = 14330,
+        },
+        [38575] = { -- Shiny Treasures
+            [itemKeys.npcDrops] = {},
         },
         [39684] = { -- Hair Trigger
             [itemKeys.npcDrops] = {},
@@ -1122,6 +1131,10 @@ function CataItemFixes.Load()
         },
         [65734] = { -- Twilight Documents
             [itemKeys.class] = itemClasses.QUEST,
+        },
+        [67419] = { -- Salvaged Metal
+            [itemKeys.npcDrops] = {},
+            [itemKeys.objectDrops] = {182937,182938},
         },
         [68638] = { -- Frostsaber Cub
             [itemKeys.npcDrops] = {51681},

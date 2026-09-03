@@ -1019,7 +1019,7 @@ function QuestieQuestFixes:Load()
             [questKeys.preQuestSingle] = {},
         },
         [1919] = { -- Report to Jennea
-            [questKeys.startedBy] = {{328,7312}},
+            [questKeys.startedBy] = {{328,1228,7312}},
         },
         [1920] = {
             [questKeys.preQuestSingle] = {}, -- #1328
@@ -1584,11 +1584,14 @@ function QuestieQuestFixes:Load()
         [4491] = {
             [questKeys.triggerEnd] = {"Escort Ringo to Spraggle Frock at Marshal's Refuge", {[zoneIDs.UN_GORO_CRATER]={{43.71,8.29}}}},
         },
+        [4492] = {
+            [questKeys.triggerEnd] = {"Escort Ringo to Spraggle Frock at Marshal's Refuge", {[zoneIDs.UN_GORO_CRATER]={{43.71,8.29}}}}, -- needed for deDE blizzard spaghetti #2432
+        },
         [4493] = { -- March of the Silithid
             [questKeys.preQuestSingle] = {162,4267},
         },
         [4494] = {
-            [questKeys.preQuestSingle] = {32,7732},
+            [questKeys.preQuestSingle] = {7732},
         },
         [4496] = {
             [questKeys.preQuestSingle] = {4493,4494},
@@ -1669,7 +1672,7 @@ function QuestieQuestFixes:Load()
             [questKeys.requiredSourceItems] = {12300,12323},
             [questKeys.startedBy] = {{10299}},
             [questKeys.finishedBy] = {{10299}},
-            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_OBJECT, l10n("Beat Emberstrife till his will is broken, then place the Unforged Seal of Ascension before him and use the Orb of Draconic Energy."), 0, {{"monster", 10321}}},
+            [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_INTERACT, l10n("Beat Emberstrife till his will is broken, then place the Unforged Seal of Ascension before him and use the Orb of Draconic Energy."), 0, {{"monster", 10321}}},
 			                               {nil, Questie.ICON_TYPE_OBJECT, l10n("Use the Flames of the Black Flight over it to create the Seal."), 0, {{"object", 175321}}},
 			},
         },
@@ -1727,6 +1730,9 @@ function QuestieQuestFixes:Load()
                                            {nil, Questie.ICON_TYPE_OBJECT, l10n("Use it to instantly kill one nearby ogre."),0,{{"object", 175584}}},
             },
         },
+        [4882] = {
+            [questKeys.preQuestSingle] = {4741},
+        },
         [4901] = {
             [questKeys.triggerEnd] = {"Discover the secret of the Altar of Elune", {[zoneIDs.WINTERSPRING]={{64.85,63.73}}}},
         },
@@ -1775,7 +1781,8 @@ function QuestieQuestFixes:Load()
         [5063] = {
             [questKeys.specialFlags] = specialFlags.REPEATABLE, -- #1335
         },
-        [5067] = {
+        [5067] = { -- Leggings of Arcana
+            [questKeys.requiredLevel] = 60,
             [questKeys.specialFlags] = specialFlags.REPEATABLE, -- #1335
         },
         [5068] = {
@@ -2713,6 +2720,87 @@ function QuestieQuestFixes:Load()
         [8044] = {
             [questKeys.name] = "The Rage of Mugamba",
         },
+        [8053] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8054] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8055] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8056] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8057] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8058] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8059] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8060] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8061] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8062] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8063] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8064] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8065] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8066] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8067] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8068] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8069] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8070] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8071] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8072] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8073] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8074] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8075] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8076] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8077] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8078] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8079] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
         [8105] = {
             [questKeys.specialFlags] = 0,
         },
@@ -2777,38 +2865,77 @@ function QuestieQuestFixes:Load()
         [8171] = {
             [questKeys.specialFlags] = 0,
         },
+        [8181] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
         [8183] = { -- The Heart of Hakkar
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [8184] = {
             [questKeys.requiredClasses] = classIDs.WARRIOR,
+            [questKeys.objectivesText] = {},
         },
         [8185] = {
             [questKeys.requiredClasses] = classIDs.PALADIN,
+            [questKeys.objectivesText] = {},
         },
         [8186] = {
             [questKeys.requiredClasses] = classIDs.ROGUE,
+            [questKeys.objectivesText] = {},
         },
         [8187] = {
             [questKeys.requiredClasses] = classIDs.HUNTER,
+            [questKeys.objectivesText] = {},
         },
         [8188] = {
             [questKeys.requiredClasses] = classIDs.SHAMAN,
+            [questKeys.objectivesText] = {},
         },
         [8189] = {
             [questKeys.requiredClasses] = classIDs.MAGE,
+            [questKeys.objectivesText] = {},
         },
         [8190] = {
             [questKeys.requiredClasses] = classIDs.WARLOCK,
+            [questKeys.objectivesText] = {},
         },
         [8191] = {
             [questKeys.requiredClasses] = classIDs.PRIEST,
+            [questKeys.objectivesText] = {},
         },
         [8192] = {
             [questKeys.requiredClasses] = classIDs.DRUID,
+            [questKeys.objectivesText] = {},
+        },
+        [8195] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8196] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8201] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8227] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [8233] = {
             [questKeys.startedBy] = {{918,3328,4163,4583,5165}},
+        },
+        [8238] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8239] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8240] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8243] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
+        },
+        [8246] = {
+            [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
         },
         [8250] = {
             [questKeys.startedBy] = {{331,3047,4567,7311,7312}},
@@ -2911,6 +3038,9 @@ function QuestieQuestFixes:Load()
         [8361] = {
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Summon a Templar using a full Twilight set."),0,{{"object", 180456},{"object", 180518},{"object", 180529},{"object", 180544},{"object", 180549},{"object", 180564},}}},
         },
+        [8363] = { -- Abyssal Signets
+            [questKeys.requiredMinRep] = {609,3000},
+        },
         [8367] = { -- For Great Honor
             [questKeys.zoneOrSort] = sortKeys.BATTLEGROUND,
         },
@@ -2936,10 +3066,10 @@ function QuestieQuestFixes:Load()
             [questKeys.requiredMaxLevel] = 29,
         },
         [8375] = { -- Remember Alterac Valley!
-            [questKeys.zoneOrSort] = sortKeys.ALTERAC_VALLEY,
+            [questKeys.zoneOrSort] = zoneIDs.ALTERAC_VALLEY,
         },
         [8383] = { -- Remember Alterac Valley!
-            [questKeys.zoneOrSort] = sortKeys.ALTERAC_VALLEY,
+            [questKeys.zoneOrSort] = zoneIDs.ALTERAC_VALLEY,
             [questKeys.objectivesText] = {},
         },
         [8384] = { -- Claiming Arathi Basin
@@ -2952,7 +3082,7 @@ function QuestieQuestFixes:Load()
             [questKeys.requiredMaxLevel] = 19,
         },
         [8387] = { -- Invaders of Alterac Valley
-            [questKeys.zoneOrSort] = sortKeys.ALTERAC_VALLEY,
+            [questKeys.zoneOrSort] = zoneIDs.ALTERAC_VALLEY,
             [questKeys.objectivesText] = {},
         },
         [8388] = { -- For Great Honor
@@ -4053,9 +4183,11 @@ function QuestieQuestFixes:Load()
         },
         [9415] = {
             [questKeys.exclusiveTo] = {},
+            [questKeys.nextQuestInChain] = 0,
         },
         [9416] = {
             [questKeys.exclusiveTo] = {},
+            [questKeys.nextQuestInChain] = 0,
         },
         [9419] = { -- Scouring the Desert
             [questKeys.preQuestSingle] = {},

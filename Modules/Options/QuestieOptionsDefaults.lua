@@ -115,7 +115,6 @@ function QuestieOptionsDefaults:Load()
             minLevelFilter = 1,
             maxLevelFilter = 10,
             enabled = true,
-            searchType = 1,
             autocomplete = false,
             autoModifier = "shift",
             autoAccept = {
@@ -123,6 +122,7 @@ function QuestieOptionsDefaults:Load()
                 trivial = false,
                 repeatable = true,
                 pvp = true,
+                rejectSharedInBattleground = false,
             },
             questAnnounceChannel = "party",
             questAnnounceItems = true,

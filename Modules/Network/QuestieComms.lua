@@ -581,7 +581,7 @@ function _QuestieComms:BroadcastQuestLog(eventName, sendMode, targetPlayer) -- b
             --print("[CommsSendOrder][Block " .. (blockCount - 1) .. "] " .. QuestieDB.QueryQuestSingle(entry.questId, "name"))
             entryCount = entryCount + 1
             rawQuestList[quest.id] = quest;
-            if string.len(QuestieSerializer:Serialize(rawQuestList), "b89") > 200 then--extra space for packet metadata and CTL stuff
+            if string.len(QuestieSerializer:Serialize(rawQuestList, "b89")) > 200 then--extra space for packet metadata and CTL stuff
                 rawQuestList[quest.id] = nil
                 tinsert(blocks, rawQuestList)
                 rawQuestList = {
@@ -701,7 +701,7 @@ function _QuestieComms:BroadcastQuestLogV2(eventName, sendMode, targetPlayer) --
 
             offset = QuestieComms:PopulateQuestDataPacketV2_noclass_renameme(entry.questId, rawQuestList, offset)
 
-            if string.len(QuestieSerializer:Serialize(rawQuestList), "b89") > 200 then--extra space for packet metadata and CTL stuff
+            if string.len(QuestieSerializer:Serialize(rawQuestList, "b89")) > 200 then--extra space for packet metadata and CTL stuff
                 rawQuestList[1] = entryCount
                 tinsert(blocks, rawQuestList)
                 rawQuestList = {}

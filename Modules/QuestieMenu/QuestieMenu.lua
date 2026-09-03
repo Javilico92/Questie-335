@@ -59,6 +59,7 @@ local _townsfolk_texturemap = {
     ["Barber"] = QuestieLib.AddonPath.."Icons\\barber.blp", -- No png for 3.3.5
     ["Arcane Reforger"] = QuestieLib.AddonPath.."Icons\\reforge.png",
     ["Transmogrifier"] = QuestieLib.AddonPath.."Icons\\transmogrify.png",
+    ["Battle Pet Trainer"] = QuestieLib.AddonPath.."Icons\\petbattle.png",
     ["Reagents"] = (function()
         if playerClass == "ROGUE" then
             return "Interface\\Minimap\\tracking\\poisons"
@@ -330,7 +331,7 @@ function QuestieMenu:Show(hideDelay)
     end})
     tinsert(menuTable, { text= l10n("Questie Options"), func=function()
         QuestieCombatQueue:Queue(function()
-            QuestieOptions:OpenConfigWindow()
+            QuestieOptions:ToggleConfigWindow()
         end)
     end})
 
@@ -400,3 +401,5 @@ function QuestieMenu:ShowVendors(hideDelay)
     tinsert(menuTable, {text= l10n('Cancel'), func=function() end})
     LibDropDown:EasyMenu(menuTable, QuestieMenu.menuVendors, "cursor", -60, -15, "MENU", hideDelay)
 end
+
+return QuestieMenu

@@ -6,7 +6,6 @@ local ZoneDB = QuestieLoader:ImportModule("ZoneDB")
 -- https://www.ownedcore.com/forums/world-of-warcraft/world-of-warcraft-emulator-servers/60411-zone-ids.html
 ---@enum ZoneIDs
 ZoneDB.zoneIDs = {
-    EASTERN_KINGDOM = 0, -- some things are so far off the map, we need to use this map
     DUN_MOROGH = 1,
     BADLANDS = 3,
     BLASTED_LANDS = 4,
@@ -92,9 +91,10 @@ ZoneDB.zoneIDs = {
     ARATHI_BASIN = 3358,
     AHN_QIRAJ = 3428, -- this is also The Temple Gates map for AQ40
     RUINS_OF_AHN_QIRAJ = 3429,
-    NAXXRAMAS = 3456, -- this is also The Lower Necropolis map for Naxxramas
     EVERSONG_WOODS = 3430,
     GHOSTLANDS = 3433,
+    NAXXRAMAS = 3456, -- this is also The Lower Necropolis map for Naxxramas
+    KARAZHAN = 3457,
     HELLFIRE_PENINSULA = 3483,
     SILVERMOON_CITY = 3487,
     NAGRAND = 3518,
@@ -109,6 +109,7 @@ ZoneDB.zoneIDs = {
     HELLFIRE_RAMPARTS = 3562,
     HYJAL_SUMMIT = 3606,
     SERPENTSHRINE_CAVERN = 3607,
+    SKETTIS = 3679,
     SHATTRATH_CITY = 3703,
     THE_BLOOD_FURNACE = 3713,
     THE_SHATTERED_HALLS = 3714,
@@ -179,6 +180,9 @@ ZoneDB.zoneIDs = {
     ISLE_OF_THUNDER = 6507,
     ISLE_OF_GIANTS = 6661,
     TIMELESS_ISLE = 6757,
+    KALIMDOR = 10073, -- continent map
+    EASTERN_KINGDOMS = 10074, -- continent map
+    PANDARIA = 10075, -- continent map
     -- Fake IDs for Forge Of Souls
     FORGE_OF_SOULS = 4809,
     PIT_OF_SARON = 4813,

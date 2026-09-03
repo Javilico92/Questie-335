@@ -59,7 +59,7 @@ function TrackerHeaderFrame.Initialize(baseFrame, OnTrackedQuestClick)
             end
 
             QuestieCombatQueue:Queue(function()
-                QuestieOptions:OpenConfigWindow()
+                QuestieOptions:ToggleConfigWindow()
             end)
 
             return

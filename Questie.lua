@@ -64,6 +64,7 @@ end
 ---@param color "red"|"gray"|"purple"|"blue"|"lightBlue"|"reputationBlue"|"yellow"|"orange"|"green"|"white"|"gold"|string
 ---@return string
 function Questie:Colorize(str, color)
+    if not color then color = "yellow" end
     local c = "|cFF" .. color;
 
     if color == "red" then
@@ -73,7 +74,7 @@ function Questie:Colorize(str, color)
     elseif color == "purple" then
         c = "|cFFB900FF";
     elseif color == "blue" then
-        c = "|cB900FFFF";
+        c = "|cFF0000FF";
     elseif color == "lightBlue" then
         c = "|cB900FFFF";
     elseif color == "reputationBlue" then

@@ -475,9 +475,6 @@ function QuestieWotlkQuestFixes:Load()
         [9876] = {
             [questKeys.nextQuestInChain] = 9738,
         },
-        [10110] = {
-            [questKeys.preQuestSingle] = {13409},
-        },
         [10137] = {
             [questKeys.requiredSourceItems] = {},
         },
@@ -2829,7 +2826,7 @@ function QuestieWotlkQuestFixes:Load()
             [questKeys.requiredSourceItems] = {},
         },
         [12737] = {
-            [questKeys.objectives] = {nil,{{191136,}}},
+            [questKeys.objectives] = {nil,{{191136,nil,Questie.ICON_TYPE_INTERACT}}},
             [questKeys.requiredMinRep] = {1105,9000},
             [questKeys.requiredSourceItems] = {},
         },

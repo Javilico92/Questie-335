@@ -1,9 +1,31 @@
 # Questie-335
-A fork of the WoW Classic [Questie](https://github.com/Questie/Questie) addon aiming to provide compatibility with Wrath of the Lich King client version 3.3.5a (12340).
+
+A backport of the WoW Classic [Questie](https://github.com/Questie/Questie) addon, aiming to provide compatibility with the Wrath of the Lich King 3.3.5a client (build 12340).
+
 # Installation
+
 - [Download](https://github.com/Javilico92/Questie-335/releases) the archive.
-- Extract it into `Interface/AddOns/` directory, folder name should be `Questie-335` so you may need to remove version part `v10.13.0`.
-- If you are playing on a custom server that emulates a previous expansion using the 3.3.5 client, you could add `-Classic` or `-TBC` to the addon folder name to load only the required files for the chosen expansion. In case your server doesn't provide a patch for a world map, you need to enable the in-game setting: `Options/Advanced/Use WotLK map data`.
+- Extract it into your `Interface/AddOns/` directory. The addon folder should be named `Questie-335`.
+- If you are playing on a custom server that emulates an earlier expansion using the 3.3.5 client, you can add `-Classic` or `-TBC` to the addon folder name to load only the files required for that expansion.
+- If your server does not provide a world map patch, enable the following in-game option: `Options/Advanced/Use WotLK map data`.
+
+> [!IMPORTANT]
+> There are many different 3.3.5 servers, and not all of them handle addons, `CHAT_MSG_ADDON`, and related systems in the same way. </br></br>
+>
+> For **WARMANE** users, there are two important things to keep in mind:</br></br>
+>
+> **Whispers** only work for players at **level 10 or above**, so some parts of **QuestieComms** may not work as expected below that level. For example, full quest log synchronization when joining a group may fail.</br></br>
+>
+> Also, **QuestieComms** uses an encoding format that does not work correctly on Warmane by default. **Questie-335 10.23.2 or newer is required** to fix this issue:
+> https://github.com/Javilico92/Questie-335/commit/4c5304698183ea3675e9cb9851d71e4f527b9d59
+> </br></br>
+>
+> I also play on UltimoWoW and Nelwy, and there do not appear to be any known issues there at the moment.
+
+## Language version
+- [English](README.md)
+- [Español](README_ES.md)
+
 
 # Questie
 
@@ -11,106 +33,150 @@ A fork of the WoW Classic [Questie](https://github.com/Questie/Questie) addon ai
 [![Stars](https://img.shields.io/github/stars/Javilico92/Questie-335)](https://img.shields.io/github/stars/Javilico92/Questie-335)
 
 [![Downloads](https://img.shields.io/github/downloads/Javilico92/Questie-335/total.svg)](https://github.com/Javilico92/Questie-335/releases/)
-[![Downloads Latest](https://img.shields.io/github/downloads/Javilico92/Questie-335/v10.23.2/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
-[![Date Latest](https://img.shields.io/github/release-date/Javilico92/Questie-335.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
+[![Downloads Latest](https://img.shields.io/github/downloads/Javilico92/Questie-335/v11.0.1/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
+[![Latest Release Date](https://img.shields.io/github/release-date/Javilico92/Questie-335.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
 [![Commits Since Latest](https://img.shields.io/github/commits-since/Javilico92/Questie-335/latest.svg)](https://github.com/Javilico92/Questie-335/commits/master)
 
 
 ## Download
-We suggest you use the [Curseforge Client](https://curseforge.overwolf.com/) to manage your Wow addons in general. You will find Questie [here on Curseforge](https://www.curseforge.com/wow/addons/questie).
 
-Alternatively you can always use [the latest GitHub release](https://github.com/Questie/Questie/releases/latest) and follow the [Installation Guide](https://github.com/Questie/Questie/wiki/Installation-Guide) in the Wiki to get the latest version of Questie up and running.
+[The latest release can be found here](https://github.com/Javilico92/Questie-335/releases).
 
-If you have problems, please read the [Frequently Asked Questions](https://github.com/Questie/Questie/wiki/FAQ-for-Classic-(1.13)).
+At the moment, there is no other official way to download or update the Questie-335 addon.
 
 
 ## Information
-- [Frequently Asked Questions](https://github.com/Questie/Questie/wiki/FAQ)
-- Come chat with Questie authors (dont ask things related with this 3.3.5 version) [our Discord server](https://discord.gg/s33MAYKeZd).
-- You can use the [issue tracker](https://github.com/Javilico92/Questie-335/issues) to report bugs and post feature requests (requires a Github account).
-- When creating an issue please follow the templated structure to speed up a possible fix.
-- If you get an error message from the WoW client, please include the **complete** text or a screenshot of it in your report.
-    - You need to enter `/console scriptErrors 1` once in the ingame chat for Lua error messages to be shown. You can later disable them again with `/console scriptErrors 0`.
 
-Trust us it's (Good)!
+- [Frequently Asked Questions](https://github.com/Questie/Questie/wiki/FAQ)
+- You can chat with the Questie community on the [official Discord server](https://discord.gg/s33MAYKeZd).
+- You can use the [issue tracker](https://github.com/Javilico92/Questie-335/issues) to report bugs and submit feature requests (requires a GitHub account).
+- When creating an issue, please follow the provided issue template to help speed up investigation and fixes.
+- If you receive a Lua error from the WoW client, please include the **complete** error message or a screenshot in your report.
+    - You need to enter `/console scriptErrors 1` once in the in-game chat to enable Lua error messages. You can disable them again later with `/console scriptErrors 0`.
+
+Trust us, it's (Good)!
+
+
+## Languages
+
+Questie includes translations for all officially supported WoW Classic languages:
+
+English, German, French, Spanish, Portuguese, Russian, Simplified Chinese, Traditional Chinese, and Korean.
+
+If you want to help with translations, check the [Translation folder](https://github.com/Questie/Questie/tree/master/Localization/Translations) and search for missing translations using:
+
+> `["<yourLanguage>"] = false`  
+> For example: `["deDE"] = false`
+
+Then replace `false` with the translated string:
+
+> `["<yourLanguage>"] = "YourTranslation"`
+
+There is also support for Ukrainian ([through another addon](https://www.curseforge.com/wow/addons/questie-translation-ukrainian)).
+
+Following [this guide](https://github.com/Questie/Questie/wiki/Localization-to-more-languages), you can add support for additional languages.
+
 
 ## Contribution
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-- We are happy about every help and contribution we get, so feel free to submit a Pull Request on Github
-- Translators can search for missing translations by: `["<yourLanguage>"] = false` (e.g. `["deDE"] = false`) and replace the `false` with a string of the new translation, e.g. `["<yourLanguage>"] = "YourTranslation"`. Current translations can be found in the [Translation folder](https://github.com/Questie/Questie/tree/master/Localization/Translations)
-- Additional information you might find interesting can be found [here](https://github.com/Questie/Questie/wiki/Contributing)
+- We appreciate every contribution, so feel free to submit a Pull Request on GitHub.
+
+
+### Installing Lua
+
+1. Install [Lua](https://www.lua.org/download.html) (version 5.1, since the WoW client uses Lua 5.1).
+   - On macOS: `brew install lua@5.1`
+2. Install [LuaRocks](https://luarocks.org/).
+   - On macOS: `brew install luarocks`
+3. Configure LuaRocks to use the correct Lua version. By default, LuaRocks uses the latest installed Lua version.
+   - `luarocks config lua_version 5.1`
+4. Install [busted](https://github.com/lunarmodules/busted).
+   - `luarocks install busted`
+5. Install `bit32`.
+   - `luarocks install bit32`
+6. Install [luacheck](https://github.com/lunarmodules/luacheck).
+   - `luarocks install luacheck`
+
+
+### luacheck
+
+Questie uses `luacheck` for linting.
+
+You can run it locally with:
+
+`luacheck -q Database Localization Modules Questie.lua`
+
 
 ### Unit Tests
 
-1. Install [busted](https://github.com/lunarmodules/busted) with `luarocks install busted`
-2. Run `busted -p ".test.lua" ."` in the root directory of the project
-3. When adding new tests, make sure to name them `<module>.test.lua` and place them next to the module
+1. Run `busted -p ".test.lua" .` in the root directory of the project.
+2. When adding new tests, make sure to name them `<module>.test.lua` and place them next to the corresponding module.
 
 
 ## Donation
-If you'd like to support the development of Questie by donating, you can do so via PayPal:
+
+If you'd like to support the development of the original Questie project (**not me**) by donating, you can do so via PayPal:
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JCUBJWKT395ME&source=url"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"/></a>
 
+
 ## Features
 
-### Show quests on map
-- Show notes for quest start points, turn in points, and objectives.
+
+### Show quests on the map
+
+- Shows quest start points, turn-in points, and objective locations.
+- Shows NPC movement paths using waypoint lines.
 
 ![Questie Quest Givers](https://i.imgur.com/4abi5yu.png)
 ![Questie Complete](https://i.imgur.com/DgvBHyh.png)
 ![Questie Tooltip](https://i.imgur.com/uPykHKC.png)
 
+
 ### Quest Tracker
-- Improved quest tracker:
-    - Automatically tracks quests on accepting (instead of progressing)
-    - Can show all 20 quests from the log (instead of default 5)
-    - Left click quest to open quest log (configurable)
-    - Right-click for more options, e.g.:
-        - Focus quest (makes other quest icons translucent)
-        - Point arrow towards objective (requires TomTom addon)
+
+- Automatically tracks quests when they are accepted.
+- Can display all quests from the quest log at once instead of the default limit of 5.
+- Left-click a quest to open the quest log (configurable).
+- Right-click for additional options, such as:
+    - Focus quest, making other quest icons translucent.
+    - Point an arrow towards an objective (requires the [TomTom addon](https://www.curseforge.com/wow/addons/tomtom)).
 
 ![QuestieTracker](https://user-images.githubusercontent.com/8838573/67285596-24dbab00-f4d8-11e9-9ae1-7dd6206b5e48.png)
 
+
 ### Quest Communication
-- You can see party members quest progress on the tooltip.
-- At least our Questie-335 version 10.6.0 is required by everyone in the party for it to work, tell your friends to update!
+
+- You can see party members' quest progress in tooltips.
+
 
 ### Tooltips
-- Show tooltips on map notes and quest NPCs/objects.
-- Holding Shift while hovering over a map icon displays more information, like quest XP.
 
-#### Quest Information
+- Shows additional information on map notes and quest-related NPCs/objects.
+- Holding Shift while hovering over a map icon displays more information, such as quest XP.
 
-![TooltipDungeon](https://cdn.discordapp.com/attachments/579999220170227716/634656829619699712/unknown.png)
-
-- Event quests are shown when events are active!
-
-![Event](https://cdn.discordapp.com/attachments/263040777658171392/636159292336242688/unknown.png)
-
-#### Waypoints
-
-- Waypoint lines for quest givers showing their pathing.
-
-![Waypoints](https://media.discordapp.net/attachments/263040777658171392/643203302993035294/unknown.png)
 
 ### Journey Log
-- Questie records the steps of your journey in the "My Journey" window. (right-click on minimap button to open)
+
+- Questie records the steps of your journey in the **"My Journey"** window. Left-click the minimap button and select **"My Journey"**, or type `/questie journey`.
 
 ![Journey](https://user-images.githubusercontent.com/8838573/67285651-3cb32f00-f4d8-11e9-95d8-e8ceb2a8d871.png)
 
+
 ### Quests by Zone
-- Questie lists all the quests of a zone divided between completed and available quest. Gotta complete 'em all. (right-click on minimap button to open)
+
+- Questie lists all quests in a zone, divided into completed and available quests. Gotta complete 'em all! Left-click the minimap button and select **"Quests by Zone"**.
 
 ![QuestsByZone](https://user-images.githubusercontent.com/8838573/67285665-450b6a00-f4d8-11e9-9283-325d26c7c70d.png)
 
+
 ### Search
-- Questie's database can be searched. (right-click on minimap button to open)
+
+- Questie's database can be searched. Right-click the minimap button to open the search window.
 
 ![Search](https://user-images.githubusercontent.com/8838573/67285691-4f2d6880-f4d8-11e9-8656-b3e37dce2f05.png)
 
-### Configuration
-- Extensive configuration options. (left-click on minimap button to open)
 
-![config](https://user-images.githubusercontent.com/8838573/67285731-61a7a200-f4d8-11e9-9026-b1eeaad0d721.png)
+### Configuration
+
+- Extensive configuration options. Right-click the minimap button to open them, or type `/questie`.

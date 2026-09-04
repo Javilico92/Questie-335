@@ -216,6 +216,9 @@ function QuestieTBCItemFixes:Load()
         [28478] = {
             [itemKeys.class] = 12,
         },
+        [28607] = {
+            [itemKeys.class] = 12,
+        },
         [29112] = {
             [itemKeys.npcDrops] = {18907},
         },
@@ -252,9 +255,6 @@ function QuestieTBCItemFixes:Load()
         },
         [30430] = {
             [itemKeys.objectDrops] = {184715},
-        },
-        [30435] = {
-            [itemKeys.objectDrops] = {184729},
         },
         [30451] = {
             [itemKeys.npcDrops] = {19799,19800,19802,21337,21656},
@@ -358,6 +358,9 @@ function QuestieTBCItemFixes:Load()
         [31722] = {
             [itemKeys.npcDrops] = {18708},
         },
+        [31813] = {
+            [itemKeys.npcDrops] = {18884},
+        },
         [31951] = {
             [itemKeys.vendors] = {21643},
         },
@@ -368,11 +371,26 @@ function QuestieTBCItemFixes:Load()
             [itemKeys.objectDrops] = {185566},
             [itemKeys.npcDrops] = {23002},
         },
+        [32379] = { -- Grulloc's Dragon Skull
+            [itemKeys.npcDrops] = {},
+        },
+        [32383] = { -- Skulloc's Soul
+            [itemKeys.npcDrops] = {},
+        },
         [32406] = {
             [itemKeys.class] = 12,
         },
+        [32598] = {
+            [itemKeys.objectDrops] = {185920},
+        },
+        [32601] = {
+            [itemKeys.objectDrops] = {185921},
+        },
         [32723] = {
             [itemKeys.npcDrops] = {},
+        },
+        [32742] = {
+            [itemKeys.npcDrops] = {23363},
         },
         [32971] = {
             [itemKeys.class] = 12,
@@ -383,15 +401,6 @@ function QuestieTBCItemFixes:Load()
         },
         [33039] = {
             [itemKeys.npcDrops] = {},
-        },
-        [31813] = {
-            [itemKeys.npcDrops] = {18884},
-        },
-        [34246] = {
-            [itemKeys.npcDrops] = {},
-        },
-        [32742] = {
-            [itemKeys.npcDrops] = {23363},
         },
         [33041] = {
             [itemKeys.objectDrops] = {186283},
@@ -458,6 +467,9 @@ function QuestieTBCItemFixes:Load()
         },
         [34160] = {
             [itemKeys.npcDrops] = {24664},
+        },
+        [34246] = {
+            [itemKeys.npcDrops] = {},
         },
         [34338] = {
             [itemKeys.npcDrops] = {24960,24966},

@@ -117,6 +117,7 @@ QuestieDB.questFlags = {
     WEEKLY = 32768,
 }
 
+-- https://wowpedia.fandom.com/wiki/FactionID
 QuestieDB.factionIDs = {
     THORIUM_BROTHERHOOD = 59,
     UNDERCITY = 68,
@@ -125,14 +126,29 @@ QuestieDB.factionIDs = {
     ZANDALAR_TRIBE = 270,
     ARGENT_DAWN = 529,
     TIMBERMAW_HOLD = 576,
-    HYDRAXIAN_WATERLORDS = 749,
     CENARION_CIRCLE = 609,
+    HYDRAXIAN_WATERLORDS = 749,
     SHEN_DRALAR = 809,
     DARKMOON_FAIRE = 909,
     BROOD_OF_NOZDORMU = 910,
     EXODAR = 930,
     THE_KALUAK = 1073,
     KIRIN_TOR = 1090,
+    GOLDEN_LOTUS = 1269,
+    SHADO_PAN = 1270,
+    ORDER_OF_THE_CLOUD_SERPENT = 1271,
+    THE_TILLERS = 1272,
+    JOGU_THE_DRUNK = 1273,
+    ELLA = 1275,
+    OLD_HILLPAW = 1276,
+    CHEE_CHEE = 1277,
+    SHO = 1278,
+    HAOHAN_MUDCLAW = 1279,
+    TINA_MUDCLAW = 1280,
+    GINA_MUDCLAW = 1281,
+    FISH_FELLREED = 1282,
+    FARMER_FUNG = 1283,
+    THE_KLAXXI = 1337,
 }
 
 -- temporary, until we remove the old db funcitons

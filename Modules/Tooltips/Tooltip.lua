@@ -141,7 +141,7 @@ local function _FetchTooltipsForGroupMembers(key, tooltipData)
         for questId, playerList in pairs(tooltipDataExternal) do
             if (not tooltipData[questId]) then
                 tooltipData[questId] = {
-                    title = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true, true)
+                    title = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true)
                 }
             end
             for playerName, _ in pairs(playerList) do
@@ -163,7 +163,7 @@ local function _FetchTooltipsForGroupMembers(key, tooltipData)
         for questId, playerList in pairs(tooltipDataExternal) do
             if (not tooltipData[questId]) then
                 tooltipData[questId] = {
-                    title = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true, true)
+                    title = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true)
                 }
             end
             for playerName, objectives in pairs(playerList) do
@@ -196,7 +196,9 @@ local function _FetchTooltipsForGroupMembers(key, tooltipData)
 end
 
 ---@param key string
-function QuestieTooltips.GetTooltip(key)
+---@param playerZone AreaId|nil @Only needed for object tooltips, otherwise it can be nil
+---@return table<number, string>|nil tooltipLines
+function QuestieTooltips.GetTooltip(key, playerZone)
     Questie:Debug(Questie.DEBUG_SPAM, "[QuestieTooltips.GetTooltip]", key)
     if (not key) then
         return nil
@@ -214,22 +216,24 @@ function QuestieTooltips.GetTooltip(key)
     local isObjectTooltip = key:sub(1, 2) == "o_"
     if isObjectTooltip then
         local objectIsInCurrentZone = false
+        if playerZone == 0 then
+            objectIsInCurrentZone = true
+        elseif (not playerZone) then
+            Questie:Debug(Questie.DEBUG_CRITICAL, "[QuestieTooltips.GetTooltip] was called without a playerZone for objects")
+            objectIsInCurrentZone = true
+        else
         local objectId = tonumber(key:sub(3))
         local spawns = QuestieDB.QueryObjectSingle(objectId, "spawns")
         if spawns then
-            local playerZone = QuestiePlayer:GetCurrentZoneId()
-            if playerZone == 0 then
-                objectIsInCurrentZone = true
-            else
                 for zoneId in pairs(spawns) do
                     if zoneId == playerZone then
                         objectIsInCurrentZone = true
                         break
                     end
                 end
-            end
         else
             objectIsInCurrentZone = true
+        end
         end
 
         if (not objectIsInCurrentZone) then
@@ -251,9 +255,10 @@ function QuestieTooltips.GetTooltip(key)
     }]]
     --
     local tooltipData = {}
-    local tooltipLines = {}
+    local tooltipLines
 
     if QuestieTooltips.lookupByKey[key] then
+        tooltipLines = {}
         local playerName = UnitName("player")
 
         local finishedAndUnacceptedQuests = {}
@@ -272,7 +277,7 @@ function QuestieTooltips.GetTooltip(key)
 
             if tooltip.name then
                 if Questie.db.profile.showQuestsInNpcTooltip then
-                    local questString = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true, true)
+                    local questString = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true)
                     tinsert(tooltipLines, questString)
                 end
             elseif (not finishedAndUnacceptedQuests[questId]) then
@@ -284,7 +289,7 @@ function QuestieTooltips.GetTooltip(key)
                 local objectiveIndex = objective.Index;
                 if (not tooltipData[questId]) then
                     tooltipData[questId] = {
-                        title = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true, true)
+                        title = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true)
                     }
                 end
                 if not QuestiePlayer.currentQuestlog[questId] then
@@ -354,6 +359,11 @@ function QuestieTooltips.GetTooltip(key)
             end
         end
         if hasObjective then
+            if (not tooltipLines) then
+                -- We only have tooltips from other players
+                tooltipLines = {}
+            end
+
             tinsert(tooltipLines, questData.title);
             for _, text in pairs(tempObjectives) do
                 tinsert(tooltipLines, text);
@@ -446,7 +456,8 @@ function QuestieTooltips:Initialize()
                     _QuestieTooltips:CountTooltip() < QuestieTooltips.lastGametooltipCount
                     or QuestieTooltips.lastGametooltipType ~= "object"
                 ) and (not self.ShownAsMapIcon) then -- We are hovering over a Questie map icon which adds it's own tooltip
-                _QuestieTooltips.AddObjectDataToTooltip(GameTooltipTextLeft1:GetText())
+                local playerZone = QuestiePlayer:GetCurrentZoneId()
+                _QuestieTooltips.AddObjectDataToTooltip(GameTooltipTextLeft1:GetText(), playerZone)
                 QuestieTooltips.lastGametooltipCount = _QuestieTooltips:CountTooltip()
             end
             QuestieTooltips.lastGametooltip = GameTooltipTextLeft1:GetText()

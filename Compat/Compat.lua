@@ -857,24 +857,44 @@ function QuestieCompat.IsQuestFlaggedCompleted(questID)
 	return Questie.db.char.complete[questID] or false
 end
 
+local l10n = QuestieLoader:ImportModule("l10n")
+
 local questTagToName = {
-	[1] = "Group",
-	[41] = "PvP",
-	[62] = "Raid",
-	[81] = "Dungeon",
-	[82] = "World Event",
-	[83] = "Legendary",
-	[84] = "Escort",
-	[85] = "Heroic",
+    [1] = "Group",
+    [21] = "Class",
+    [41] = "PvP",
+    [62] = "Raid",
+    [81] = "Dungeon",
+    [82] = "World Event",
+    [83] = "Legendary",
+    [84] = "Escort",
+    [85] = "Heroic",
+    [88] = "Raid",
+    [89] = "Raid",
 }
 
 -- Retrieves tag information about the quest.
 -- https://wowpedia.fandom.com/wiki/API_GetQuestTagInfo
 function QuestieCompat.GetQuestTagInfo(questId)
     local tagId = QuestieCompat.QuestTag[questId]
-	if tagId then
-		return tagId, questTagToName[tagId]
-	end
+
+    if not tagId then
+        return nil, nil
+    end
+
+    if tagId == 88 then
+        return tagId, l10n("Raid") .. " (10)"
+    elseif tagId == 89 then
+        return tagId, l10n("Raid") .. " (25)"
+    end
+
+    local tagName = questTagToName[tagId]
+
+    if tagName then
+        return tagId, l10n(tagName)
+    end
+
+    return tagId, nil
 end
 
 -- Returns the ID of the displayed quest at a quest giver.

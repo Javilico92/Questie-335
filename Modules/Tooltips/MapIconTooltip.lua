@@ -287,7 +287,7 @@ function MapIconTooltip:Show()
                             end
 
                             if Questie.db.profile.enableTooltipsQuestLevel then
-                                nextQuestTitleString = string.format("%s", QuestieLib:GetLevelString(nextQuest.Id, nextQuest.level, true) .. nextQuest.name)
+                                nextQuestTitleString = string.format("%s", QuestieLib:GetLevelString(nextQuest.Id, nextQuest.level) .. nextQuest.name)
                             else
                                 nextQuestTitleString = string.format("%s", nextQuest.name)
                             end
@@ -307,8 +307,8 @@ function MapIconTooltip:Show()
                             end
 
                             if (QuestieDB.IsGroupQuest(nextQuest.Id) or QuestieDB.IsDungeonQuest(nextQuest.Id) or QuestieDB.IsRaidQuest(nextQuest.Id)) then
-                                local _, nextQuestTag = QuestieDB.GetQuestTagInfo(nextQuest.Id)
-                                nextQuestTagString = Questie:Colorize(string.format(" (%s)", nextQuestTag))
+                                local _, nextQuestTagName = QuestieDB.GetQuestTagInfo(nextQuest.Id)
+                                nextQuestTagString = Questie:Colorize(string.format(" (%s)", nextQuestTagName))
                             end
 
                             local nextQuestString = string.format("      %s%s%s%s%s", nextQuestTitleString, nextQuestIdString, nextQuestXpRewardString, nextQuestMoneyRewardString, nextQuestTagString) -- we need an offset to align with description
@@ -373,7 +373,7 @@ function MapIconTooltip:Show()
         for questId, textList in pairs(self.questOrder) do -- this logic really needs to be improved
             ---@type Quest
             local quest = QuestieDB.GetQuest(questId);
-            local questTitle = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true, true);
+            local questTitle = QuestieLib:GetColoredQuestName(questId, Questie.db.profile.enableTooltipsQuestLevel, true);
             local xpReward = QuestXP:GetQuestLogRewardXP(questId, Questie.db.profile.showQuestXpAtMaxLevel);
             r, g, b = QuestieLib:GetDifficultyColorPercent(quest.level);
             if haveGiver then
@@ -515,17 +515,39 @@ local function _GetQuestTag(quest)
     if quest.Type == "complete" then
         return "(" .. l10n("Complete") .. ")";
     else
-        local questType, questTag = QuestieDB.GetQuestTagInfo(quest.Id)
+        local questTagId, questTagName = QuestieDB.GetQuestTagInfo(quest.Id)
 
         if (QuestieEvent and QuestieEvent.activeQuests[quest.Id]) then
             return "(" .. l10n("Event") .. ")";
-        elseif (questType == 41) then
+        elseif (questTagId == 41) then
             return "(" .. l10n("PvP") .. ")";
+        elseif (questTagId == 102) then
+            if QuestieDB.IsWeeklyQuest(quest.Id) then
+                return "(" .. l10n("Weekly Account") .. ")";
+            elseif QuestieDB.IsDailyQuest(quest.Id) then
+                return "(" .. l10n("Daily Account") .. ")";
+            end
+            return "(" .. l10n("Account") .. ")";
+        elseif (QuestieDB.IsWeeklyQuest(quest.Id)) then
+            -- These show as "Raid"
+            if questTagId == 62 then
+                return "(" .. (RAID or l10n("Raid")) .. ")";
+            end
+            return "(" .. (WEEKLY or l10n("Weekly")) .. ")";
+        elseif (QuestieDB.IsDailyQuest(quest.Id)) then
+            if questTagId == 81 then
+                return "(" .. l10n("Daily Dungeon") .. ")";
+            elseif questTagId == 85 then
+                return "(" .. l10n("Daily Heroic") .. ")";
+            elseif questTagId == 294 then
+                return "(" .. l10n("Daily Celestial") .. ")";
+            end
+            return "(" .. (DAILY or l10n("Daily")) .. ")";
         elseif (QuestieDB.IsRepeatable(quest.Id)) then
             return "(" .. l10n("Repeatable") .. ")";
-        elseif (questType == 81 or questType == 83 or questType == 62 or questType == 1) then
-            -- Dungeon or Legendary or Raid or Group(Elite)
-            return "(" .. questTag .. ")";
+        elseif (questTagId == 1 or questTagId == 21 or questTagId == 62 or questTagId == 81 or questTagId == 83 or questTagId == 85 or questTagId == 88 or questTagId == 89 or questTagId == 98 or questTagId == 294) then
+            -- Group(Elite) or Class or Raid or Dungeon or Legendary or Heroic or Raid(10) or Raid(25) or Scenario or Celestial
+            return "(" .. questTagName .. ")";
         elseif (Questie.IsSoD and QuestieDB.IsSoDRuneQuest(quest.Id)) then
             return "(" .. l10n("Rune") .. ")";
         else
@@ -537,7 +559,7 @@ end
 function _MapIconTooltip:GetAvailableOrCompleteTooltip(icon)
     local tip = {};
     tip.type = _GetQuestTag(icon.data)
-    tip.title = QuestieLib:GetColoredQuestName(icon.data.Id, Questie.db.profile.enableTooltipsQuestLevel, false, true)
+    tip.title = QuestieLib:GetColoredQuestName(icon.data.Id, Questie.db.profile.enableTooltipsQuestLevel, false)
     tip.subData = icon.data.QuestData.Description
     tip.questId = icon.data.Id;
 

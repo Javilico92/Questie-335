@@ -1,6 +1,9 @@
 ---@class QuestieDebugOffer
 local QuestieDebugOffer = QuestieLoader:CreateModule("QuestieDebugOffer")
 
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
+
 ---@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
 ---@type ZoneDB

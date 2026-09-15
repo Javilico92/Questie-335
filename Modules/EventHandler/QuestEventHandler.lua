@@ -1,5 +1,8 @@
 ---@class QuestEventHandler
 local QuestEventHandler = QuestieLoader:CreateModule("QuestEventHandler")
+
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
 ---@class QuestEventHandlerPrivate
 local _QuestEventHandler = QuestEventHandler.private
 

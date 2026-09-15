@@ -1,6 +1,9 @@
 ---@class ChallengeModeTimer
 local ChallengeModeTimer = QuestieLoader:CreateModule("ChallengeModeTimer")
 
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
+
 ---@class Label
 ---@field SetText fun(self: Label, text: string)
 local timerLabel

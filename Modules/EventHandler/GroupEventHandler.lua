@@ -2,6 +2,9 @@
 local GroupEventHandler = QuestieLoader:CreateModule("GroupEventHandler")
 local _GroupEventHandler = GroupEventHandler.private
 
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
+
 ---@type QuestiePlayer
 local QuestiePlayer = QuestieLoader:ImportModule("QuestiePlayer")
 ---@type QuestieComms

@@ -10,8 +10,6 @@ function QuestieQuestBlacklist:Load()
     local locale = GetLocale()
     local questsToBlacklist = {
         [7462] = true, -- Duplicate of 7877. See #1583
-        [5663] = true, -- Touch of Weakness of Dark Cleric Beryl - Fixing #730
-        [5658] = true, -- Touch of Weakness of Father Lankester -- See #1603
         [2358] = true, -- See #921
         [787] = true, -- The New Horde is not in the game. See #830
         [6606] = true, -- Quest is not in the game. See #1338
@@ -3899,16 +3897,18 @@ function QuestieQuestBlacklist:Load()
         [5649] = Expansions.Current >= Expansions.Cata, -- Removed with cata
         [5650] = Expansions.Current >= Expansions.Cata, -- Removed with cata
         [5651] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5652] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5653] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5654] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5655] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5656] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5657] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5659] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5660] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5661] = Expansions.Current >= Expansions.Cata, -- Removed with cata
-        [5662] = Expansions.Current >= Expansions.Cata, -- Removed with cata
+        [5652] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
+        [5653] = true, -- Not in the game
+        [5654] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
+        [5655] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
+        [5656] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
+        [5657] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
+        [5658] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
+        [5659] = true, -- Not in the game
+        [5660] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
+        [5661] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
+        [5662] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
+        [5663] = Expansions.Current >= Expansions.Wotlk, -- Removed with Wotlk
         [5664] = Expansions.Current >= Expansions.Cata, -- Removed with cata
         [5665] = Expansions.Current >= Expansions.Cata, -- Removed with cata
         [5666] = Expansions.Current >= Expansions.Cata, -- Removed with cata
@@ -5402,6 +5402,8 @@ function QuestieQuestBlacklist:Load()
         [24739] = Expansions.Current >= Expansions.Cata, -- Not in the game
         [24746] = true, -- Not in the game
         [24797] = true, -- Not in the game
+        [24803] = Expansions.Current >= Expansions.MoP, -- Removed in MoP
+        [24806] = Expansions.Current >= Expansions.MoP, -- Removed in MoP
         [24857] = Expansions.Current >= Expansions.Cata, -- Not in the game
         [24860] = Expansions.Current >= Expansions.Cata, -- Not in the game
         [24867] = Expansions.Current >= Expansions.Cata, -- Not in the game

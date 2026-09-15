@@ -1,5 +1,8 @@
 ---@class QuestieSearchResults
 local QuestieSearchResults = QuestieLoader:CreateModule("QuestieSearchResults")
+
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
 -------------------------
 --Import modules.
 -------------------------

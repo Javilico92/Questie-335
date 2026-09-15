@@ -658,6 +658,9 @@ function MopNpcFixes.Load()
                 {18.08,55.67,phases.MUDMUG_AT_STONEPLOW},
             }},
         },
+        [56513] = { -- Jinanya the Clawblade
+            [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {{66.38,39.33}}},
+        },
         [56527] = { -- Jade Cart
             [npcKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{46.27,29.47}}},
         },
@@ -747,6 +750,10 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{55.99, 60.33}}},
             [npcKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
         },
+        [56877] = { -- Raigonn
+            [npcKeys.spawns] = {[zoneIDs.GATE_OF_THE_SETTING_SUN] = {{47.13,60.57},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.GATE_OF_THE_SETTING_SUN,
+        },
         [57108] = { -- General Nazgrim
             [npcKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{28.03,47.21}}},
         },
@@ -825,7 +832,7 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.KRASARANG_WILDS] = {{81.31,6.84}}},
         },
         [58408] = { -- Leven Dawnblade
-            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{56.7,43.59}}},
+            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{56.7,43.59,phases.GOLDEN_LOTUS_LEVEN_AT_PAGODA}}},
         },
         [58410] = { -- Yi-Mo Longbrow
             [npcKeys.spawns] = {[zoneIDs.KRASARANG_WILDS] = {{76.49,8.78}}},
@@ -930,7 +937,8 @@ function MopNpcFixes.Load()
         },
         [58563] = { -- Tilled Soil
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -949,7 +957,8 @@ function MopNpcFixes.Load()
         },
         [58567] = { -- Ripe Green Cabbage
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -1231,6 +1240,10 @@ function MopNpcFixes.Load()
                 [zoneIDs.SCARLET_MONASTERY] = {{-1,-1}},
             },
         },
+        [59231] = { -- Captive Pandaren Spirit
+            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{36.4,21.2},{37.8,22.4},{37.8,22.6},{39.2,19.4},{39.2,19.6},{39.6,25.6},{39.8,20},{40,25},{40.6,18.6},{40.6,19.8},{41.4,24.8},{41.6,24.8},{42,18.2},{42,19.8},{42.2,19.4},{42.6,15.4},{42.6,22.2},{42.8,14.4},{43.4,16},{43.4,23.4},{43.4,23.6},{43.6,23.2},{43.8,25},{44.4,27.2},{44.4,27.6},{44.6,27.4},{45.6,18.8},{45.8,18},{45.8,19.6},{46.2,20.8},{46.2,23.8},{46.6,24.2},{47,25.2},{47.4,19.4},{47.4,19.6},{47.6,19.6},{48.2,19.4},{48.4,23.4},{48.4,23.6},{48.6,23.4},{48.6,23.6},{49,27.2},{49.4,20.4},{49.6,20.4},{49.8,22},{50.2,21.2},{50.4,25.8},{50.6,25.6},{50.8,25.4},{51.4,22},{51.4,24.4},{51.8,23.8},{52,22.4},{52,22.6}}},
+            [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
+        },
         [59240] = { -- Scarlet Hall Guardian
             [npcKeys.spawns] = {[zoneIDs.SCARLET_HALLS] = {{-1,-1}}},
         },
@@ -1286,7 +1299,7 @@ function MopNpcFixes.Load()
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
         },
         [59340] = { -- Leven Dawnblade
-            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{21.49,71.18}}},
+            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{21.49,71.18,phases.GOLDEN_LOTUS_GARRISON_ACTIVE}}},
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
         },
         [59341] = { -- Merchant Tantan
@@ -1310,6 +1323,10 @@ function MopNpcFixes.Load()
         },
         [59373] = { -- Scarlet Pupil
             [npcKeys.spawns] = {[zoneIDs.SCARLET_HALLS] = {{-1,-1}}},
+        },
+        [59379] = { -- Shao-Tien Surveyor
+            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{37.2,45.4},{37.2,59},{37.4,45.6},{37.4,56.4},{37.4,56.6},{37.6,56.4},{37.6,56.6},{38,42},{38,43.4},{38.4,45.4},{38.4,45.8},{38.4,46.6},{38.6,45.4},{38.6,45.8},{38.8,40.8},{39.2,52.4},{39.2,52.6},{39.4,43.4},{39.4,43.6},{39.6,43.4},{39.6,43.8},{40.2,42},{40.8,57.2},{41.4,52.2},{41.4,52.6},{41.6,52.4},{41.8,38.6},{41.8,52.6},{42,41.2},{42,43.8},{42.2,55.6},{42.4,45},{42.4,55.4},{42.6,41},{42.6,45},{42.6,55.4},{43.2,40.2},{43.2,52.6},{43.4,49.4},{43.4,49.6},{43.4,51.4},{43.4,52},{43.6,46.2},{43.6,49.2},{43.6,49.6},{44.2,40.8},{44.2,42.6},{44.2,51.6},{44.4,42.2},{44.4,51.4},{44.6,41},{44.6,42.2},{44.6,51.4},{45,40.2},{45.2,46.4},{45.2,47},{45.4,50.2},{45.6,50},{46.4,48.4},{46.4,48.6}}},
+            [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
         },
         [59391] = { -- Foreman Raike
             [npcKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{48.31,61.35}}},
@@ -1450,6 +1467,9 @@ function MopNpcFixes.Load()
         [59856] = { -- Master Bruised Paw
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {{17.91,55.74}}},
         },
+        [59857] = { -- Miss Fanny
+            [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {{17.88,56.76}}},
+        },
         [59874] = { -- Manifestation of Fear
             [npcKeys.spawns] = {}, -- removed for quest clutter
         },
@@ -1475,6 +1495,13 @@ function MopNpcFixes.Load()
         },
         [59908] = { -- Jaluu the Generous
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{74.15,42.61}}},
+            [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
+        },
+        [59914] = { -- Shao-Tien Precursor
+            [npcKeys.spawns] = {
+                [zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{22.2,41.2},{22.8,39},{23.4,40.4},{23.4,40.6},{23.8,43},{24.2,39.2},{24.2,39.6},{24.8,42.6},{24.8,44.2},{24.8,44.6},{25.4,38.2},{25.4,38.6},{25.6,38},{26.2,38.8},{26.2,42.4},{26.2,42.6},{26.4,41},{26.4,44.8},{27,37.6},{27.2,37.2},{27.2,41.2},{27.2,41.6},{27.6,39.4},{28,39.6},{29.2,38.4},{29.2,38.6},{29.4,29.2},{29.4,36},{29.6,28.8},{29.6,36},{30.4,28},{30.6,33.8},{30.8,28.4},{30.8,28.6},{31,36},{31.2,30.4},{31.4,30.6},{31.6,32},{31.6,36.4},{31.8,32.8},{32.4,33.8},{32.6,33.8},{33.4,38.2},{33.8,32.2},{33.8,38.2}},
+                [zoneIDs.GUO_LAI_HALLS] = {{43.93,54.02},{43.96,55.63},{47.8,55.85},{47.45,58.35},{62.22,65},{62.03,66.04},{58.24,65.85},{57.52,63.72}},
+            },
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
         },
         [59921] = { -- Zhao-Jin the Bloodletter
@@ -1509,7 +1536,8 @@ function MopNpcFixes.Load()
         },
         [59990] = { -- Tilled Soil
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -1575,7 +1603,8 @@ function MopNpcFixes.Load()
         },
         [60113] = { -- Plump Green Cabbage
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -1603,6 +1632,12 @@ function MopNpcFixes.Load()
         },
         [60175] = { -- Lucky Bluestring
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{48.14,49.04}}},
+        },
+        [60188] = { -- The Ook of Dook
+            [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{46.19,63.36}}},
+        },
+        [60217] = { -- Chomp Chomp
+            [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{46.01,63.27}}},
         },
         [60273] = { -- Zhao-Jin the Bloodletter
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{78.65,35.69}}},
@@ -1644,6 +1679,18 @@ function MopNpcFixes.Load()
         [60570] = { -- Ji Firepaw
             [npcKeys.spawns] = {[zoneIDs.DUROTAR] = {{45.58,12.61}}},
             [npcKeys.zoneID] = zoneIDs.DUROTAR,
+        },
+        [60583] = { -- Protector Kaolan
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{79.88,48.7},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
+        [60585] = { -- Elder Regail
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{77.93,47.01},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
+        [60586] = { -- Elder Asani
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{77.9,50.39},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
         },
         [60596] = { -- Cousin Gootfur
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT]= {
@@ -1692,6 +1739,10 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{70.6,69.6}}},
             [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
         },
+        [60788] = { -- Pure Light Terrace
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{39.04,48.69},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
         [60795] = { -- Lorewalker Cho
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT]= {
                 {43.79,51.04,phases.CHO_SEEKERS_POINT_1},
@@ -1726,6 +1777,10 @@ function MopNpcFixes.Load()
             [npcKeys.name] = "Southern Smoke Trail",
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{83.56,78.42}}},
             [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
+        },
+        [60957] = { -- Minion of Fear Controller
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{62.78,48.72},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
         },
         [60968] = { -- Xuen
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {
@@ -1763,6 +1818,10 @@ function MopNpcFixes.Load()
         },
         [60997] = { -- The Wrestler
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{66.72,46.53}}}, -- only used at these coords
+        },
+        [60999] = { -- Sha of Fear
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{37.09,48.71},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
         },
         [61004] = { -- Healiss
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{69,43.74}}}, -- only used at these coords
@@ -1897,6 +1956,9 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{57.97,49.04}}},
             [npcKeys.zoneID] = zoneIDs.KUN_LAI_SUMMIT,
         },
+        [61303] = { -- Kobai
+            [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{45.78,86.45}}},
+        },
         [61313] = { -- Parrot
             [npcKeys.spawns] = {
                 [8] = {{19.4,50.4},{19.4,50.6},{19.6,50.4},{19.6,50.6},{29,59.8},{29.6,60},{33.4,52.4},{33.4,52.6},{33.6,52.4},{33.6,52.6},{35,37.4},{35,37.6},{39.2,49.6},{39.4,50.6},{39.6,50.6},{39.8,50},{44.4,46.4},{44.4,46.6},{44.6,46.4},{44.6,46.8},{47.4,32.4},{47.4,32.6},{47.6,32.4},{47.6,32.6},{60,59.2},{60.4,60},{60.6,60},{68.2,68.4},{68.2,68.6},{68.6,68.4},{75,20.2},{75,20.6},{79.4,75.4},{79.6,75.8},{79.8,36.6},{79.8,75.4},{80,36.4}},
@@ -1948,6 +2010,9 @@ function MopNpcFixes.Load()
                 [490] = {{44,49.4},{45,56.8},{45.8,54.6},{46,46.6},{47.2,49.6},{47.4,43},{48,53.6},{48,57},{48.2,43},{48.2,48.8},{49.8,54.2},{51.8,54.2},{52,51.8},{52.6,45.2},{52.6,56.2},{53.4,50.4}},
                 [616] = {{30.4,79.2},{30.4,80.4},{30.6,80.6},{30.8,78.4},{31.2,82.8},{32,73.2},{32.4,73.6},{32.6,71.8},{32.6,73.6},{32.6,96.6},{32.8,71.4},{33,90.6},{33.4,94.4},{34.8,95.6},{35.8,57.8},{36.4,63},{36.6,97},{37.2,75},{37.6,83.8},{37.8,59.4},{38.4,54.4},{38.4,56.6},{38.8,52.2},{38.8,59.4},{39,79},{39.2,74.2},{39.8,63.6},{40.2,58},{41.8,86.4},{42,83.8},{42.4,77},{42.4,80.6},{42.6,61.8},{42.6,69.6},{42.6,72.8},{42.6,86.4},{43.2,84.8},{43.4,67.4},{43.8,71.2},{44,60.8},{44.2,84.2},{44.6,88.2},{45,86},{45.4,60.4},{45.8,84.8},{46.2,66.8},{46.4,72.4},{46.4,86.8},{47,56.6},{47.4,65.6},{47.6,65.6},{48,64},{48.2,54.4},{48.2,54.6},{48.4,53.2},{48.4,73.4},{48.6,66.8},{48.8,54.2},{49.4,74.2},{50.4,73},{50.8,67},{51.2,51.6},{51.4,86.4},{51.4,86.6},{51.6,83.4},{51.6,83.6},{51.6,86.6},{52,53.4},{52,66.6},{52.2,84.8},{52.6,81.6},{52.8,52.4},{52.8,52.6},{53.4,87.8},{53.6,88},{53.8,54.2},{53.8,66},{54.4,76.2},{54.6,53.2},{54.6,81.4},{55.2,67.8},{55.2,75},{55.2,80.2},{55.6,74.6},{55.8,53.4},{55.8,53.6},{56,57.2},{56.4,58.2},{56.6,57.2},{57,76.8},{57.4,54},{57.6,54},{57.6,76.8},{57.8,85.4},{58,58},{58.8,68},{59.2,68.8},{59.2,76},{60,59.2},{61.4,58.6},{61.4,72.4},{61.6,58.6},{62.4,77.4},{62.6,77.6},{63.2,55.8},{63.2,74},{64,53.6},{64.8,54.8},{66,63},{66.2,73.2},{69.2,72},{74.6,62.6},{77.6,47.8},{78.4,59},{78.6,54.4},{78.6,62.6},{78.8,62.4},{79.4,58.2},{79.6,65},{80.4,49.4},{80.6,49.4},{81.6,65.2},{83.8,63.2},{84.6,58},{88.2,50.2},{89.4,50.4}},
             },
+        },
+        [61333] = { -- Malevolent Fury
+            [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{45.78,86.45}}},
         },
         [61366] = { -- Rat
             [npcKeys.zoneID] = 16,
@@ -2171,6 +2236,9 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{70.62,31.42}}},
             [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
         },
+        [62029] = { -- Greatback Mushan
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{59.12,22.11},{57.69,21.47},{60.31,23.08},{59.02,25.94},{54.5,26.19},{54.6,25.08},{52.52,27.72},{55.65,25.24},{52.84,25.96},{54.29,22.71}}},
+        },
         [62077] = { -- Dreadspinner Egg
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{68.72,30.33},{67.91,31.6},{67.49,30.45},{67.48,28.78},{65.99,30.08},{65.58,28.08},{66.03,27.34},{68.56,28.79},{69.31,30.24},{72.83,30.16},{72.47,29.83},{72.56,28.73},{72.04,27.58},{71.52,28.67},{71.36,27.47},{72.1,26.59},{71.13,26.08},{71.41,24.29},{70.89,22.17},{71.58,22.02},{72.47,22.12},{72.57,23.3},{73.78,22.49},{74.75,21.22},{74.23,23.9},{74.13,24.78}}},
             [npcKeys.zoneID] = zoneIDs.DREAD_WASTES,
@@ -2178,6 +2246,14 @@ function MopNpcFixes.Load()
         [62092] = { -- Garrosh Hellscream
             [npcKeys.spawns] = {[zoneIDs.ORGRIMMAR] = {{70.62,31.42}}},
             [npcKeys.zoneID] = zoneIDs.ORGRIMMAR,
+        },
+        [62151] = { -- Xaril the Poisoned Mind
+            [npcKeys.spawns] = {
+                [zoneIDs.DREAD_WASTES] = {
+                    {28.65,42.14,phases.XARIL_AT_HEART_OF_FEAR},
+                    {54.92,36.17,phases.XARIL_AT_KLAXXIVESS},
+                },
+            },
         },
         [62165] = { -- Gong Da
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{31.29,61.62}}},
@@ -2293,6 +2369,10 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{67.32,80.85}}},
             [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
         },
+        [62442] = { -- Tsulong
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{78.58,48.73},{41.09,48.8},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
         [62444] = { -- Taoshi
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{74.23,85.04}}},
             [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
@@ -2332,18 +2412,21 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {
                 {51.21,11.39,phases.SAP_MASTERS_AT_BREWGARDEN},
                 {38.18,17.18,phases.SAP_MASTERS_AT_RIKKITUN},
+                {50.22,12.1,phases.SAP_MASTERS_AT_BREWGARDEN_CENTER},
             }},
         },
         [62667] = { -- Lya of Ten Songs
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {
                 {50.73,11.71,phases.SAP_MASTERS_AT_BREWGARDEN},
                 {38.3,17.14,phases.SAP_MASTERS_AT_RIKKITUN},
+                {50.28,12.06,phases.SAP_MASTERS_AT_BREWGARDEN_CENTER},
             }},
         },
         [62668] = { -- Olon
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {
                 {51.17,11.21,phases.SAP_MASTERS_AT_BREWGARDEN},
                 {38.2,17.12,phases.SAP_MASTERS_AT_RIKKITUN},
+                {50.29,12.11,phases.SAP_MASTERS_AT_BREWGARDEN_CENTER},
             }},
         },
         [62736] = { -- Taran Zhu
@@ -2355,6 +2438,9 @@ function MopNpcFixes.Load()
         [62760] = { -- Frightened Mushan
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{46.8,20.4},{47.2,20.8},{47.8,20.6},{48.4,18.6},{48.4,20.4},{48.6,20.2},{48.8,21.4},{49,18.4},{49,18.6},{49.2,16.4},{49.6,16.4},{49.6,16.6},{49.8,17.6},{49.8,19.4},{51,17.6},{51.2,15},{51.2,16.8},{51.4,16.2},{51.6,14.8},{52,16.4},{52,16.6},{54,16},{56,19.4},{56,19.6}}},
         },
+        [62766] = { -- Mygoness
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{33.25,18.88}}},
+        },
         [62773] = { -- Iyyokuk the Lucid
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{32.67,33.88}}},
         },
@@ -2364,6 +2450,9 @@ function MopNpcFixes.Load()
                 {54.94,34.13,phases.MALIK_AT_PILLAR},
                 {55.06,35.47,phases.MALIK_NEXT_TO_ZIKK},
             }},
+        },
+        [62776] = { -- Han Stormstout
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{43.77,16.74}}},
         },
         [62779] = { -- Chen Stormstout
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {
@@ -2383,22 +2472,54 @@ function MopNpcFixes.Load()
         [62810] = { -- Moshu the Arcane
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{28.85,22.59}}},
         },
+        [62825] = { -- Yalia Sagewhisper
+            [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{50.35,67.73}}},
+        },
+        [62833] = { -- Ilikkax
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{50.82,21.04}}},
+        },
         [62834] = { -- Snow Blossom
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{50.17,67.9}}},
+        },
+        [62843] = { -- Azzix K'tai
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{52.7,10.14}}},
+        },
+        [62848] = { -- Sunbeam Target Stalker
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{78.44,48.68},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
+        [62850] = { -- Yalia Sagewhisper
+            [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{50.35,67.73}}},
         },
         [62923] = { -- Empty Package
             [npcKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{22.9,30.6}}},
             [npcKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
         },
+        [62962] = { -- Unstable Sha Target
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{80.02,37.06},{77.36,36.74},{70.45,48.85},{85.6,45.1},{72.5,40.43},{85.31,55.12},{71.45,55.05},{82.49,58.62},{73.33,57.82},{82.22,38.39},{71.43,43.56},{75.89,60.02},{74.55,37.87},{85.96,50.11},{84.33,40.79},{79.16,60.85},{82.49,58.62},{74.55,37.87},{82.22,38.39},{71.45,55.05},{85.6,45.1},{85.96,50.11},{71.43,43.56},{79.16,60.85},{85.31,55.12},{70.45,48.85},{72.5,40.43},{75.89,60.02},{84.33,40.79},{77.36,36.74},{80.02,37.06},{73.33,57.82},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
+        [62983] = { -- Lei Shi
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{58.88,48.71},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
         [62984] = { -- Stunned Whitepetal Carp
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{40.45,49.71},{40.69,50.28},{42.27,47.42},{41.99,47.4},{41.45,46.73},{41.4,46.48}}},
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
+        },
+        [62995] = { -- Animated Protector
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{58.74,52.36},{62.52,49.86},{57.36,46.68},{57.64,42.62},{55.62,53.86},{63.16,47.54},{62.22,44.61},{60.87,54.54},{60.9,47.79},{60.86,43.77},{55.63,49.88},{57.16,50.66},{55.61,47.29},{60.64,50.92},{59.15,45.44},{55.69,43.36},{57.44,54.49},{62.24,53.07},{55.69,43.36},{57.64,42.62},{60.87,54.54},{57.44,54.49},{60.9,47.79},{58.74,52.36},{55.63,49.88},{55.61,47.29},{57.36,46.68},{59.15,45.44},{62.52,49.86},{60.64,50.92},{63.16,47.54},{55.62,53.86},{57.16,50.66},{60.86,43.77},{62.24,53.07},{62.22,44.61},{62.06,49.93},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
         },
         [63009] = { -- Master Snowdrift
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {
                 {49.49,70.5,phases.SHADO_PAN_GARRISON_NORMAL},
                 {49.24,70.85,phases.SHADO_PAN_GARRISON_SURPRISE_ATTACK},
             }},
+        },
+        [63025] = { -- Tsulong
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{40.81,48.82},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
         },
         [63071] = { -- Skeer the Bloodseeker
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {
@@ -2407,7 +2528,7 @@ function MopNpcFixes.Load()
             }},
         },
         [63072] = { -- Rik'kal the Dissector
-            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{54.37,35.94}}},
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{54.37,35.94,phases.RIKKAL_AT_KLAXXIVESS}}},
         },
         [63087] = { -- Shao-Tien Ritual Statue
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{43.81,44.73}}},
@@ -2424,6 +2545,15 @@ function MopNpcFixes.Load()
         [63090] = { -- Shao-Tien Ritual Statue
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{42.99,43.37}}},
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
+        },
+        [63102] = { -- Adjunct Okzyk
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{33.22,34.34}}},
+        },
+        [63103] = { -- Adjunct G'kkal
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{33.21,33.46}}},
+        },
+        [63104] = { -- Adjunct Pivvika
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{32.7,34.94}}},
         },
         [63123] = { -- Mogu Ritual Destroyed Credit
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{43.6,43.77}}},
@@ -2443,7 +2573,8 @@ function MopNpcFixes.Load()
         },
         [63154] = { -- Ripe Juicycrunch Carrot
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2462,7 +2593,8 @@ function MopNpcFixes.Load()
         },
         [63156] = { -- Plump Juicycrunch Carrot
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2481,7 +2613,8 @@ function MopNpcFixes.Load()
         },
         [63157] = { -- Bursting Green Cabbage
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2500,7 +2633,8 @@ function MopNpcFixes.Load()
         },
         [63158] = { -- Bursting Juicycrunch Carrot
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2519,7 +2653,8 @@ function MopNpcFixes.Load()
         },
         [63160] = { -- Bursting Scallions
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2538,7 +2673,8 @@ function MopNpcFixes.Load()
         },
         [63164] = { -- Plump Scallions
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2557,7 +2693,8 @@ function MopNpcFixes.Load()
         },
         [63165] = { -- Ripe Scallions
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2576,7 +2713,8 @@ function MopNpcFixes.Load()
         },
         [63180] = { -- Bursting Mogu Pumpkin
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2595,7 +2733,8 @@ function MopNpcFixes.Load()
         },
         [63184] = { -- Plump Mogu Pumpkin
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2614,7 +2753,8 @@ function MopNpcFixes.Load()
         },
         [63185] = { -- Ripe Mogu Pumpkin
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2637,9 +2777,18 @@ function MopNpcFixes.Load()
         [63206] = { -- Ik'thik Harvester
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{32.4,50},{32.6,50.4},{33.2,50.6},{34,51},{34.4,51.6},{35,51.8},{37.2,51.8},{38.4,49.4},{38.4,49.6},{38.6,49.4},{38.6,49.6},{40.2,47.8},{40.2,52.2},{40.6,52.4},{42.4,50.4},{42.4,50.6},{42.6,50.4},{43.2,52},{43.6,52.4},{44.8,57.8},{45,56.4},{45,56.6},{45.2,53.2},{45.6,58},{46,53.2},{47.6,60.2},{48.6,61.4},{49,62.4},{49,63.6}}},
         },
+        [63219] = { -- Golden Lotus Defender
+            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{42.85,52.58},{44.63,51.8},{42.95,45.85},{39.49,55.87},{37.27,56.65},{39.18,52.47},{36.98,47.04},{37.3,45.13},{37.85,41.88},{40.12,42.93},{40.37,41.46},{44.23,40.9},{46.06,45.61},{46.15,42.44}}},
+            [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
+        },
+        [63221] = { -- Shao-Tien Mindbender
+            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{42.85,52.58},{44.63,51.8},{42.95,45.85},{39.49,55.87},{37.27,56.65},{39.18,52.47},{36.98,47.04},{37.3,45.13},{37.85,41.88},{40.12,42.93},{40.37,41.46},{44.23,40.9},{46.06,45.61},{46.15,42.44}}},
+            [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
+        },
         [63223] = { -- Bursting Red Blossom Leek
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2658,7 +2807,8 @@ function MopNpcFixes.Load()
         },
         [63228] = { -- Plump Red Blossom Leek
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2677,7 +2827,8 @@ function MopNpcFixes.Load()
         },
         [63229] = { -- Ripe Red Blossom Leek
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2696,7 +2847,8 @@ function MopNpcFixes.Load()
         },
         [63245] = { -- Bursting Pink Turnip
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2715,7 +2867,8 @@ function MopNpcFixes.Load()
         },
         [63249] = { -- Plump Pink Turnip
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2734,7 +2887,8 @@ function MopNpcFixes.Load()
         },
         [63250] = { -- Ripe Pink Turnip
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2753,7 +2907,8 @@ function MopNpcFixes.Load()
         },
         [63260] = { -- Bursting White Turnip
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2772,7 +2927,8 @@ function MopNpcFixes.Load()
         },
         [63264] = { -- Plump White Turnip
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2791,7 +2947,8 @@ function MopNpcFixes.Load()
         },
         [63265] = { -- Ripe White Turnip
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -2812,8 +2969,12 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{33.49,40.79}}},
         },
         [63273] = { -- Ancient Mogu Artifact
-            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{31.19,30.96}}},
+            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{26.56,20.11},{31.19,30.96}}},
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
+        },
+        [63275] = { -- Corrupted Protector
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{61.95,52.27},{59.65,53.13},{60.66,48.63},{62.3,48.78},{56.63,43.31},{57.46,46.68},{61.91,45.37},{59.28,44.57},{56.57,54},{57.01,50.24},{59.28,44.57},{61.95,52.27},{59.65,53.13},{62.3,48.78},{56.63,43.31},{56.57,54},{60.66,48.63},{57.46,46.68},{61.91,45.37},{57.01,50.24},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
         },
         [63296] = { -- Gato
             [npcKeys.zoneID] = zoneIDs.VALLEY_OF_TRIALS,
@@ -2830,7 +2991,11 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {
                 {55.66,72.49,phases.SOGGY_IN_HUT},
                 {54.77,72.11,phases.SOGGY_OUTSIDE},
+                {56.57,75.92,phases.SOGGY_AT_DOCK},
             }},
+        },
+        [63330] = { -- Jiao
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{54.5,79.5}}},
         },
         [63335] = { -- Mojo Stormstout
             [npcKeys.spawns] = {[zoneIDs.AMMEN_VALE] = {{50.46,48.71}}},
@@ -2841,8 +3006,17 @@ function MopNpcFixes.Load()
                 {54.72,72.16}, -- She is always at this location. Right now she won't show at both locations, because the distance is too short.
             }},
         },
+        [63367] = { -- Brewmaster Boof
+            [npcKeys.spawns] = {
+                [zoneIDs.THE_VEILED_STAIR] = {{51.91,43.74,phases.BOOF_IN_VEILED_STAIR}},
+                [zoneIDs.KUN_LAI_SUMMIT] = {{72.66,93.01,phases.BOOF_AT_BINAN_VILLAGE}},
+            },
+        },
         [63369] = { -- Rockshell Snapclaw
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{39,79.4},{39.2,79.6},{39.4,78.4},{39.6,78.2},{40,79.6},{40.2,79.4},{40.8,77.8},{41,77.4},{41.6,76},{41.8,78},{42,77},{42.2,75},{42.4,79.2},{42.6,79.2},{42.6,79.6},{42.8,77},{43,78.4},{43.2,76.2},{43.4,74.8},{43.6,74.8},{43.8,71.8},{43.8,79.6},{44,78.6},{44.4,76.4},{44.4,77.4},{44.4,78},{44.6,76.4},{44.6,76.6},{45.2,78.4},{45.2,79.4},{45.4,79.6},{45.6,69},{45.6,76},{45.6,78.4},{45.6,78.6},{46.6,74.8},{46.6,78.6},{47,77.4},{47,77.6},{47,80.2},{47,81.4},{47,81.6},{47.8,71.4},{47.8,75.4},{48,76},{48.8,76.6},{49,75.4},{49.2,75.8}}},
+        },
+        [63420] = { -- SLG Generic MoP
+            [npcKeys.spawns] = {[5785]={{26.45,26.05},{26.27,26.04},{26.02,25.41},{25.84,27.14},{25.25,24.81},{25.81,26},{25.54,25.5},{25.41,26.64},{25.78,27.75},{25,26.39},{24.63,25.99},{24.33,26.36}},[5956]={{64.28,35.04},{55.31,76.55}},[5975]={{-1,-1}},[6067]={{78.51,48.69},{78.51,48.69},{-1,-1}},[6138]={{58.75,14.58},{58.56,14.03},{57.3,20.5},{55.6,47.07},{57.41,46.49},{48.77,64.12},{42.2,50.11},{42.35,50.19},{45.07,57.02},{44.97,57.97}}},
         },
         [63447] = { -- Mogu Statue
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS]={{24.72,39.57},{24.71,40.19},{22.45,38.6},{32.92,33.95},{18.49,30.06},{21.3,31.37},{22.33,27.12},{22.79,26.76},{24.73,28.87},{24.57,28.19},{25.02,27.15},{25.6,29.72},{25.92,25.89},{26.52,30.91},{28.09,37.35},{30.77,32.48},{31,33.26},{30.88,34.26},{29.22,24.59},{27.67,20.23},{26.96,18.63},{26.22,43.56},{26.1,41.57}},
@@ -2862,6 +3036,13 @@ function MopNpcFixes.Load()
         },
         [63517] = { -- The Spring Drifter
             [npcKeys.spawns] = {[zoneIDs.THE_VEILED_STAIR] = {{52.04,43.12}}},
+        },
+        [63535] = { -- Elder Shiao
+            [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {
+                {61.2,82.22,phases.SHIAO_AND_KO_ON_YAUNGOL_ADVANCE},
+                {61.42,80.31,phases.SHIAO_AND_KO_IN_FRONT_OF_CAMP},
+                {62.34,79.6,phases.SHIAO_AND_KO_IN_CAMP},
+            }},
         },
         [63542] = { -- Elder Tsulan
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {
@@ -2905,6 +3086,38 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{32.94,34.29},{18.07,32.12},{19.6,28.83},{20.55,30.11},{21.59,28.72},{22.09,29.89},{22.9,26.82},{23.57,33.07},{24.51,28.87},{24.62,26.5},{25.05,26.92},{26.18,30.68},{27.42,30.18},{28.99,30.59},{30.65,32.51},{30.04,29.28},{31.17,33.15},{31.96,29.2},{29.36,24.06},{22.71,41.25},{28.16,37.63},{26.76,39.18},{25.2,39.48},{24.75,39.88},{24.34,38.55},{22.53,38.28}}},
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
         },
+        [63706] = { -- Amber Vault
+            [npcKeys.name] = "Amber Vault",
+            [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{20.97,45.91}}},
+            [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
+        },
+        [63708] = { -- Nutriment Cell
+            [npcKeys.name] = "Nutriment Cell",
+            [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{23.84,47.29}}},
+            [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
+        },
+        [63711] = { -- Egg Chamber
+            [npcKeys.name] = "Egg Chamber",
+            [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{23.62,44.73}}},
+            [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
+        },
+        [63713] = { -- Torture Cell
+            [npcKeys.name] = "Torture Cell",
+            [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{22.03,41.55}}},
+            [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
+        },
+        [63714] = { -- Slaughtering Pit
+            [npcKeys.name] = "Slaughtering Pit",
+            [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{21.21,43.19}}},
+            [npcKeys.zoneID] = zoneIDs.TOWNLONG_STEPPES,
+        },
+        [63751] = { -- Farmhand Ko
+            [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {
+                {63.67,86.65,phases.SHIAO_AND_KO_ON_YAUNGOL_ADVANCE},
+                {61.49,80.42,phases.SHIAO_AND_KO_IN_FRONT_OF_CAMP},
+                {62.54,79.44,phases.SHIAO_AND_KO_IN_CAMP},
+            }},
+        },
         [63754] = { -- Farmhand Bo
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {
                 {58.87,80.47,phases.BO_TSULAN_YAUNGOL_ROAD},
@@ -2913,7 +3126,7 @@ function MopNpcFixes.Load()
             }},
         },
         [63758] = { -- Kaz'tik the Manipulator
-            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{54.26,35.78}}},
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{54.26,35.78,phases.KAZTIK_AT_KLAXXIVESS}}},
         },
         [63765] = { -- Kovok
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{50.79,41.37}}},
@@ -2927,6 +3140,10 @@ function MopNpcFixes.Load()
                 [zoneIDs.KRASARANG_WILDS] = {{40.46,33.92}},
                 [zoneIDs.THE_JADE_FOREST] = {{45.72,43.8}},
             },
+        },
+        [63783] = { -- Eye of the Empress
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{69.51,33.57},{71.35,37.05},{71.28,35.18},{71.98,21.9},{69.09,22.7},{67.3,23.14},{66.01,23.66},{65.05,35.41},{65.63,36.99},{67.04,37.72},{67.74,35.6},{64.01,31.23},{66.5,28.93},{68.01,29.86},{70.25,26.03},{72.01,27.88},{70.19,30.5}}},
+            [npcKeys.zoneID] = zoneIDs.DREAD_WASTES,
         },
         [63796] = { -- Needlebeak
             [npcKeys.spawns] = {[zoneIDs.KRASARANG_WILDS] = {{62.87,20.45}}},
@@ -3014,7 +3231,11 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.ELWYNN_FOREST] = {{41.66,83.66}}},
         },
         [64344] = { -- Kaz'tik the Manipulator
-            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{41.77,72.03}}},
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{41.77,72.03,phases.KAZTIK_AT_THE_BRINY_MUCK}}},
+        },
+        [64368] = { -- Apparition of Fear
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{81.22,56.13},{76.11,41.09},{81.22,56.13},{76.11,41.09},{31.19,30.96},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
         },
         [64385] = { -- Sheepie
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {{34.99,38.5,phases.SHEEPIE_FIRST_TIME}}},
@@ -3029,6 +3250,10 @@ function MopNpcFixes.Load()
             },
             [npcKeys.zoneID] = zoneIDs.MOGUSHAN_PALACE,
         },
+        [64443] = { -- Enchanted Plant
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{81.84,37.05},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
         [64459] = { -- Shado-Pan Trainee
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{17.57,58.04}}},
         },
@@ -3037,6 +3262,13 @@ function MopNpcFixes.Load()
         },
         [64461] = { -- Shado-Pan Trainee
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{18,53.45}}},
+        },
+        [64467] = { -- Bowmistress Li
+            [npcKeys.spawns] = {[zoneIDs.GATE_OF_THE_SETTING_SUN] = {
+                {60.87,88.53,phases.RAIGONN_ALIVE},
+                {52.28,60.53,phases.RAIGONN_DEAD},
+                {-1,-1},
+            }},
         },
         [64470] = { -- Hawkmaster Nurong
             [npcKeys.spawns] = {[zoneIDs.TOWNLONG_STEPPES] = {{50.7,68.18}}},
@@ -3074,8 +3306,7 @@ function MopNpcFixes.Load()
             [npcKeys.friendlyToFaction] = "A", -- let's just show these for Alliance only and viceversa
         },
         [64583] = { -- Klaxxi Traitor
-            [npcKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{56.19,57.52}}},
-            [npcKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
+            [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{56.19,57.52}}},
         },
         [64596] = { -- Teng Applebloom
             [npcKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{46.22,84.68}}},
@@ -3143,6 +3374,10 @@ function MopNpcFixes.Load()
                 [zoneIDs.SCARLET_MONASTERY] = {{-1,-1}},
             },
         },
+        [64846] = { -- Springtender Ashani
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{91.02,52.59},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
         [64848] = { -- Anduin Wrynn
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{55.1,91.74}}},
         },
@@ -3192,17 +3427,51 @@ function MopNpcFixes.Load()
         [65478] = { -- Adjunct Zet'uk
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {{48.1,49.74}}},
         },
+        [65614] = { -- Seed of Doubt
+            [npcKeys.spawns] = {[zoneIDs.THE_WIDOWS_WAIL] = {{34.34,40.09}}},
+        },
+        [65616] = { -- Orchard Needler
+            [npcKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{56.94,41.35}}},
+        },
+        [65621] = { -- Oona Goon
+            [npcKeys.spawns] = {
+                [zoneIDs.THE_JADE_FOREST] = {{57.52,27.81},{57.73,27.81},{58.04,27.47}},
+                [zoneIDs.OONA_KAGU] = {{69.94,56.61},{67.34,44.23},{74.06,45.07},{74.72,54.3},{62,37.44},{45.88,26.81},{18.22,39.84},{24.64,60.62},{28.15,80.24},{41.02,79.72},{45.24,88.31},{46.62,59.92},{32.63,35.81},{41.86,57.29},{35.46,58.78},{84.46,48}},
+            },
+        },
+        [65622] = { -- Weeping Widow
+            [npcKeys.spawns] = {[zoneIDs.THE_WIDOWS_WAIL] = {{32.4,59.77},{27.99,29.95},{32.66,31.6},{38.32,30.78},{56.16,43},{60.07,31.83},{73.08,51.8},{61.1,71.95},{63.32,63.74},{64.54,76.43},{48.88,77.92},{42.69,84.95},{32.64,81.61},{30.63,68.08},{25.26,39.35},{34.91,27.64},{42.84,45.68},{46.31,38.53},{55.8,48.72},{62.47,44.67}}},
+        },
+        [65623] = { -- Oona Tuna-Catcher
+            [npcKeys.spawns] = {[zoneIDs.OONA_KAGU] = {{75.55,34.77},{72.4,41.28},{36.43,41.44},{46.05,23.92},{28.72,23.19},{25.94,49.61},{32.19,78.8},{42.12,79.56},{52.97,79.72}}},
+        },
+        [65624] = { -- Oona Brewchugger
+            [npcKeys.spawns] = {[zoneIDs.OONA_KAGU] = {{71.99,44.19},{78.89,37.78},{56.94,27.57},{37.28,41.34},{53.46,13.93},{48.58,26.57},{33.64,78.49},{26.65,73.38},{48.08,71.5},{37.22,37.7},{40.63,67.68}}},
+        },
+        [65628] = { -- Lord Oona
+            [npcKeys.spawns] = {[zoneIDs.OONA_KAGU] = {{46.48,81.31}}},
+        },
+        [65641] = { -- Misguided Serpent
+            [npcKeys.spawns] = {[zoneIDs.OONA_KAGU] = {{77.02,33.31},{75.29,33.54},{79.19,35.17},{79.29,35.82},{72.96,42.94},{73.12,43.51},{75.11,58.92},{76,53.48},{75.85,52.74},{59.92,43.74},{59.65,43.26},{57.08,25.25},{57.16,25.89},{45.24,23.25},{16.68,39.25},{16.75,40.02},{28.86,49.49},{22.34,49.83},{43.13,88.95},{45.65,89.83},{53.23,81.55},{53.98,79.35},{49.11,70.54},{49.02,69.89},{42.38,49.78},{42.13,49.14},{69.15,57.08},{68.06,55.86},{66.91,52.24},{67.08,52.86}}},
+        },
         [65648] = { -- Old MacDonald
             [npcKeys.spawns] = {[zoneIDs.WESTFALL] = {{60.85,18.5}}},
         },
         [65651] = { -- Lindsay
             [npcKeys.spawns] = {[zoneIDs.REDRIDGE_MOUNTAINS] = {{33.3,52.57}}},
         },
+        [65653] = { -- Weeping Widow
+            [npcKeys.spawns] = {[zoneIDs.THE_WIDOWS_WAIL] = {{36.96,32.53},{42.95,32.89},{44.44,41.2},{38.09,84.08},{45.89,85.75},{58.41,66.12},{64.9,70.52},{55.78,22.34},{36.9,18.63},{33.79,25.83},{28.7,32.36},{27.95,44.47},{32.37,55.55},{30.34,71.42},{37.72,54.15}}},
+        },
         [65655] = { -- Eric Davidson
             [npcKeys.spawns] = {[zoneIDs.DUSKWOOD] = {{19.88,44.62}}},
         },
         [65656] = { -- Bill Buckler
             [npcKeys.spawns] = {[zoneIDs.THE_CAPE_OF_STRANGLETHORN] = {{51.47,73.39}}},
+        },
+        [65736] = { -- Return to the Terrace
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{35.25,9.06},{46.56,90.71},{46.56,90.71},{35.25,9.06},{11.38,60.93},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
         },
         [65824] = { -- Shao-Tien Behemoth
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{44.1,15.24}}},
@@ -3232,6 +3501,9 @@ function MopNpcFixes.Load()
             [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{44.15,15.52}}},
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
         },
+        [65977] = { -- Master Hsu
+            [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{48.12,40.35}}},
+        },
         [65978] = { -- Shao-Tien Soul-Render
             [npcKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{55.4,92.6}}},
         },
@@ -3240,7 +3512,8 @@ function MopNpcFixes.Load()
         },
         [66080] = { -- Bursting Witchberries
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -3259,7 +3532,8 @@ function MopNpcFixes.Load()
         },
         [66084] = { -- Plump Witchberries
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -3278,7 +3552,8 @@ function MopNpcFixes.Load()
         },
         [66085] = { -- Ripe Witchberries
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -3295,9 +3570,14 @@ function MopNpcFixes.Load()
                 {51.89,47.65,phases.FARM_HAS_16_SLOTS},
             }},
         },
+        [66100] = { -- Apparition of Terror
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{76.05,56.29},{80.94,41.14},{80.94,41.14},{76.05,56.29},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
+        },
         [66108] = { -- Bursting Jade Squash
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -3316,7 +3596,8 @@ function MopNpcFixes.Load()
         },
         [66112] = { -- Plump Jade Squash
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -3335,7 +3616,8 @@ function MopNpcFixes.Load()
         },
         [66113] = { -- Ripe Jade Squash
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -3354,7 +3636,8 @@ function MopNpcFixes.Load()
         },
         [66123] = { -- Bursting Striped Melon
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -3373,7 +3656,8 @@ function MopNpcFixes.Load()
         },
         [66128] = { -- Plump Striped Melon
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -3392,7 +3676,8 @@ function MopNpcFixes.Load()
         },
         [66129] = { -- Ripe Striped Melon
             [npcKeys.spawns] = {[zoneIDs.VALLEY_OF_THE_FOUR_WINDS] = {
-                {52.03,48.24},{52.01,48.44},
+                {52.03,48.24,phases.FARM_HAS_2_SLOTS},
+                {52.01,48.44,phases.FARM_HAS_2_SLOTS},
                 {51.9,48.44,phases.FARM_HAS_4_SLOTS},
                 {51.92,48.24,phases.FARM_HAS_4_SLOTS},
                 {51.78,48.45,phases.FARM_HAS_8_SLOTS},
@@ -3504,6 +3789,9 @@ function MopNpcFixes.Load()
         [66551] = { -- Ras'an
             [npcKeys.spawns] = {[zoneIDs.ZANGARMARSH] = {{17.24,50.52}}},
         },
+        [66552] = { -- Narrok
+            [npcKeys.spawns] = {[zoneIDs.NAGRAND]={{61,49.4}}},
+        },
         [66553] = { -- Morulu The Elder
             [npcKeys.spawns] = {[zoneIDs.SHATTRATH_CITY] = {{58.76,70.05}}},
         },
@@ -3562,7 +3850,7 @@ function MopNpcFixes.Load()
         [67138] = { -- Chen Stormstout
             [npcKeys.spawns] = {[zoneIDs.DREAD_WASTES] = {
                 {54.11,20.48,phases.CHEN_AT_FEAR_CLUTCH},
-                {44.41,16.8,phases.CHEN_AT_BREWGARDEN},
+                {50.18,10.2,phases.CHEN_AT_BREWGARDEN},
             }},
         },
         [68430] = { -- Arcanis Mechanica
@@ -3754,6 +4042,10 @@ function MopNpcFixes.Load()
         [70434] = { -- Talak
             [npcKeys.zoneID] = zoneIDs.ISLE_OF_GIANTS,
             [npcKeys.spawns] = {[zoneIDs.ISLE_OF_GIANTS] = {{28.8,67.4},{29,67.8}}},
+        },
+        [71095] = { -- Reflection of Lei Shi
+            [npcKeys.spawns] = {[zoneIDs.TERRACE_OF_ENDLESS_SPRING] = {{39.04,48.71},{58.88,48.71},{-1,-1}}},
+            [npcKeys.zoneID] = zoneIDs.TERRACE_OF_ENDLESS_SPRING,
         },
         [71143] = { -- Windfeather Chick
             [npcKeys.zoneID] = zoneIDs.TIMELESS_ISLE,
@@ -3956,10 +4248,10 @@ function MopNpcFixes.Load()
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
         },
         [246242] = { -- General Temuja
-            [npcKeys.name] = "General Temuja ",
+            [npcKeys.name] = "General Temuja",
             [npcKeys.subName] = "The Soul-Slaver",
-            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{26.4,51.2}}},
-            [npcKeys.waypoints] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{{26.4,51.2},{26.6,51.4},{26.6,52.2},{26.6,52.6},{27.4,53.6},{27.6,54},{28,55.2},{28.2,55.6},{28.4,56.6},{28.6,56.6},{29.4,57.6},{29.6,57.6},{30.2,57.6},{30.6,58.2}}}},
+            [npcKeys.spawns] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{65.15,64.26}}},
+            [npcKeys.waypoints] = {[zoneIDs.VALE_OF_ETERNAL_BLOSSOMS] = {{{65.15,64.26},{65.23,63.63},{65.25,63.28},{65.28,62.99},{65.40,62.16},{65.52,61.51},{65.63,60.98},{65.70,60.65},{65.70,60.62},{65.94,59.91},{66.21,59.48},{66.56,59.09},{66.84,58.84},{67.17,58.62},{67.46,58.48},{67.68,58.41},{68.01,58.30},{68.35,58.13},{68.70,57.85},{68.75,57.74},{68.87,57.52},{69.03,57.32},{69.29,56.97},{69.33,56.87},{69.35,56.42},{69.36,56.14},{69.36,55.72},{69.37,55.61},{69.29,55.72},{69.57,54.95},{69.90,54.38},{70.26,54.00},{70.76,53.74},{71.03,53.67},{71.37,53.60},{71.94,53.52},{72.43,53.30},{72.75,53.12},{73.11,52.97},{73.68,52.84},{74.14,52.83},{74.56,52.83},{74.92,52.85},{75.53,52.90},{75.90,53.03},{76.27,53.10},{76.65,53.08},{77.11,53.04},{77.52,53.01},{78.06,53.10},{78.39,53.33},{78.56,53.49},{78.85,53.82},{79.32,54.38},{79.83,54.89},{80.41,55.11},{81.03,55.13},{81.10,55.13}}}},
             [npcKeys.zoneID] = zoneIDs.VALE_OF_ETERNAL_BLOSSOMS,
         },
         [246246] = { -- Shadowmaster Sydow

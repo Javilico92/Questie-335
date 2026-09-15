@@ -1,6 +1,9 @@
 ---@class Sounds
 local Sounds = QuestieLoader:CreateModule("Sounds")
 
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
+
 local LSM30 = LibStub("LibSharedMedia-3.0")
 
 local soundTable

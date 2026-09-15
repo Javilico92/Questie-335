@@ -284,6 +284,15 @@ function QuestieWotlkQuestFixes:Load()
         [5531] = {
             [questKeys.nextQuestInChain] = 0,
         },
+        [5658] = { -- Touch of Weakness
+            [questKeys.startedBy] = {},
+        },
+        [5661] = { -- Touch of Weakness
+            [questKeys.startedBy] = {},
+        },
+        [5663] = { -- Touch of Weakness
+            [questKeys.startedBy] = {},
+        },
         [5721] = {
             [questKeys.extraObjectives] = {{{[zoneIDs.EASTERN_PLAGUELANDS]={{35.01,84.05}}}, Questie.ICON_TYPE_EVENT, l10n("Place the Relic Bundle in the Town Square."),}},
         },
@@ -1105,9 +1114,6 @@ function QuestieWotlkQuestFixes:Load()
         },
         [11529] = {
             [questKeys.extraObjectives] = {{{[zoneIDs.HOWLING_FJORD]={{37.2,74.8}}}, Questie.ICON_TYPE_OBJECT, l10n("Use The Big Gun at the front of the ship to slay Sorlof"),0,{{"monster", 24992}}}},
-        },
-        [11531] = {
-            [questKeys.specialFlags] = 1,
         },
         [11566] = {
             [questKeys.requiredSourceItems] = {},

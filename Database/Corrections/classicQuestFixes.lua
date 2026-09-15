@@ -183,6 +183,10 @@ function QuestieQuestFixes:Load()
         [353] = {
             [questKeys.preQuestSingle] = {}, -- #2364
         },
+        [355] = {
+            [questKeys.preQuestSingle] = {},
+            [questKeys.preQuestGroup] = {354,362},
+        },
         [363] = {
             [questKeys.nextQuestInChain] = 364,
             [questKeys.breadcrumbForQuestId] = 364, -- #882
@@ -1217,6 +1221,22 @@ function QuestieQuestFixes:Load()
         [2854] = {
             [questKeys.requiredSkill] = {profKeys.LEATHERWORKING,200},
         },
+        [2851] = {
+            [questKeys.preQuestSingle] = {},
+            [questKeys.preQuestGroup] = {2848,2849,2850}, -- #7161
+        },
+        [2852] = {
+            [questKeys.preQuestSingle] = {},
+            [questKeys.preQuestGroup] = {2848,2849,2850}, -- #7161
+        },
+        [2858] = {
+            [questKeys.preQuestSingle] = {},
+            [questKeys.preQuestGroup] = {2855,2856,2857}, -- #7161
+        },
+        [2859] = {
+            [questKeys.preQuestSingle] = {},
+            [questKeys.preQuestGroup] = {2855,2856,2857}, -- #7161
+        },
         [2861] = {
             [questKeys.startedBy] = {{4568,5144,5497,5885},nil,nil}, -- #1152
             [questKeys.exclusiveTo] = {2846},
@@ -2036,7 +2056,17 @@ function QuestieQuestFixes:Load()
             [questKeys.objectives] = {{{12427,"Heal and fortify Grunt Kor'ja",Questie.ICON_TYPE_INTERACT}}},
         },
         [5650] = { -- Garments of Darkness
-            [questKeys.objectives] = {{{12427,"Heal and fortify Grunt Kor'ja",Questie.ICON_TYPE_INTERACT}}},
+            [questKeys.objectives] = {{{12428,"Heal and fortify Deathguard Kel",Questie.ICON_TYPE_INTERACT}}},
+        },
+        [5658] = { -- #7083 and #1603
+            [questKeys.startedBy] = {{4606},nil,nil},
+            [questKeys.objectivesText] = {},
+        },
+        [5661] = { -- #7083 and #1603
+            [questKeys.startedBy] = {{11407},nil,nil},
+        },
+        [5663] = { -- #7083 and #1603
+            [questKeys.startedBy] = {{3044},nil,nil},
         },
         [5676] = {
             [questKeys.exclusiveTo] = {5677,5678},

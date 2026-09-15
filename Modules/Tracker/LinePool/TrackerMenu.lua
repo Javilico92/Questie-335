@@ -1,5 +1,8 @@
 ---@class TrackerMenu
 local TrackerMenu = QuestieLoader:CreateModule("TrackerMenu")
+
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
 -------------------------
 --Import QuestieTracker modules.
 -------------------------

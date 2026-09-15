@@ -436,6 +436,21 @@ local phases = {
     TAI_HO_IN_CATACOMBS = 1364,
     LUSSHAN_PEARLS = 1365,
     KIL_RUK_AT_PILLAR_2 = 1366,
+    KAZTIK_AT_THE_BRINY_MUCK = 1367,
+    KAZTIK_AT_KLAXXIVESS = 1368,
+    RIKKAL_AT_KLAXXIVESS = 1369,
+    XARIL_AT_HEART_OF_FEAR = 1370,
+    XARIL_AT_KLAXXIVESS = 1371,
+    FARM_HAS_2_SLOTS = 1372,
+    RAIGONN_ALIVE = 1373,
+    RAIGONN_DEAD = 1374,
+    BOOF_IN_VEILED_STAIR = 1375,
+    BOOF_AT_BINAN_VILLAGE = 1376,
+    GOLDEN_LOTUS_GARRISON_ACTIVE = 1377,
+    GOLDEN_LOTUS_LEVEN_AT_PAGODA = 1378,
+    SHIAO_AND_KO_ON_YAUNGOL_ADVANCE = 1379,
+    SHIAO_AND_KO_IN_FRONT_OF_CAMP = 1380,
+    SHIAO_AND_KO_IN_CAMP = 1381,
 }
 Phasing.phases = phases
 
@@ -1377,7 +1392,7 @@ function Phasing.IsSpawnVisible(phase)
     end
 
     if phase == phases.ARIE_AT_DOCK then
-        return complete[31190] or (questLog[31190] and questLog[31190].isComplete == 1) and true or false
+        return (complete[31190] or (questLog[31190] and questLog[31190].isComplete == 1)) and not complete[30354] or false
     end
 
     if phase == phases.JU_LIEN_AT_COAST then
@@ -1397,7 +1412,7 @@ function Phasing.IsSpawnVisible(phase)
     end
 
     if phase == phases.CHEN_62779_AT_BREWGARDEN then
-        return (not complete[31076]) and (not complete[31129]) and (not complete[31078]) or false
+        return not complete[31078] and not questLog[31078] or false
     end
 
     if phase == phases.CHEN_62779_INSIDE_KOR_VESS then
@@ -1608,6 +1623,10 @@ function Phasing.IsSpawnVisible(phase)
         return complete[31338] or false
     end
 
+    if phase == phases.FARM_HAS_2_SLOTS then
+        return complete[30535] or (questLog[30535] and questLog[30535].isComplete == 1) or false
+    end
+
     if phase == phases.FARM_HAS_4_SLOTS then
         return complete[30256] or false
     end
@@ -1792,7 +1811,11 @@ function Phasing.IsSpawnVisible(phase)
     end
 
     if phase == phases.RIKKAL_AT_ZANVESS then
-        return not complete[31606] or false
+        return not complete[31606] and questLog[31606] or false
+    end
+
+    if phase == phases.RIKKAL_AT_KLAXXIVESS then
+        return complete[31606] or questLog[31606] or false
     end
 
     if phase == phases.HE_SOFTFOOT_DAILY then
@@ -1820,11 +1843,11 @@ function Phasing.IsSpawnVisible(phase)
     end
 
     if phase == phases.CHEN_AT_SHANGS_STEAD then
-        return complete[29918] and not (complete[29919] or questLog[29919]) or false
+        return complete[29918] and not (complete[29919] or (questLog[29919] and questLog[29919].isComplete == 1)) or false
     end
 
     if phase == phases.CHEN_AT_MUDMUGS_PLACE then
-        return (complete[29919] or questLog[29919]) and not (complete[29949] or questLog[29949]) or false
+        return (complete[29919] or (questLog[29919] and questLog[29919].isComplete == 1)) and not (complete[29949] or questLog[29949]) or false
     end
 
     if phase == phases.CHEN_AT_MUDMUGS_PLACE_LEGACY then
@@ -1993,6 +2016,58 @@ function Phasing.IsSpawnVisible(phase)
 
     if phase == phases.TAI_HO_IN_CATACOMBS then
         return complete[30924] or questLog[30924] or false
+    end
+
+    if phase == phases.KAZTIK_AT_THE_BRINY_MUCK then
+        return not (questLog[31092] and questLog[31359]) and not complete[31092] and not complete[31359] or false
+    end
+
+    if phase == phases.KAZTIK_AT_KLAXXIVESS then
+        return (questLog[31092] and questLog[31359]) or complete[31092] or complete[31359] or false
+    end
+
+    if phase == phases.XARIL_AT_HEART_OF_FEAR then
+        return not (complete[31211] or (questLog[31211] and questLog[31211].isComplete == 1)) or false
+    end
+
+    if phase == phases.XARIL_AT_KLAXXIVESS then
+        return complete[31211] or (questLog[31211] and questLog[31211].isComplete == 1) or false
+    end
+
+    if phase == phases.RAIGONN_ALIVE then
+        return not (complete[31364] or (questLog[31364] and questLog[31364].isComplete == 1)) or false
+    end
+
+    if phase == phases.RAIGONN_DEAD then
+        return complete[31364] or (questLog[31364] and questLog[31364].isComplete == 1) or false
+    end
+
+    if phase == phases.BOOF_IN_VEILED_STAIR then
+        return not (complete[31254] or complete[31255] or (questLog[31254] and questLog[31254].isComplete == 1) or (questLog[31255] and questLog[31255].isComplete == 1)) or false
+    end
+
+    if phase == phases.BOOF_AT_BINAN_VILLAGE then
+        return complete[31254] or complete[31255] or (questLog[31254] and questLog[31254].isComplete == 1) or (questLog[31255] and questLog[31255].isComplete == 1) or false
+    end
+
+    if phase == phases.GOLDEN_LOTUS_GARRISON_ACTIVE then
+        return complete[31247] or complete[31297] or complete[31250] or complete[30385] or questLog[31247] or questLog[31297] or questLog[31250] or questLog[30385] or false
+    end
+
+    if phase == phases.GOLDEN_LOTUS_LEVEN_AT_PAGODA then
+        return not (complete[31244] or complete[31295] or questLog[31244] or questLog[31295] or complete[31247] or complete[31297] or complete[31250] or complete[30385] or questLog[31247] or questLog[31297] or questLog[31250] or questLog[30385]) or false
+    end
+
+    if phase == phases.SHIAO_AND_KO_ON_YAUNGOL_ADVANCE then
+        return (not complete[30515]) and ((not questLog[30515]) or questLog[30515].isComplete == 0) and (not complete[30513]) or false
+    end
+
+    if phase == phases.SHIAO_AND_KO_IN_FRONT_OF_CAMP then
+        return (questLog[30515] and questLog[30515].isComplete == 1) or false
+    end
+
+    if phase == phases.SHIAO_AND_KO_IN_CAMP then
+        return complete[30515] or false
     end
 
     return false

@@ -2,6 +2,9 @@
 local EventHandler = QuestieLoader:CreateModule("EventHandler")
 local _EventHandler = EventHandler.private
 
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
+
 -------------------------
 --Import modules.
 -------------------------

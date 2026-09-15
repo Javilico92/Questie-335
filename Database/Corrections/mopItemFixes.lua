@@ -80,6 +80,12 @@ function MopItemFixes.Load()
         [74763] = { -- Spirit Bottle
             [itemKeys.npcDrops] = {55291,65779},
         },
+        [74833] = { -- Raw Tiger Steak
+            [itemKeys.npcDrops] = {54988,55238,56653,56655,58070,58221,58432,58887,59037,59102,59116,60875,62945,63767,65612,66617,66622,66633,67071,67085}, -- remove correction when Timeless Isle is released
+        },
+        [74839] = { -- Wildfowl Breast
+            [itemKeys.npcDrops] = {56034,57299,58116,58450,58457,58694,58741,58766,59384,59528,59553,59641,59672,59700,59757,59782,59786,59787,63584,64937,67128}, -- remove correction when Timeless Isle is released
+        },
         [74840] = { -- Green Cabbage
             [itemKeys.npcDrops] = {58567,60113,63157},
         },
@@ -442,6 +448,9 @@ function MopItemFixes.Load()
         [80230] = {  -- Cast Iron Pot
             [itemKeys.objectDrops] = {211023},
         },
+        [80233] = {  -- Grilled Plainshawk Leg
+            [itemKeys.vendors] = {58712},
+        },
         [80234] = {  -- Yoon's Apple
             [itemKeys.objectDrops] = {211020},
         },
@@ -460,6 +469,9 @@ function MopItemFixes.Load()
         [80294] = { -- Mogu Relic
             [itemKeys.objectDrops] = {211143},
             [itemKeys.npcDrops] = {59758,59773},
+        },
+        [80295] = { -- Packet of Green Cabbage Seeds
+            [itemKeys.vendors] = {58718},
         },
         [80302] = { -- EZ-Gro Green Cabbage Seeds
             [itemKeys.class] = itemClasses.QUEST,
@@ -589,12 +601,15 @@ function MopItemFixes.Load()
             [itemKeys.objectDrops] = {211510},
             [itemKeys.class] = itemClasses.QUEST,
         },
+        [81178] = { -- Stone Key
+            [itemKeys.npcDrops] = {60692,66289},
+        },
         [81250] = { -- Snarlvine
             [itemKeys.objectDrops] = {211517,211518},
         },
         [81261] = { -- Stolen Pandaren Spices
             [itemKeys.objectDrops] = {211521},
-            [itemKeys.npcDrops] = {60560,60846},
+            [itemKeys.npcDrops] = {60434,60560,60846},
         },
         [81269] = { -- Waterfall-Polished Stone
             [itemKeys.objectDrops] = {211526},
@@ -944,8 +959,14 @@ function MopItemFixes.Load()
             [itemKeys.npcDrops] = {65621,65624,65628},
             [itemKeys.objectDrops] = {214845,214986},
         },
+        [88894] = { -- Rescued Serpent
+            [itemKeys.npcDrops] = {65641},
+        },
         [88895] = { -- Serpent's Scale
             [itemKeys.objectDrops] = {214843,214844},
+        },
+        [89052] = { -- Tiny Bag of Poop
+            [itemKeys.npcDrops] = {65711,67084},
         },
         [89053] = { -- Big Bag of Poop
             [itemKeys.npcDrops] = {65711,67084},

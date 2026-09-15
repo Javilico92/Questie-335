@@ -1,6 +1,9 @@
 ---@class QuestieCorrections
 local QuestieCorrections = QuestieLoader:CreateModule("QuestieCorrections")
 
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
+
 ---@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
 ---@type Expansions

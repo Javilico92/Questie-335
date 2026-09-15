@@ -1,6 +1,9 @@
 ---@class TrackerItemButton
 local TrackerItemButton = QuestieLoader:CreateModule("TrackerItemButton")
 
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
+
 ---@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
 ---@type QuestieCombatQueue

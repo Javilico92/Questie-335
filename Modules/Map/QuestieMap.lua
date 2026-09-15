@@ -1,5 +1,8 @@
 ---@class QuestieMap
 local QuestieMap = QuestieLoader:CreateModule("QuestieMap");
+
+-- COMPAT
+local C_Timer = QuestieCompat.C_Timer
 ---@type QuestieMapUtils
 QuestieMap.utils = QuestieMap.utils or {}
 
@@ -615,7 +618,7 @@ function QuestieMap:DrawWorldIcon(data, areaID, x, y, phase, showFlag)
         end
 
         if (not parentMapId) then
-            error("No UiMapID or fitting parentAreaId for areaId : " .. areaID .. " - " .. tostring(data.Name))
+            Questie:Error("No UiMapID or fitting parentAreaId for areaId : " .. areaID .. " - " .. tostring(data.Name))
             return nil, nil
         else
             areaID = parentMapId

@@ -50,10 +50,6 @@ function MopObjectFixes.Load()
             [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{55.64,59.98},{55.84,59.62},{56.31,60.1},{56.71,60.02},{56.76,60.24},{56.53,61.16},{56.29,60.81},{55.51,60.64},{55.79,60.12},{55.69,59.71},{56.3,59.8},{56.47,60.82},{56.84,60.46},{56.57,61.03},{55.72,60.78}}},
             [objectKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
         },
-        [209621] = { -- Sniper Rifle
-            [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{62.56,82.14}}},
-            [objectKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
-        },
         [209629] = { -- Staff of Pei-Zhi
             [objectKeys.name] = 'Staff of Pei-Zhi',
             [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{44.23,14.9}}},
@@ -139,6 +135,11 @@ function MopObjectFixes.Load()
         [210214] = { -- Memorial Flame of Po
             [objectKeys.name] = 'Memorial Flame of Po',
             [objectKeys.spawns] = {[zoneIDs.KRASARANG_WILDS] = {{73.95,16.88}}},
+            [objectKeys.zoneID] = zoneIDs.KRASARANG_WILDS,
+        },
+        [210229] = { -- Water of Youth
+            [objectKeys.name] = 'Water of Youth',
+            [objectKeys.spawns] = {[zoneIDs.KRASARANG_WILDS] = {{51.58,33.08},{51.68,33.24},{51.76,33.41},{51.86,33.08},{51.95,33.26},{52.02,33.03},{52.29,33.10},{52.39,32.98},{52.53,32.91},{52.29,32.74},{52.45,32.52},{52.31,32.43},{51.82,32.37},{51.65,32.26},{51.78,32.13},{52.05,32.16},{52.02,32.37}}},
             [objectKeys.zoneID] = zoneIDs.KRASARANG_WILDS,
         },
         [210527] = { -- Northeast Oubliette Shackle
@@ -368,6 +369,15 @@ function MopObjectFixes.Load()
         [211596] = { -- Goblin Fishing Raft
             [objectKeys.spawns] = {[zoneIDs.KRASARANG_WILDS] = {{67.43,44.77}}},
             [objectKeys.zoneID] = zoneIDs.KRASARANG_WILDS,
+        },
+        [211597] = { -- Shrine of the Seeker's Body
+            [objectKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{44.78,49.21}}},
+        },
+        [211601] = { -- Shrine of the Seeker's Breath
+            [objectKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{42.67,50.06}}},
+        },
+        [211602] = { -- Shrine of the Seeker's Heart
+            [objectKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{43.2,52.02}}},
         },
         [211720] = { -- Meeting Stone (Terrace of Endless Spring)
             [objectKeys.spawns] = {[zoneIDs.THE_VEILED_STAIR] = {{51.7,69.4}}},
@@ -742,14 +752,29 @@ function MopObjectFixes.Load()
         [214988] = { -- Mailbox
             [objectKeys.factionID] = 1735, -- horde only
         },
+        [215126] = { -- Silvermoon (Portal)
+            [objectKeys.name] = 'Silvermoon',
+            [objectKeys.spawns] = {[zoneIDs.SHRINE_OF_TWO_MOONS_TOP_FLOOR] = {{75.79,52.72}}},
+            [objectKeys.zoneID] = zoneIDs.SHRINE_OF_TWO_MOONS_TOP_FLOOR,
+        },
         [215390] = { -- Powder Keg
             [objectKeys.name] = 'Powder Keg',
             [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{45.81,95.12},{46.03,96.11}}},
             [objectKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
         },
+        [215650] = { -- Thunder Hold Explosives
+            [objectKeys.name] = 'Thunder Hold Explosives',
+            [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{34.93,10.81},{34.94,10.79},{34.96,10.78},{34.96,10.76},{34.93,10.71},{34.94,10.52},{34.91,10.44},{34.93,10.46},{34.95,10.47},{34.95,10.5},{34.76,9.95},{34.8,9.9},{34.77,9.88},{34.79,9.84},{34.77,9.84},{33.96,9.76},{33.99,9.75},{33.98,9.78},{33.96,9.83},{33.97,9.95},{34.05,9.95}}},
+            [objectKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
+        },
         [215682] = { -- Skyfire Parachute
             [objectKeys.name] = 'Skyfire Parachute',
             [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{42.31,92.81}}},
+            [objectKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
+        },
+        [215689] = {
+            [objectKeys.name] = "Rappelling Rope",
+            [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{31.51,11.1},{31.43,10.69},{31.35,10.42}}},
             [objectKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
         },
         [215705] = { -- Tillers Shrine
@@ -765,6 +790,21 @@ function MopObjectFixes.Load()
             [objectKeys.factionID] = 1735, -- horde only
         },
         [216106] = { -- Mailbox
+            [objectKeys.factionID] = 1735, -- horde only
+        },
+        [216427] = {
+            [objectKeys.name] = "Hammer of Fellowship",
+            [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{33.4,34.3}}},
+            [objectKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
+        },
+        [216625] = {
+            [objectKeys.name] = "Memory Wine",
+            [objectKeys.spawns] = {[zoneIDs.KUN_LAI_SUMMIT] = {{60.5,55.4}}},
+            [objectKeys.zoneID] = zoneIDs.KUN_LAI_SUMMIT,
+        },
+        [218229] = { -- Mailbox
+            [objectKeys.spawns] = {[zoneIDs.SHRINE_OF_TWO_MOONS] = {{49.54,83.26}}},
+            [objectKeys.zoneID] = zoneIDs.SHRINE_OF_TWO_MOONS,
             [objectKeys.factionID] = 1735, -- horde only
         },
         [220069] = { -- Mailbox
@@ -786,11 +826,6 @@ function MopObjectFixes.Load()
             [objectKeys.name] = 'Meeting Stone', -- DB says "unk name" and wowhead does not know this object, so we reuse it.
             [objectKeys.zoneID] = 0,
             [objectKeys.spawns] = {},
-        },
-        [223818] = { -- Pools spawned during quest The Pools of Youth
-            [objectKeys.name] = 'Water of Youth', -- DB says "unk name" and wowhead does not know this object, so we reuse it.
-            [objectKeys.spawns] = {[zoneIDs.KRASARANG_WILDS] = {{51.58,33.08},{51.68,33.24},{51.76,33.41},{51.86,33.08},{51.95,33.26},{52.02,33.03},{52.29,33.10},{52.39,32.98},{52.53,32.91},{52.29,32.74},{52.45,32.52},{52.31,32.43},{51.82,32.37},{51.65,32.26},{51.78,32.13},{52.05,32.16},{52.02,32.37}}},
-            [objectKeys.zoneID] = zoneIDs.KRASARANG_WILDS,
         },
         [223819] = { -- Traps for quest Tread Lightly
             [objectKeys.name] = 'Riverblade Spike Trap', -- DB says "unk name" and wowhead does not know this object, so we reuse it.
@@ -839,9 +874,34 @@ function MopObjectFixes.Load()
             [objectKeys.zoneID] = zoneIDs.VALLEY_OF_THE_FOUR_WINDS,
         },
         [440009] = {
-            [objectKeys.name] = "Rappelling Rope",
-            [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{31.51,11.1},{31.43,10.69},{31.55,10.43}}},
+            [objectKeys.name] = "Deeprun Tram Entrance",
+            [objectKeys.spawns] = {[zoneIDs.STORMWIND_CITY] = {{69.49, 31.2}}},
+            [objectKeys.zoneID] = zoneIDs.STORMWIND_CITY,
+        },
+    }
+end
+
+function MopObjectFixes:LoadFactionFixes()
+    local objectKeys = QuestieDB.objectKeys
+    local zoneIDs = ZoneDB.zoneIDs
+
+    local objectFixesHorde = {
+        [209621] = { -- Sniper Rifle
+            [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{62.56,82.14}}},
             [objectKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
         },
     }
+
+    local objectFixesAlliance = {
+        [209621] = { -- Sniper Rifle
+            [objectKeys.spawns] = {[zoneIDs.THE_JADE_FOREST] = {{28.59,54.42}}},
+            [objectKeys.zoneID] = zoneIDs.THE_JADE_FOREST,
+        },
+    }
+
+    if UnitFactionGroup("Player") == "Horde" then
+        return objectFixesHorde
+    else
+        return objectFixesAlliance
+    end
 end

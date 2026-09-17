@@ -294,13 +294,13 @@ local phases = {
     SAP_MASTERS_AT_RIKKITUN = 1222,
     SAP_MASTERS_AT_BREWGARDEN_CENTER = 1223,
     SKEER_IN_CAVE = 1224,
-    SKEER_AT_KLAXXI_VEES = 1225,
+    SKEER_AT_KLAXXI_VESS = 1225,
     SHANG_THUNDERFOOT_AT_THUNDERFOOT_FIELDS = 1226,
     SHANG_THUNDERFOOT_SOUTH_OF_THUNDERFOOT_FIELDS = 1227,
     CLEVER_ASHYO_AT_POOLS_OF_PURITY = 1228,
     CLEVER_ASHYO_AT_NEW_CIFERA = 1229,
-    KANG_AT_THUNDER_CLEFT = 1230,
-    KANG_AT_DAWNCHASER_RETREAT = 1231,
+    ADMIRAL_TAYLOR_IN_TENT = 1230,
+    ADMIRAL_TAYLOR_OUTSIDE_TENT = 1231,
     KOR_AT_THUNDER_CLEFT = 1232,
     KOR_AT_DAWNCHASER_RETREAT = 1233,
     DEZCO_AT_THUNDER_CLEFT = 1234,
@@ -352,7 +352,7 @@ local phases = {
     ZIN_AT_PAGODA = 1280,
     PAGODA_UNDER_ATTACK = 1281,
     PAGODA_NOT_UNDER_ATTACK = 1282,
-    TANTAN_AT_LAKE = 1283,
+    DEZCO_AT_THUNDER_CLEFT_TENT = 1283,
     OLD_HILLPAW_NORMAL = 1284,
     OLD_HILLPAW_FARM = 1285,
     OLD_HILLPAW_MARKET = 1286,
@@ -451,6 +451,10 @@ local phases = {
     SHIAO_AND_KO_ON_YAUNGOL_ADVANCE = 1379,
     SHIAO_AND_KO_IN_FRONT_OF_CAMP = 1380,
     SHIAO_AND_KO_IN_CAMP = 1381,
+    GENERAL_NAZGRIM_IN_TENT = 1382,
+    GENERAL_NAZGRIM_OUTSIDE_TENT = 1383,
+    GENERAL_NAZGRIM_NEAR_SPEARS = 1384,
+    GENERAL_NAZGRIM_NEAR_ANDUINN = 1385,
 }
 Phasing.phases = phases
 
@@ -1435,7 +1439,7 @@ function Phasing.IsSpawnVisible(phase)
         return (not complete[31179]) and ((not questLog[31179] or questLog[31179].isComplete == 0)) and true or false
     end
 
-    if phase == phases.SKEER_AT_KLAXXI_VEES then
+    if phase == phases.SKEER_AT_KLAXXI_VESS then
         return complete[31179] or (questLog[31179] and questLog[31179].isComplete == 1) or false
     end
 
@@ -1455,16 +1459,8 @@ function Phasing.IsSpawnVisible(phase)
         return not (complete[29577] or questLog[29577]) or false
     end
 
-    if phase == phases.KANG_AT_THUNDER_CLEFT then
-        return (not complete[30132]) and complete[30179] or false
-    end
-
-    if phase == phases.KANG_AT_DAWNCHASER_RETREAT then
-        return complete[30132] or false
-    end
-
     if phase == phases.KOR_AT_THUNDER_CLEFT then
-        return (not complete[30132]) and ((not questLog[30132]) or questLog[30132].isComplete == 0) and complete[30179] or false
+        return (not complete[30132]) and ((not questLog[30132]) or questLog[30132].isComplete == 0) or false
     end
 
     if phase == phases.KOR_AT_DAWNCHASER_RETREAT then
@@ -1472,11 +1468,15 @@ function Phasing.IsSpawnVisible(phase)
     end
 
     if phase == phases.DEZCO_AT_THUNDER_CLEFT then
-        return (not complete[30175]) and (not complete[30174]) and (not questLog[30174]) or false
+        return not complete[30131] and (not questLog[30131] or questLog[30131].isComplete == 0) or false
+    end
+
+    if phase == phases.DEZCO_AT_THUNDER_CLEFT_TENT then
+        return complete[30131] or (questLog[30131] and questLog[30131].isComplete == 1) or false
     end
 
     if phase == phases.DEZCO_AT_SHATTERED_CONVOY then
-        return (not complete[30174]) and complete[30175] or false
+        return complete[30132] and not (complete[30174] or (questLog[30174] and questLog[30174].isComplete == 1)) or false
     end
 
     if phase == phases.DEZCO_AT_DAWNCHASER_RETREAT then
@@ -1692,10 +1692,6 @@ function Phasing.IsSpawnVisible(phase)
 
     if phase == phases.PAGODA_NOT_UNDER_ATTACK then
         return not (complete[30644] and (not complete[30646] and (not questLog[30646] or questLog[30646].isComplete == 0))) or false
-    end
-
-    if phase == phases.TANTAN_AT_LAKE then
-        return not complete[30644] or complete[30646] or false
     end
 
     if phase == phases.OLD_HILLPAW_NORMAL then
@@ -1915,7 +1911,7 @@ function Phasing.IsSpawnVisible(phase)
     end
 
     if phase == phases.VAELDRIN_AT_THE_INCURSION then
-        return complete[30465] and not complete[30363] or false
+        return not complete[30363] or false
     end
 
     if phase == phases.VAELDRIN_SHATTERED_CONVOY then
@@ -1931,11 +1927,11 @@ function Phasing.IsSpawnVisible(phase)
     end
 
     if phase == phases.BO_TSULAN_YAUNGOL_ROAD then
-        return complete[30508] and not (questLog[30514] and questLog[30514].isComplete == 1) and not complete[30514] or false
+        return (complete[30506] or complete[30507] or complete[30508]) and (not complete[30512]) or false
     end
 
     if phase == phases.BO_TSULAN_WESTWIND_REST_1 then
-        return questLog[30514] and questLog[30514].isComplete == 1 or false
+        return complete[30512] and (not complete[30514]) or false
     end
 
     if phase == phases.BO_TSULAN_WESTWIND_REST_2 then
@@ -2059,15 +2055,39 @@ function Phasing.IsSpawnVisible(phase)
     end
 
     if phase == phases.SHIAO_AND_KO_ON_YAUNGOL_ADVANCE then
-        return (not complete[30515]) and ((not questLog[30515]) or questLog[30515].isComplete == 0) and (not complete[30513]) or false
+        return (complete[30509] or complete[30510] or complete[30511]) and (not complete[30513]) or false
     end
 
     if phase == phases.SHIAO_AND_KO_IN_FRONT_OF_CAMP then
-        return (questLog[30515] and questLog[30515].isComplete == 1) or false
+        return complete[30513] and (not complete[30515]) or false
     end
 
     if phase == phases.SHIAO_AND_KO_IN_CAMP then
         return complete[30515] or false
+    end
+
+    if phase == phases.GENERAL_NAZGRIM_IN_TENT then
+        return (not complete[30655]) and ((not questLog[30655]) or questLog[30655].isComplete == 0) or false
+    end
+
+    if phase == phases.GENERAL_NAZGRIM_OUTSIDE_TENT then
+        return complete[30655] or (questLog[30655] and questLog[30655].isComplete == 1) or false
+    end
+
+    if phase == phases.GENERAL_NAZGRIM_NEAR_SPEARS then
+        return not complete[29824] or false
+    end
+
+    if phase == phases.GENERAL_NAZGRIM_NEAR_ANDUINN then
+        return complete[29824] or false
+    end
+
+    if phase == phases.ADMIRAL_TAYLOR_IN_TENT then
+        return (not complete[30650]) and ((not questLog[30650]) or questLog[30650].isComplete == 0) or false
+    end
+
+    if phase == phases.ADMIRAL_TAYLOR_OUTSIDE_TENT then
+        return complete[30650] or (questLog[30650] and questLog[30650].isComplete == 1) or false
     end
 
     return false

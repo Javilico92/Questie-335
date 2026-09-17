@@ -1,9 +1,9 @@
 ---@class EventHandler
 local EventHandler = QuestieLoader:CreateModule("EventHandler")
-local _EventHandler = EventHandler.private
 
 -- COMPAT
 local C_Timer = QuestieCompat.C_Timer
+local _EventHandler = EventHandler.private
 
 -------------------------
 --Import modules.

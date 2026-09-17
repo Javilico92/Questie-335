@@ -244,7 +244,7 @@ function MopItemFixes.Load()
             [itemKeys.objectDrops] = {210209},
         },
         [78934] = { -- The Water of Youth
-            [itemKeys.objectDrops] = {223818},
+            [itemKeys.objectDrops] = {210229},
         },
         [78942] = { -- Jar of Pigment
             [itemKeys.objectDrops] = {210228},
@@ -783,6 +783,7 @@ function MopItemFixes.Load()
         },
         [85278] = { -- Guo-Lai Runestone
             [itemKeys.objectDrops] = {213180},
+            [itemKeys.npcDrops] = {63610,63611},
         },
         [85282] = { -- Tiger Flank
             [itemKeys.npcDrops] = {63537,63538,65612,67085},

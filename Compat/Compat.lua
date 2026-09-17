@@ -351,22 +351,29 @@ function QuestieCompat.GetCurrentUiMapID()
     local mapLevel = GetCurrentMapDungeonLevel() or 0
 
     if mapID == 0 then
-        -- Vanilla/TBC instances without a drawable Blizzard map can return
-        -- AreaID 0. Only in that situation do we use the zone-name fallback.
         local instanceUiMapId = ResolveInstanceUiMapIdByZoneText()
 
         if instanceUiMapId then
             return instanceUiMapId
         end
 
-        -- Preserve the original behavior for genuine world/continent contexts
-        -- or unknown instances that Questie cannot resolve.
         mapID = GetCurrentMapContinent() or 0
     end
 
-    -- Original/normal path. WotLK dungeon floors and BGs with a valid map ID
-    -- are completely untouched.
-    return mapIdToUiMapId[mapID + mapLevel / 10] or 946
+    local uiMapId = mapIdToUiMapId[mapID + mapLevel / 10]
+
+    -- Some WotLK instances return a valid legacy map ID but dungeon level 0.
+    -- In that case the exact mapID/floor combination does not exist in
+    -- UiMapData, so resolve the instance by its localized zone name.
+    if not uiMapId then
+        local instanceUiMapId = ResolveInstanceUiMapIdByZoneText()
+
+        if instanceUiMapId then
+            return instanceUiMapId
+        end
+    end
+
+    return uiMapId or 946
 end
 
 -- maps mapAreaID to Zone and Continent index

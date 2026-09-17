@@ -32,7 +32,7 @@ Adaptación del addon [Questie](https://github.com/Questie/Questie) de WoW Class
 [![Estrellas](https://img.shields.io/github/stars/Javilico92/Questie-335)](https://img.shields.io/github/stars/Javilico92/Questie-335)
 
 [![Descargas](https://img.shields.io/github/downloads/Javilico92/Questie-335/total.svg)](https://github.com/Javilico92/Questie-335/releases/)
-[![Descargas última versión](https://img.shields.io/github/downloads/Javilico92/Questie-335/v11.4.0/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
+[![Descargas última versión](https://img.shields.io/github/downloads/Javilico92/Questie-335/v11.5.0/total.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
 [![Fecha última versión](https://img.shields.io/github/release-date/Javilico92/Questie-335.svg)](https://github.com/Javilico92/Questie-335/releases/latest)
 [![Commits desde la última versión](https://img.shields.io/github/commits-since/Javilico92/Questie-335/latest.svg)](https://github.com/Javilico92/Questie-335/commits/master)
 

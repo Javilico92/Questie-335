@@ -1938,14 +1938,14 @@ function QuestieQuestFixes:Load()
         [5261] = {
             [questKeys.exclusiveTo] = {33}, -- #1726
         },
-        [5305]  ={
+        [5305] = {
             [questKeys.exclusiveTo] = {8869},
             [questKeys.requiredSpecialization] = specKeys.BLACKSMITHING_WEAPON,
         },
-        [5306]  ={
+        [5306] = {
             [questKeys.requiredSpecialization] = specKeys.BLACKSMITHING_WEAPON,
         },
-        [5307]  ={
+        [5307] = {
             [questKeys.requiredSpecialization] = specKeys.BLACKSMITHING_WEAPON,
         },
         [5321] = {
@@ -2004,13 +2004,13 @@ function QuestieQuestFixes:Load()
             [questKeys.extraObjectives] = {{{[zoneIDs.DESOLACE]={{60.58,62}}}, Questie.ICON_TYPE_EVENT, l10n("Lure the Kodos to Smeed Scrabblescrew.")}},
         },
         [5621] = { -- Garments of the Moon
-            [questKeys.objectives] = {{{12427,"Heal and fortify Sentinel Shaya",Questie.ICON_TYPE_INTERACT}}},
+            [questKeys.objectives] = {{{12429,"Heal and fortify Sentinel Shaya",Questie.ICON_TYPE_INTERACT}}},
         },
         [5622] = {
             [questKeys.questLevel] = 5, -- #2306
         },
         [5624] = { -- Garments of the Light
-            [questKeys.objectives] = {{{12427,"Heal and fortify Guard Roberts",Questie.ICON_TYPE_INTERACT}}},
+            [questKeys.objectives] = {{{12423,"Heal and fortify Guard Roberts",Questie.ICON_TYPE_INTERACT}}},
         },
         [5625] = { -- Garments of the Light
             [questKeys.objectives] = {{{12427,"Heal and fortify Mountaineer Dolf",Questie.ICON_TYPE_INTERACT}}},
@@ -3076,19 +3076,35 @@ function QuestieQuestFixes:Load()
             [questKeys.requiredSourceItems] = {20424},
         },
         [8331]  ={
-            [questKeys.exclusiveTo] = {8332},
+            [questKeys.breadcrumbForQuestId] = 8332,
         },
         [8332] = {
             [questKeys.preQuestSingle] = {},
+            [questKeys.breadcrumbs] = {8331},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Summon a Templar using a full Twilight set."),2,{{"object", 180456},{"object", 180518},{"object", 180529},{"object", 180544},{"object", 180549},{"object", 180564},}}},
         },
         [8341] = {
+            [questKeys.preQuestSingle] = {},
+            [questKeys.breadcrumbs] = {8343},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Summon a Duke using a full Twilight set and neck."),2,{{"object", 180461},{"object", 180534},{"object", 180554},}}},
         },
+        [8343] = {
+            [questKeys.breadcrumbForQuestId] = 8341,
+        },
         [8348] = {
+            [questKeys.preQuestSingle] = {},
+            [questKeys.breadcrumbs] = {8349},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Summon a Duke using a full Twilight set and neck."),0,{{"object", 180461},{"object", 180534},{"object", 180554},}}},
         },
+        [8349]  ={
+            [questKeys.breadcrumbForQuestId] = 8348,
+        },
+        [8351] = {
+            [questKeys.breadcrumbForQuestId] = 8352,
+        },
         [8352] = {
+            [questKeys.preQuestSingle] = {},
+            [questKeys.breadcrumbs] = {8351},
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_EVENT, l10n("Summon a Lord using a full Twilight set, neck and ring."),0,{{"object", 180466},{"object", 180539},{"object", 180559},}}},
         },
         [8353] = {
@@ -3853,7 +3869,7 @@ function QuestieQuestFixes:Load()
         [8868] = {
             [questKeys.triggerEnd] = {"Receive Elune's Blessing.", {[zoneIDs.MOONGLADE]={{63.89,62.5}}}},
         },
-        [8869]  ={
+        [8869] = {
             [questKeys.exclusiveTo] = {5305},
         },
         [8870] = {
@@ -4500,3 +4516,4 @@ function QuestieQuestFixes:LoadFactionFixes()
         return questFixesAlliance
     end
 end
+
